@@ -1,15 +1,15 @@
-import './plugins';
+//import './plugins';
 import Backbone from 'backbone';
 import $ from 'jquery';
 
 import Application from './application/application';
 
-import IndexRouter from './index/router';
+import Router from './router';
 
 let app = new Application();
 
-app.index = new IndexRouter({
-  container: app.layout.content
+app.router = new Router({
+  container: app.layout.regionContent
 });
 
 Backbone.history.start();
