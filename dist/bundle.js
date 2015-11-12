@@ -29,7 +29,7 @@ app.router = new _router2.default({
 
 _backbone2.default.history.start();
 
-},{"./application/application":2,"./router":48,"backbone":23,"jquery":46}],2:[function(require,module,exports){
+},{"./application/application":2,"./router":51,"backbone":23,"jquery":46}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -289,23 +289,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _backbone2.default.LayoutView.extend({
 	template: _template2.default,
 	className: 'page',
-
 	regions: { regionLounges: '#region-lounges' },
 
 	initialize: function initialize() {
-		if (this.debug) {
-			console.log('pages/home/home.initialize');
-		}
-
 		return this.on('render', this.afterRender, this);
 	},
 	afterRender: function afterRender() {
-		if (this.debug) {
-			console.log('page/home/home.afterRender');
-		}
-
 		this.regionLounges.show(new _main_collectionview2.default());
-
 		return this.initCardsAnimation();
 	},
 	initCardsAnimation: function initCardsAnimation() {
@@ -318,23 +308,13 @@ exports.default = _backbone2.default.LayoutView.extend({
 
 				var backCard = el.querySelector('.backside');
 				var frontCard = el.querySelector('.frontside');
-
 				TweenMax.set(backCard, { rotationY: -180 });
 
-				var tl = new TimelineMax({
-					paused: true,
-					onComplete: function onComplete() {
-						console.log('Finished animation');
+				var tl = new TimelineMax({ paused: true, onComplete: function onComplete() {
 						return app.appRouter.navigate('about', { trigger: true });
 					}
 				});
-
-				tl.set(el, { zIndex: 200
-				});
-				//.to frontCard 	, 1 	, rotationY : 180		, 0
-				//.to backCard	, 1 	, rotationY : 0			, 0
-				//.to el			, .5	, z 		: 200		, 0
-
+				tl.set(el, { zIndex: 200 });
 				el.animation = tl;
 
 				return el.animation.play();
@@ -37743,6 +37723,43 @@ Object.defineProperty(exports, "__esModule", {
 
 var _backboneRouting = require('backbone-routing');
 
+var _view = require('./view');
+
+var _view2 = _interopRequireDefault(_view);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _backboneRouting.Route.extend({
+  initialize: function initialize() {
+    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+    this.container = options.container;
+    this.render();
+  },
+  render: function render() {
+    this.view = new _view2.default();
+    this.container.show(this.view);
+  }
+});
+
+},{"./view":50,"backbone-routing":14}],49:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<section id='philosophie_block1'>\r\n  <img alt='Оригинал один — остальное копии' src='./src/images/philosophie_h1.svg'>\r\n</section>\r\n<section id='philosophie_block2'>\r\n  <blockquote>\r\n    <h4 class='js-scrollfade' data-scrollfade-direction='right' data-scrollfade-effect='drop' data-scrollfade-type='show'>\r\n      «Не просто безликая сеть заведений для отдыха и встреч  без июминки»\r\n    </h4>\r\n    <cite>— Игорь Коновалов</cite>\r\n  </blockquote>\r\n  <p>\r\n    <span class='js-scrollfade' data-scrollfade-direction='right' data-scrollfade-effect='drop' data-scrollfade-type='show'>\r\n      С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя    атмосфера. Мы начинали как место только \"для своих\". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.\r\n    </span>\r\n  </p>\r\n  <button>Прочитать историю</button>\r\n</section>\r\n<section id='philosophie_block3'>\r\n  <div class='cont-wrap'>\r\n    <h3 class='js-scrollfade' data-scrollfade-direction='left' data-scrollfade-effect='drop' data-scrollfade-type='show'>\r\n      Наши принципы являются фундаментом, основной для работы\r\n    </h3>\r\n    <br>\r\n    <h4>Каждый клиент для нас уникален. Красота жизни заключается в ее неповторимости и оригинальности.</h4>\r\n    <br>\r\n    <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.</p>\r\n    <br>\r\n    <p>Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя атмосфера. Мы начинали как место только \"для своих\".</p>\r\n    <br>\r\n    <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу. Привлекает наша дружелюбная домашняя    атмосфера. Мы начинали как место только \"для своих\".</p>\r\n  </div>\r\n</section>\r\n<section id='philosophie_block4'>\r\n  <h3 class='js-scrollfade' data-scrollfade-direction='up' data-scrollfade-effect='drop' data-scrollfade-type='show'>Кальянный мастер</h3>\r\n  <p>Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.</p>\r\n  <br>\r\n  <h5>Игорь Коновалов</h5>\r\n  <h6>Основатель франшизы</h6>\r\n</section>\r\n";
+},"useData":true});
+
+},{"hbsfy/runtime":45}],50:[function(require,module,exports){
+arguments[4][8][0].apply(exports,arguments)
+},{"./template.hbs":49,"backbone.marionette":17,"dup":8}],51:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _backboneRouting = require('backbone-routing');
+
 var _route = require('./index/route');
 
 var _route2 = _interopRequireDefault(_route);
@@ -37750,6 +37767,10 @@ var _route2 = _interopRequireDefault(_route);
 var _route3 = require('./main/route');
 
 var _route4 = _interopRequireDefault(_route3);
+
+var _route5 = require('./philosophy/route');
+
+var _route6 = _interopRequireDefault(_route5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37761,7 +37782,8 @@ exports.default = _backboneRouting.Router.extend({
   },
 
   routes: {
-    '': 'main'
+    '': 'main',
+    'philosophy': 'philosophy'
   },
 
   index: function index() {
@@ -37773,10 +37795,15 @@ exports.default = _backboneRouting.Router.extend({
     return new _route4.default({
       container: this.container
     });
+  },
+  philosophy: function philosophy() {
+    return new _route6.default({
+      container: this.container
+    });
   }
 });
 
-},{"./index/route":6,"./main/route":12,"backbone-routing":14}]},{},[1])
+},{"./index/route":6,"./main/route":12,"./philosophy/route":48,"backbone-routing":14}]},{},[1])
 
 
 //# sourceMappingURL=bundle.js.map
