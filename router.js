@@ -9,8 +9,7 @@ export default Router.extend({
   },
 
   routes: {
-    '': 'index',
-    'main': 'main'
+    '': 'main'
   },
 
   index() {
