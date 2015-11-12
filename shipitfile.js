@@ -3,17 +3,17 @@ module.exports = function (shipit) {
 
   shipit.initConfig({
     default: {
-      workspace: '/tmp/github-monitor',
-      deployTo: '/tmp/deploy_to',
-      repositoryUrl: 'https://github.com/user/repo.git',
+      workspace: '/tmp/uk_front',
+      deployTo: '/var/www/uk_front/',
+      repositoryUrl: 'git@192.168.1.39:maks_ohs/uk_front.git',
       ignores: ['.git', 'node_modules'],
-      keepReleases: 2,
+      keepReleases: 3,
       deleteOnRollback: false,
-      key: '/path/to/key',
+      key: '~/.ssh/id_rsa',
       shallowClone: true
     },
     staging: {
-      servers: 'maks:vault13@192.168.1.39:84'
+      servers: 'maks@192.168.1.39'
     }
   });
 };
