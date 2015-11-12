@@ -1,0 +1,403 @@
+@charset "UTF-8";
+/* ╨ж╨▓╨╡╤В╨░ ╨┤╨╕╨╖╨░╨╣╨╜╨░ */
+/* COLORS */
+/* ╨б╨▓╨╛╤П ╨▒╨╕╨▒╨╗╨╕╨╛╤В╨╡╨║╨░ ╨░╨╜╨╕╨╝╨░╤Ж╨╕╨╕ */
+/* ╨Ъ╤А╤Г╤В╨╕╨╝ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╤Л (╤Б╨╡╨╗╨╡╨║╤В╨╛╤А , ╤Б╨╡╨║╤Г╨╜╨┤╤Л (4sec) ) */
+@-webkit-keyframes spin_animation {
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin_animation {
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes spin_animation {
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin_animation {
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* End spin classes */
+/* Start fadeout function */
+@-webkit-keyframes fadeout_animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+@-moz-keyframes fadeout_animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+@-ms-keyframes fadeout_animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes fadeout_animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+/* End fadeout function */
+/* Start fadein function */
+@-webkit-keyframes fadein_animation {
+  from {
+    opacity: 0;
+    display: block;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein_animation {
+  from {
+    opacity: 0;
+    display: block;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadein_animation {
+  from {
+    opacity: 0;
+    display: block;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein_animation {
+  from {
+    opacity: 0;
+    display: block;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* End fadein function */
+/* ╨Ф╨╡╤Д╨╛╨╗╤В╨╜╤Л
+ * box-sizing : padding-box */
+/* ╨Ю╤В╤Б╤В╤Г╨┐ ╨┐╨╛ ╨║╤А╨░╤П╨╝ */
+/* line 26, ../../source/sass/achievments.sass */
+* {
+  box-sizing: border-box;
+}
+
+/* line 28, ../../source/sass/achievments.sass */
+body {
+  position: relative;
+}
+
+/* line 33, ../../source/sass/achievments.sass */
+.achievments_all:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  top: -64px;
+  left: calc(50% - 80px);
+  background: url("../images/achievments/symbol_ach.svg");
+  z-index: 250;
+  float: left;
+}
+
+/* line 57, ../../source/sass/achievments.sass */
+.achievments_all {
+  display: block;
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 200;
+}
+/* line 68, ../../source/sass/achievments.sass */
+.achievments_all .achievments_header {
+  display: block;
+  position: relative;
+  float: none;
+  height: 20px;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  font-family: Bebas Neue;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
+/* line 83, ../../source/sass/achievments.sass */
+.achievments_all .achievments_header a {
+  float: left;
+}
+/* line 85, ../../source/sass/achievments.sass */
+.achievments_all .achievments_header a:before {
+  content: "";
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  background: url("../images/achievments/arrow_back.svg");
+  z-index: 250;
+  float: left;
+}
+/* line 97, ../../source/sass/achievments.sass */
+.achievments_all .achievments_header h6 {
+  float: right;
+  font-size: inherit;
+}
+/* line 101, ../../source/sass/achievments.sass */
+.achievments_all section.achievments_list {
+  position: relative;
+  float: none;
+  height: auto;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  text-align: justify;
+}
+/* line 111, ../../source/sass/achievments.sass */
+.achievments_all section.achievments_list .justify_fix {
+  width: 100%;
+  display: inline-block;
+}
+/* line 115, ../../source/sass/achievments.sass */
+.achievments_all section.achievments_list figure.achievment {
+  display: inline-block;
+  position: relative;
+  float: none;
+  height: auto;
+  width: 15%;
+  min-width: 120px;
+  margin: 0 0 4% 0;
+  text-align: center;
+}
+/* line 126, ../../source/sass/achievments.sass */
+.achievments_all section.achievments_list figure.achievment img {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 24px;
+  width: 88px;
+  height: 88px;
+}
+/* line 133, ../../source/sass/achievments.sass */
+.achievments_all section.achievments_list figure.achievment figcapation {
+  line-height: 16px;
+}
+/* line 135, ../../source/sass/achievments.sass */
+.achievments_all section.achievments_list figure.achievment figcapation h4 {
+  font-family: Bebas Neue;
+  font-size: 18px;
+}
+/* line 138, ../../source/sass/achievments.sass */
+.achievments_all section.achievments_list figure.achievment figcapation p {
+  font-family: Lora;
+  font-size: 12px;
+}
+
+/* line 143, ../../source/sass/achievments.sass */
+body.global_achievment_page_body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 147, ../../source/sass/achievments.sass */
+section.global_achievment_page_bg {
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -ms-filter: blur(20px);
+  -o-filter: blur(20px);
+  filter: blur(20px);
+}
+
+/* line 151, ../../source/sass/achievments.sass */
+.achievment_page {
+  display: block;
+  position: absolute;
+  float: none;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 165, ../../source/sass/achievments.sass */
+.achievment_page figure.achievment_on_page {
+  position: relative;
+  display: inline-block;
+  float: none;
+  height: auto;
+  margin: 0;
+  text-align: center;
+}
+/* line 172, ../../source/sass/achievments.sass */
+.achievment_page figure.achievment_on_page img {
+  display: inline-block;
+  position: relative;
+  width: 256px;
+  height: 256px;
+  margin-bottom: 64px;
+}
+/* line 179, ../../source/sass/achievments.sass */
+.achievment_page figure.achievment_on_page figcapation h4.name {
+  font-family: Bebas Neue;
+  font-size: 30px;
+  color: #EBB22F;
+  margin-bottom: 8px;
+}
+/* line 184, ../../source/sass/achievments.sass */
+.achievment_page figure.achievment_on_page figcapation p.status {
+  font-family: Lora;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 32px;
+}
+/* line 189, ../../source/sass/achievments.sass */
+.achievment_page figure.achievment_on_page figcapation p.description {
+  font-family: Open Sans;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* line 220, ../../source/sass/achievments.sass */
+.edit_profile_all {
+  display: block;
+  position: relative;
+  min-height: 100%;
+  top: 0;
+  z-index: 200;
+}
+/* line 231, ../../source/sass/achievments.sass */
+.edit_profile_all .edit_profile_header {
+  display: block;
+  position: relative;
+  float: none;
+  height: 20px;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  font-family: Bebas Neue;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
+/* line 246, ../../source/sass/achievments.sass */
+.edit_profile_all .edit_profile_header a {
+  float: left;
+}
+/* line 248, ../../source/sass/achievments.sass */
+.edit_profile_all .edit_profile_header a:before {
+  content: "";
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  background: url("../images/achievments/arrow_back.svg");
+  z-index: 250;
+  float: left;
+}
+/* line 260, ../../source/sass/achievments.sass */
+.edit_profile_all .edit_profile_header h6 {
+  float: right;
+  font-size: inherit;
+}
+/* line 264, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list {
+  position: relative;
+  float: none;
+  height: auto;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  text-align: justify;
+}
+/* line 275, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list form.edit_profile_form header {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+/* line 280, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list form.edit_profile_form header h2 {
+  font-family: Bebas Neue;
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: #EBB22F;
+}
+/* line 285, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list form.edit_profile_form header h3 {
+  font-family: Lora;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0;
+  margin-bottom: 48px;
+}
+/* line 292, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset {
+  margin-bottom: 32px;
+}
+/* line 294, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset legend {
+  font-family: Bebas Neue;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #EBB22F;
+}
+/* line 299, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset input {
+  display: block;
+  margin-bottom: 16px;
+  width: 320px;
+  color: white;
+}
+/* line 304, ../../source/sass/achievments.sass */
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset input.large {
+  width: 640px;
+  min-height: 160px;
+}

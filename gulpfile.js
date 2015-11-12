@@ -6,6 +6,7 @@ var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var _ = require('lodash');
+var connect = require('gulp-connect');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
@@ -14,6 +15,10 @@ gulp.task('clean', function(cb) {
   del([
     'app/tmp'
   ], cb);
+});
+
+gulp.task('connect', function() {
+    connect.server({ root: 'dist', port: 1111, livereload: false });
 });
 
 gulp.task('html', function() {
@@ -76,4 +81,4 @@ gulp.task('watch', ['build'], function(cb) {
   gulp.watch(['./src/*.html'], ['html']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['connect', 'watch']);
