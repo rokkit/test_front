@@ -1,18 +1,16 @@
 var gulp = require('gulp');
-var glp = require('gulp-load-plugins')();
+var $ = require('gulp-load-plugins')();
 var browserify = require('browserify');
 var del = require('del');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var _ = require('lodash');
-var connect = require('gulp-connect');
 var haml = require('gulp-ruby-haml');
 var compass = require('gulp-compass');
 var stringify = require('stringify');
 var config = require('./config.json');
 var babel = require('babelify');
-var notify = require('gulp-notify');
 
 gulp.task('clean', function(cb) {
   del([
@@ -21,13 +19,13 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('connect', function() {
-    connect.server({ root: 'dist', port: 1111, livereload: false });
+    $.connect.server({ root: 'build', port: 2222, livereload: false });
 });
 
 gulp.task('html', function() {
-  return gulp.src('./index.html')
-    .pipe(glp.plumber())
-    .pipe(gulp.dest('./dist'));
+  return gulp.src('./code/index.html')
+    .pipe($.plumber())
+    .pipe(gulp.dest('./build'));
 });
 
 gulp.task('haml', function () {
@@ -45,17 +43,12 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./css'));
 });
 
-var bundlePaths = {
-  src:[
-  ]
-}
-
 function compile(watch) {
   var bundler = watchify(
-    browserify('./app.js',
+    browserify('./code/app.js',
       {
         debug: true,
-        paths: ['./node_modules', './']
+        paths: ['./node_modules', './code/']
       })
     .transform(stringify(['.haml']))
     .transform(babel)
@@ -64,12 +57,12 @@ function compile(watch) {
   function rebundle() {
     bundler.bundle()
       .on('error', function(err) { console.error(err); this.emit('end'); })
-      .pipe(source('build.js'))
+      .pipe(source('bundle.js'))
       .pipe(buffer())
-      .pipe(glp.sourcemaps.init({ loadMaps: true }))
-      .pipe(glp.sourcemaps.write('./'))
+      .pipe($.sourcemaps.init({ loadMaps: true }))
+      .pipe($.sourcemaps.write('./'))
       .pipe(gulp.dest('./build'))
-      .pipe(notify('Done!'));;
+      .pipe($.notify('Done!'));;
   }
 
   if (watch) {
@@ -89,7 +82,7 @@ function watch() {
 gulp.task('build', function() { return compile(); });
 gulp.task('watch', function() { return watch(); });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['html', 'watch', 'connect']);
 
 // var bundler = _.memoize(function(watch) {
 //   var options = {

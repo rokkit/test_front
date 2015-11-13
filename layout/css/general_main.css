@@ -1,0 +1,75 @@
+/*
+Error: Undefined mixin 'box-sizing'.
+        on line 3 of /Users/brkv/Downloads/h2h/sass/general_main.sass, in `box-sizing'
+        from line 3 of /Users/brkv/Downloads/h2h/sass/general_main.sass
+
+1: // Base Styles
+2: *
+3:     +box-sizing(border-box)
+4: 
+5: html, body
+6:     width: 100%
+7:     max-width: 100%
+8:     height: 100%
+
+Backtrace:
+/Users/brkv/Downloads/h2h/sass/general_main.sass:3:in `box-sizing'
+/Users/brkv/Downloads/h2h/sass/general_main.sass:3
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:98:in `block in with_mixin'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:98:in `with_mixin'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:347:in `visit_mixin'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `map'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/root_node.rb:20:in `render'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:278:in `render'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/brkv/.rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/bin/compass:44:in `call'
+/Users/brkv/.rvm/gems/ruby-2.2.1@global/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+/Users/brkv/.rvm/gems/ruby-2.2.1/bin/compass:23:in `load'
+/Users/brkv/.rvm/gems/ruby-2.2.1/bin/compass:23:in `<main>'
+/Users/brkv/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `eval'
+/Users/brkv/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'box-sizing'.\A         on line 3 of /Users/brkv/Downloads/h2h/sass/general_main.sass, in `box-sizing'\A         from line 3 of /Users/brkv/Downloads/h2h/sass/general_main.sass\A \A 1: // Base Styles\A 2: *\A 3:     +box-sizing(border-box)\A 4: \A 5: html, body\A 6:     width: 100%\A 7:     max-width: 100%\A 8:     height: 100%"; }
