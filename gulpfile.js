@@ -62,7 +62,7 @@ function compile(watch) {
       .pipe($.sourcemaps.init({ loadMaps: true }))
       .pipe($.sourcemaps.write('./'))
       .pipe(gulp.dest('./build'))
-      .pipe($.notify('Done!'));;
+      .pipe($.notify({ message:'scripts : done', onLast: true }));;
   }
 
   if (watch) {

@@ -6,6 +6,6 @@ export default LayoutView.extend({
 	template: template,
 
 	regions: {
-		view : 'main'
+		view : 'body'
 	}
 });
