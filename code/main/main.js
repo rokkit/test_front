@@ -1,13 +1,9 @@
 import Marionette from 'backbone.marionette';
 import 'gsap';
-import Haml from 'haml';
 
-import Collection 	from 'collections/lounges';
-import Template		from 'main/main.haml'			 ;
-import ItemTemplate	from 'main/main_itemview.haml'	 ;
-
-window.hh = Haml;
-window.tt = Template;
+import Collection 	from 'collections/lounges'		 ;
+import Template		from 'main/main.hbs'			 ;
+import ItemTemplate	from 'main/main_itemview.hbs'	 ;
 
 let data = [{
 	title	: 'blazon'				,
@@ -32,19 +28,20 @@ let data = [{
 }];
 
 let childView 	= Marionette.ItemView.extend({
-	template 	:  Haml( ItemTemplate ) ,
-	tagName 	: 'article' 			,
+	template 	:  ItemTemplate	,
+	tagName 	: 'article'		,
 	className 	: 'lounge'
 });
 
 export default Marionette.CompositeView.extend({
 	el 					: 'body'				 ,
-	template 			:  Haml( Template )  	 ,
+	template 			: Template 		 	 	 ,
 	childView 			: childView 			 ,
 	collection 			: new Collection( data ) ,
 	childViewContainer 	: '#lounges-body'	 	 ,
 
 	initialize() {		
+		console.log( this.template );
 		return this.on( 'render' , this.afterRender , this );
 	}  ,
 	

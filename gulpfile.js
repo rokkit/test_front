@@ -50,7 +50,7 @@ function compile(watch) {
         debug: true,
         paths: ['./node_modules', './code/']
       })
-    .transform(stringify(['.haml']))
+    .transform(stringify(['.haml' , '.html']))
     .transform(babel)
     );
 
