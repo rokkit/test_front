@@ -2,7 +2,7 @@ import $ from 'jquery';
 import _ from 'lodash';
 import Radio from 'backbone.radio';
 import {Application} from 'backbone.marionette';
-import LayoutView from './layout';
+import LayoutView from 'application/layout';
 
 let routerChannel = Radio.channel('router');
 
