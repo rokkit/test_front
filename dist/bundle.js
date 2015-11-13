@@ -95,7 +95,7 @@ exports.default = _backbone3.Application.extend({
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<main></main>\r\n";
+    return "<main></main>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":45}],4:[function(require,module,exports){
@@ -165,7 +165,7 @@ exports.default = _backboneRouting.Route.extend({
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div>Index page</div>\r\n<a href=\"#/main\">Go to Main Page</a>";
+    return "<div>Index page</div>\n<a href=\"#/main\">Go to Main Page</a>";
 },"useData":true});
 
 },{"hbsfy/runtime":45}],8:[function(require,module,exports){
@@ -355,7 +355,7 @@ exports.default = _backboneRouting.Route.extend({
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<section class='content page-index-content section_1_bg'>\r\n  <h1>Посетите наши лучшие<br>уникальные места</h1>\r\n  <p>Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю и гостье.</p>\r\n  <button class=\"button-flat\">Открыть</button>\r\n</section>\r\n\r\n<section class='instruments'>\r\n  <figure>\r\n    <img alt='Поиск' height='16px' src='src/images/search.svg'>\r\n    <figcapation>Искать по названию</figcapation>\r\n  </figure>\r\n  <figure>\r\n    <img alt='Карта' height='16px' src='src/images/map.svg'>\r\n    <figcapation>Карта</figcapation>\r\n  </figure>\r\n  <figure>\r\n    <img alt='Выбрать город' height='16px' src='src/images/location.svg'>\r\n    <figcapation>По городу</figcapation>\r\n  </figure>\r\n</section>\r\n\r\n<hr />\r\n\r\n<section class='lounges' id=\"region-lounges\">\r\n    <!-- Регион для карт -->\r\n    <div class=\"justify_fix\"></div>\r\n</section>\r\n";
+    return "<section class='content page-index-content section_1_bg'>\n  <h1>Посетите наши лучшие<br>уникальные места</h1>\n  <p>Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю и гостье.</p>\n  <button class=\"button-flat\">Открыть</button>\n</section>\n\n<section class='instruments'>\n  <figure>\n    <img alt='Поиск' height='16px' src='src/images/search.svg'>\n    <figcapation>Искать по названию</figcapation>\n  </figure>\n  <figure>\n    <img alt='Карта' height='16px' src='src/images/map.svg'>\n    <figcapation>Карта</figcapation>\n  </figure>\n  <figure>\n    <img alt='Выбрать город' height='16px' src='src/images/location.svg'>\n    <figcapation>По городу</figcapation>\n  </figure>\n</section>\n\n<hr />\n\n<section class='lounges' id=\"region-lounges\">\n    <!-- Регион для карт -->\n    <div class=\"justify_fix\"></div>\n</section>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":45}],14:[function(require,module,exports){
@@ -1099,8 +1099,8 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 }));
 
 },{"backbone":23,"underscore":16}],16:[function(require,module,exports){
-module.exports = require('D:/projects/uk_front/node_modules/lodash/index.js');
-},{"D:/projects/uk_front/node_modules/lodash/index.js":47}],17:[function(require,module,exports){
+module.exports = require('/Users/indmaksim/workspace/cdp/uk_front/node_modules/lodash/index.js');
+},{"/Users/indmaksim/workspace/cdp/uk_front/node_modules/lodash/index.js":47}],17:[function(require,module,exports){
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
 // v2.4.3
@@ -5226,7 +5226,7 @@ module.exports = require('D:/projects/uk_front/node_modules/lodash/index.js');
 
 },{"backbone":23,"underscore":20}],20:[function(require,module,exports){
 arguments[4][16][0].apply(exports,arguments)
-},{"D:/projects/uk_front/node_modules/lodash/index.js":47,"dup":16}],21:[function(require,module,exports){
+},{"/Users/indmaksim/workspace/cdp/uk_front/node_modules/lodash/index.js":47,"dup":16}],21:[function(require,module,exports){
 // Backbone.Radio v1.0.2
 (function (global, factory) {
   typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory(require("underscore"), require("backbone")) : typeof define === "function" && define.amd ? define(["underscore", "backbone"], factory) : global.Backbone.Radio = factory(global._, global.Backbone);
@@ -5565,7 +5565,7 @@ arguments[4][16][0].apply(exports,arguments)
 
 },{"backbone":23,"underscore":22}],22:[function(require,module,exports){
 arguments[4][16][0].apply(exports,arguments)
-},{"D:/projects/uk_front/node_modules/lodash/index.js":47,"dup":16}],23:[function(require,module,exports){
+},{"/Users/indmaksim/workspace/cdp/uk_front/node_modules/lodash/index.js":47,"dup":16}],23:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -7466,7 +7466,7 @@ arguments[4][16][0].apply(exports,arguments)
 
 },{"jquery":46,"underscore":24}],24:[function(require,module,exports){
 arguments[4][16][0].apply(exports,arguments)
-},{"D:/projects/uk_front/node_modules/lodash/index.js":47,"dup":16}],25:[function(require,module,exports){
+},{"/Users/indmaksim/workspace/cdp/uk_front/node_modules/lodash/index.js":47,"dup":16}],25:[function(require,module,exports){
 (function (global){
 /*!
  * VERSION: 1.18.0
@@ -37746,7 +37746,7 @@ exports.default = _backboneRouting.Route.extend({
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<section id='philosophie_block1'>\r\n  <img alt='Оригинал один — остальное копии' src='./src/images/philosophie_h1.svg'>\r\n</section>\r\n<section id='philosophie_block2'>\r\n  <blockquote>\r\n    <h4 class='js-scrollfade' data-scrollfade-direction='right' data-scrollfade-effect='drop' data-scrollfade-type='show'>\r\n      «Не просто безликая сеть заведений для отдыха и встреч  без июминки»\r\n    </h4>\r\n    <cite>— Игорь Коновалов</cite>\r\n  </blockquote>\r\n  <p>\r\n    <span class='js-scrollfade' data-scrollfade-direction='right' data-scrollfade-effect='drop' data-scrollfade-type='show'>\r\n      С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя    атмосфера. Мы начинали как место только \"для своих\". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.\r\n    </span>\r\n  </p>\r\n  <button>Прочитать историю</button>\r\n</section>\r\n<section id='philosophie_block3'>\r\n  <div class='cont-wrap'>\r\n    <h3 class='js-scrollfade' data-scrollfade-direction='left' data-scrollfade-effect='drop' data-scrollfade-type='show'>\r\n      Наши принципы являются фундаментом, основной для работы\r\n    </h3>\r\n    <br>\r\n    <h4>Каждый клиент для нас уникален. Красота жизни заключается в ее неповторимости и оригинальности.</h4>\r\n    <br>\r\n    <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.</p>\r\n    <br>\r\n    <p>Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя атмосфера. Мы начинали как место только \"для своих\".</p>\r\n    <br>\r\n    <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу. Привлекает наша дружелюбная домашняя    атмосфера. Мы начинали как место только \"для своих\".</p>\r\n  </div>\r\n</section>\r\n<section id='philosophie_block4'>\r\n  <h3 class='js-scrollfade' data-scrollfade-direction='up' data-scrollfade-effect='drop' data-scrollfade-type='show'>Кальянный мастер</h3>\r\n  <p>Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.</p>\r\n  <br>\r\n  <h5>Игорь Коновалов</h5>\r\n  <h6>Основатель франшизы</h6>\r\n</section>\r\n";
+    return "<section id='philosophie_block1'>\n  <img alt='Оригинал один — остальное копии' src='./src/images/philosophie_h1.svg'>\n</section>\n<section id='philosophie_block2'>\n  <blockquote>\n    <h4 class='js-scrollfade' data-scrollfade-direction='right' data-scrollfade-effect='drop' data-scrollfade-type='show'>\n      «Не просто безликая сеть заведений для отдыха и встреч  без июминки»\n    </h4>\n    <cite>— Игорь Коновалов</cite>\n  </blockquote>\n  <p>\n    <span class='js-scrollfade' data-scrollfade-direction='right' data-scrollfade-effect='drop' data-scrollfade-type='show'>\n      С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя    атмосфера. Мы начинали как место только \"для своих\". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.\n    </span>\n  </p>\n  <button>Прочитать историю</button>\n</section>\n<section id='philosophie_block3'>\n  <div class='cont-wrap'>\n    <h3 class='js-scrollfade' data-scrollfade-direction='left' data-scrollfade-effect='drop' data-scrollfade-type='show'>\n      Наши принципы являются фундаментом, основной для работы\n    </h3>\n    <br>\n    <h4>Каждый клиент для нас уникален. Красота жизни заключается в ее неповторимости и оригинальности.</h4>\n    <br>\n    <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.</p>\n    <br>\n    <p>Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя атмосфера. Мы начинали как место только \"для своих\".</p>\n    <br>\n    <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу. Привлекает наша дружелюбная домашняя    атмосфера. Мы начинали как место только \"для своих\".</p>\n  </div>\n</section>\n<section id='philosophie_block4'>\n  <h3 class='js-scrollfade' data-scrollfade-direction='up' data-scrollfade-effect='drop' data-scrollfade-type='show'>Кальянный мастер</h3>\n  <p>Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.</p>\n  <br>\n  <h5>Игорь Коновалов</h5>\n  <h6>Основатель франшизы</h6>\n</section>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":45}],50:[function(require,module,exports){
