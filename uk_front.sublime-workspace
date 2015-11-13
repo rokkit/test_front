@@ -4,12 +4,20 @@
 		"selected_items":
 		[
 			[
-				"bun",
-				"bundle"
+				"con",
+				"connect"
 			],
 			[
-				"con",
-				"config"
+				"ha",
+				"Haml"
+			],
+			[
+				"b",
+				"build"
+			],
+			[
+				"bun",
+				"bundle"
 			],
 			[
 				"te",
@@ -140,10 +148,10 @@
 	"buffers":
 	[
 		{
-			"file": "gulpfile.js",
+			"file": "code/main/main_view.js",
 			"settings":
 			{
-				"buffer_size": 3386,
+				"buffer_size": 1136,
 				"line_ending": "Unix"
 			}
 		}
@@ -218,33 +226,41 @@
 	"expanded_folders":
 	[
 		"/home/denis/playground/uk_front",
-		"/home/denis/playground/uk_front/application"
+		"/home/denis/playground/uk_front/code",
+		"/home/denis/playground/uk_front/code/main"
 	],
 	"file_history":
 	[
-		"/home/denis/playground/uk_front/config.json",
-		"/home/denis/playground/uk_front/application/layout.js",
-		"/home/denis/playground/uk_front/main/view.js",
-		"/home/denis/playground/uk_front/application/application.js",
-		"/home/denis/playground/uk_front/main/route.js",
-		"/home/denis/playground/uk_front/app.js",
-		"/home/denis/playground/uk_front/build/build.js",
-		"/home/denis/playground/uk_front/gulpfile.js",
+		"/home/denis/playground/uk_front/code/router.js",
+		"/home/denis/playground/uk_front/code/index/view.js",
+		"/home/denis/playground/uk_front/code/main/main_view.js",
+		"/home/denis/playground/uk_front/code/main/route.js",
 		"/home/denis/playground/uk_front/package.json",
-		"/home/denis/playground/uk_front/main/test.haml",
+		"/home/denis/playground/uk_front/build/bundle.js",
+		"/home/denis/playground/uk_front/.gitignore",
+		"/home/denis/playground/uk_front/code/index/test.haml",
+		"/home/denis/playground/uk_front/gulpfile.js",
+		"/home/denis/playground/uk_front/code/main/test.haml",
+		"/home/denis/playground/uk_front/main/route.js",
+		"/home/denis/playground/uk_front/router.js",
+		"/home/denis/playground/uk_front/index.html",
+		"/home/denis/playground/uk_front/application/layout.js",
+		"/home/denis/playground/uk_front/app.js",
+		"/home/denis/playground/uk_front/application/application.js",
 		"/home/denis/playground/uk_front/main/template.hbs",
+		"/home/denis/playground/uk_front/config.json",
+		"/home/denis/playground/uk_front/main/view.js",
+		"/home/denis/playground/uk_front/build/build.js",
+		"/home/denis/playground/uk_front/main/test.haml",
 		"/home/denis/playground/uk_front/application/layout.hbs",
 		"/home/denis/playground/mimicra/gulpfile.js",
 		"/home/denis/playground/uk_front/dist/bundle.js",
-		"/home/denis/playground/uk_front/router.js",
 		"/home/denis/playground/h2h/gulpfile.js",
-		"/home/denis/playground/uk_front/.gitignore",
 		"/home/denis/playground/h2h/haml/js/app/templates/pages/profile/profile.haml",
 		"/home/denis/playground/h2h/html/js/app/templates/pages/profile/profile.html",
 		"/home/denis/playground/h2h/haml/test.haml",
 		"/home/denis/playground/h2h/html/test.html",
 		"/home/denis/playground/uk_front/philosophy/template.hbs",
-		"/home/denis/playground/uk_front/index.html",
 		"/home/denis/playground/uk_front/philosophy/view.js",
 		"/home/denis/playground/uk_front/philosophy/route.js",
 		"/home/denis/playground/uk_front/dist/index.html",
@@ -361,28 +377,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "gulpfile.js",
-					"semi_transient": false,
+					"file": "code/main/main_view.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3386,
+						"buffer_size": 1136,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								397,
-								397
+								515,
+								515
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
+						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -487,7 +502,7 @@
 		[
 			[
 				"",
-				"~/playground/super-app/super-app.sublime-project"
+				"~/playground/h2h/h2h.sublime-project"
 			],
 			[
 				"uk",

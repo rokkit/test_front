@@ -1,0 +1,155 @@
+// Base Styles
+*
+    +box-sizing(border-box)
+
+html, body, main
+    width: 100%
+    height: 100%
+
+main
+    overflow: hidden
+
+html    
+    font-size: 62.5%
+body
+    font: normal normal 300 1.25rem/1.5 Open Sans
+    color: white
+    background: black
+
+// Typography
+// font: font-style font-variant font-weight font-size/line-height font-family;
+h1
+    font: normal normal 300 60px/64px Bebas Neue Book, sans-serif
+    letter-spacing: 2px
+    color: white
+    text-transform: uppercase
+
+h2
+    font: normal normal 300 48px/64px Bebas Neue Book, sans-serif
+    letter-spacing: 2px
+    color: #EBB22F
+    text-transform: uppercase
+
+h3
+    font-family: Bebas Neue
+    font-size: 28px
+    letter-spacing: 2px
+
+h4
+    font-size : 24px
+    line-height : 32px
+    font-family: Lora
+    font-weight: 300
+
+h5
+    font-size: 18px
+    font-family: Lora
+    font-weight: 300
+
+h6
+    font-size: 14px
+
+small
+    font-size : 12px
+
+p
+    font-family: Open Sans Regular
+    font-size: 14px
+    color: white
+    letter-spacing: 0px 
+
+.h2_subtitle
+    font: normal normal 300 18px/28px Lora, sans-serif
+    color: white
+
+input
+    position : relative
+    height : 48px
+    width : 244px
+    
+    padding: 0 16px 0 16px
+    border: 0
+    
+    color: white
+    box-shadow: inset rgba(255, 255, 255, .1) 0 0 0 1px
+    background : rgba(255,255,255, .01)
+
+    text-align: left
+    line-height: 24px
+    font-size : 14px
+
+// Margins
+h1
+    margin-bottom: 32px
+h2
+    margin-bottom: 8px
+.h2_subtitle
+    margin-bottom: 32px
+
+// Отступ от формы до контента снизу
+form
+    margin-bottom: 32px
+
+// Оступы полей слева направо
+input
+    margin-right: 16px 
+
+
+// Links
+a
+    font: normal normal 300 18px Bebas Neue Book
+    letter-spacing: 2px
+    color: white
+
+// Buttons
+button
+    position : relative
+    height : 48px
+    width : 256px
+    background : #EBB22F
+    padding: 0 16px 0 16px
+    line-height: 24px
+    text-align: left
+    font-size : 14px
+    color : #fff
+    border: none
+
+button:after
+    content: ''
+    width: 24px
+    height: 24px
+    float: right
+    background-image: url(../images/goto.svg)
+
+button.button-dark
+    position : relative
+    height : 48px
+    width : 256px
+    //border : 2px solid rgba(60,66,72,.5)
+    border : 1px solid gray
+    background: none
+    padding: 0 16px 0 16px
+    line-height: 24px
+    text-align: left
+    font-size : 14px
+    color : #C6C7C8
+
+button.button-dark:after
+    content: ''
+    width: 24px
+    height: 24px
+    float: right
+    background-image: url(../images/goto.svg)
+
+
+// Interactive
+a:hover
+    cursor: pointer
+button:hover
+    cursor: pointer
+
+input[type=text], textarea
+    +single-transition(all, 0.75s, linear)
+
+input[type=text]:focus, textarea:focus
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1)
