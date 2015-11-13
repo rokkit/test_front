@@ -24,6 +24,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-ruby-haml": "0.0.4",
+    "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
@@ -31,9 +32,9 @@
     "hamlify": "0.0.3",
     "hamljs": "^0.6.2",
     "hbsfy": "^2.4.1",
-    "stringify": "^3.1.0",
     "shipit-cli": "^1.4.0",
     "shipit-deploy": "^2.0.0",
+    "stringify": "^3.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.0"
