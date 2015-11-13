@@ -1,5 +1,10 @@
-import Marionette from 'backbone.marionette';
+import _ from 'underscore';
+import 'rivets-backbone-adapter';
+import 'backbone';
 import 'gsap';
+
+import Rivets from 'rivets';
+import Marionette from 'backbone.marionette';
 
 import Collection 	from 'collections/lounges'		 ;
 import Template		from 'main/main.hbs'			 ;
@@ -7,41 +12,49 @@ import ItemTemplate	from 'main/main_itemview.hbs'	 ;
 
 let data = [{
 	title	: 'blazon'				,
-	blazon 	: 'gerb_spb_blazon.svg' ,
+	blazon 	: 'public/images/blazons/gerb_spb_blazon.svg' ,
 	city	: 'Тюмень'				,
 	color 	: '#7DBE6D'
 },{
 	title	: 'Академия' 			 ,
-	blazon 	: 'gerb_spb_academy.svg' ,
+	blazon 	: 'public/images/blazons/gerb_spb_academy.svg' ,
 	city	: 'Санкт-Петербург' 	 ,
 	color 	: '#5F4D9B'
 },{
 	title	: 'Либерти'				 ,
-	blazon 	: 'gerb_spb_liberty.svg' ,
+	blazon 	: 'public/images/blazons/gerb_spb_liberty.svg' ,
 	city	: 'Санкт-Петербург' 	 ,
 	color 	: '#65B6DC'
 },{
 	title	: 'unity hall' 				 ,
-	blazon 	: 'gerb_kazan_unityhall.svg' ,
+	blazon 	: 'public/images/blazons/gerb_kazan_unityhall.svg' ,
 	city	: 'Казань' 					 ,
 	color 	: '#E76144'
 }];
 
 let childView 	= Marionette.ItemView.extend({
-	template 	:  ItemTemplate	,
 	tagName 	: 'article'		,
-	className 	: 'lounge'
+	className 	: 'lounge' 		,
+	template 	: ItemTemplate	,
+	onRender(){
+		window.lModel = this.model;
+		this.binding = Rivets.bind(this.el, {model: this.model});
+	}
+
 });
 
 export default Marionette.CompositeView.extend({
 	el 					: 'body'				 ,
 	template 			: Template 		 	 	 ,
 	childView 			: childView 			 ,
-	collection 			: new Collection( data ) ,
 	childViewContainer 	: '#lounges-body'	 	 ,
 
-	initialize() {		
+	initialize() {
+		this.collection = new Collection( data );
+		window.col = this.collection;
+		window.tU = _;
 		console.log( this.template );
+		//this.collection.fetch();
 		return this.on( 'render' , this.afterRender , this );
 	}  ,
 	
