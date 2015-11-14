@@ -1087,6 +1087,8 @@ section.right_menu a:hover {
   width: 100%;
   height: 40px;
   padding: 64px 48px 64px;
+  top: 0;
+  left: 0;
 }
 #header img {
   float: left;
@@ -1421,6 +1423,8 @@ section.popup:before {
   width: 100%;
   height: 40px;
   padding: 64px 48px 64px;
+  top: 0;
+  left: 0;
 }
 #header img {
   float: left;
