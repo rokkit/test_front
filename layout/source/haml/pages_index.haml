@@ -8,10 +8,12 @@
 		%script{ :src => "./js/jquery.gsap.min.js" }
 		%script{ :src => "./js/TweenLite.min.js" }
 		%script{ :src => "./js/TweenMax.min.js" }
+		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/index.js" }
-	%body
+	%body#html_body
 		-# Form
 		.wrapper.center-center
+			-# Логин
 			%section.popup{:id => 'login_form'}
 				%header
 					%h2 Войти
@@ -22,8 +24,35 @@
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
 					%input{:type => "text", :name => "password", :placeholder => "Пароль"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Войти
-				%a{:href =>"#forgot_pass"}
+				%a#recover_btn{:href =>"#forgot_pass"}
 					%p Вы забыли пароль?
+			-# Регистрация
+			%section.popup{:id => 'signin_form'}
+				%header
+					%h2 Регистрация
+					%p.h2_subtitle
+						Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите
+						%a{:href =>"#registration"} зарегистрируйтесь.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+					%input{:type => "text", :name => "password", :placeholder => "Пароль"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Зарегистрироваться
+				%a#login_in_signin_btn{:href =>"#login_form"}
+					%p Вернуться к логину
+
+			-# Забыли пароль
+			%section.popup{:id => 'recover_form'}
+				%header
+					%h2 Восстановление пароля
+					%p.h2_subtitle
+						Мы отправим вам новый пароль по смс, если у вас еще нет аккаунта — зарегистрируйтесь
+						%a{:href =>"#registration"} зарегистрируйтесь.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "input", :placeholder => "Номер телефона"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Оnправить
+				%a#login_in_recover_btn{:href =>"#recover_form"}
+					%p Вернуться к логину
 		-# Color Overlay
 		#color_overlay
 		-# Main conent
@@ -32,8 +61,8 @@
 				%header#header
 					%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 					%nav
-						%a{:id=>"login_btn"} Войти
-						%a{:id=>"signup_btn"} Зарегистрироваться
+						%a{:id=>"login_header_btn"} Войти
+						%a{:id=>"signup_header_btn"} Зарегистрироваться
 						%img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
 				%header
 					%h1 Посетите наши лучшие уникальные места
