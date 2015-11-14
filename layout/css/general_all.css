@@ -1135,6 +1135,9 @@ section.popup {
   left: 100%;
   z-index: 200;
 }
+section.popup a {
+  z-index: 250;
+}
 
 section.popup:after {
   content: "";
