@@ -9,7 +9,7 @@
     <script src='./js/TweenMax.min.js'></script>
     <script src='./js/index.js'></script>
   </head>
-  <body>
+  <body id='html_body'>
     <div class='wrapper center-center'>
       <section class='popup' id='login_form'>
         <header>
@@ -24,8 +24,42 @@
           <input name='input' placeholder='Пароль' type='text'>
           <button name='sumbit' type='sumbit'>Войти</button>
         </form>
-        <a href='#forgot_pass'>
+        <a href='#forgot_pass' id='recover_btn'>
           <p>Вы забыли пароль?</p>
+        </a>
+      </section>
+      <section class='popup' id='signin_form'>
+        <header>
+          <h2>Регистрация</h2>
+          <p class='h2_subtitle'>
+            Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+        </header>
+        <form action='' method='get'>
+          <input name='input' placeholder='Номер телефона' type='text'>
+          <input name='input' placeholder='ФИО' type='text'>
+          <input name='input' placeholder='Пароль' type='text'>
+          <button name='sumbit' type='sumbit'>Зарегистрироваться</button>
+        </form>
+        <a href='#login_form' id='login_btn'>
+          <p>Вернуться к логину</p>
+        </a>
+      </section>
+      <section class='popup' id='recover_form'>
+        <header>
+          <h2>Восстановление пароля</h2>
+          <p class='h2_subtitle'>
+            Мы отправим вам новый пароль по смс, если у вас еще нет аккаунта — зарегистрируйтесь
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+        </header>
+        <form action='' method='get'>
+          <input name='input' placeholder='Номер телефона' type='text'>
+          <button name='sumbit' type='sumbit'>Оnправить</button>
+        </form>
+        <a href='#recover_form' id='recover_btn'>
+          <p>Вернуться к логину</p>
         </a>
       </section>
     </div>
