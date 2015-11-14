@@ -1118,7 +1118,6 @@ div.wrapper {
   align-items: center;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  left: 100%;
 }
 
 section.popup {
@@ -1133,6 +1132,7 @@ section.popup {
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
   padding: 80px;
   padding-right: 240;
+  left: 100%;
   z-index: 200;
 }
 
@@ -1156,7 +1156,7 @@ section.popup:before {
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 2px;
 }
 
-.color_overlay {
+#color_overlay {
   display: block;
   position: fixed;
   top: 0;
@@ -1177,11 +1177,11 @@ section.popup:before {
   -ms-transform: scale(0, 0);
   -webkit-transform: scale(0, 0);
   transform: scale(0, 0);
-  -webkit-filter: blur(0 px);
-  -moz-filter: blur(0 px);
-  -ms-filter: blur(0 px);
-  -o-filter: blur(0 px);
-  filter: blur(0 px);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -ms-filter: blur(0px);
+  -o-filter: blur(0px);
+  filter: blur(0px);
 }
 
 .achievments_all {

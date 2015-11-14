@@ -7,7 +7,6 @@ div.wrapper
     +display-flex(flex)
     +align-items(center)
     +justify-content(flex-end)
-    left: 100%
 
 section.popup
     position: relative
@@ -16,7 +15,7 @@ section.popup
     
     padding: 80px
     padding-right: 240
-    
+    left: 100%
     z-index: 200
 
 section.popup:after
@@ -37,7 +36,7 @@ section.popup:before
     height: calc(100% - 32px)
     box-shadow: inset rgba(255, 255, 255, .1) 0 0 2px 
 
-.color_overlay
+#color_overlay
     display: block
     position: fixed
     top: 0
@@ -54,7 +53,7 @@ section.popup:before
 .main_content
     z-index: 100
     +scale(0.0, 0.0)
-    +filter(blur,0  px)
+    +filter(blur,0px)
     // Состояние после открытия
     // z-index: 100
     // +scale(0.9, 0.9)
