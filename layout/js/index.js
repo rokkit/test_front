@@ -46,7 +46,4 @@ $(function() {
   	TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   	TweenLite.to(html_body, 1, {overflow:"hidden"})
   });
-});
-
-	
 	

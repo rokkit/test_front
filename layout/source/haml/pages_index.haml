@@ -23,8 +23,7 @@
 					%input{:type => "text", :name => "input", :placeholder => "Номер телефона"}
 					%input{:type => "text", :name => "input", :placeholder => "Пароль"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Войти
-				%a#recover_btn{:href =>"#forgot_pass"}
-					%p Вы забыли пароль?
+				%a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
 			-# Регистрация
 			%section.popup{:id => 'signin_form'}
 				%header
@@ -37,8 +36,7 @@
 					%input{:type => "text", :name => "input", :placeholder => "ФИО"}
 					%input{:type => "text", :name => "input", :placeholder => "Пароль"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Зарегистрироваться
-				%a#login_btn{:href =>"#login_form"} 
-					%p Вернуться к логину
+				%a#login_btn{:href =>"#login_form"} Вернуться к логину
 					
 			-# Забыли пароль
 			%section.popup{:id => 'recover_form'}
@@ -49,9 +47,8 @@
 						%a{:href =>"#registration"} зарегистрируйтесь.
 				%form{:action => "", :method => "get"}
 					%input{:type => "text", :name => "input", :placeholder => "Номер телефона"}
-					%button{:type=>"sumbit", :name=>"sumbit"} Оnправить
-				%a#recover_btn{:href =>"#recover_form"}
-					%p Вернуться к логину
+					%button{:type=>"sumbit", :name=>"sumbit"} Отправить
+				%a#recover_btn{:href =>"#recover2_form"} Вернуться к логину
 		-# Color Overlay
 		#color_overlay
 		-# Main conent
