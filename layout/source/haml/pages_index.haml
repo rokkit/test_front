@@ -4,11 +4,12 @@
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
-		%script{ :src => "./index.js" }
+		%script{ :src => "./js/jquery-2.1.4.min.js" }
+		%script{ :src => "./js/index.js" }
 	%body
 		-# Form
 		.wrapper.center-center
-			%section.popup
+			%section.popup{:id => 'login_form'}
 				%header
 					%h2 Войти
 					%p.h2_subtitle
@@ -28,8 +29,8 @@
 				%header#header
 					%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 					%nav
-						%a Войти
-						%a Зарегистрироваться
+						%a{:id=>"login_btn"} Войти
+						%a{:id=>"signup_btn"} Зарегистрироваться
 						%img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
 				%header
 					%h1 Посетите наши лучшие уникальные места
