@@ -19,8 +19,8 @@
 						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
 						%a{:href =>"#registration"} зарегистрируйтесь.
 				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "input", :placeholder => "Номер телефона"}
-					%input{:type => "text", :name => "input", :placeholder => "Пароль"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "text", :name => "password", :placeholder => "Пароль"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Войти
 				%a{:href =>"#forgot_pass"}
 					%p Вы забыли пароль?
