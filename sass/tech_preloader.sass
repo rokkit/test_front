@@ -1,0 +1,100 @@
+// Loader
+#loader
+    position    : absolute
+    overflow    : hidden
+    width       : 160px
+    height      : 160px
+    left        : calc(50% - 80px)
+    top         : calc(50% - 80px)
+    opacity     : 0
+
+    +transform-origin (50% 50%)
+    +animation ( rot 1.5s ease-out )
+
+    +keyframes ( rot )
+        from
+            +rotate( -75deg )
+        to
+            +rotate( 0deg )
+
+    object
+        position: inherit
+
+.loader-logo-back
+    width : 100%
+    height: 100%
+
+.loader-logo-front
+    left    : 25%
+    top     : 25%
+    width   : 50%
+
+.line
+    stroke-dasharray    : 1000
+    stroke-dashoffset   : 1000
+    animation           : dash 4s ease-in alternate 1 forwards
+    transition          : dash .3s ease-out
+
+@keyframes dash
+    from
+        stroke-dashoffset: 1000
+    to
+        stroke-dashoffset: 0
+
+////////////// Front loader
+
+.path
+    stroke-dasharray: 1000
+    stroke-dashoffset: 1000
+    animation: pa 4s ease-in normal 1 forwards
+    
+@keyframes pa
+    from
+        stroke-dashoffset: 0
+    to
+        stroke-dashoffset: 1000
+
+
+.gradient
+    //background-blend-mode: soft-light
+    //+background(radial-gradient(center top, 100% 25%, #fff, $color_gray), $color_gray)
+
+/* Крутим лучи логотипа */
++spin( '.loader-logo-back' , 5s )
+
+/* Создаем пропадающий класс */
++fadeout( '.fadeout' , 1s )
+
+/* Создаем появляющийся класс */
++fadein( '.fadein' , 1s )
+
+/* Появления лоадера */
++fadein( '.fadein-loader' , 1s )
+
+
+// Progess bar
+.pace
+    +transform  ( translate3d( 0, 50px, 0 ) )
+    +transition ( transform 0.5s easy-out )
+    +user-select( none )
+
+    -webkit-pointer-events: none
+    pointer-events        : none
+    position              : fixed
+    bottom                : 0
+    left                  : 0
+    width                 : 100%
+
+.pace.pace-active
+    +transform( translate3d( 0px, 0px, 0px ) )
+
+.pace .pace-progress
+    display         : block
+    position        : fixed
+    z-index         : 2000
+    bottom          : 0
+    right           : 100%
+    width           : 100%
+    height          : 10px
+    background      : $color_orange
+    pointer-events  : none
