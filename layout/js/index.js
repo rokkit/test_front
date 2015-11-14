@@ -24,19 +24,23 @@ $(function() {
   //Создание сесии
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
-    doLogin()
+    doLogin($('#login_form input[name="phone"]').val().replace('+', ''), $('#login_form input[name="password"]').val())
   });
   //Регистрация
   $('#signin_form').on('submit', function(e) {
     e.preventDefault()
+    var phone = $('#signin_form input[name="phone"]').val().replace('+', '')
+    var password = $('#signin_form input[name="password"]').val()
+    var name = $('#signin_form input[name="name"]').val()
     $.post(hostUrl + '/api/v1/auth/registrations.json', {
-      phone: $('#signin_form input[name="phone"]').val().replace('+', ''),
-      name: $('#signin_form input[name="name"]').val(),
-      password: $('#signin_form input[name="password"]').val()
+      phone: phone,
+      name: name,
+      password: password
     }, function(resp) {
       if(!resp['errors']) {
-          successAuth(resp)
+          doLogin(phone, password)
       } else {
+        $('#signin_form input').removeClass('wrong')
         if(resp['errors']['name']) {
           $('#signin_form input[name="name"]').addClass('wrong')
         }
@@ -54,15 +58,17 @@ $(function() {
 
 function successAuth(resp) {
   window.currentUser = resp
+  document.location.href = '/dashboard.html'
 }
-function doLogin() {
+function doLogin(phone, password) {
   $.post(hostUrl + '/api/v1/auth/sessions.json', {
-    phone: $('#login_form input[name="phone"]').val().replace('+', ''),
-    password: $('#login_form input[name="password"]').val()
+    phone: phone,
+    password: password
   }, function(resp) {
     if(!resp['errors']) {
         successAuth(resp)
     } else {
+      $('#login_form input').removeClass('wrong')
       if(resp['errors']['phone']) {
         $('#login_form input[name="phone"]').addClass('wrong')
       }
