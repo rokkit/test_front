@@ -32,6 +32,8 @@
     "hamlify": "0.0.3",
     "hamljs": "^0.6.2",
     "hbsfy": "^2.4.1",
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5",
     "rivets": "^0.8.1",
     "rivets-backbone-adapter": "^2.2.0",
     "shipit-cli": "^1.4.0",
