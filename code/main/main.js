@@ -1,8 +1,11 @@
+'use strict';
+
+import $ from 'jquery';
 import _ from 'lodash';
 import 'rivets-backbone-adapter';
+import 'jquery-mask-plugin';
 import 'backbone';
 import 'gsap';
-import 'jquery-mask-plugin';
 
 import Rivets from 'rivets';
 import Marionette from 'backbone.marionette';
@@ -27,12 +30,21 @@ let childView 	= Marionette.ItemView.extend({
 });
 
 export default Marionette.CompositeView.extend({
-	el 					: 'body'				 ,
-	template 			: Template 		 	 	 ,
-	childView 			: childView 			 ,
-	childViewContainer 	: '#lounges-body'	 	 ,
+	el 					: 'body'				 	,
+	template 			: Template 		 	 	 	,
+	childView 			: childView 			 	,
+	childViewContainer 	: '#lounges-body'	 	 	,
+	hostUrl				: 'http://192.168.1.39:82' 	,
 
 	behaviors : { am : { behaviorClass : AmBehavior } } ,
+	ui 		: { 
+		'formLogin'		: '#login_form' 				,
+		'formSign' 		: '#signin_form' 				,
+		'inputPhone'	: 'input[name="phone"]'			,
+		'inputPassword'	: 'input[name="password"]'
+	} ,
+
+	events 	: { 'submit @ui.formLogin' 	: 'doLogin' 	, 'submit @ui.formSign' : 'doSign' } ,
 
 	initialize() {
 		this.collection = new Collection();
@@ -64,6 +76,68 @@ export default Marionette.CompositeView.extend({
 			});
 
 		});
+	} ,
+
+	successAuth(resp) {
+		window.currentUser = resp
+		document.location.href = '/dashboard.html'
+	} ,
+
+	doSign( e ){
+		e.preventDefault()
+		var phone 		= $('#signin_form input[name="phone"]').val().replace('+', '')
+		var password 	= $('#signin_form input[name="password"]').val()
+		var name 		= $('#signin_form input[name="name"]').val()
+		$.post(this.hostUrl + '/api/v1/auth/registrations.json', {
+			phone 	: phone,
+			name 	: name,
+			password 	: password
+		}, function(resp) {
+			if(!resp['errors']) {
+				doLogin(phone, password)
+			} else {
+				$('#signin_form input').removeClass('wrong')
+				if(resp['errors']['name']) {
+					$('#signin_form input[name="name"]').addClass('wrong')
+				}
+				if(resp['errors']['phone']) {
+					$('#signin_form input[name="phone"]').addClass('wrong')
+				}
+				if(resp['errors']['password']) {
+					$('#signin_form input[name="password"]').addClass('wrong')
+				}
+			}
+		});
+	} ,
+
+	doLogin( event ){
+		var phone 		= this.ui.inputPhone.val() 		;
+		var password 	= this.ui.inputPassword.val()	;
+
+		$.post(this.hostUrl + '/api/v1/auth/sessions.json', {
+			phone 	: phone ,
+			password: password
+		}, function(resp) {
+			if(!resp['errors']) {
+				console.error('Auth error');
+				this.successAuth(resp);
+			} else {
+				console.info('Success auth');
+				$('#login_form input').removeClass('wrong');
+				
+				if(resp['errors']['phone']) {
+					console.error('Phone error');
+					$('#login_form input[name="phone"]').addClass('wrong');
+				}
+				
+				if(resp['errors']['password']) {
+					console.error('Password error');
+					$('#login_form input[name="password"]').addClass('wrong');
+				}
+			}
+		});
+
+		event.preventDefault();
 	}
 
 });
