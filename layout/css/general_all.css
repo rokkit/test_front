@@ -10,10 +10,6 @@ html, body, main {
   height: 100%;
 }
 
-main {
-  overflow: hidden;
-}
-
 html {
   font-size: 62.5%;
 }
@@ -180,27 +176,27 @@ input[type=text]:focus, textarea:focus {
 
 @font-face {
   font-family: "Bebas Neue Book";
-  src: url('../fonts/bebasneue_book-webfont.woff?1447318990') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1447318990') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1447318990') format('truetype');
+  src: url('../../fonts/bebasneue_book-webfont.woff?1447420370') format('woff'), url('../../fonts/bebasneue_book-webfont.svg?1447420370') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Bebas Neue Regular";
-  src: url('../fonts/bebasneue_regular-webfont.woff?1447318990') format('woff'), url('../fonts/bebasneue_regular-webfont.svg?1447318990') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf?1447318990') format('truetype');
+  src: url('../../fonts/bebasneue_regular-webfont.woff?1447420370') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg?1447420370') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Lora";
-  src: url('../fonts/lora-regular-webfont.ttf?1447319576') format('truetype'), url('../fonts/lora-regular-webfont.woff?1447319576') format('woff'), url('../fonts/lora-regular-webfont.svg?1447319576') format('svg');
+  src: url('../../fonts/lora-regular-webfont.ttf?1447420370') format('truetype'), url('../../fonts/lora-regular-webfont.woff?1447420370') format('woff'), url('../../fonts/lora-regular-webfont.svg?1447420370') format('svg');
 }
 @font-face {
   font-family: "Open Sans Bold";
-  src: url('../fonts/opensans-bold-webfont.woff') format('woff'), url('../fonts/opensans-bold-webfont.svg') format('svg'), url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+  src: url('../../fonts/opensans-bold-webfont.woff') format('woff'), url('../../fonts/opensans-bold-webfont.svg') format('svg'), url('../../fonts/opensans-bold-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Regular";
-  src: url('../fonts/opensans-regular-webfont.woff?1447319576') format('woff'), url('../fonts/opensans-regular-webfont.svg?1447319576') format('svg'), url('../fonts/opensans-regular-webfont.ttf?1447319576') format('truetype');
+  src: url('../../fonts/opensans-regular-webfont.woff?1447420370') format('woff'), url('../../fonts/opensans-regular-webfont.svg?1447420370') format('svg'), url('../../fonts/opensans-regular-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Light";
-  src: url('../fonts/opensans-light-webfont.woff?1447319576') format('woff'), url('../fonts/opensans-light-webfont.svg?1447319576') format('svg'), url('../fonts/opensans-light-webfont.ttf?1447319576') format('truetype');
+  src: url('../../fonts/opensans-light-webfont.woff?1447420370') format('woff'), url('../../fonts/opensans-light-webfont.svg?1447420370') format('svg'), url('../../fonts/opensans-light-webfont.ttf?1447420370') format('truetype');
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
@@ -1091,6 +1087,8 @@ section.right_menu a:hover {
   width: 100%;
   height: 40px;
   padding: 64px 48px 64px;
+  top: 0;
+  left: 0;
 }
 #header img {
   float: left;
@@ -1105,10 +1103,6 @@ section.right_menu a:hover {
   float: right;
   width: 30px;
   height: 40px;
-}
-
-body {
-  perspective: 1000px;
 }
 
 div.wrapper {
@@ -1127,7 +1121,7 @@ div.wrapper {
 }
 
 section.popup {
-  position: relative;
+  position: absolute;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF151719', endColorstr='#FF424756');
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjEuMCIgeDI9IjEuMCIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE1MTcxOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQyNDc1NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -1138,7 +1132,11 @@ section.popup {
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
   padding: 80px;
   padding-right: 240;
+  left: 100%;
   z-index: 200;
+}
+section.popup a {
+  z-index: 250;
 }
 
 section.popup:after {
@@ -1161,7 +1159,7 @@ section.popup:before {
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 2px;
 }
 
-.color_overlay {
+#color_overlay {
   display: block;
   position: fixed;
   top: 0;
@@ -1169,27 +1167,24 @@ section.popup:before {
   width: 100%;
   height: 100%;
   background: radial-gradient(75% 100% at center top, #ffffff, #000000), #282C34;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-  opacity: 0.9;
   background-blend-mode: soft-light;
   z-index: 150;
+  pointer-events: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
 }
 
 .main_content {
   z-index: 100;
-}
-
-.under_popup {
-  z-index: 100;
-  -moz-transform: scale(0.9, 0.9);
-  -ms-transform: scale(0.9, 0.9);
-  -webkit-transform: scale(0.9, 0.9);
-  transform: scale(0.9, 0.9);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -ms-filter: blur(5px);
-  -o-filter: blur(5px);
-  filter: blur(5px);
+  -moz-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -ms-filter: blur(0px);
+  -o-filter: blur(0px);
+  filter: blur(0px);
 }
 
 .achievments_all {
@@ -1431,6 +1426,8 @@ section.popup:before {
   width: 100%;
   height: 40px;
   padding: 64px 48px 64px;
+  top: 0;
+  left: 0;
 }
 #header img {
   float: left;

@@ -7,14 +7,13 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var _ = require('lodash');
 var haml = require('gulp-ruby-haml');
-var compass = require('gulp-compass');
 var stringify = require('stringify');
 var config = require('./config.json');
 var babel = require('babelify');
 
 gulp.task('clean', function(cb) {
   del([
-    './dist1'
+    '/build'
   ], cb);
 });
 
@@ -36,11 +35,33 @@ gulp.task('haml', function () {
 
 gulp.task('sass', function() {
   gulp.src('./sass/**/*.sass')
-    .pipe(compass({
+    .pipe($.compass({
       css: 'css',
       sass: 'sass'
     }))
     .pipe(gulp.dest('./css'));
+});
+
+gulp.task('layout:sass', function() {
+  gulp.src('./layout/source/sass/general_all.sass')
+    .pipe($.compass({
+      css: './layout/css',
+      sass: './layout/source/sass'
+    }))
+    .pipe(gulp.dest('./layout/css'))
+    .pipe($.notify('sass : done'));
+});
+
+gulp.task('layout:haml', function () {
+  gulp.src('./layout/source/haml/**/*.haml')
+    .pipe(haml())
+    .pipe(gulp.dest('./layout'))
+    .pipe($.notify({ message: "haml : done.", onLast: true }));
+});
+
+gulp.task('layout:watch', function() {
+  gulp.watch(['./layout/source/haml/**/*.haml'], ['layout:haml']);
+  gulp.watch(['./layout/source/sass/*.sass'], ['layout:sass']);
 });
 
 function compile(watch) {
@@ -62,7 +83,7 @@ function compile(watch) {
       .pipe($.sourcemaps.init({ loadMaps: true }))
       .pipe($.sourcemaps.write('./'))
       .pipe(gulp.dest('./build'))
-      .pipe($.notify({ message:'scripts : done', onLast: true }));;
+      .pipe($.notify({ message:'scripts : done', onLast: true }));
   }
 
   if (watch) {
@@ -79,10 +100,12 @@ function watch() {
   return compile(true);
 };
 
-gulp.task('build', function() { return compile(); });
+gulp.task('build', function() { return compile(false); });
 gulp.task('watch', function() { return watch(); });
 
-gulp.task('default', ['html', 'watch', 'connect']);
+gulp.task('default', ['clean', 'html', 'watch', 'connect']);
+
+gulp.task('layout', ['layout:sass', 'layout:haml', 'layout:watch']);
 
 // var bundler = _.memoize(function(watch) {
 //   var options = {
