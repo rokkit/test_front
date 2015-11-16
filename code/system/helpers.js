@@ -74,7 +74,7 @@ var isFunction = function(functionToCheck) {
  * @param  {mixed} переменная для проверки на пустоту
  * @return {Boolean}
  */
-hasOwnProperty = Object.prototype.hasOwnProperty;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
 var isEmpty = function(obj) {
     var key;
     if (obj === null) {

@@ -19,6 +19,8 @@ export default Application.extend({
       'enter:route'        : this.onEnterRoute,
       'error:route'        : this.onErrorRoute
     });
+
+    window.Behaviors = {}
   },
 
   onBeforeEnterRoute() {
