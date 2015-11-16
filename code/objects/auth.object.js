@@ -1,3 +1,12 @@
+/**
+ * Using in your view:
+ * import ObjectAuth "objects/auth.object"
+ * -----
+ * initialize()		{ this.ObjectAuth = new ObjectAuth(); 	}
+ * doSign ( event ) { this.ObjectAuth.doSign( event  );		} ,
+ * doLogin( event ) { this.ObjectAuth.doLogin( event ); 	}
+ */
+
 'use strict';
 
 import Marionette from 'backbone.marionette';
