@@ -10,27 +10,7 @@ import Collection 	from 'collections/lounges'		 ;
 import Template		from 'main/main.hbs'			 ;
 import ItemTemplate	from 'main/main_itemview.hbs'	 ;
 
-let data = [{
-	title	: 'blazon'				,
-	blazon 	: 'public/images/blazons/gerb_spb_blazon.svg' ,
-	city	: 'Тюмень'				,
-	color 	: '#7DBE6D'
-},{
-	title	: 'Академия' 			 ,
-	blazon 	: 'public/images/blazons/gerb_spb_academy.svg' ,
-	city	: 'Санкт-Петербург' 	 ,
-	color 	: '#5F4D9B'
-},{
-	title	: 'Либерти'				 ,
-	blazon 	: 'public/images/blazons/gerb_spb_liberty.svg' ,
-	city	: 'Санкт-Петербург' 	 ,
-	color 	: '#65B6DC'
-},{
-	title	: 'unity hall' 				 ,
-	blazon 	: 'public/images/blazons/gerb_kazan_unityhall.svg' ,
-	city	: 'Казань' 					 ,
-	color 	: '#E76144'
-}];
+let offline_data = [{"id":4,"title":"Unity Hall","city_id":4,"color":"#da6f50","blazon":"public/images/blazons/gerb_kazan_unityhall.svg"},{"id":6,"title":"Облака","city_id":3,"color":"#64B6DC","blazon":"public/images/blazons/gerb_spb_liberty.svg"},{"id":5,"title":"Резерв","city_id":2,"color":"#7AC36C","blazon":"public/images/blazons/gerb_spb_blazon.svg"},{"id":1,"title":"Академия","city_id":5,"color":"#7946D6","blazon":"public/images/blazons/gerb_spb_academy.svg"},{"id":2,"title":"Либерти","city_id":1,"color":"#6CB9DD","blazon":"public/images/blazons/gerb_spb_liberty.svg"}]
 
 let childView 	= Marionette.ItemView.extend({
 	tagName 	: 'article'		,
@@ -50,11 +30,10 @@ export default Marionette.CompositeView.extend({
 	childViewContainer 	: '#lounges-body'	 	 ,
 
 	initialize() {
-		this.collection = new Collection( data );
-		window.col = this.collection;
-		window.tU = _;
-		console.log( this.template );
-		//this.collection.fetch();
+		this.collection = new Collection();
+		window.col 		= this.collection;
+		console.log('Init main js');
+		this.collection.fetch();
 		return this.on( 'render' , this.afterRender , this );
 	}  ,
 	
@@ -71,7 +50,7 @@ export default Marionette.CompositeView.extend({
 				var backCard	= el.querySelector( '.backside'  );
 				var frontCard 	= el.querySelector( '.frontside' );
 				var tl 			= new TimelineMax( { paused : true , onComplete() { return app.appRouter.navigate('about' , { trigger : true }); } });
-				
+
 				TweenMax.set( backCard , { rotationY : -180 } 	 );
 				tl.set( el , { zIndex : 200 } );
 				el.animation = tl;
