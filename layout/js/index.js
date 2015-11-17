@@ -11,7 +11,7 @@ $(function() {
   
    //Клик на кнопку регистрация в хедере
   $('#signup_header_btn').on('click', function() {
-    animateForm("signup_form")
+    animateSignup()
   });
 
      //Клик на кнопку меню в хедере
@@ -116,12 +116,29 @@ function animateForm(el) {
   var html_body = document.getElementById("html_body")
   var color_overlay = document.getElementById("color_overlay")
   var main = document.getElementById('main_content')
+  var wrapper =document.getElementById('wrapper_login')
 
   TweenLite.to(form, 1, {left:"160px"})
   TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   TweenLite.to(html_body, 1, {overflow:"hidden"})
+  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
 }
+
+function animateSignup() {
+  var form = document.getElementById('signup_form')
+  var html_body = document.getElementById("html_body")
+  var color_overlay = document.getElementById("color_overlay")
+  var main = document.getElementById('main_content')
+  var wrapper =document.getElementById('wrapper_signup')
+
+  TweenLite.to(form, 1, {left:"160px"})
+  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+  TweenLite.to(html_body, 1, {overflow:"hidden"})
+  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
+}
+
 
 function animateMenu() {
   var left_part = document.getElementById("menu_left_part")
@@ -129,12 +146,14 @@ function animateMenu() {
   var html_body = document.getElementById("html_body")
   var color_overlay = document.getElementById("color_overlay")
   var main = document.getElementById('main_content')
+  var wrapper =document.getElementById('wrapper_menu')
 
   TweenLite.to(left_part, 0.5, {left:"0"})
   TweenLite.to(right_part, 0.5, {right:"0"})
   TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   TweenLite.to(html_body, 1, {overflow:"hidden"})
+  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
 }
 
 function animateVertical_popup(el) {
@@ -147,6 +166,7 @@ function animateVertical_popup(el) {
   TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   TweenLite.to(html_body, 1, {overflow:"hidden"})
+  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
 }
 
 function animateOverall_popup(el) {
@@ -159,4 +179,5 @@ function animateOverall_popup(el) {
   TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
   TweenLite.to(html_body, 0.5, {overflow:"hidden"})
+  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
 }

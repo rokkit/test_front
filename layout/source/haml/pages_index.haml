@@ -12,7 +12,7 @@
 		%script{ :src => "./js/index.js" }
 	%body#html_body
 		-# Логин
-		.wrapper.center-center
+		.wrapper.center-center{:id => 'wrapper_login'}
 			%section.popup{:id => 'login_form'}
 				%header
 					%h2 Войти
@@ -26,19 +26,18 @@
 				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
 
 		-# Регистрация
-		.wrapper.center-center
+		.wrapper.center-center{:id => 'wrapper_signup'}
 			%section.popup{:id => 'signup_form'}
 				%header
 					%h2 Регистрация
-					%p.h2_subtitle
-						Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.
+					%p.h2_subtitle Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.
 				%form{:action => "", :method => "get"}
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
 					%input{:type => "text", :name => "password", :placeholder => "ФИО"}
 					%input{:type => "text", :name => "password", :placeholder => "Пароль"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Войти
 		-# Меню
-		.wrapper.center-center
+		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu
 				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
 				

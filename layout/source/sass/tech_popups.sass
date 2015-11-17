@@ -1,6 +1,5 @@
-//
 // Горизонтальный попап не на всю ширину
-//
+//////////////////////////////////////////
 section.popup
     position: relative
     // left: 160px - Изначальное значение
@@ -14,11 +13,10 @@ section.popup
     +filter-gradient(#151719, #424756, horizontal)
     +background-image(linear-gradient(left bottom,  #151719 0%,#424756 100%))
     
-    z-index: 200    
+    z-index: 300    
 
     a
         z-index: 250
-
 
 section.popup:after
     content: ''
@@ -38,9 +36,8 @@ section.popup:before
     height: calc(100% - 32px)
     box-shadow: inset rgba(255, 255, 255, .1) 0 0 2px
 
-//
 // Вертикальный попап на всю ширину
-//
+//////////////////////////////////////////
 section.popup_vertical
     position: relative
     // top: 80px - Original position
@@ -54,7 +51,7 @@ section.popup_vertical
     +filter-gradient(#151719, #424756, horizontal)
     +background-image(linear-gradient(left bottom,  #151719 0%,#424756 100%))
 
-    z-index: 200
+    z-index: 250
 
     .popup_vertical_symbol
         display: block
@@ -110,7 +107,7 @@ section.popup_horizontal
     +filter-gradient(#151719, #424756, horizontal)
     +background-image(linear-gradient(left bottom,  #151719 0%,#424756 100%))
 
-    z-index: 200
+    z-index: 250
 
     .popup_horizontal_header
         width: 100%
@@ -132,7 +129,7 @@ section.popup_middle
     +filter-gradient(#151719, #424756, horizontal)
     +background-image(linear-gradient(left bottom,  #151719 0%,#424756 100%))
     
-    z-index: 200    
+    z-index: 250    
     text-align: center
 
 section.popup_middle:before
@@ -157,7 +154,7 @@ section.popup_overall
 
     padding: 80px
 
-    z-index: 200    
+    z-index: 250    
 
     text-align: center
 
@@ -179,7 +176,8 @@ div.wrapper
     width: 100%
     height: 100%
     overflow: hidden
-    z-index: 300
+    pointer-events: none
+    z-index: 200
 
 
 div.wrapper_2
@@ -187,7 +185,8 @@ div.wrapper_2
     width: 100%
     height: 100%
     overflow: hidden
-    z-index: 300
+    pointer-events: none
+    z-index: 200
 
 
 .center-center

@@ -87,6 +87,7 @@ input {
   text-align: left;
   line-height: 24px;
   font-size: 14px;
+  z-index: 400;
 }
 
 h1 {
@@ -142,6 +143,7 @@ button {
   font-size: 14px;
   color: #fff;
   border: none;
+  z-index: 400;
 }
 
 button:after {
@@ -1200,7 +1202,7 @@ section.popup {
   background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
-  z-index: 200;
+  z-index: 300;
 }
 section.popup a {
   z-index: 250;
@@ -1240,7 +1242,7 @@ section.popup_vertical {
   background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
-  z-index: 200;
+  z-index: 250;
 }
 section.popup_vertical .popup_vertical_symbol {
   display: block;
@@ -1298,7 +1300,7 @@ section.popup_horizontal {
   background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
-  z-index: 200;
+  z-index: 250;
 }
 section.popup_horizontal .popup_horizontal_header {
   width: 100%;
@@ -1321,7 +1323,7 @@ section.popup_middle {
   background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
-  z-index: 200;
+  z-index: 250;
   text-align: center;
 }
 
@@ -1341,7 +1343,7 @@ section.popup_overall {
   height: auto;
   width: 100%;
   padding: 80px;
-  z-index: 200;
+  z-index: 250;
   text-align: center;
 }
 section.popup_overall img {
@@ -1361,7 +1363,8 @@ div.wrapper {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 300;
+  pointer-events: none;
+  z-index: 200;
 }
 
 div.wrapper_2 {
@@ -1369,7 +1372,8 @@ div.wrapper_2 {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 300;
+  pointer-events: none;
+  z-index: 200;
 }
 
 .center-center {
