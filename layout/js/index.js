@@ -1,5 +1,5 @@
 $(function() {
-  window.hostUrl = 'http://192.168.1.39:82'
+  window.hostUrl = 'http://localhost:82'
 
   // Анимациии в хидере
   //
