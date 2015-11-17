@@ -1,41 +1,39 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
 	%head
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
-
-		%title Index fale
-		%link{ :rel=>"stylesheet" , :href=>"src/css/reset.css" }
-		%link{ :rel=>"stylesheet" , :href=>"src/css/ukpace.css" }
-		%link{ :rel=>"stylesheet" , :href=>"src/css/style.css" }
-		%link{ :rel=>"stylesheet" , :href=>"src/css/lounges.css" }
-		%link{ :rel=>"stylesheet" , :href=>"src/css/fonts.css" }
-		%link{ :rel=>"stylesheet" , :href=>"src/css/about.css" }
-		%link{ :rel=>"stylesheet" , :href=>"bower_components/bootstrap-grid-only/css/grid12.css" }
-		%link{ :rel=>"stylesheet" , :href=>"bower_components/font-awesome/css/font-awesome.min.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/slider_style.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%script{ :src => "./js/jquery-2.1.4.min.js" }
+		%script{ :src => "./js/jquery.gsap.min.js" }
+		%script{ :src => "./js/TweenLite.min.js" }
+		%script{ :src => "./js/TweenMax.min.js" }
+		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/index.js" }
+		%script{ :src => "./js/dashboard.js" }
+		%script{ :src => "./js/slider_main.js" }
 	%body
 		%main
 			%section#liberty_block1
-				-# Call to action
-				%header
-					%img{ :src=>"src/images/logo.svg" , :alt=>"Уникальные Кальянные" , :height=>"40px" }
+				%header#header
+					%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 					%nav
-						%a Войти
-						%a Зарегистрироваться
-						%img{ :src=>"src/images/menu.svg" , :height=>"40px" }
-
-				%section.informationlib
-					%h1.orange-text ЛИБЕРТИ
-					%h4 Sed et ceteri codices originale sit unum*
+						%a{:id=>"login_header_btn"} Войти
+						%a{:id=>"signup_header_btn"} Зарегистрироваться
+						%img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
+				%hr
+				%section.headerlib
+					%h1 Либерти
+					%p.h2_subtitle Sed et ceteri codices originale sit unum*
+				%section.information_lib
 					%figure
-						%img{ :src=>"src/images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
-						%figcapation
-							Санкт-Петербург,
-							%br
-							улица Маяковского 27
+						%img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
+						%figcapation Санкт-Петербург,<br>улица Маяковского 27
 					%figure
-						%img{ :src=>"src/images/phone.svg" , :alt=>"Город" , :height=>"16px" }
+						%img{ :src=>"./images/phone.svg" , :alt=>"Город" , :height=>"16px" }
 						%figcapation +7 (812) 922-71-99
 					%figure
-						%img{ :src=>"src/images/clock.svg" , :alt=>"Город" , :height=>"16px" }
+						%img{ :src=>"./images/clock.svg" , :alt=>"Город" , :height=>"16px" }
 						%figcapation
 							Пн. - Пт.: с 17:00 до последнего гостя
 							%br
@@ -44,74 +42,57 @@
 					%button Забронировать столик	
 					%button.button-dark Связаться с нами
 				%footer
-					%p Оригинал один - остальное копии
-			
+					%p *Один - остальное копии
+				%img#liberty_herb{ :src=>"./images/gerb_final.svg"}
 			%section#liberty_block2
 				%h4 Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю
-				%h5 Почему же Вам стоит выбрать именно эту кальянную Петербурга? Во-первых, привлекает наша особенная атмосфера. Мы начинали как место только "для своих". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу. Почему же Вам стоит выбрать именно эту кальянную Петербурга? Во-первых, привлекает наша особенная атмосфера.
+				%p Почему же Вам стоит выбрать именно эту кальянную Петербурга? Во-первых, привлекает наша особенная атмосфера. Мы начинали как место только "для своих". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу. Почему же Вам стоит выбрать именно эту кальянную Петербурга? Во-первых, привлекает наша особенная атмосфера.
 				
-			%section#liberty_block3.cd-hero
-				%ul.cd-hero-slider.autoplay				
-					%li.selected
-						%img.img-slider{ :src=>"src/images/slider/1.jpg" }
-					%li
-						%img.img-slider{ :src=>"src/images/slider/2.jpg" }
-					%li
-						%img.img-slider{ :src=>"src/images/slider/3.jpg" }
-					%li
-						%img.img-slider{ :src=>"src/images/slider/4.jpg" }
-					%li
-						%img.img-slider{ :src=>"src/images/slider/5.jpg" }
-
-
+			%section#liberty_block3
+				%section.cd-hero
+					%ul.cd-hero-slider.autoplay
+						%li.selected
+							%img.img-slider{:src => "./images/slider/1.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/2.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/3.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/4.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/5.jpg"}
 					.cd-slider-nav
 						%nav
 							%ul
 								%li.selected
-									%img.img-nav{ :src=>"src/images/slider/1.jpg" }
+									%img.img-nav{:src => "./images/slider/1.jpg"}
 								%li
-									%img.img-nav{ :src=>"src/images/slider/2.jpg" }
+									%img.img-nav{:src => "./images/slider/2.jpg"}
 								%li
-									%img.img-nav{ :src=>"src/images/slider/3.jpg" }
+									%img.img-nav{:src => "./images/slider/3.jpg"}
 								%li
-									%img.img-nav{ :src=>"src/images/slider/4.jpg" }
+									%img.img-nav{:src => "./images/slider/4.jpg"}
 								%li
-									%img.img-nav{ :src=>"src/images/slider/5.jpg" }
+									%img.img-nav{:src => "./images/slider/5.jpg"}
 
-				-# %article 1
-				-# %article 2
-				-# %article 3
-				-# %article 4
-				-# %article 5
-				-# #nav
-				-# 	#one 1
-				-# 	#two 2
-				-# 	#three 3
-				-# 	#fourth 4
-				-# 	#five 5
-
-			%section#liberty_block_3-5
-				%h2 Кальянные мастера
-				%h5 
-					Мы ставим своей целью не только подавать лучшие кальяны, но и помогать людям находить новые полезные знакомства. Тут вы можете выбраь место, дату, время 
-					%br
-					и выбрать одного или нескольких человек, с кем хотите встретиться.
-				%br
-				%img{ :src=>"src/images/shisha.svg" , :alt=>"Город" , :height=>"396px" }
-				%img{ :src=>"src/images/shisha.svg" , :alt=>"Город" , :height=>"396px" }
-				%img{ :src=>"src/images/shisha.svg" , :alt=>"Город" , :height=>"396px" }
-			
 			%section#liberty_block4
+				%h4 Кальянные мастера
+				%p Мы ставим своей целью не только подавать лучшие кальяны, но и помогать людям находить новые полезные знакомства. Тут вы можете выбраь место, дату, время и выбрать одного или нескольких человек, с кем хотите встретиться.
+				%br
+				%img{ :src=>"./images/shisha.svg" , :alt=>"Город" , :height=>"396px" }
+				%img{ :src=>"./images/shisha.svg" , :alt=>"Город" , :height=>"396px" }
+				%img{ :src=>"./images/shisha.svg" , :alt=>"Город" , :height=>"396px" }
+			
+			%section#liberty_block5
 				%section#map_wrapper 
 					%h3 Санкт-Петербург
 					%h5 Центральный
 
 					%p В первый же день было принято решение отказаться от стандартного позиционирования оплата стала свободной на усмотрение гостя или гостей.
 
-					%img{ :src=>"src/images/location.svg" , :alt=>"Город" , :height=>"10px" }
 					%small Россия, Санкт-Петербург, улица Маяковского 27
 
-			%section#liberty_block5
+			%section#liberty_block6
 				%h2 Контакты
 				%h5 «Либерти» находится в самом центре Санкт-Петербурга!
 
@@ -126,13 +107,6 @@
 					Понедельник - Пятница .................... с 17:00 и до последнего гостя
 				%p
 					Cуббота - Воскресенье .................... с 16:00 и до последнего гостя
-
-%script(type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
-%script(type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js")
-%script(type="text/javascript" src="bower_components/requirejs/require.js")
-%script(type="text/javascript" src="src/js/app/config.js")
-%script(type="text/javascript" src="src/js/app/start.js")
-%script(type="text/javascript" src="src/js/app/slider.js")
 
 
 
