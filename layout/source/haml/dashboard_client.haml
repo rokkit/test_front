@@ -10,6 +10,7 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/index.js" }
+		%script{ :src => "./js/dashboard.js" }
 	%body#html_body
 		-# Достижения
 		.wrapper_2
@@ -200,7 +201,7 @@
 						%ficapation
 							%h6 Маскировка
 							%p 21.09.15
-		-# Навыки					
+		-# Навыки
 		.wrapper_2
 			%section.popup_vertical{:id => 'all_talents'}
 				.popup_vertical_symbol
@@ -216,10 +217,10 @@
 				%h2 Летняя ночь
 				%h4 21.09.15
 				%p Проработайте всю ночь летом
-							
+
 		-# Color Overlay
 		#color_overlay.color_overlay
-		
+
 		%section.dashboard{:id => 'main_content'}
 			%header#header
 				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
@@ -233,7 +234,7 @@
 				%p Санкт-Петербург, Россия
 				%button.button-dark#n_o_a Забронировать столик
 				%button.button-dark Пригласить на встречу
-			%section.progress_bar	
+			%section.progress_bar
 				%p 4525 очков для следующиего уровня
 				.progress_bar_bg
 					.progress

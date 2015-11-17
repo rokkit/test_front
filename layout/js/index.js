@@ -1,6 +1,6 @@
 $(function() {
   window.hostUrl = 'http://192.168.1.39:82'
-  
+
   // Анимациии в хидере
   //
 
@@ -8,7 +8,7 @@ $(function() {
   $('#login_header_btn').on('click', function() {
     animateForm("login_form")
   });
-  
+
    //Клик на кнопку регистрация в хедере
   $('#signup_header_btn').on('click', function() {
     animateSignup()
@@ -18,7 +18,7 @@ $(function() {
   $('#menu_header_btn').on('click', function() {
     animateMenu()
   });
- 
+
   $('#recover_btn').on('click', function() {
     animateForm('recover_form')
   });
@@ -55,9 +55,9 @@ $(function() {
   //Регистрация
   $('#signup_form').on('submit', function(e) {
     e.preventDefault()
-    var phone = $('#signin_form input[name="phone"]').val().replace('+', '')
-    var password = $('#signin_form input[name="password"]').val()
-    var name = $('#signin_form input[name="name"]').val()
+    var phone = $('#signup_form input[name="phone"]').val().replace('+', '')
+    var password = $('#signup_form input[name="password"]').val()
+    var name = $('#signup_form input[name="name"]').val()
     $.post(hostUrl + '/api/v1/auth/registrations.json', {
       phone: phone,
       name: name,
@@ -66,15 +66,15 @@ $(function() {
       if(!resp['errors']) {
           doLogin(phone, password)
       } else {
-        $('#signin_form input').removeClass('wrong')
+        $('#signup_form input').removeClass('wrong')
         if(resp['errors']['name']) {
-          $('#signin_form input[name="name"]').addClass('wrong')
+          $('#signup_form input[name="name"]').addClass('wrong')
         }
         if(resp['errors']['phone']) {
-          $('#signin_form input[name="phone"]').addClass('wrong')
+          $('#signup_form input[name="phone"]').addClass('wrong')
         }
         if(resp['errors']['password']) {
-          $('#signin_form input[name="password"]').addClass('wrong')
+          $('#signup_form input[name="password"]').addClass('wrong')
         }
       }
     });
@@ -88,8 +88,8 @@ $(function() {
 
 
 function successAuth(resp) {
-  window.currentUser = resp
-  document.location.href = './dashboard.html'
+  localStorage.setItem('currentUser', JSON.stringify(resp))
+  document.location.href = './dashboard_client.html'
 }
 
 function doLogin(phone, password) {

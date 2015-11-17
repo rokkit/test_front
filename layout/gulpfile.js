@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var haml = require('gulp-ruby-haml');
 var compass = require('gulp-compass');
+var connect = require('gulp-connect')
 
 gulp.task('haml', function () {
   gulp.src('./haml/**/*.haml')
@@ -22,6 +23,10 @@ gulp.task('watch', function() {
   gulp.watch(['./sass/*.sass'], ['sass']);
 });
 
+gulp.task('connect', function() {
+  connect.server();
+});
+
 gulp.task('build', ['haml', 'sass']);
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build', 'connect','watch']);
