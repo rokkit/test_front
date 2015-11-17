@@ -205,11 +205,16 @@ function animateOverall_popup(el) {
   var html_body = document.getElementById("html_body")
   var color_overlay = document.getElementById("color_overlay")
   var main = document.getElementById('main_content')
-
-  TweenLite.to(achivka, 0.5, {top:"0"})
-  TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
-  TweenLite.to(html_body, 0.5, {overflow:"hidden"})
+  var tl = null
+  var tw1 = TweenLite.to(achivka, 0.5, {top:"0", onComplete: function() {
+    $('body').on('click', function(e) {
+      tl.reverse()
+    });
+  }})
+  var tw2 = TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  var tw3 = TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
+  var tw4 = TweenLite.to(html_body, 0.5, {overflow:"hidden"})
+  tl = new TimelineLite().add([tw1,tw2,tw3,tw4], 'sequence');
 }
 
 // PRELOADER
