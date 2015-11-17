@@ -106,9 +106,15 @@ section.user_achievments
 
             z-index: 300
 
-        .number_of:active
+            +transition(all, 250ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+        .number_of:hover
             background:  #EBB22F
             color: white
+        .number_of:active
+            border: 1px solid rgba(235,178,47,.25)
+            background: none
+
 
     section.wrapper_for_ach
         position: relative

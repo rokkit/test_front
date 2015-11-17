@@ -79,6 +79,8 @@ input {
   position: relative;
   height: 48px;
   width: 244px;
+  font-size: 14px;
+  font-family: Open Sans Light;
   padding: 0 16px 0 16px;
   border: 0;
   color: white;
@@ -88,6 +90,67 @@ input {
   line-height: 24px;
   font-size: 14px;
   z-index: 400;
+  -moz-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+input[type="text"]:-moz-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+input[type="text"]::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+input[type="text"]:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+input[type="text"]::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+input[type="password"]:-moz-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+input[type="password"]::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+input[type="password"]:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+input[type="password"]::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+input.wrong {
+  box-shadow: inset rgba(255, 0, 0, 0.1) 0 0 0 1px;
+  background: rgba(255, 0, 0, 0.05);
+  color: red;
+}
+input.wrong:-moz-placeholder {
+  color: red;
+}
+input.wrong::-moz-placeholder {
+  color: red;
+}
+input.wrong:-ms-input-placeholder {
+  color: red;
+}
+input.wrong::-webkit-input-placeholder {
+  color: red;
+}
+
+input:focus {
+  -moz-transition: box-shadow, 1000ms, easy-in;
+  -o-transition: box-shadow, 1000ms, easy-in;
+  -webkit-transition: box-shadow, 1000ms, easy-in;
+  transition: box-shadow, 1000ms, easy-in;
+  box-shadow: inset rgba(235, 178, 47, 0.5) 0 0 2px 2px;
+  background: rgba(235, 178, 47, 0.05);
+}
+
+textarea, input {
+  outline: none;
 }
 
 h1 {
@@ -113,6 +176,18 @@ input {
 a {
   font: normal normal 300 18px Bebas Neue Book;
   letter-spacing: 2px;
+  color: white;
+  -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+a:hover {
+  color: #EBB22F;
+}
+
+a:active {
   color: white;
 }
 
@@ -158,7 +233,7 @@ button.button-dark {
   position: relative;
   height: 48px;
   width: 256px;
-  border: 1px solid gray;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: none;
   padding: 0 16px 0 16px;
   line-height: 24px;
@@ -187,28 +262,17 @@ button:hover {
   cursor: pointer;
 }
 
-input[type=text], textarea {
-  -moz-transition: all 0.75s linear;
-  -o-transition: all 0.75s linear;
-  -webkit-transition: all 0.75s linear;
-  transition: all 0.75s linear;
-}
-
-input[type=text]:focus, textarea:focus {
-  box-shadow: 0 0 5px #51cbee;
-}
-
 @font-face {
   font-family: "Bebas Neue Book";
-  src: url('../../fonts/bebasneue_book-webfont.woff?1447741633') format('woff'), url('../../fonts/bebasneue_book-webfont.svg?1447741633') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf?1447741633') format('truetype');
+  src: url('../../fonts/bebasneue_book-webfont.woff?1447420370') format('woff'), url('../../fonts/bebasneue_book-webfont.svg?1447420370') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Bebas Neue Regular";
-  src: url('../../fonts/bebasneue_regular-webfont.woff?1447741633') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg?1447741633') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf?1447741633') format('truetype');
+  src: url('../../fonts/bebasneue_regular-webfont.woff?1447420370') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg?1447420370') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Lora";
-  src: url('../../fonts/lora-regular-webfont.ttf?1447741633') format('truetype'), url('../../fonts/lora-regular-webfont.woff?1447741633') format('woff'), url('../../fonts/lora-regular-webfont.svg?1447741633') format('svg');
+  src: url('../../fonts/lora-regular-webfont.ttf?1447420370') format('truetype'), url('../../fonts/lora-regular-webfont.woff?1447420370') format('woff'), url('../../fonts/lora-regular-webfont.svg?1447420370') format('svg');
 }
 @font-face {
   font-family: "Open Sans Bold";
@@ -216,11 +280,11 @@ input[type=text]:focus, textarea:focus {
 }
 @font-face {
   font-family: "Open Sans Regular";
-  src: url('../../fonts/opensans-regular-webfont.woff?1447741633') format('woff'), url('../../fonts/opensans-regular-webfont.svg?1447741633') format('svg'), url('../../fonts/opensans-regular-webfont.ttf?1447741633') format('truetype');
+  src: url('../../fonts/opensans-regular-webfont.woff?1447420370') format('woff'), url('../../fonts/opensans-regular-webfont.svg?1447420370') format('svg'), url('../../fonts/opensans-regular-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Light";
-  src: url('../../fonts/opensans-light-webfont.woff?1447741633') format('woff'), url('../../fonts/opensans-light-webfont.svg?1447741633') format('svg'), url('../../fonts/opensans-light-webfont.ttf?1447741633') format('truetype');
+  src: url('../../fonts/opensans-light-webfont.woff?1447420370') format('woff'), url('../../fonts/opensans-light-webfont.svg?1447420370') format('svg'), url('../../fonts/opensans-light-webfont.ttf?1447420370') format('truetype');
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
@@ -926,10 +990,18 @@ section.user_achievments header .number_of {
   color: #EBB22F;
   margin-left: 16px;
   z-index: 300;
+  -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
 }
-section.user_achievments header .number_of:active {
+section.user_achievments header .number_of:hover {
   background: #EBB22F;
   color: white;
+}
+section.user_achievments header .number_of:active {
+  border: 1px solid rgba(235, 178, 47, 0.25);
+  background: none;
 }
 section.user_achievments section.wrapper_for_ach {
   position: relative;
@@ -986,6 +1058,10 @@ section.wrapper_for_ach figure {
   margin-bottom: 32px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 300;
+  -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
 }
 section.wrapper_for_ach figure img.achievments_icon {
   display: inline-block;
@@ -1005,6 +1081,10 @@ section.wrapper_for_ach figure p {
 }
 section.wrapper_for_ach figure:hover {
   background: rgba(255, 255, 255, 0.05);
+}
+section.wrapper_for_ach figure:hover img.achievments_icon {
+  height: 160px;
+  width: 160px;
 }
 
 section.edit_profile_list form.edit_profile_form header {
