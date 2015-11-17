@@ -1,0 +1,25 @@
+
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+	%head
+		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
+		%link{ :rel=>"stylesheet" , :href=>"../layout/css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"../layout/css/general_all.css" }
+	%body
+		-# Form
+		.wrapper.center-center
+			%section.popup
+				%header
+					%h2 Забронировать столик
+					%p.h2_subtitle 
+						Выберите столик и время для желаемого бронированияю
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "input", :placeholder => "Кальянная"}
+					%input{:type => "text", :name => "input", :placeholder => "Столик"}
+					%input{:type => "text", :name => "input", :placeholder => "Дата"}
+					%input{:type => "text", :name => "input", :placeholder => "Время"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
+		-# Color Overlay
+		.color_overlay.color_overlay_active
+		-# Main conent
+		%main.under_popup.main_content_active
+			%img.imgfortest{:src=>"./images/test_for_p.png"}

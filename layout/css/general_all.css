@@ -198,15 +198,15 @@ input[type=text]:focus, textarea:focus {
 
 @font-face {
   font-family: "Bebas Neue Book";
-  src: url('../../fonts/bebasneue_book-webfont.woff') format('woff'), url('../../fonts/bebasneue_book-webfont.svg') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf') format('truetype');
+  src: url('../../fonts/bebasneue_book-webfont.woff?1447420370') format('woff'), url('../../fonts/bebasneue_book-webfont.svg?1447420370') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Bebas Neue Regular";
-  src: url('../../fonts/bebasneue_regular-webfont.woff') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf') format('truetype');
+  src: url('../../fonts/bebasneue_regular-webfont.woff?1447420370') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg?1447420370') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Lora";
-  src: url('../../fonts/lora-regular-webfont.ttf') format('truetype'), url('../../fonts/lora-regular-webfont.woff') format('woff'), url('../../fonts/lora-regular-webfont.svg') format('svg');
+  src: url('../../fonts/lora-regular-webfont.ttf?1447420370') format('truetype'), url('../../fonts/lora-regular-webfont.woff?1447420370') format('woff'), url('../../fonts/lora-regular-webfont.svg?1447420370') format('svg');
 }
 @font-face {
   font-family: "Open Sans Bold";
@@ -214,11 +214,11 @@ input[type=text]:focus, textarea:focus {
 }
 @font-face {
   font-family: "Open Sans Regular";
-  src: url('../../fonts/opensans-regular-webfont.woff') format('woff'), url('../../fonts/opensans-regular-webfont.svg') format('svg'), url('../../fonts/opensans-regular-webfont.ttf') format('truetype');
+  src: url('../../fonts/opensans-regular-webfont.woff?1447420370') format('woff'), url('../../fonts/opensans-regular-webfont.svg?1447420370') format('svg'), url('../../fonts/opensans-regular-webfont.ttf?1447420370') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Light";
-  src: url('../../fonts/opensans-light-webfont.woff') format('woff'), url('../../fonts/opensans-light-webfont.svg') format('svg'), url('../../fonts/opensans-light-webfont.ttf') format('truetype');
+  src: url('../../fonts/opensans-light-webfont.woff?1447420370') format('woff'), url('../../fonts/opensans-light-webfont.svg?1447420370') format('svg'), url('../../fonts/opensans-light-webfont.ttf?1447420370') format('truetype');
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
@@ -835,6 +835,26 @@ section.wrapper_for_ach figure p {
   color: rgba(255, 255, 255, 0.5);
 }
 
+section.popup_overall {
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 80px;
+  z-index: 200;
+  text-align: center;
+}
+section.popup_overall img {
+  width: 256px;
+  height: 256px;
+  margin-bottom: 32px;
+}
+section.popup_overall h4 {
+  margin-bottom: 48px;
+}
+section.popup_overall p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 section.edit_profile_list form.edit_profile_form header {
   height: auto;
   margin: 0;
@@ -895,14 +915,15 @@ section.left_menu p:first-of-type {
   margin-bottom: 48px;
 }
 section.left_menu h5 {
+  font-family: Lora;
+  letter-spacing: 0;
   margin-bottom: 4px;
 }
 section.left_menu p {
+  font: 12px;
+  font-family: Open Sans Regular;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 24px;
-}
-section.left_menu a {
-  color: #ECB72E;
-  letter-spacing: 0;
 }
 section.left_menu footer {
   margin-top: 64px;
@@ -935,19 +956,17 @@ section.right_menu {
 }
 section.right_menu img {
   height: 16px;
-  margin-bottom: 64px;
-}
-section.right_menu h3 {
-  margin-bottom: 8px;
+  margin-bottom: 56px;
 }
 section.right_menu p {
-  margin-bottom: 48px;
+  font-family: Lora;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.5);
 }
 section.right_menu button {
-  margin-top: 16px;
-  display: inline-block;
-  width: 160px;
-  margin-right: 16px;
+  display: block;
+  position: absolute;
+  bottom: 48px;
 }
 section.right_menu a {
   display: inline-block;
@@ -1300,6 +1319,33 @@ section.popup_horizontal .popup_horizontal_header h5 {
   float: right;
 }
 
+section.popup_middle {
+  position: relative;
+  height: auto;
+  width: 62%;
+  padding: 80px;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF151719', endColorstr='#FF424756');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjEuMCIgeDI9IjEuMCIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE1MTcxOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQyNDc1NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0% 100%, 100% 0%, color-stop(0%, #151719), color-stop(100%, #424756));
+  background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
+  background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
+  background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
+  z-index: 200;
+  text-align: center;
+}
+
+section.popup_middle:before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 2px;
+}
+
 div.wrapper {
   position: absolute;
   width: 100%;
@@ -1311,7 +1357,7 @@ div.wrapper_2 {
   position: absolute;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  z-index: 200;
 }
 
 .center-center {
@@ -1319,6 +1365,15 @@ div.wrapper_2 {
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+}
+
+.h_v_center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .color_overlay {
