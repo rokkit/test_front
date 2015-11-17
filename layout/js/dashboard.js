@@ -1,6 +1,6 @@
 $(function() {
   //Работа с сервером
-  window.hostUrl = 'http://localhost:82'
+  window.hostUrl = 'http://418470cd.ngrok.com'
 	var currentUser = JSON.parse(localStorage.getItem('currentUser'))
   		if (currentUser) {
       		$('section.username h1').text(currentUser.name)

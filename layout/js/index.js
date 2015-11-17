@@ -1,5 +1,5 @@
 $(function() {
-  window.hostUrl = 'http://localhost:82'
+  window.hostUrl = 'http://418470cd.ngrok.com'
 
   // Анимациии в хидере
   //
