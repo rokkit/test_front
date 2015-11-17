@@ -23,6 +23,8 @@ $(function() {
   	$('#reserv_succes_form').submit(function(e){
   		var form = document.getElementById('reserv_succes_form');
   		TweenLite.to(form, 1, {right:"-1260px"});
+  		TweenLite.to(color_overlay, 1, {opacity:"0",});
+  		TweenLite.to(main_content, 1, {filter:"blur(0px)", "-webkit-filter":"blur(0px)", transform:"scale(1, 1)"});
   		e.preventDefault();
   	});
 

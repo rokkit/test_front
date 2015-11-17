@@ -228,10 +228,5 @@ $(function() {
 //     })
 //   });
 // });
-$(function() {
-  var scene = document.getElementById('liberty_block1');
-  var parallax = new Parallax(scene);
-})
-
 
 // TweenMax.staggerFrom(".stagger_gsap", 2, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.2);
