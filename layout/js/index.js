@@ -47,11 +47,13 @@ $(function() {
 
   // Открытие всех навыков
   $('#dashboard_talents_btn').on('click', function() {
-    console.log('ss')
+
     animateVertical_popup('all_talents')
   });
   // Открытие достижения
   $(document).on('click', '#achievements figure',function() {
+    var achiv = $(this)
+    $('#achivka h2').text(achiv.find('h6').text())
     animateOverall_popup('achivka')
   });
 
