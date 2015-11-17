@@ -12,6 +12,44 @@
     <script src='./js/dashboard.js'></script>
   </head>
   <body id='html_body'>
+    <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'></html>
+  </body>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type'>
+    <link href='../layout/css/reset.css' rel='stylesheet'>
+    <link href='../layout/css/general_all.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='wrapper center-center'>
+      <section class='popup' id='reserv_form'>
+        <header>
+          <h2>Забронировать столик</h2>
+          <p class='h2_subtitle'>
+            Выберите столик и время для желаемого бронированияю
+          </p>
+        </header>
+        <form action='' method='get'>
+          <input name='input' placeholder='Кальянная' type='text'>
+          <input name='input' placeholder='Столик' type='text'>
+          <input name='input' placeholder='Дата' type='text'>
+          <input name='input' placeholder='Время' type='text'>
+          <button name='sumbit' type='sumbit'>Забронировать</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='reserv_succes_form'>
+        <header>
+          <h2>Заявка на бронирование подана</h2>
+          <p class='h2_subtitle'>
+            Вы подали заявку на бронирование столика 21 мая с 18:00 до 21:00 в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
+          </p>
+        </header>
+        <form action='' method='get'>
+          <button name='sumbit' type='sumbit'>Отлично</button>
+        </form>
+      </section>
+    </div>
     <div class='wrapper_2'>
       <section class='popup_vertical' id='all_ach'>
         <div class='popup_vertical_symbol'>

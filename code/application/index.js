@@ -46,5 +46,5 @@ export default Application.extend({
 
 /**
   * this.layout = new LayoutView();
-  * this.layout.render(); 
+  * this.layout.render();
  */
