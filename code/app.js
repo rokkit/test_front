@@ -8,7 +8,7 @@ import Router from 'router';
 let app = new Application();
 
 app.router = new Router({
-  container: app.layout.view
+  container: app.regionMain
 });
 
 

@@ -19,10 +19,12 @@
     "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
     "gulp-connect": "^2.2.0",
+    "gulp-copy": "0.0.2",
     "gulp-env": "^0.2.0",
     "gulp-load-plugins": "^1.0.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-ruby-haml": "0.0.4",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
@@ -32,6 +34,11 @@
     "hamlify": "0.0.3",
     "hamljs": "^0.6.2",
     "hbsfy": "^2.4.1",
+    "jquery": "^2.1.4",
+    "jquery-mask-plugin": "^1.13.4",
+    "jquery-ui": "^1.10.5",
+    "rivets": "^0.8.1",
+    "rivets-backbone-adapter": "^2.2.0",
     "shipit-cli": "^1.4.0",
     "shipit-deploy": "^2.0.0",
     "stringify": "^3.1.0",
@@ -53,14 +60,15 @@
     "gsap": "^1.18.0",
     "handlebars": "^4.0.4",
     "jquery": "^2.1.4",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "underscore": "^1.8.3"
   },
   "browserify-swap": {
     "@packages": [
       "underscore"
     ],
-    "dist": {
-      "underscore.js$": "lodash"
+    "all": {
+      "underscore": "lodash"
     }
   },
   "browserify": {

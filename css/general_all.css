@@ -48,15 +48,13 @@ h4 {
 }
 
 h5 {
-  display: inline-block;
-  font: normal normal 300 18px Bebas Neue Book;
-  letter-spacing: 2px;
+  font-size: 18px;
+  font-family: Lora;
+  font-weight: 300;
 }
 
 h6 {
-  display: inline-block;
-  font: normal normal 300 14px Bebas Neue Book;
-  letter-spacing: 2px;
+  font-size: 14px;
 }
 
 small {
@@ -115,22 +113,6 @@ a {
   color: white;
 }
 
-a.i_l {
-  font: normal normal 300 18px Bebas Neue Book;
-  letter-spacing: 2px;
-  color: white;
-}
-
-a.i_l:before {
-  content: "";
-  height: 20px;
-  width: 20px;
-  margin-right: 12px;
-  background: url("../images/achievments/arrow_back.svg");
-  z-index: 250;
-  float: left;
-}
-
 button {
   position: relative;
   height: 48px;
@@ -165,10 +147,6 @@ button.button-dark {
   color: #C6C7C8;
 }
 
-button.button-dark:active {
-  background: red;
-}
-
 button.button-dark:after {
   content: "";
   width: 24px;
@@ -198,29 +176,29 @@ input[type=text]:focus, textarea:focus {
 
 @font-face {
   font-family: "Bebas Neue Book";
-  src: url('../../fonts/bebasneue_book-webfont.woff') format('woff'), url('../../fonts/bebasneue_book-webfont.svg') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf') format('truetype');
+  src: url('../fonts/bebasneue_book-webfont.woff') format('woff'), url('../fonts/bebasneue_book-webfont.svg') format('svg'), url('../fonts/bebasneue_book-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Bebas Neue Regular";
-  src: url('../../fonts/bebasneue_regular-webfont.woff') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf') format('truetype');
+  src: url('../fonts/bebasneue_regular-webfont.woff') format('woff'), url('../fonts/bebasneue_regular-webfont.svg') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Lora";
-  src: url('../../fonts/lora-regular-webfont.ttf') format('truetype'), url('../../fonts/lora-regular-webfont.woff') format('woff'), url('../../fonts/lora-regular-webfont.svg') format('svg');
+  src: url('../fonts/lora-regular-webfont.ttf') format('truetype'), url('../fonts/lora-regular-webfont.woff') format('woff'), url('../fonts/lora-regular-webfont.svg') format('svg');
 }
 @font-face {
   font-family: "Open Sans Bold";
-  src: url('../../fonts/opensans-bold-webfont.woff') format('woff'), url('../../fonts/opensans-bold-webfont.svg') format('svg'), url('../../fonts/opensans-bold-webfont.ttf') format('truetype');
+  src: url('../fonts/opensans-bold-webfont.woff') format('woff'), url('../fonts/opensans-bold-webfont.svg') format('svg'), url('../fonts/opensans-bold-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Regular";
-  src: url('../../fonts/opensans-regular-webfont.woff') format('woff'), url('../../fonts/opensans-regular-webfont.svg') format('svg'), url('../../fonts/opensans-regular-webfont.ttf') format('truetype');
+  src: url('../fonts/opensans-regular-webfont.woff') format('woff'), url('../fonts/opensans-regular-webfont.svg') format('svg'), url('../fonts/opensans-regular-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Light";
-  src: url('../../fonts/opensans-light-webfont.woff') format('woff'), url('../../fonts/opensans-light-webfont.svg') format('svg'), url('../../fonts/opensans-light-webfont.ttf') format('truetype');
+  src: url('../fonts/opensans-light-webfont.woff') format('woff'), url('../fonts/opensans-light-webfont.svg') format('svg'), url('../fonts/opensans-light-webfont.ttf') format('truetype');
 }
-/* Крутим элементы (селектор , секунды (4sec) ) */
+/* ╨Ъ╤А╤Г╤В╨╕╨╝ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╤Л (╤Б╨╡╨╗╨╡╨║╤В╨╛╤А , ╤Б╨╡╨║╤Г╨╜╨┤╤Л (4sec) ) */
 @-webkit-keyframes spin_animation {
   100% {
     -moz-transform: rotate(360deg);
@@ -672,208 +650,354 @@ section.dashboard {
   display: block;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   background: url(../images/bg_glow.jpg);
   background-size: cover;
   color: white;
-  padding: 48px;
 }
-section.dashboard hr {
+section.dashboard figure img.profile_photo {
   display: block;
   position: relative;
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  margin-top: 88px;
-  margin-bottom: 120px;
+  float: left;
+  height: 160px;
+  width: 160px;
 }
-section.dashboard section.username {
-  margin-bottom: 48px;
+section.dashboard figure figcapation {
+  width: 50%;
+  margin-bottom: 64px;
 }
-section.dashboard section.username h1 {
-  margin-bottom: 16px;
-  letter-spacing: 6px;
+section.dashboard figure figcapation h1 {
+  margin-bottom: 24px;
 }
-section.dashboard section.username p {
+section.dashboard figure figcapation p {
   width: 75%;
-  font-family: Lora;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 32px;
 }
 
-section.progress_bar {
-  width: 100%;
-  margin-bottom: 56px;
-}
 section.progress_bar p {
-  font-size: 14px;
   font-family: Bebas Neue Book;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-section.progress_bar .progress_bar_bg {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 8px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.1);
-}
-section.progress_bar .progress_bar_bg .progress {
-  position: absolute;
-  display: block;
-  left: 0;
-  top: 0;
-  width: 16%;
-  height: 8px;
-  border-radius: 4px;
-  background: #EBB22F;
+  font-size: 12px;
 }
 
 section.user_achievments {
   display: block;
-  margin-bottom: 48px;
+  background: blue;
 }
-section.user_achievments header {
+section.user_achievments figure {
+  display: inline-block;
+  position: relative;
+}
+section.user_achievments figure img.achievments_icon {
   display: block;
   position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin-bottom: 32px;
-}
-section.user_achievments header h4 {
-  float: left;
-  font-size: 18px;
-  font-family: Bebas Neue Book;
-  letter-spacing: 3px;
-  height: 24px;
-  line-height: 26px;
-}
-section.user_achievments header .number_of {
-  float: left;
-  padding: 0 10px 0 10px;
-  height: 24px;
-  border-radius: 12px;
-  border: 1px solid rgba(235, 178, 47, 0.25);
-  text-align: center;
-  font-size: 14px;
-  font-family: Bebas Neue Book;
-  letter-spacing: 1px;
-  line-height: 24px;
-  color: #EBB22F;
-  margin-left: 16px;
-}
-section.user_achievments header .number_of:hover {
-  background: #EBB22F;
-  color: white;
-}
-section.user_achievments section.wrapper_for_ach {
-  position: relative;
-  width: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-section.user_achievments section.wrapper_for_ach figure {
-  width: 16%;
-  padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-section.user_achievments section.wrapper_for_ach figure img.achievments_icon {
   height: 80px;
   width: 80px;
-  margin-bottom: 16px;
-}
-section.user_achievments section.wrapper_for_ach figure figcapation h6 {
-  display: block;
-}
-section.user_achievments section.wrapper_for_ach figure figcapation p {
-  font-size: 12px;
-  font-family: Lora;
-  color: rgba(255, 255, 255, 0.5);
 }
 
-section.bottom_rating {
+.achievments_all:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  top: -64px;
+  left: calc(50% - 80px);
+  background: url("../images/achievments/symbol_ach.svg");
+  z-index: 250;
+  float: left;
+}
+
+.achievments_all:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  top: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 200;
+}
+
+.achievments_all {
   display: block;
   position: relative;
   width: 100%;
-  height: 512px;
-  background: #292D34;
+  left: 0;
+  top: 136px;
+  padding: 32px;
+  padding-top: 48px;
+  background: #282C34;
+  z-index: 200;
 }
-
-section.wrapper_for_ach {
+.achievments_all .achievments_header {
+  display: block;
   position: relative;
+  float: none;
+  height: 20px;
   width: 100%;
+  z-index: 200;
+  padding: 0;
+  font-family: Bebas Neue;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
+.achievments_all .achievments_header a {
+  float: left;
+}
+.achievments_all .achievments_header a:before {
+  content: "";
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  background: url("../images/achievments/arrow_back.svg");
+  z-index: 250;
+  float: left;
+}
+.achievments_all .achievments_header h6 {
+  float: right;
+  font-size: inherit;
+}
+.achievments_all section.achievments_list {
+  position: relative;
+  float: none;
+  height: auto;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
   text-align: justify;
 }
-section.wrapper_for_ach figure {
+.achievments_all section.achievments_list .justify_fix {
+  width: 100%;
   display: inline-block;
-  width: 18%;
-  text-align: center;
-  padding: 32px;
-  margin-bottom: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-section.wrapper_for_ach figure img.achievments_icon {
+.achievments_all section.achievments_list figure.achievment {
   display: inline-block;
   position: relative;
-  height: 120px;
-  width: 120px;
-  margin-bottom: 16px;
+  float: none;
+  height: auto;
+  width: 15%;
+  min-width: 120px;
+  margin: 0 0 4% 0;
+  text-align: center;
 }
-section.wrapper_for_ach figure h6 {
-  display: block;
+.achievments_all section.achievments_list figure.achievment img {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 24px;
+  width: 88px;
+  height: 88px;
 }
-section.wrapper_for_ach figure p {
-  font-size: 12px;
+.achievments_all section.achievments_list figure.achievment figcapation {
+  line-height: 16px;
+}
+.achievments_all section.achievments_list figure.achievment figcapation h4 {
+  font-family: Bebas Neue;
+  font-size: 18px;
+}
+.achievments_all section.achievments_list figure.achievment figcapation p {
   font-family: Lora;
+  font-size: 12px;
+}
+
+.achievment_page {
+  display: block;
+  position: absolute;
+  float: none;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.achievment_page figure.achievment_on_page {
+  position: relative;
+  display: inline-block;
+  float: none;
+  height: auto;
+  margin: 0;
+  text-align: center;
+}
+.achievment_page figure.achievment_on_page img {
+  display: inline-block;
+  position: relative;
+  width: 256px;
+  height: 256px;
+  margin-bottom: 64px;
+}
+.achievment_page figure.achievment_on_page figcapation h4.name {
+  font-family: Bebas Neue;
+  font-size: 30px;
+  color: #EBB22F;
+  margin-bottom: 8px;
+}
+.achievment_page figure.achievment_on_page figcapation p.status {
+  font-family: Lora;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 32px;
+}
+.achievment_page figure.achievment_on_page figcapation p.description {
+  font-family: Open Sans;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
 }
 
-section.edit_profile_list form.edit_profile_form header {
+.edit_profile_all:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 320px;
+  width: 320px;
+  top: 8px;
+  left: -192px;
+  background: url("../images/key.svg");
+  z-index: 250;
+  float: left;
+}
+
+.edit_profile_all:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: 16px;
+  top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 200;
+}
+
+.edit_profile_all {
+  display: block;
+  position: relative;
+  min-height: 100%;
+  left: 136px;
+  top: 0;
+  padding: 32px;
+  padding-left: 48px;
+  background: #282C34;
+  z-index: 200;
+}
+.edit_profile_all .edit_profile_header {
+  display: block;
+  position: relative;
+  float: none;
+  height: 20px;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  font-family: Bebas Neue;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
+.edit_profile_all .edit_profile_header a {
+  float: left;
+}
+.edit_profile_all .edit_profile_header a:before {
+  content: "";
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  background: url("../images/achievments/arrow_back.svg");
+  z-index: 250;
+  float: left;
+}
+.edit_profile_all .edit_profile_header h6 {
+  float: right;
+  font-size: inherit;
+}
+.edit_profile_all section.edit_profile_list {
+  position: relative;
+  float: none;
+  height: auto;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  text-align: justify;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form header {
   height: auto;
   margin: 0;
   padding: 0;
   line-height: 1.5;
 }
-section.edit_profile_list form.edit_profile_form header h2 {
+.edit_profile_all section.edit_profile_list form.edit_profile_form header h2 {
   font-family: Bebas Neue;
   font-size: 48px;
   letter-spacing: 2px;
   color: #EBB22F;
 }
-section.edit_profile_list form.edit_profile_form header h3 {
+.edit_profile_all section.edit_profile_list form.edit_profile_form header h3 {
   font-family: Lora;
   font-weight: 300;
   font-size: 18px;
   letter-spacing: 0;
   margin-bottom: 48px;
 }
-section.edit_profile_list form.edit_profile_form fieldset {
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset {
   margin-bottom: 32px;
 }
-section.edit_profile_list form.edit_profile_form fieldset legend {
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset legend {
   font-family: Bebas Neue;
   font-size: 18px;
   margin-bottom: 16px;
   color: #EBB22F;
-  letter-spacing: 2px;
 }
-section.edit_profile_list form.edit_profile_form fieldset input {
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset input {
   display: block;
   margin-bottom: 16px;
   width: 320px;
   color: white;
 }
-section.edit_profile_list form.edit_profile_form fieldset input.large {
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset input.large {
   width: 640px;
   min-height: 160px;
-  line-height: 16px;
+}
+
+#region-menu {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.scale {
+  -moz-transform: scale(0.95, 0.91);
+  -ms-transform: scale(0.95, 0.91);
+  -webkit-transform: scale(0.95, 0.91);
+  transform: scale(0.95, 0.91);
+}
+
+#region-menu:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+  background-color: #000;
 }
 
 section.left_menu {
@@ -883,7 +1007,7 @@ section.left_menu {
   padding: 48px;
   height: 100%;
   z-index: 200;
-  left: 0;
+  left: -40%;
 }
 section.left_menu img {
   margin-bottom: 64px;
@@ -931,7 +1055,7 @@ section.right_menu {
   background: rgba(40, 44, 52, 0.9);
   box-shadow: 0 0 256px 64px rgba(0, 0, 0, 0.25);
   z-index: 200;
-  right: 0;
+  right: -40%;
 }
 section.right_menu img {
   height: 16px;
@@ -1077,14 +1201,14 @@ section.right_menu a:hover {
     stroke-dashoffset: 1000;
   }
 }
-/* Крутим лучи логотипа */
+/* ╨Ъ╤А╤Г╤В╨╕╨╝ ╨╗╤Г╤З╨╕ ╨╗╨╛╨│╨╛╤В╨╕╨┐╨░ */
 .loader-logo-back {
   -moz-animation: spin_animation 5s linear infinite;
   -webkit-animation: spin_animation 5s linear infinite;
   animation: spin_animation 5s linear infinite;
 }
 
-/* Создаем пропадающий класс */
+/* ╨б╨╛╨╖╨┤╨░╨╡╨╝ ╨┐╤А╨╛╨┐╨░╨┤╨░╤О╤Й╨╕╨╣ ╨║╨╗╨░╤Б╤Б */
 .fadeout {
   -moz-animation: fadeout_animation 1s ease-in-out forwards;
   -webkit-animation: fadeout_animation 1s ease-in-out forwards;
@@ -1094,7 +1218,7 @@ section.right_menu a:hover {
   animation-fill-mode: "forwards";
 }
 
-/* Создаем появляющийся класс */
+/* ╨б╨╛╨╖╨┤╨░╨╡╨╝ ╨┐╨╛╤П╨▓╨╗╤П╤О╤Й╨╕╨╣╤Б╤П ╨║╨╗╨░╤Б╤Б */
 .fadein {
   -moz-animation: fadein_animation 1s ease-in-out forwards;
   -webkit-animation: fadein_animation 1s ease-in-out forwards;
@@ -1104,7 +1228,7 @@ section.right_menu a:hover {
   animation-fill-mode: "forwards";
 }
 
-/* Появления лоадера */
+/* ╨Я╨╛╤П╨▓╨╗╨╡╨╜╨╕╤П ╨╗╨╛╨░╨┤╨╡╤А╨░ */
 .fadein-loader {
   -moz-animation: fadein_animation 1s ease-in-out forwards;
   -webkit-animation: fadein_animation 1s ease-in-out forwards;
@@ -1178,12 +1302,23 @@ section.right_menu a:hover {
   height: 40px;
 }
 
-section.popup {
-  position: relative;
-  left: 160px;
-  height: auto;
+div.wrapper {
+  position: absolute;
   width: 100%;
-  padding: 80px;
+  height: 100%;
+}
+
+.center-center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+section.popup {
+  position: absolute;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF151719', endColorstr='#FF424756');
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjEuMCIgeDI9IjEuMCIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE1MTcxOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQyNDc1NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -1192,6 +1327,9 @@ section.popup {
   background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
+  padding: 80px;
+  padding-right: 240;
+  left: 100%;
   z-index: 200;
 }
 section.popup a {
@@ -1218,129 +1356,19 @@ section.popup:before {
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 2px;
 }
 
-#achievments {
-  position: relative;
-  top: 100%;
-}
-
-section.popup_vertical {
-  height: auto;
-  width: 100%;
-  padding: 48px;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF151719', endColorstr='#FF424756');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjEuMCIgeDI9IjEuMCIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE1MTcxOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQyNDc1NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 100%, 100% 0%, color-stop(0%, #151719), color-stop(100%, #424756));
-  background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
-  background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
-  background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
-  z-index: 200;
-}
-section.popup_vertical .popup_vertical_symbol {
-  display: block;
-  position: absolute;
-  top: -40px;
-  left: 0;
-  width: 100%;
-  height: 128px;
-  z-index: 250;
-  text-align: center;
-}
-section.popup_vertical .popup_vertical_symbol img {
-  display: inline-block;
-  height: 128px;
-  width: 128px;
-}
-section.popup_vertical .popup_vertical_symbol:before {
-  content: "";
-  display: block;
-  float: left;
-  width: calc(50% - 80px);
-  height: 1px;
-  margin-top: 64px;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: 200;
-}
-section.popup_vertical .popup_vertical_symbol:after {
-  content: "";
-  display: block;
-  float: right;
-  width: calc(50% - 80px);
-  height: 1px;
-  margin-top: 64px;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: 200;
-}
-section.popup_vertical .popup_vertical_header {
-  margin-bottom: 48px;
-}
-section.popup_vertical .popup_vertical_header h5 {
-  float: right;
-}
-
-section.popup_horizontal {
-  position: relative;
-  left: 80px;
-  height: auto;
-  width: calc(100% - 80px);
-  padding: 48px;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF151719', endColorstr='#FF424756');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjEuMCIgeDI9IjEuMCIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE1MTcxOSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQyNDc1NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 100%, 100% 0%, color-stop(0%, #151719), color-stop(100%, #424756));
-  background-image: -moz-linear-gradient(left bottom, #151719 0%, #424756 100%);
-  background-image: -webkit-linear-gradient(left bottom, #151719 0%, #424756 100%);
-  background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
-  z-index: 200;
-}
-section.popup_horizontal .popup_horizontal_header {
-  width: 100%;
-  margin-bottom: 48px;
-}
-section.popup_horizontal .popup_horizontal_header h5 {
-  float: right;
-}
-
-div.wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-div.wrapper_2 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.center-center {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.color_overlay {
+#color_overlay {
   display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #282C34;
+  background: radial-gradient(75% 100% at center top, #ffffff, #000000), #282C34;
+  background-blend-mode: soft-light;
   z-index: 150;
   pointer-events: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-}
-
-.color_overlay_active {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
-  opacity: 0.75;
 }
 
 .main_content {
@@ -1356,33 +1384,237 @@ div.wrapper_2 {
   filter: blur(0px);
 }
 
-.main_content_active {
-  display: block;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  -moz-transform: scale(0.9, 0.9);
-  -ms-transform: scale(0.9, 0.9);
-  -webkit-transform: scale(0.9, 0.9);
-  transform: scale(0.9, 0.9);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -ms-filter: blur(5px);
-  -o-filter: blur(5px);
-  filter: blur(5px);
-}
-
-.imgfortest {
+.achievments_all {
   display: block;
   position: relative;
-  top: 0;
-  left: 0;
   width: 100%;
+  left: 0;
+  z-index: 200;
+}
+.achievments_all .achievments_header {
+  display: block;
+  position: relative;
+  float: none;
+  height: 20px;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  font-family: Bebas Neue;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
+.achievments_all .achievments_header a {
+  float: left;
+}
+.achievments_all .achievments_header a:before {
+  content: "";
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  background: url("../images/achievments/arrow_back.svg");
+  z-index: 250;
+  float: left;
+}
+.achievments_all .achievments_header h6 {
+  float: right;
+  font-size: inherit;
+}
+.achievments_all section.achievments_list {
+  position: relative;
+  float: none;
   height: auto;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  text-align: justify;
+}
+.achievments_all section.achievments_list .justify_fix {
+  width: 100%;
+  display: inline-block;
+}
+.achievments_all section.achievments_list figure.achievment {
+  display: inline-block;
+  position: relative;
+  float: none;
+  height: auto;
+  width: 15%;
+  min-width: 120px;
+  margin: 0 0 4% 0;
+  text-align: center;
+}
+.achievments_all section.achievments_list figure.achievment img {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 24px;
+  width: 88px;
+  height: 88px;
+}
+.achievments_all section.achievments_list figure.achievment figcapation {
+  line-height: 16px;
+}
+.achievments_all section.achievments_list figure.achievment figcapation h4 {
+  font-family: Bebas Neue;
+  font-size: 18px;
+}
+.achievments_all section.achievments_list figure.achievment figcapation p {
+  font-family: Lora;
+  font-size: 12px;
+}
+
+.achievments_all:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  top: -64px;
+  left: calc(50% - 80px);
+  background: url("../images/achievments/symbol_ach.svg");
+  z-index: 250;
+  float: left;
+}
+
+.achievment_page {
+  display: block;
+  position: absolute;
+  float: none;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.achievment_page figure.achievment_on_page {
+  position: relative;
+  display: inline-block;
+  float: none;
+  height: auto;
+  margin: 0;
+  text-align: center;
+}
+.achievment_page figure.achievment_on_page img {
+  display: inline-block;
+  position: relative;
+  width: 256px;
+  height: 256px;
+  margin-bottom: 64px;
+}
+.achievment_page figure.achievment_on_page figcapation h4.name {
+  font-family: Bebas Neue;
+  font-size: 30px;
+  color: #EBB22F;
+  margin-bottom: 8px;
+}
+.achievment_page figure.achievment_on_page figcapation p.status {
+  font-family: Lora;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 32px;
+}
+.achievment_page figure.achievment_on_page figcapation p.description {
+  font-family: Open Sans;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.edit_profile_all {
+  display: block;
+  position: relative;
+  min-height: 100%;
+  left: 136px;
+  top: 0;
+  padding: 32px;
+  padding-left: 48px;
+  background: #282C34;
+  z-index: 200;
+}
+.edit_profile_all .edit_profile_header {
+  display: block;
+  position: relative;
+  float: none;
+  height: 20px;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  font-family: Bebas Neue;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
+.edit_profile_all .edit_profile_header a {
+  float: left;
+}
+.edit_profile_all .edit_profile_header a:before {
+  content: "";
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 12px;
+  background: url("../images/achievments/arrow_back.svg");
+  z-index: 250;
+  float: left;
+}
+.edit_profile_all .edit_profile_header h6 {
+  float: right;
+  font-size: inherit;
+}
+.edit_profile_all section.edit_profile_list {
+  position: relative;
+  float: none;
+  height: auto;
+  width: 100%;
+  z-index: 200;
+  padding: 0;
+  text-align: justify;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form header {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form header h2 {
+  font-family: Bebas Neue;
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: #EBB22F;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form header h3 {
+  font-family: Lora;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0;
+  margin-bottom: 48px;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset {
+  margin-bottom: 32px;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset legend {
+  font-family: Bebas Neue;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #EBB22F;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset input {
+  display: block;
+  margin-bottom: 16px;
+  width: 320px;
+  color: white;
+}
+.edit_profile_all section.edit_profile_list form.edit_profile_form fieldset input.large {
+  width: 640px;
+  min-height: 160px;
 }
 
 #header {

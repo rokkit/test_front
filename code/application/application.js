@@ -7,16 +7,20 @@ import LayoutView from 'application/layout';
 let routerChannel = Radio.channel('router');
 
 export default Application.extend({
+  regions : {
+    regionMain : 'body'
+  } ,
+
   initialize() {
     this.$body = $(document.body);
-    this.layout = new LayoutView();
-    this.layout.render();
 
     this.listenTo(routerChannel, {
       'before:enter:route' : this.onBeforeEnterRoute,
       'enter:route'        : this.onEnterRoute,
       'error:route'        : this.onErrorRoute
     });
+
+    window.Behaviors = {}
   },
 
   onBeforeEnterRoute() {
@@ -39,3 +43,8 @@ export default Application.extend({
     nprogress.done(true);
   }
 });
+
+/**
+  * this.layout = new LayoutView();
+  * this.layout.render(); 
+ */

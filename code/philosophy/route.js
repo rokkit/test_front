@@ -9,6 +9,6 @@ export default Route.extend({
 
   render() {
     this.view = new View();
-    this.container.show(this.view);
+    this.view.render();
   }
 });
