@@ -120,6 +120,9 @@ function animateForm(el) {
   var wrapper =document.getElementById('wrapper_login')
   var tl = null;
   var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
+    $('.popup').click(function(event){
+      event.stopPropagation();
+    });
     $('body').on('click', function(e) {
       tl.reverse()
     });
@@ -142,6 +145,9 @@ function animateSignup() {
   var tl = null;
 
   var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
+    $('.popup').click(function(event){
+      event.stopPropagation();
+    });
     $('body').on('click', function(e) {
       tl.reverse()
     });
@@ -159,15 +165,21 @@ function animateMenu() {
   var right_part = document.getElementById("menu_right_part")
   var html_body = document.getElementById("html_body")
   var color_overlay = document.getElementById("color_overlay")
-  var main = document.getElementById('main_content')
+  var main_content = document.getElementById('main_content')
   var wrapper =document.getElementById('wrapper_menu')
 
-  TweenLite.to(left_part, 0.5, {left:"0"})
-  TweenLite.to(right_part, 0.5, {right:"0"})
-  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  TweenLite.to(html_body, 1, {overflow:"hidden"})
-  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
+  var tl = null
+  var tw1 = TweenLite.to(left_part, 0.5, {left:"0", onComplete: function() {
+    $('#closing').on('click', function(e) {
+      tl.reverse()
+    });
+  }})
+  var tw2 = TweenLite.to(right_part, 0.5, {right:"0"})
+  var tw3 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  var tw4 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+  var tw5 = TweenLite.to(html_body, 1, {overflow:"hidden"})
+  var tw6 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
+  tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5, tw6], 'sequence');
 }
 
 function animateVertical_popup(el) {
