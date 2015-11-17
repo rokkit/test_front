@@ -1218,12 +1218,9 @@ section.popup:before {
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 2px;
 }
 
-#achievments {
-  position: relative;
-  top: 100%;
-}
-
 section.popup_vertical {
+  position: relative;
+  top: 80px;
   height: auto;
   width: 100%;
   padding: 48px;
