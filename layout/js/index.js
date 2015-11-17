@@ -31,6 +31,11 @@ $(function() {
     animateForm('login_form')
   });
 
+  $('#liberty_btn').on('click', function() {
+
+    document.location.href="./pages_lounges_liberty.html"
+  });
+
   // Анимациии Dashboard
   //
 
