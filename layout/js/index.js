@@ -197,10 +197,21 @@ function animateVertical_popup(el) {
   var html_body = document.getElementById("html_body")
   var color_overlay = document.getElementById("color_overlay")
   var main = document.getElementById('main_content')
-  TweenLite.to(all_ach, 1, {top:"80px"})
-  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  TweenLite.to(html_body, 1, {overflow:"hidden"})
+  var wrapper = $('#all_ach_wrapper')[0]
+
+  var tl = null
+
+  var tw1 = TweenLite.to(all_ach, 1, {top:"80px", onComplete: function() {
+    $('body').on('click', function(e) {
+      console.log('ss')
+      tl.reverse()
+    });
+  }})
+  var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
+  // var tw4 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
+  tl = new TimelineLite().add([tw1,tw2,tw3], 'sequence');
 }
 
 function animateOverall_popup(el) {
