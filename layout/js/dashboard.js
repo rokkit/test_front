@@ -6,14 +6,22 @@ $(function() {
       		$('#login_btn').text(currentUser.name)
   		}
 
+  	var tw1 = TweenLite;
+
   	$('#n_o_a').click(function(e){
   		animateForm('reserv_form');
   	});
 
   	$('#reserv_form').submit(function(e){
   		var form = document.getElementById('reserv_form');
-  		TweenLite.to(form, 1, {left:"-1860px"});
+  		TweenLite.to(form, 1, {left:"1860px"});
   		animateForm1('reserv_succes_form');
+  		e.preventDefault();
+  	});
+
+  	$('#reserv_succes_form').submit(function(e){
+  		var form = document.getElementById('reserv_succes_form');
+  		TweenLite.to(form, 1, {right:"-1260px"});
   		e.preventDefault();
   	});
 
@@ -24,11 +32,11 @@ $(function() {
 	  var main = document.getElementById('main_content')
 	  var wrapper =document.getElementById('wrapper_login')
 
-	  TweenLite.to(form, 1, {right:"0px"})
-	  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-	  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-	  TweenLite.to(html_body, 1, {overflow:"hidden"})
-	  TweenLite.to(form, 1, {'pointer-events':"auto"})
+	  tw1.to(form, 1, {right:"0px"})
+	  tw1.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+	  tw1.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+	  tw1.to(html_body, 1, {overflow:"hidden"})
+	  tw1.to(form, 1, {'pointer-events':"auto"})
 	}
 
   	function animateForm(el) {
