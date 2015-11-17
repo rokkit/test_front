@@ -2,61 +2,66 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
 	%head
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
-		%link{ :rel=>"stylesheet" , :href=>"../css/reset.css" }
-		%link{ :rel=>"stylesheet" , :href=>"../css/general_all.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
 	%body
-		-# Form .wrapper_menu		
-		-# Right social content
-		%section#lpm.left_menu<
-			%img{ :src=>"src/images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
-			
-			%h4 Первая в мире территория для<br>курения со свободной оплатой и<br>индивидуальным подходом<br>к каждому гостю...
-			%p 
-				24 июл в 14:44 от
-				%a #unihuqhookahplaces
-
-			%h5 Она задала нам неожиданный вопрос
-			%p 
-				24 июл в 14:44 от
-				%a #unihuqhookahplaces
-
-			%h5 Она задала нам неожиданный вопрос
-			%p 
-				24 июл в 14:44 от
-				%a #unihuqhookahplaces
-
-			%h5 Она задала нам неожиданный вопрос
-			%p 
-				24 июл в 14:44 от
-				%a #unihuqhookahplaces
-
-			%h5 Она задала нам неожиданный вопрос
-			%p 
-				24 июл в 14:44 от
-				%a #unihuqhookahplaces
-			%footer
-				%p Copyright © 2015 Уникальные Кальянные
+		-# Menu
+		.wrapper.center-center
+			%section.left_menu
+				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				
+				%h4 Первая в мире территория для<br>курения со свободной оплатой и<br>индивидуальным подходом<br>к каждому гостю...
 				%p 
-					Создано в
-					%img{ :src=>"src/images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
-		-# Left bar
-		%section#rpm.right_menu
-			%img#closing{ :src=>"src/images/cross.svg" , :alt=>"Закрыть"}
+					24 июл в 14:44 от
+					%a #unihuqhookahplaces
 
-			%h3 Главная страница
-			%p Основная информация
+				%h5 Она задала нам неожиданный вопрос
+				%p 
+					24 июл в 14:44 от
+					%a #unihuqhookahplaces
 
-			%h3 Ложи
-			%p Основная информация
+				%h5 Она задала нам неожиданный вопрос
+				%p 
+					24 июл в 14:44 от
+					%a #unihuqhookahplaces
 
-			%h3 Философия
-			%p Основная информация
+				%h5 Она задала нам неожиданный вопрос
+				%p 
+					24 июл в 14:44 от
+					%a #unihuqhookahplaces
 
-			%h3 Сообщество
-			%p Основная информация
+				%h5 Она задала нам неожиданный вопрос
+				%p 
+					24 июл в 14:44 от
+					%a #unihuqhookahplaces
+				%footer
+					%p Copyright © 2015 Уникальные Кальянные
+					%p 
+						Создано в
+						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+			-# Left bar
+			%section.right_menu
+				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
 
-			%h3 Франшиза
-			%p Основная информация
+				%h3 Главная страница
+				%p Основная информация
+
+				%h3 Ложи
+				%p Основная информация
+
+				%h3 Философия
+				%p Основная информация
+
+				%h3 Сообщество
+				%p Основная информация
+
+				%h3 Франшиза
+				%p Основная информация
+				
+				%button Войти
+				%a 
+		-# Color Overlay
+		.color_overlay
+		-# Main conent
+		%main.under_popup
 			
-			%button< Войти
-			%a Регистрация

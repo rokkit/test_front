@@ -1,0 +1,41 @@
+
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+	%head
+		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+	%body
+		.wrapper_2
+			-# Form
+			%section.popup_horizontal
+				.popup_horizontal_symbol
+					-# %img{:src=>"./images/achievments/symbol_ach.svg"}
+				%header.popup_horizontal_header
+					%a.i_l Назад
+					%h5 Редактировать профиль
+				%section.edit_profile_list
+					%form.edit_profile_form{:action => "", :method => "get"}
+						%header
+							%h2 Редактирование профиля
+							%h3 Хорошо заполненный профиль способствует увеличению полезных знакомств
+						%fieldset
+							%legend	Основная информация
+							%input{:type => "text", :name => "input", :placeholder => "ФИО"}
+							%input{:type => "text", :name => "input", :placeholder => "Город"}
+							%input{:type => "text", :name => "input", :placeholder => "Рабочая должность"}
+							%input{:type => "text", :name => "input", :placeholder => "Компания работодатель"}
+							%input.large{:type => "text", :name => "input", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
+						%fieldset
+							%legend	Регистрационные данные
+							%input{:type => "text", :name => "input", :placeholder => "Номер телефона"}
+						%fieldset
+							%legend	зменить пароль
+							%input{:type => "text", :name => "input", :placeholder => "Старый пароль"}
+							%input{:type => "text", :name => "input", :placeholder => "Новый пароль"}
+						%button{:type=>"sumbit", :name=>"sumbit"} Сохранить
+
+		-# Color Overlay
+		.color_overlay.color_overlay_active
+		-# Main conent
+		%main.under_popup.main_content_active
+			%img.imgfortest{:src=>"./images/test_for_p.png"}

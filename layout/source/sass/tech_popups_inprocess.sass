@@ -1,0 +1,44 @@
+
+// Остальная верстка
+.achievment_page
+    display: block
+    position: absolute  
+    float: none
+    height: 100%
+    width: 100%
+    margin: 0
+    padding: 0
+    z-index: 300
+    background: rgba(0,0,0,0.5)
+
+    +display-flex(flex)
+    +align-items(center)
+    +justify-content(center)
+    figure.achievment_on_page
+        position: relative
+        display: inline-block
+        float: none
+        height: auto
+        margin: 0
+        text-align: center
+        img
+            display: inline-block
+            position: relative
+            width: 256px
+            height: 256px
+            margin-bottom: 64px
+        figcapation
+            h4.name
+                font-family: Bebas Neue
+                font-size: 30px
+                color: #EBB22F
+                margin-bottom: 8px
+            p.status
+                font-family: Lora
+                font-size: 18px
+                color: white
+                margin-bottom: 32px
+            p.description
+                font-family: Open Sans
+                font-size: 14px
+                color: rgba(255,255,255,0.5)

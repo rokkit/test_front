@@ -1,29 +1,3 @@
-#region-menu
-    visibility  : hidden
-    position    : fixed
-    top         : 0
-    overflow: hidden
-    top: 0
-    left: 0
-    height: 100%
-    width: 100%
-
-.scale
-    +scale(0.95,0.91)
-
-#region-menu:before
-    content: ''
-    position: absolute
-    display: block
-    top: 0
-    left: 0
-    height: 100%
-    width: 100%
-    opacity: 0.9
-    background-color: $color_dark
-    //background-blend-mode: soft-light
-    //+background(radial-gradient(center top, 100% 25%, #fff, $color_gray), $color_gray)
-
 section.left_menu
     display: inline-block
     position: relative
@@ -31,7 +5,7 @@ section.left_menu
     padding: 48px
     height: 100%
     z-index: 200
-    left: -40%
+    left: 0
 
     img
         margin-bottom: 64px
@@ -71,8 +45,7 @@ section.right_menu
     background: rgba(40,44,52,.9)
     box-shadow: 0 0 256px 64px rgba(0,0,0,.25)
     z-index: 200
-    right: -40%
-
+    right: 0
 
     img
         height          : 16px

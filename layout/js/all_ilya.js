@@ -91,8 +91,3 @@ function animateForm(el) {
   TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   TweenLite.to(html_body, 1, {overflow:"hidden"})
 }
-
-$('#n_o_a').on('click', function() {
-  var achievments = document.getElementById("achievments")
-  TweenLite.to(achievments, 1, {top:"80px"})
-});

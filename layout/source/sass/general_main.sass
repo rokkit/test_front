@@ -39,13 +39,14 @@ h4
     font-weight: 300
 
 h5
-    font-size: 18px
-    font-family: Lora
-    font-weight: 300
+    display: inline-block
+    font: normal normal 300 18px Bebas Neue Book
+    letter-spacing: 2px
 
 h6
-    font-size: 14px
-
+    display: inline-block
+    font: normal normal 300 14px Bebas Neue Book
+    letter-spacing: 2px
 small
     font-size : 12px
 
@@ -93,10 +94,25 @@ input
 
 
 // Links
+
 a
     font: normal normal 300 18px Bebas Neue Book
     letter-spacing: 2px
     color: white
+
+// Ссылка иконкой слева (a.icon_left)
+a.i_l
+    font: normal normal 300 18px Bebas Neue Book
+    letter-spacing: 2px
+    color: white
+a.i_l:before
+    content: ''
+    height: 20px
+    width: 20px
+    margin-right: 12px
+    background: url("../images/achievments/arrow_back.svg")
+    z-index: 250
+    float: left
 
 // Buttons
 button
@@ -131,13 +147,15 @@ button.button-dark
     font-size : 14px
     color : #C6C7C8
 
+button.button-dark:active
+    background: red
+
 button.button-dark:after
     content: ''
     width: 24px
     height: 24px
     float: right
     background-image: url(../images/goto.svg)
-
 
 // Interactive
 a:hover
