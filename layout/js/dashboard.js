@@ -22,13 +22,10 @@ $(function() {
 
   	$('#reserv_succes_form').submit(function(e){
   		var form = document.getElementById('reserv_succes_form');
-      var tl = null
-      var tw1 = TweenLite.to(form, 1, {right:"0"})
-      var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-      var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-      var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
-      var tw5 = TweenLite.to(form, 1, {'pointer-events':"auto"})
-      tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'sequence');
+
+  		TweenLite.to(form, 1, {right:"-1260px"});
+  		TweenLite.to(color_overlay, 1, {opacity:"0",});
+  		TweenLite.to(main_content, 1, {filter:"blur(0px)", "-webkit-filter":"blur(0px)", transform:"scale(1, 1)"});
   		e.preventDefault();
   	});
 
