@@ -43,13 +43,15 @@ $(function() {
   $('#dashboard_ach_btn').on('click', function() {
     animateVertical_popup('all_ach')
   });
+
+
   // Открытие всех навыков
   $('#dashboard_talents_btn').on('click', function() {
     console.log('ss')
     animateVertical_popup('all_talents')
   });
   // Открытие достижения
-  $('#dashboard_open_ach_btn').on('click', function() {
+  $(document).on('click', '#achievements figure',function() {
     animateOverall_popup('achivka')
   });
 
