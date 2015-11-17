@@ -200,7 +200,23 @@
 						%ficapation
 							%h6 Маскировка
 							%p 21.09.15
-
+		-# Навыки					
+		.wrapper_2
+			%section.popup_vertical{:id => 'all_talents'}
+				.popup_vertical_symbol
+					%img{:src=>"./images/achievments/symbol_ach.svg"}
+				%header.popup_vertical_header
+					%a.i_l Назад
+					%h5 Навыки
+				%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
+		-# Достижение
+		.wrapper_2.center-center
+			%section.popup_overall{:id => 'achivka'}
+				%img{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
+				%h2 Летняя ночь
+				%h4 21.09.15
+				%p Проработайте всю ночь летом
+							
 		-# Color Overlay
 		#color_overlay.color_overlay
 		
@@ -227,7 +243,7 @@
 					%h4 Достижения
 					#dashboard_ach_btn.number_of 3/25
 				%section.wrapper_for_ach
-					%figure
+					%figure{:id => 'dashboard_open_ach_btn'}
 						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
 						%figcapation
 							%h6 Маскировка
@@ -260,7 +276,7 @@
 			%section.user_achievments
 				%header
 					%h4 Навыки
-					.number_of 3/25
+					#dashboard_talents_btn.number_of 3/25
 				%section.wrapper_for_ach
 					%figure
 						%img.achievments_icon{:src=>"./images/achievments/1.svg"}

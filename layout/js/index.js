@@ -31,6 +31,22 @@ $(function() {
     animateForm('login_form')
   });
 
+  // Анимациии Dashboard
+  //
+
+  //Открытие всех достижений
+  $('#dashboard_ach_btn').on('click', function() {
+    animateVertical_popup('all_ach')
+  });
+  // Открытие всех навыков
+  $('#dashboard_talents_btn').on('click', function() {
+    animateVertical_popup('all_talents')
+  });
+  // Открытие достижения
+  $('#dashboard_open_ach_btn').on('click', function() {
+    animateOverall_popup('achivka')
+  });
+
   //Создание сесии
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
@@ -67,13 +83,7 @@ $(function() {
 });
 
 
-// Анимациии Dashboard
-//
 
-//Клик на кнопку Войти в хедере
-$('#dashboard_ach_btn').on('click', function() {
-  animateVertical_popup()
-});
 
 
 
@@ -127,8 +137,8 @@ function animateMenu() {
   TweenLite.to(html_body, 1, {overflow:"hidden"})
 }
 
-function animateVertical_popup() {
-  var all_ach = document.getElementById("all_ach")
+function animateVertical_popup(el) {
+  var all_ach = document.getElementById(el)
   var html_body = document.getElementById("html_body")
   var color_overlay = document.getElementById("color_overlay")
   var main = document.getElementById('main_content')
@@ -137,4 +147,16 @@ function animateVertical_popup() {
   TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   TweenLite.to(html_body, 1, {overflow:"hidden"})
+}
+
+function animateOverall_popup(el) {
+  var achivka = document.getElementById(el)
+  var html_body = document.getElementById("html_body")
+  var color_overlay = document.getElementById("color_overlay")
+  var main = document.getElementById('main_content')
+
+  TweenLite.to(achivka, 0.5, {top:"0"})
+  TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
+  TweenLite.to(html_body, 0.5, {overflow:"hidden"})
 }
