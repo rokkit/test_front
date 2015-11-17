@@ -182,6 +182,11 @@ function animateOverall_popup(el) {
   TweenLite.to(html_body, 0.5, {overflow:"hidden"})
 }
 
+// PRELOADER
+$(function() {
+  var html_body = document.getElementById("main_content")
+  TweenLite.to(html_body, 1, {opacity:1})
+})
 //поиск по карточкам
 // $(function() {
 //   $('#lounge_search_input').keyup(function() {

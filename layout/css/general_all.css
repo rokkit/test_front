@@ -8,6 +8,7 @@
 html, body, main {
   width: 100%;
   height: 100%;
+  background: #282C35;
 }
 
 html {
@@ -17,7 +18,6 @@ html {
 body {
   font: normal normal 300 1.25rem/1.5 Open Sans;
   color: white;
-  background: black;
 }
 
 h1 {
@@ -396,6 +396,11 @@ button:hover {
   }
 }
 /* End fadein function */
+#main_content {
+  opacity: 0;
+  top: 40px;
+}
+
 .section_1_bg {
   display: relative;
   min-height: 60%;
