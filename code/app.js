@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
 
-import Application from 'application/application';
+import Application from 'application';
 
 import Router from 'router';
 

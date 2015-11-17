@@ -198,7 +198,7 @@ input[type=text]:focus, textarea:focus {
   font-family: "Open Sans Light";
   src: url('../fonts/opensans-light-webfont.woff') format('woff'), url('../fonts/opensans-light-webfont.svg') format('svg'), url('../fonts/opensans-light-webfont.ttf') format('truetype');
 }
-/* ╨Ъ╤А╤Г╤В╨╕╨╝ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╤Л (╤Б╨╡╨╗╨╡╨║╤В╨╛╤А , ╤Б╨╡╨║╤Г╨╜╨┤╤Л (4sec) ) */
+/* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
   100% {
     -moz-transform: rotate(360deg);
@@ -1201,14 +1201,14 @@ section.right_menu a:hover {
     stroke-dashoffset: 1000;
   }
 }
-/* ╨Ъ╤А╤Г╤В╨╕╨╝ ╨╗╤Г╤З╨╕ ╨╗╨╛╨│╨╛╤В╨╕╨┐╨░ */
+/* Крутим лучи логотипа */
 .loader-logo-back {
   -moz-animation: spin_animation 5s linear infinite;
   -webkit-animation: spin_animation 5s linear infinite;
   animation: spin_animation 5s linear infinite;
 }
 
-/* ╨б╨╛╨╖╨┤╨░╨╡╨╝ ╨┐╤А╨╛╨┐╨░╨┤╨░╤О╤Й╨╕╨╣ ╨║╨╗╨░╤Б╤Б */
+/* Создаем пропадающий класс */
 .fadeout {
   -moz-animation: fadeout_animation 1s ease-in-out forwards;
   -webkit-animation: fadeout_animation 1s ease-in-out forwards;
@@ -1218,7 +1218,7 @@ section.right_menu a:hover {
   animation-fill-mode: "forwards";
 }
 
-/* ╨б╨╛╨╖╨┤╨░╨╡╨╝ ╨┐╨╛╤П╨▓╨╗╤П╤О╤Й╨╕╨╣╤Б╤П ╨║╨╗╨░╤Б╤Б */
+/* Создаем появляющийся класс */
 .fadein {
   -moz-animation: fadein_animation 1s ease-in-out forwards;
   -webkit-animation: fadein_animation 1s ease-in-out forwards;
@@ -1228,7 +1228,7 @@ section.right_menu a:hover {
   animation-fill-mode: "forwards";
 }
 
-/* ╨Я╨╛╤П╨▓╨╗╨╡╨╜╨╕╤П ╨╗╨╛╨░╨┤╨╡╤А╨░ */
+/* Появления лоадера */
 .fadein-loader {
   -moz-animation: fadein_animation 1s ease-in-out forwards;
   -webkit-animation: fadein_animation 1s ease-in-out forwards;

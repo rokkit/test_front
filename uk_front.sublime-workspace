@@ -4,8 +4,40 @@
 		"selected_items":
 		[
 			[
+				"co",
+				"container"
+			],
+			[
+				"tas",
+				"tasks"
+			],
+			[
+				"bund",
+				"bundle"
+			],
+			[
+				"on",
+				"onLast"
+			],
+			[
+				"scr",
+				"scriptsNotify"
+			],
+			[
 				"con",
-				"connect"
+				"console"
+			],
+			[
+				"re",
+				"require"
+			],
+			[
+				"la",
+				"layout_watch"
+			],
+			[
+				"so",
+				"source"
 			],
 			[
 				"ha",
@@ -50,10 +82,6 @@
 			[
 				"B",
 				"backbone"
-			],
-			[
-				"re",
-				"require"
 			],
 			[
 				"lo",
@@ -148,10 +176,21 @@
 	"buffers":
 	[
 		{
-			"file": "code/main/main_view.js",
+			"contents": "export default class Component{\n	constructor(){\n\n	}\n}",
+			"file": "code/application/component.js",
+			"file_size": 53,
+			"file_write_time": 130921734724624893,
 			"settings":
 			{
-				"buffer_size": 1136,
+				"buffer_size": 53,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "code/community/route.js",
+			"settings":
+			{
+				"buffer_size": 253,
 				"line_ending": "Unix"
 			}
 		}
@@ -164,9 +203,25 @@
 	"command_palette":
 	{
 		"height": 400.0,
-		"last_filter": "save",
+		"last_filter": "insta",
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"gulp",
+				"Gulp: Delete cache"
+			],
+			[
+				"set",
+				"Set Syntax: ClojureScript"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
 			[
 				"save",
 				"Project: Save As"
@@ -174,10 +229,6 @@
 			[
 				"sta",
 				"View: Toggle Status Bar"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"ta",
@@ -204,7 +255,7 @@
 				"Set Syntax: Sass"
 			]
 		],
-		"width": 457.0
+		"width": 475.0
 	},
 	"console":
 	{
@@ -227,19 +278,51 @@
 	[
 		"/home/denis/playground/uk_front",
 		"/home/denis/playground/uk_front/code",
-		"/home/denis/playground/uk_front/code/main"
+		"/home/denis/playground/uk_front/code/application",
+		"/home/denis/playground/uk_front/code/community"
 	],
 	"file_history":
 	[
+		"/home/denis/playground/uk/source/coffee/js/app/views/pages/community/community_layoutview.coffee",
+		"/home/denis/playground/uk_front/code/community/view.js",
+		"/home/denis/playground/uk_front/code/community/index.js",
+		"/home/denis/playground/uk_front/code/app.js",
+		"/home/denis/playground/uk_front/code/community/community-layoutview.hbs",
+		"/home/denis/playground/uk_front/build/temp.css",
+		"/home/denis/playground/uk_front/build/reset.css",
+		"/home/denis/playground/uk_front/code/index.html",
+		"/home/denis/playground/uk_front/code/application/component.js",
 		"/home/denis/playground/uk_front/code/router.js",
+		"/home/denis/playground/uk_front/code/main/route.js",
+		"/home/denis/playground/uk_front/code/community/route.js",
+		"/home/denis/playground/uk/source/coffee/js/app/views/pages/community/data.coffee",
+		"/home/denis/playground/uk/source/coffee/js/app/views/pages/community/data1.coffee",
+		"/home/denis/playground/uk/source/coffee/js/app/views/pages/community/graphalgs.coffee",
+		"/home/denis/playground/uk/source/coffee/js/app/views/pages/community/nodes.coffee",
+		"/home/denis/playground/uk/source/coffee/js/app/views/pages/community/renderer.coffee",
+		"/home/denis/playground/uk/source/haml/design_prototypes/community.haml",
+		"/home/denis/playground/uk_front/code/application/index.js",
+		"/home/denis/playground/uk_front/gulpfile.js",
+		"/home/denis/playground/uk_front/main/view.js",
+		"/home/denis/playground/uk_front/tasks/server-html.js",
+		"/home/denis/playground/uk_front/tasks/styles.js",
+		"/home/denis/playground/uk_front/tasks/scripts.js",
+		"/home/denis/playground/uk_front/tasks/content.js",
+		"/home/denis/sandbox/uk_front/gulpfile.js",
+		"/home/denis/playground/uk_front/tasks/layout.js",
+		"/home/denis/playground/uk_front/layout/source/haml/dashboard_achievement.haml",
+		"/home/denis/playground/uk_front/layout/source/sass/dashboard_achievments.sass",
+		"/home/denis/playground/uk_front/gulp.config",
+		"/home/denis/sandbox/cljs-app/app.cljs",
+		"/home/denis/sandbox/cljs-app/gulpfile.js",
+		"/home/denis/sandbox/bro/brocfile.js",
+		"/home/denis/sandbox/bro/dist/base.css",
 		"/home/denis/playground/uk_front/code/index/view.js",
 		"/home/denis/playground/uk_front/code/main/main_view.js",
-		"/home/denis/playground/uk_front/code/main/route.js",
 		"/home/denis/playground/uk_front/package.json",
 		"/home/denis/playground/uk_front/build/bundle.js",
 		"/home/denis/playground/uk_front/.gitignore",
 		"/home/denis/playground/uk_front/code/index/test.haml",
-		"/home/denis/playground/uk_front/gulpfile.js",
 		"/home/denis/playground/uk_front/code/main/test.haml",
 		"/home/denis/playground/uk_front/main/route.js",
 		"/home/denis/playground/uk_front/router.js",
@@ -249,7 +332,6 @@
 		"/home/denis/playground/uk_front/application/application.js",
 		"/home/denis/playground/uk_front/main/template.hbs",
 		"/home/denis/playground/uk_front/config.json",
-		"/home/denis/playground/uk_front/main/view.js",
 		"/home/denis/playground/uk_front/build/build.js",
 		"/home/denis/playground/uk_front/main/test.haml",
 		"/home/denis/playground/uk_front/application/layout.hbs",
@@ -267,7 +349,6 @@
 		"/home/denis/playground/uk/src/js/app/templates/views/pages/home/home.tpl",
 		"/home/denis/playground/uk/source/coffee/js/app/controllers/desktop.coffee",
 		"/home/denis/playground/uk_front/index/view.js",
-		"/home/denis/playground/uk/source/coffee/js/app/views/pages/community/nodes.coffee",
 		"/home/denis/playground/uk2/index/router.js",
 		"/home/denis/playground/uk_front/index/route.js",
 		"/home/denis/playground/uk_front/index/template.hbs",
@@ -346,6 +427,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"community_block4",
+			"Done",
+			"'\n",
 			"isCommented",
 			"foo",
 			"regionContent",
@@ -372,32 +456,59 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "code/main/main_view.js",
-					"semi_transient": true,
+					"file": "code/application/component.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1136,
+						"buffer_size": 53,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								515,
-								515
+								51,
+								51
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "code/community/route.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 253,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								174,
+								174
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -441,6 +552,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.gulp_output":
+	{
+		"height": 92.0
 	},
 	"pinned_build_system": "",
 	"project": "uk_front.sublime-project",
@@ -497,16 +612,16 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "",
+		"last_filter": "uk",
 		"selected_items":
 		[
 			[
-				"",
-				"~/playground/h2h/h2h.sublime-project"
-			],
-			[
 				"uk",
 				"~/playground/uk/uk.sublime-project"
+			],
+			[
+				"",
+				"~/playground/h2h/h2h.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -528,7 +643,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 261.0,
+	"side_bar_width": 260.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
