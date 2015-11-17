@@ -1,14 +1,24 @@
 $(function() {
   window.hostUrl = 'http://192.168.1.39:82'
+  
+  // Анимациии в хидере
+  //
+
   //Клик на кнопку Войти в хедере
   $('#login_header_btn').on('click', function() {
     animateForm("login_form")
   });
-  //Клик на кнопку регистрация в хедере
+  
+   //Клик на кнопку регистрация в хедере
   $('#signup_header_btn').on('click', function() {
-    animateForm("signin_form")
+    animateForm("signup_form")
   });
 
+     //Клик на кнопку меню в хедере
+  $('#menu_header_btn').on('click', function() {
+    animateMenu()
+  });
+ 
   $('#recover_btn').on('click', function() {
     animateForm('recover_form')
   });
@@ -27,7 +37,7 @@ $(function() {
     doLogin($('#login_form input[name="phone"]').val().replace('+', ''), $('#login_form input[name="password"]').val())
   });
   //Регистрация
-  $('#signin_form').on('submit', function(e) {
+  $('#signup_form').on('submit', function(e) {
     e.preventDefault()
     var phone = $('#signin_form input[name="phone"]').val().replace('+', '')
     var password = $('#signin_form input[name="password"]').val()
@@ -55,6 +65,17 @@ $(function() {
   });
   $('input[name="phone"]').mask('+0000000000000')
 });
+
+
+// Анимациии Dashboard
+//
+
+//Клик на кнопку Войти в хедере
+$('#dashboard_ach_btn').on('click', function() {
+  animateVertical_popup()
+});
+
+
 
 function successAuth(resp) {
   window.currentUser = resp
@@ -86,13 +107,34 @@ function animateForm(el) {
   var color_overlay = document.getElementById("color_overlay")
   var main = document.getElementById('main_content')
 
-  TweenLite.to(form, 1, {left:"0"})
+  TweenLite.to(form, 1, {left:"160px"})
   TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   TweenLite.to(html_body, 1, {overflow:"hidden"})
 }
 
-$('#n_o_a').on('click', function() {
-  var achievments = document.getElementById("achievments")
-  TweenLite.to(achievments, 1, {top:"80px"})
-});
+function animateMenu() {
+  var left_part = document.getElementById("menu_left_part")
+  var right_part = document.getElementById("menu_right_part")
+  var html_body = document.getElementById("html_body")
+  var color_overlay = document.getElementById("color_overlay")
+  var main = document.getElementById('main_content')
+
+  TweenLite.to(left_part, 0.5, {left:"0"})
+  TweenLite.to(right_part, 0.5, {right:"0"})
+  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+  TweenLite.to(html_body, 1, {overflow:"hidden"})
+}
+
+function animateVertical_popup() {
+  var all_ach = document.getElementById("all_ach")
+  var html_body = document.getElementById("html_body")
+  var color_overlay = document.getElementById("color_overlay")
+  var main = document.getElementById('main_content')
+
+  TweenLite.to(all_ach, 1, {top:"80px"})
+  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+  TweenLite.to(html_body, 1, {overflow:"hidden"})
+}
