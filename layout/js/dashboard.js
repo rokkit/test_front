@@ -1,5 +1,6 @@
 $(function() {
-//Работа с сервером
+  //Работа с сервером
+  window.hostUrl = 'http://192.168.1.39:82'
 	var currentUser = JSON.parse(localStorage.getItem('currentUser'))
   		if (currentUser) {
       		$('section.username h1').text(currentUser.name)
@@ -52,4 +53,31 @@ $(function() {
 	  TweenLite.to(html_body, 1, {overflow:"hidden"})
 	  TweenLite.to(form, 1, {'pointer-events':"auto"})
 	}
+
+	$.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token}, function(json) {
+		$('#achievements').empty()
+    // $('#all_ach .wrapper_for_ach').empty()
+		$('#dashboard_ach_btn').text(0+'/'+json.length)
+    $.each(json, function(i) {
+      var template = "<figure><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+      $('#all_ach .wrapper_for_ach').append(template)
+    })
+		json = json.slice(0, 6)
+
+			$.each(json, function(i) {
+				var template = "<figure><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+				$('#achievements').append(template)
+			})
+		})
+		$.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token}, function(json) {
+			$('#skills').empty()
+			$('#dashboard_talents_btn').text(0+'/'+json.length)
+			json = _.sortBy(json, function(a) { a.name })
+			json = json.slice(0, 5)
+
+				$.each(json, function(i) {
+					var template = "<figure><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+					$('#skills').append(template)
+				})
+		})
 });

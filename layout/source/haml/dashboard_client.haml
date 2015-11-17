@@ -9,6 +9,7 @@
 		%script{ :src => "./js/TweenLite.min.js" }
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/index.js" }
 		%script{ :src => "./js/dashboard.js" }
 	%body#html_body
@@ -271,7 +272,7 @@
 				%header
 					%h4 Достижения
 					#dashboard_ach_btn.number_of 3/25
-				%section.wrapper_for_ach
+				%section.wrapper_for_ach#achievements
 					%figure{:id => 'dashboard_open_ach_btn'}
 						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
 						%figcapation
@@ -306,7 +307,7 @@
 				%header
 					%h4 Навыки
 					#dashboard_talents_btn.number_of 3/25
-				%section.wrapper_for_ach
+				%section.wrapper_for_ach#skills
 					%figure
 						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
 						%figcapation

@@ -40,6 +40,7 @@ $(function() {
   });
   // Открытие всех навыков
   $('#dashboard_talents_btn').on('click', function() {
+    console.log('ss')
     animateVertical_popup('all_talents')
   });
   // Открытие достижения
@@ -118,11 +119,13 @@ function animateForm(el) {
   var main = document.getElementById('main_content')
   var wrapper =document.getElementById('wrapper_login')
 
-  TweenLite.to(form, 1, {left:"160px"})
-  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  TweenLite.to(html_body, 1, {overflow:"hidden"})
-  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
+  var tw1 = TweenLite.to(form, 1, {left:"160px"})
+  var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+  var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
+  var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
+
+  var tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'sequence');
 }
 
 function animateSignup() {
@@ -161,12 +164,10 @@ function animateVertical_popup(el) {
   var html_body = document.getElementById("html_body")
   var color_overlay = document.getElementById("color_overlay")
   var main = document.getElementById('main_content')
-
   TweenLite.to(all_ach, 1, {top:"80px"})
   TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
   TweenLite.to(html_body, 1, {overflow:"hidden"})
-  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
 }
 
 function animateOverall_popup(el) {
@@ -179,5 +180,23 @@ function animateOverall_popup(el) {
   TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
   TweenLite.to(html_body, 0.5, {overflow:"hidden"})
-  TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
 }
+
+//поиск по карточкам
+// $(function() {
+//   $('#lounge_search_input').keyup(function() {
+//     if($('#lounge_search_input').val() == '') {
+//       $('.lounge').fadeIn('fast')
+//     }
+//     _.each($('.lounge'), function(lounge) {
+//       var lounge = $(lounge)
+//       if(lounge.find('h4').text().indexOf($('#lounge_search_input').val())> -1) {
+//         console.log('found')
+//         lounge.fadeIn('fast')
+//       } else {
+//         console.log('no found')
+//         lounge.fadeOut('fast')
+//       }
+//     })
+//   });
+// });
