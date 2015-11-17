@@ -54,6 +54,7 @@ $(function() {
   $(document).on('click', '#achievements figure',function() {
     var achiv = $(this)
     $('#achivka h2').text(achiv.find('h6').text())
+    $('#achivka img').attr('src', (achiv.find('img').attr('src')))
     animateOverall_popup('achivka')
   });
 
