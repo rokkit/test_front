@@ -200,3 +200,16 @@ function animateOverall_popup(el) {
 //     })
 //   });
 // });
+
+// PRELOADER
+$(function() {
+  var prealoader_wrapper = document.getElementById("preloader_wrapper")
+  var prealoader_eye = document.getElementById("preloader_eye")
+  var preloader_back = document.getElementById("preloader_back")
+  TweenMax.to(preloader_back, 10, { rotation: 360, repeat: 8});
+  TweenMax.staggerFrom(".stagger_gsap", 2, {y:50, opacity:0, delay:0.5, ease: Power4.easeOut, force3D:true}, 0.2);
+
+  TweenLite.to(prealoader_wrapper, 2, { top:"-100%", opacity:0, delay:4, ease: Power4.easeOut})
+})
+
+// TweenMax.staggerFrom(".stagger_gsap", 2, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.2);

@@ -64,7 +64,9 @@ input
     position : relative
     height : 48px
     width : 244px
-    
+
+    font-size: 14px
+    font-family: Open Sans Light
     padding: 0 16px 0 16px
     border: 0
     
@@ -76,6 +78,29 @@ input
     line-height: 24px
     font-size : 14px
     z-index: 400
+
+    +transition(all, 500ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+input[type="text"]
+    +input-placeholder
+        color: rgba(255,255,255,.25)
+input[type="password"]
+    +input-placeholder
+        color: rgba(255,255,255,.25)
+
+input.wrong 
+    box-shadow: inset rgba(255, 0, 0, .1) 0 0 0 1px
+    background : rgba(255,0,0, .05)
+    color: rgba(255,0,0,1)
+    +input-placeholder
+        color: rgba(255,0,0,1)
+
+input:focus
+    +transition(box-shadow, 1000ms, easy-in)
+    box-shadow: inset rgba(235, 178, 47, .5) 0 0 2px 2px
+    background : rgba(235, 178, 47, .05)
+textarea, input
+    outline: none
 
 // Margins
 h1
@@ -94,6 +119,7 @@ input
     margin-right: 16px 
 
 
+
 // Links
 
 a
@@ -101,6 +127,12 @@ a
     letter-spacing: 2px
     color: white
 
+    +transition(all, 250ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+a:hover
+    color: #EBB22F
+a:active
+    color: white
 // Ссылка иконкой слева (a.icon_left)
 a.i_l
     font: normal normal 300 18px Bebas Neue Book
@@ -141,7 +173,7 @@ button.button-dark
     height : 48px
     width : 256px
     //border : 2px solid rgba(60,66,72,.5)
-    border : 1px solid gray
+    border : 1px solid rgba(255,255,255,.1)
     background: none
     padding: 0 16px 0 16px
     line-height: 24px
@@ -164,9 +196,3 @@ a:hover
     cursor: pointer
 button:hover
     cursor: pointer
-
-input[type=text], textarea
-    +single-transition(all, 0.75s, linear)
-
-input[type=text]:focus, textarea:focus
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1)

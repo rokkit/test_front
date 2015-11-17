@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 34 17.1" style="enable-background:new 0 0 34 17.1;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#F2AF31;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-</style>
-<g id="XMLID_1_">
-	<line id="XMLID_4307_" class="st0" x1="1.1" y1="16.1" x2="33.1" y2="16.1"/>
-	<line id="XMLID_4306_" class="st0" x1="1.1" y1="8.1" x2="33.1" y2="8.1"/>
-	<line id="XMLID_4305_" class="st0" x1="1.1" y1="1.1" x2="33.1" y2="1.1"/>
-</g>
+	 viewBox="-110 120.9 26 18" enable-background="new -110 120.9 26 18" xml:space="preserve">
+<path fill="#F2AE32" d="M-85,138.9h-24c-0.6,0-1-0.4-1-1s0.4-1,1-1h24c0.6,0,1,0.4,1,1S-84.4,138.9-85,138.9z"/>
+<path fill="#F2AE32" d="M-85,130.4h-24c-0.6,0-1-0.4-1-1s0.4-1,1-1h24c0.6,0,1,0.4,1,1S-84.4,130.4-85,130.4z"/>
+<path fill="#F2AE32" d="M-85,122.9h-24c-0.6,0-1-0.4-1-1s0.4-1,1-1h24c0.6,0,1,0.4,1,1S-84.4,122.9-85,122.9z"/>
 </svg>
