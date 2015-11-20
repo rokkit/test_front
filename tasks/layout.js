@@ -2,6 +2,10 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var haml = require('gulp-ruby-haml');
 
+gulp.task('layout:connect', function() {
+  $.connect.server({ root: 'layout', port: 7777, livereload: false });
+});
+
 gulp.task('layout:sass', function() {
   gulp.src('./layout/source/sass/general_all.sass')
     .pipe($.compass({

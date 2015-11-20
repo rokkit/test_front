@@ -4,7 +4,7 @@
 .section_1_bg
     display: relative
     min-height: 60%
-    
+
     background: url("../images/places/places_bg_1_gradient.png"), url("../images/places/places_bg_1.png")
     background-size: 100% 100% , 100% 100%
 
@@ -22,7 +22,7 @@
 
             margin-bottom: 32px
 
-.instruments 
+.instruments
     display: block
     position: relative
     width: 100%
@@ -33,7 +33,7 @@
 
     a:first-child
         float: left
-        +opacity(.75) 
+        +opacity(.75)
 
     a:before
         content: ''
@@ -69,65 +69,62 @@ section.lounges
     +justify-content(space-between)
     +flex-wrap(wrap)
     $url_0: url(../images/venzel-corner.svg)
-   
-    article.lounge
-        +flex-basis(1)
-        +flex-grow(0.2)
-        +flex-shrink(5)
 
+    article.lounge
         position: relative
         color : black
         text-align : center
-
-        width: 20%
+        width: 268px
+        height: 423px
+        //width: 20%
         margin: 16px
         display: inline-block
         position : relative
         overflow: hidden
         +border-radius(8px)
+        //background: $url_0 left 16px top 16px no-repeat, $url_0 right 16px top 16px no-repeat, $url_0 left 16px bottom 16px no-repeat, $url_0 right 16px bottom 16px no-repeat, linear-gradient(white, #E0E8EE)
+        background: linear-gradient(white, #E0E8EE)
 
-        background: $url_0 left 16px top 16px no-repeat, $url_0 right 16px top 16px no-repeat, $url_0 left 16px bottom 16px no-repeat, $url_0 right 16px bottom 16px no-repeat, linear-gradient(white, #E0E8EE)
 
-        
-        .frontside
-            padding: 40px
-            z-index: 50
-            +border-radius(8px)
-            overflow: hidden
+        // .frontside
+        //     padding: 40px
+        //     z-index: 50
+        //     +border-radius(8px)
+        //     overflow: hidden
 
-            img 
-                margin-bottom: 48px
-                width : 100%
+        //     img
+        //         margin-bottom: 48px
+        //         width : 100%
 
-            h4 
-                margin-bottom: 8px
-                font-family: Bebas Neue
-                font-size: 24px
-                letter-spacing: 4px
+        //     h4
+        //         margin-bottom: 8px
+        //         font-family: Bebas Neue
+        //         font-size: 24px
+        //         letter-spacing: 4px
 
-            small
-                font-family : Lora
-                font-size   : 12px
-                color       : rgba(0,0,0,0.5)
-            
-        .frontside:before
-            content: ''
-            display: block
-            position: absolute
-            top: 8px
-            left: 8px
-            width: calc(100% - 16px)
-            height: calc(100% - 16px)
-            box-shadow: inset rgba(122, 195, 108, .5) 0 0 0 2px
-            border-radius: 4px
+        //     small
+        //         font-family : Lora
+        //         font-size   : 12px
+        //         color       : rgba(0,0,0,0.5)
 
-        .frontside:after
-            content: ''
-            display: block
-            position: absolute
-            top: 12px
-            left: 12px
-            width: calc(100% - 24px)
-            height: calc(100% - 24px)
-            box-shadow: inset rgba(122, 195, 108, .25) 0 0 0 1px
-            border-radius: 2px
+        // .frontside:before
+        //     content: ''
+        //     display: block
+        //     position: absolute
+        //     top: 8px
+        //     left: 8px
+        //     width: calc(100% - 16px)
+        //     height: calc(100% - 16px)
+        //     //box-shadow: inset rgba(122, 195, 108, .5) 0 0 0 2px
+        //     border-radius: 4px
+
+        // .frontside:after
+        //     content: ''
+        //     display: block
+        //     position: absolute
+        //     top: 12px
+        //     left: 12px
+        //     width: calc(100% - 24px)
+        //     height: calc(100% - 24px)
+        //     //box-shadow: inset rgba(122, 195, 108, .25) 0 0 0 1px
+        //     border-radius: 2px
