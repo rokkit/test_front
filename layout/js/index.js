@@ -71,36 +71,6 @@ function animateOverall_popup(el) {
 
 
 
-//Новости из группы ВК
-$(function() {
-  VK.init({
-    apiId: 5023577
-  })
-  VK.Api.call('wall.get', {domain: 'libertyfamily', filter: 'owner'}, function(json) {
-    json = json.response
-    var newsHtml = '<h5><%= text %></h5><p><%= date %> в <%= time %> от #unihuqhookahplaces</p>'
-    var newsTpl = _.template(newsHtml)
-    var news = _.filter(json, function(post) {
-      if (_.isObject(post)) {
-        return true//post.text.indexOf('#unihuqhookahplaces') > -1
-      }
-    })
-    news = news.splice(0, 5)
-    $('#menu_left_part span').empty()
-    _.each(news, function(n) {
-        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '').substr(0, 140)
-        var newsEl = newsTpl({text: newsText, date: '12.04.2015', time: '12:30'})
-        $('#menu_left_part span').append(newsEl)
-    })
-  });
-});
-function strip(html)
-{
-   var tmp = document.createElement("DIV");
-   tmp.innerHTML = html;
-   return tmp.textContent || tmp.innerText || "";
-}
-// Конец
 
 
 
