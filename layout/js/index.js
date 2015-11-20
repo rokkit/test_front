@@ -90,7 +90,10 @@ $(function() {
       }
     });
   });
-  $('input[name="phone"]').mask('+0000000000000')
+
+  if ($('input[name="phone"]').length > 0){
+    $('input[name="phone"]').mask('+0000000000000');
+  }
 });
 
 $(function(){

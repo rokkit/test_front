@@ -15,8 +15,8 @@
 			%section#community_block1
 				%img{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
 			%section#community_block2
-				%h2 
-					Самая лучшая сеть 
+				%h2
+					Самая лучшая сеть
 					%br
 					кальянных и только для вас
 				%br
@@ -39,10 +39,10 @@
 				%p С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу. Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи.
 				%br
 				%img{ :src=>"./images/game_skillset.svg" , :alt=>"Полезные бонусы"}
-				%video#dust{ :controls=>"false", :src=>"src/video/vid.mp4", :autobuffer=>"true", :autoplay=>"true", :loop=>"true"}
+				%video#dust{ :controls=>"false", :src=>"../video/vid.mp4", :autobuffer=>"true", :autoplay=>"true", :loop=>"true"}
 				#cb3grad
 				#cb3grad2
-				%video#dust#cb3smoke{ :controls=>"false", :src=>"src/video/vid2.mp4", :autobuffer=>"true", :autoplay=>"true", :loop=>"true"}
+				%video#dust#cb3smoke{ :controls=>"false", :src=>"../video/vid2.mp4", :autobuffer=>"true", :autoplay=>"true", :loop=>"true"}
 			%section#community_block4
 				%h2 Назначить встречу
 				%br
@@ -53,23 +53,19 @@
 				%br
 				%h3 Общение — это важно
 				%br
-				%p Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. 
+				%p Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю.
 				%br
-				%p Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет. 
+				%p Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.
 				%br
 				%p Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.
 				%br
 				%button Прочитать историю
 
 			%section#community_block6
-				
+
 %script(type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
 %script(type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js")
-%script(type="text/javascript" src="bower_components/requirejs/require.js")
-%script(type="text/javascript" src="src/js/app/config.js")
-%script(type="text/javascript" src="src/js/app/start.js")
-%script(type="text/javascript" src="src/js/app/slider.js")
-
-
-
+%script{ :src => "../js/ui.js" }
+%script{ :src => "../js/card.js" }
+%script{ :src => "../js/lib/d3.js" }
 
