@@ -140,9 +140,9 @@ function animateVertical_popup(el) {
   }})
   var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
+  // var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
   // var tw4 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
-  tl = new TimelineLite().add([tw1,tw2,tw3, tw4], 'sequence');
+  tl = new TimelineLite().add([tw1,tw2,tw3], 'sequence');
 }
 
 function animateOverall_popup(el) {
