@@ -12,6 +12,12 @@
 		%script{ :src => "./js/dashboard.js" }
 	%body
 		%main
+			%header#header
+				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+				%nav
+					%a{:id=>"login_header_btn"} Войти
+					%a{:id=>"signup_header_btn"} Зарегистрироваться
+					%img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
 			%section#community_block1
 				%img{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
 			%section#community_block2
