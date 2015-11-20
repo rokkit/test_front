@@ -15,6 +15,8 @@
 		%script{ :src => "./js/ui.js" }
 		%script{ :src => "./js/card.js" }
 		%script{ :src => "./js/index.js" }
+		%script{ :src => "./js/header.js" }
+		%script{ :src => "./js/lounges.js" }
 	%body#html_body
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
@@ -45,21 +47,21 @@
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu
 				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%span
+					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
+					%p 24 июл в 14:44 от #unihuqhookahplaces
 
-				%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
-				%p 24 июл в 14:44 от #unihuqhookahplaces
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
 
-				%h5 Она задала нам неожиданный вопрос
-				%p 24 июл в 14:44 от #unihuqhookahplaces
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
 
-				%h5 Она задала нам неожиданный вопрос
-				%p 24 июл в 14:44 от #unihuqhookahplaces
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
 
-				%h5 Она задала нам неожиданный вопрос
-				%p 24 июл в 14:44 от #unihuqhookahplaces
-
-				%h5 Она задала нам неожиданный вопрос
-				%p 24 июл в 14:44 от #unihuqhookahplaces
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
 
 				%footer
 					%p Copyright © 2015 Уникальные Кальянные
@@ -73,13 +75,13 @@
 				%h3 Главная страница
 				%p Основная информация
 
-				%h3 Ложи
+				%h3#lounges_nav_btn Ложи
 				%p Основная информация
 
-				%h3 Философия
+				%h3#philosophy_nav_btn Философия
 				%p Основная информация
 
-				%h3 Сообщество
+				%h3#community_nav_btn Сообщество
 				%p Основная информация
 
 				%h3 Франшиза
