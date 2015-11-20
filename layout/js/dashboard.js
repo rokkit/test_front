@@ -1,6 +1,6 @@
 $(function() {
   //Работа с сервером
-  window.hostUrl = 'http://418470cd.ngrok.com'
+  window.hostUrl = 'http://28faa6a4.ngrok.com'
 	var currentUser = JSON.parse(localStorage.getItem('currentUser'))
   		if (currentUser) {
       		$('section.username h1').text(currentUser.name)
@@ -48,7 +48,6 @@ $(function() {
 	  var color_overlay = document.getElementById("color_overlay")
 	  var main = document.getElementById('main_content')
 	  var wrapper =document.getElementById('wrapper_login')
-
 	  TweenLite.to(form, 1, {left:"160px"})
 	  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
 	  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})

@@ -1,5 +1,5 @@
 $(function() {
-  window.hostUrl = 'http://418470cd.ngrok.com'
+  window.hostUrl = 'http://28faa6a4.ngrok.com'
 
   // Анимациии в хидере
   //
