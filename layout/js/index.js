@@ -27,8 +27,6 @@ $(function() {
     $('#achivka img').attr('src', (achiv.find('img').attr('src')))
     animateOverall_popup('achivka')
   });
-
-
 });
 
 
