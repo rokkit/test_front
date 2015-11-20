@@ -7,7 +7,7 @@ $(function() {
       		$('#login_btn').text(currentUser.name)
   		}
 
-  	var tw1 = TweenLite;
+  	// var tw1 = TweenLite;
 
   	$('#n_o_a').click(function(e){
   		animateForm('reserv_form');
@@ -34,12 +34,18 @@ $(function() {
 	  var color_overlay = document.getElementById("color_overlay")
 	  var main = document.getElementById('main_content')
 	  var wrapper =document.getElementById('wrapper_login')
+    var tl = null
 
-	  tw1.to(form, 1, {right:"0px"})
-	  tw1.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-	  tw1.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-	  tw1.to(html_body, 1, {overflow:"hidden"})
-	  tw1.to(form, 1, {'pointer-events':"auto"})
+	  var tw1 = TweenLite.to(form, 1, {right:"0px", onComplete: function() {
+      $('body').on('click', function(e) {
+        tl.reverse()
+      });
+    }})
+	  var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+	  var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+	  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
+	  var tw5 = TweenLite.to(form, 1, {'pointer-events':"auto"})
+    tl = new TimelineLite().add([tw1,tw2,tw3,tw4,tw5], 'sequence');
 	}
 
   	function animateForm(el) {
@@ -48,11 +54,17 @@ $(function() {
 	  var color_overlay = document.getElementById("color_overlay")
 	  var main = document.getElementById('main_content')
 	  var wrapper =document.getElementById('wrapper_login')
-	  TweenLite.to(form, 1, {left:"160px"})
-	  TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-	  TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-	  TweenLite.to(html_body, 1, {overflow:"hidden"})
-	  TweenLite.to(form, 1, {'pointer-events':"auto"})
+    var tl = null;
+	  var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
+      $('body').on('click', function(e) {
+        tl.reverse()
+      });
+    }})
+	  var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+	  var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
+	  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
+	  var tw5 = TweenLite.to(form, 1, {'pointer-events':"auto"})
+    tl = new TimelineLite().add([tw1,tw2,tw3,tw4,tw5], 'sequence');
 	}
 
 	$.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token}, function(json) {
