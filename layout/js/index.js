@@ -8,15 +8,6 @@ $(function() {
 
 
 });
-
-
-
-
-
-
-
-
-
 //поиск по карточкам
 // $(function() {
 //   $('#lounge_search_input').keyup(function() {
