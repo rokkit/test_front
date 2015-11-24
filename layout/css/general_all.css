@@ -1169,6 +1169,12 @@ section.left_menu p {
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 24px;
 }
+section.left_menu p a {
+  font: 12px;
+  font-family: Open Sans Regular;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0;
+}
 section.left_menu footer {
   margin-top: 64px;
   line-height: 24px;
