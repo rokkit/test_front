@@ -81,7 +81,7 @@ $(function() {
   });
   $('input[name="phone"]').mask('+0000000000000')
 
-  
+
 })
 
 function animateForm(el) {

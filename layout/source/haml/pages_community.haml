@@ -7,11 +7,85 @@
 		%script{ :src => "./js/jquery.gsap.min.js" }
 		%script{ :src => "./js/TweenLite.min.js" }
 		%script{ :src => "./js/TweenMax.min.js" }
-		%script{ :src => "./js/openapi.js" }
-		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/openapi.js" }
+		%script{ :src => "./js/header.js" }
 	%body#html_body
-		%main
+		-# Логин
+		.wrapper.center-center{:id => 'wrapper_login'}
+			%section.popup{:id => 'login_form'}
+				%header
+					%h2 Войти
+					%p.h2_subtitle
+						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
+						%a{:href =>"#registration"} зарегистрируйтесь.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Войти
+				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+
+		-# Регистрация
+		.wrapper.center-center{:id => 'wrapper_signup'}
+			%section.popup{:id => 'signup_form'}
+				%header
+					%h2 Регистрация
+					%p.h2_subtitle Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+					%input{:type => "text", :name => "password", :placeholder => "Пароль"}
+					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
+		-# Меню
+		.wrapper.center-center{:id => 'wrapper_menu'}
+			%section#menu_left_part.left_menu
+				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%span
+					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+				%footer
+					%p Copyright © 2015 Уникальные Кальянные
+					%p
+						Создано в
+						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+			-# Left bar
+			%section#menu_right_part.right_menu
+				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+
+				%h3 Главная страница
+				%p Основная информация
+
+				%h3#lounges_nav_btn Ложи
+				%p Основная информация
+
+				%h3#philosophy_nav_btn Философия
+				%p Основная информация
+
+				%h3#community_nav_btn Сообщество
+				%p Основная информация
+
+				%h3 Франшиза
+				%p Основная информация
+
+				%button Войти
+
+		-# Color Overlay
+		#color_overlay.color_overlay
+		%main{:id => 'main_content'}
 			%header#header
 				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
@@ -68,9 +142,3 @@
 				%button Прочитать историю
 
 			%section#community_block6
-
-%script(type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
-%script(type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js")
-%script{ :src => "../js/ui.js" }
-%script{ :src => "../js/card.js" }
-%script{ :src => "../js/lib/d3.js" }
