@@ -29,4 +29,4 @@ gulp.task('connect', function() {
 
 gulp.task('build', ['haml', 'sass']);
 
-gulp.task('default', ['build', 'connect','watch']);
+gulp.task('default', ['connect']);

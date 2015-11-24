@@ -2,6 +2,22 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var haml = require('gulp-ruby-haml');
 
+var notifySass = {
+  title: 'Sass',
+  message: 'Compiled',
+  onLast: true
+}
+
+var notifyHaml = {
+  title: 'Haml',
+  message: 'Compiled',
+  onLast: true
+}
+
+gulp.task('layout:connect', function() {
+  $.connect.server({ root: 'layout', port: 7777, livereload: false });
+});
+
 gulp.task('layout:sass', function() {
   gulp.src('./layout/source/sass/general_all.sass')
     .pipe($.compass({
@@ -9,14 +25,14 @@ gulp.task('layout:sass', function() {
       sass: './layout/source/sass'
     }))
     .pipe(gulp.dest('./layout/css'))
-    .pipe($.notify('sass : done'));
+    .pipe($.notify(notifySass));
 });
 
 gulp.task('layout:haml', function () {
   gulp.src('./layout/source/haml/**/*.haml')
     .pipe(haml())
     .pipe(gulp.dest('./layout'))
-    .pipe($.notify({ message: "haml : done.", onLast: true }));
+    .pipe($.notify(notifyHaml));
 });
 
 gulp.task('layout:watch', function() {
