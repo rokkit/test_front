@@ -12,6 +12,12 @@
 		%script{ :src => "./js/dashboard.js" }
 	%body
 		%main
+			%header#header
+				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+				%nav
+					%a{:id=>"login_header_btn"} Войти
+					%a{:id=>"signup_header_btn"} Зарегистрироваться
+					%img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
 			%section#philosophie_block1
 				%img{ :src=>"./images/philosophie_h1.svg" , :alt=>"Оригинал один — остальное копии"}
 			%section#philosophie_block2
@@ -22,13 +28,13 @@
 				%button Прочитать историю
 			%section#philosophie_block3
 				.cont-wrap
-					%h3 Наши принципы являются фундаментом, основной для работы 
+					%h3 Наши принципы являются фундаментом, основной для работы
 					%br
 					%h4 Каждый клиент для нас уникален. Красота жизни заключается в ее неповторимости и оригинальности.
 					%br
 					%p С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.
 					%br
-					%p Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя атмосфера. Мы начинали как место только "для своих". 
+					%p Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.  Пивлекает наша дружелюбная домашняя атмосфера. Мы начинали как место только "для своих".
 					%br
 					%p С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу. Привлекает наша дружелюбная домашняя атмосфера. Мы начинали как место только "для своих".
 			%section#philosophie_block4
@@ -43,14 +49,10 @@
 				%h2 Ищущий да обретет
 				%h6 Оригинал один - остальное копии
 				%button Зарегистрироваться
-				
+
 %script(type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
 %script(type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js")
 %script(type="text/javascript" src="bower_components/requirejs/require.js")
 %script(type="text/javascript" src="src/js/app/config.js")
 %script(type="text/javascript" src="src/js/app/start.js")
 %script(type="text/javascript" src="src/js/app/slider.js")
-
-
-
-
