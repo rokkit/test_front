@@ -30,6 +30,7 @@ var UID = {
 
 $(function(){
   ui.card.render('oblaka', '#65b6dc', 'Резерв', 'Тюмень', '.lounges');
+  ui.card.render('academy_novosibirsk', '#5F4D9B', 'Академия', 'Новосибирск', '.lounges');
   ui.card.render('unityhall', 'red', 'Облака', 'Воронеж','.lounges');
   ui.card.render('reserv', 'green', 'Unity Hall', 'Казань','.lounges');
 });
