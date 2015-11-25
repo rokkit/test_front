@@ -57,6 +57,14 @@ $(function() {
   TweenLite.to(html_body, 1, {opacity:1})
 })
 
+function bodyClick(tl){
+  $('body').on('click', function(e) {
+    if(e.target.tagName !== 'BUTTON'){
+      tl.reverse();
+    }
+  });
+}
+
 function animateFormSuccess(el) {
   var form2 = document.getElementById(el)
   var html_body2 = document.getElementById("html_body")
@@ -69,9 +77,8 @@ function animateFormSuccess(el) {
     $('.popup').click(function(event){
       event.stopPropagation();
     });
-    $('body').on('click', function(e) {
-      tl.reverse()
-    });
+
+    bodyClick(tl);
 
   }})
   var tw2 = TweenLite.to(color_overlay2, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
@@ -93,9 +100,7 @@ function animateForm(el) {
     $('.popup').click(function(event){
       event.stopPropagation();
     });
-    $('body').on('click', function(e) {
-      tl.reverse()
-    });
+    bodyClick(tl);
 
   }})
   var tw2 = TweenLite.to(color_overlay1, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
@@ -116,9 +121,7 @@ function animateVertical_popup(el) {
   var tl = null
 
   var tw1 = TweenLite.to(all_ach, 1, {top:"80px", onComplete: function() {
-    $('body').on('click', function(e) {
-      tl.reverse()
-    });
+    bodyClick(tl);
   }})
   var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
@@ -135,9 +138,7 @@ function animateOverall_popup(el) {
   var main = document.getElementById('main_content')
   var tl = null
   var tw1 = TweenLite.to(achivka, 0.5, {top:"0", onComplete: function() {
-    $('body').on('click', function(e) {
-      tl.reverse()
-    });
+    bodyClick(tl);
   }})
   var tw2 = TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   var tw3 = TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})

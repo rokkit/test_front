@@ -17,26 +17,28 @@ function card(blazons, color, name, nameCity, el){
     var svgCard = card.append('svg').attr('width', w).attr('height', h).attr('id', cardId);
 
   	svgCard.append('rect')
-  	.attr('x', 5)
-  	.attr('y', 5)
+  	.attr('x', 10)
+  	.attr('y', 10)
   	.attr('rx', 4)
   	.attr('ry', 4)
-  	.attr('width', w-10)
-  	.attr('height', h-10)
+  	.attr('width', w-20)
+  	.attr('height', h-20)
   	.style('fill', 'none')
   	.style('stroke', color)
-  	.style('stroke-width', 2);
+    .style('stroke-opacity', 0.4)
+    .style('stroke-width', 2);
 
   	svgCard.append('rect')
-  	.attr('x', 9)
-  	.attr('y', 9)
+  	.attr('x', 14)
+  	.attr('y', 14)
   	.attr('rx', 2)
   	.attr('ry', 2)
-  	.attr('width', w-18)
-  	.attr('height', h-18)
+  	.attr('width', w-28)
+  	.attr('height', h-28)
   	.style('fill', 'none')
   	.style('stroke', color)
-  	.style('stroke-width', 1);
+    .style('stroke-opacity', 0.30)
+  	.style('stroke-width', 0.8);
 
   	d3.xml(path, "image/svg+xml", function(error, xml){
 		if (error) throw error;

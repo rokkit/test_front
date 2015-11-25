@@ -29,7 +29,7 @@ var UID = {
 };
 
 $(function(){
-  ui.card.render('oblaka', 'red', 'Резерв', 'Тюмень', '.lounges');
-  ui.card.render('unityhall', 'green', 'Облака', 'Воронеж','.lounges');
-  ui.card.render('reserv', 'black', 'Unity Hall', 'Казань','.lounges');
+  ui.card.render('oblaka', '#65b6dc', 'Резерв', 'Тюмень', '.lounges');
+  ui.card.render('unityhall', 'red', 'Облака', 'Воронеж','.lounges');
+  ui.card.render('reserv', 'green', 'Unity Hall', 'Казань','.lounges');
 });
