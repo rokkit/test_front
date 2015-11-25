@@ -23,7 +23,7 @@
 			%section.popup{:id => 'login_form'}
 				%header
 					%h2 Войти
-					%p.h2_subtitle 
+					%p.h2_subtitle
 						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
 						%a{:href =>"#registration"} зарегистрируйтесь.
 				%form{:action => "", :method => "get"}
@@ -41,7 +41,7 @@
 				%form{:action => "", :method => "get"}
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
 					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
-					%input{:type => "text", :name => "password", :placeholder => "Пароль"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
 					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
