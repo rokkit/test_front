@@ -16,6 +16,8 @@ function card(blazons, color, name, nameCity, el){
   	var h = cardRect.height;
     var svgCard = card.append('svg').attr('width', w).attr('height', h).attr('id', cardId);
 
+    // svgCard.on('click', event);
+
   	svgCard.append('rect')
   	.attr('x', 10)
   	.attr('y', 10)

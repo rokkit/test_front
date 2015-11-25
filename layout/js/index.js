@@ -1,13 +1,10 @@
 $(function() {
-  window.hostUrl = 'http://192.168.1.39:82'
-
+  window.hostUrl = 'http://192.168.1.39:82';
   $('#liberty_btn').on('click', function() {
-
     document.location.href="/pages_lounges_liberty.html"
   });
-
-
 });
+
 //поиск по карточкам
 // $(function() {
 //   $('#lounge_search_input').keyup(function() {
