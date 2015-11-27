@@ -10,6 +10,11 @@
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/openapi.js" }
+
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
+
 		%script{ :src => "./js/header.js" }
 	%body#html_body
 		-# Логин
@@ -91,7 +96,8 @@
 				%nav
 					%a{:id=>"login_header_btn"} Войти
 					%a{:id=>"signup_header_btn"} Зарегистрироваться
-					%img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
+					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
+					-#%img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
 			%section#community_block1
 				%img{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
 			%section#community_block2
