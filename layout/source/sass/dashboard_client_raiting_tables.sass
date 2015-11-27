@@ -36,12 +36,6 @@ section.bottom-rating
 		td.td-date
 			color 	: #88898C
 
-		hgroup
-			h6
-				margin-left	: 16px
-
-		hgroup *
-			display	: inline-block
 
 	article:last-child
 		color 		: #7F8083
@@ -59,6 +53,31 @@ section.bottom-rating
 				font-weight 	: 600
 			td:last-child
 				text-align 		: left
+
+		section
+			display : none
+		
+		fieldset
+			input 
+				height 	: 0
+				width 	: 0
+				margin 	: 0
+				padding : 0
+				display : none
+
+			h6
+				margin-left	: 8px
+
+		fieldset label
+			display	: inline-block
+			color 	: #8A7230
+
+		fieldset input:checked + label
+			// Selected input
+			color 	: #ECB72E
+
+		#rating-per-month:checked ~ #section-per-month , #rating-per-all-time:checked ~ #section-per-all-time
+			display : block
 
 	.border-bottom-dashed
 		border-bottom : 1px dashed

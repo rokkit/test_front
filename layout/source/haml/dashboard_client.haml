@@ -419,54 +419,64 @@
 								%td 900 рублей
 								%td 90 HP
 				%article
-					%hgroup	
-						%h4 Рейтинг
-						%h6.color-limon За месяц
-						%h6.color-no-active За все время
-					%table
-						%tbody
-							%tr
-								%td 1.
-								%td Алексей Иванов
-								%td
-									.border-bottom-dashed
-								%td 210 800
+					%h4 Рейтинг
+					%fieldset
+						%input#rating-per-month{ :type => 'radio' , :name => 'tabs' , :checked => 'true' }
+						%label{ :for => 'rating-per-month' , :title => 'За месяц' }
+							%h6 За месяц
 
-							%tr
-								%td 2.
-								%td Антон Максимов
-								%td
-									.border-bottom-dashed
-								%td 175 800
+						%input#rating-per-all-time{ :type => 'radio' , :name => 'tabs' }
+						%label{ :for => 'rating-per-all-time' , :title => 'За всё время' }
+							%h6 За все время
 
-							%tr
-								%td 3.
-								%td Федор Смолов
-								%td
-									.border-bottom-dashed
-								%td 160 800
+						%section#section-per-month
+							%table
+								%tbody
+									%tr
+										%td 1.
+										%td Алексей Иванов
+										%td
+											.border-bottom-dashed
+										%td 210 800
 
-							%tr
-								%td 4.
-								%td Антон Максимов
-								%td
-									.border-bottom-dashed
-								%td 100 800
+									%tr
+										%td 2.
+										%td Антон Максимов
+										%td
+											.border-bottom-dashed
+										%td 175 800
 
-							%tr
-								%td 5.
-								%td Федор Смолов
-								%td
-									.border-bottom-dashed
-								%td 90 800
+									%tr
+										%td 3.
+										%td Федор Смолов
+										%td
+											.border-bottom-dashed
+										%td 160 800
 
-					.border-bottom-dashed
+									%tr
+										%td 4.
+										%td Антон Максимов
+										%td
+											.border-bottom-dashed
+										%td 100 800
 
-					%table
-						%tbody
-							%tr
-								%td 29.
-								%td Виталий Пихонт
-								%td
-									.border-bottom-dashed
-								%td 16 800
+									%tr
+										%td 5.
+										%td Федор Смолов
+										%td
+											.border-bottom-dashed
+										%td 90 800
+
+							.border-bottom-dashed
+
+							%table
+								%tbody
+									%tr
+										%td 29.
+										%td Виталий Пихонт
+										%td
+											.border-bottom-dashed
+										%td 16 800
+						
+						%section#section-per-all-time
+							Секция за все время

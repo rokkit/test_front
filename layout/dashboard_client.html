@@ -572,68 +572,79 @@
           </table>
         </article>
         <article>
-          <hgroup>
-            <h4>Рейтинг</h4>
-            <h6 class='color-limon'>За месяц</h6>
-            <h6 class='color-no-active'>За все время</h6>
-          </hgroup>
-          <table>
-            <tbody>
-              <tr>
-                <td>1.</td>
-                <td>Алексей Иванов</td>
-                <td>
-                  <div class='border-bottom-dashed'></div>
-                </td>
-                <td>210 800</td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td>Антон Максимов</td>
-                <td>
-                  <div class='border-bottom-dashed'></div>
-                </td>
-                <td>175 800</td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>Федор Смолов</td>
-                <td>
-                  <div class='border-bottom-dashed'></div>
-                </td>
-                <td>160 800</td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>Антон Максимов</td>
-                <td>
-                  <div class='border-bottom-dashed'></div>
-                </td>
-                <td>100 800</td>
-              </tr>
-              <tr>
-                <td>5.</td>
-                <td>Федор Смолов</td>
-                <td>
-                  <div class='border-bottom-dashed'></div>
-                </td>
-                <td>90 800</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class='border-bottom-dashed'></div>
-          <table>
-            <tbody>
-              <tr>
-                <td>29.</td>
-                <td>Виталий Пихонт</td>
-                <td>
-                  <div class='border-bottom-dashed'></div>
-                </td>
-                <td>16 800</td>
-              </tr>
-            </tbody>
-          </table>
+          <h4>Рейтинг</h4>
+          <fieldset>
+            <input checked='true' id='rating-per-month' name='tabs' type='radio'>
+            <label for='rating-per-month' title='За месяц'>
+              <h6>За месяц</h6>
+            </label>
+            <input id='rating-per-all-time' name='tabs' type='radio'>
+            <label for='rating-per-all-time' title='За всё время'>
+              <h6>За все время</h6>
+            </label>
+            <section id='section-per-month'>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>1.</td>
+                    <td>Алексей Иванов</td>
+                    <td>
+                      <div class='border-bottom-dashed'></div>
+                    </td>
+                    <td>210 800</td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>Антон Максимов</td>
+                    <td>
+                      <div class='border-bottom-dashed'></div>
+                    </td>
+                    <td>175 800</td>
+                  </tr>
+                  <tr>
+                    <td>3.</td>
+                    <td>Федор Смолов</td>
+                    <td>
+                      <div class='border-bottom-dashed'></div>
+                    </td>
+                    <td>160 800</td>
+                  </tr>
+                  <tr>
+                    <td>4.</td>
+                    <td>Антон Максимов</td>
+                    <td>
+                      <div class='border-bottom-dashed'></div>
+                    </td>
+                    <td>100 800</td>
+                  </tr>
+                  <tr>
+                    <td>5.</td>
+                    <td>Федор Смолов</td>
+                    <td>
+                      <div class='border-bottom-dashed'></div>
+                    </td>
+                    <td>90 800</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class='border-bottom-dashed'></div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>29.</td>
+                    <td>Виталий Пихонт</td>
+                    <td>
+                      <div class='border-bottom-dashed'></div>
+                    </td>
+                    <td>16 800</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section id='section-per-all-time'>
+              Секция за все время
+            </section>
+          </fieldset>
         </article>
       </section>
     </section>

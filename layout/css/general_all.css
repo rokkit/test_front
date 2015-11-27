@@ -1129,12 +1129,6 @@ section.bottom-rating article td span {
 section.bottom-rating article td.td-date {
   color: #88898C;
 }
-section.bottom-rating article hgroup h6 {
-  margin-left: 16px;
-}
-section.bottom-rating article hgroup * {
-  display: inline-block;
-}
 section.bottom-rating article:last-child {
   color: #7F8083;
   font-size: 16px;
@@ -1151,6 +1145,29 @@ section.bottom-rating article:last-child tr td:first-child {
 }
 section.bottom-rating article:last-child tr td:last-child {
   text-align: left;
+}
+section.bottom-rating article:last-child section {
+  display: none;
+}
+section.bottom-rating article:last-child fieldset input {
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+section.bottom-rating article:last-child fieldset h6 {
+  margin-left: 8px;
+}
+section.bottom-rating article:last-child fieldset label {
+  display: inline-block;
+  color: #8A7230;
+}
+section.bottom-rating article:last-child fieldset input:checked + label {
+  color: #ECB72E;
+}
+section.bottom-rating article:last-child #rating-per-month:checked ~ #section-per-month, section.bottom-rating article:last-child #rating-per-all-time:checked ~ #section-per-all-time {
+  display: block;
 }
 section.bottom-rating .border-bottom-dashed {
   border-bottom: 1px dashed;
