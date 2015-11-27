@@ -1,0 +1,474 @@
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+	%head
+		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%script{ :src => "./js/jquery-2.1.4.min.js" }
+		%script{ :src => "./js/jquery.gsap.min.js" }
+		%script{ :src => "./js/TweenLite.min.js" }
+		%script{ :src => "./js/TweenMax.min.js" }
+		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/dashboard.js" }
+
+		-# Habmurger
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
+		
+	%body#html_body
+		-# Form
+		.wrapper.center-center
+			%section.popup{:id => 'reserv_form'}
+				%header
+					%h2 Забронировать столик
+					%p.h2_subtitle
+						Выберите столик и время для желаемого бронированияю
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "input", :placeholder => "Кальянная"}
+					%input{:type => "text", :name => "input", :placeholder => "Столик"}
+					%input{:type => "text", :name => "input", :placeholder => "Дата"}
+					%input{:type => "text", :name => "input", :placeholder => "Время"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
+		-# Form
+		.wrapper.h_v_center
+			%section.popup_middle{:id => 'reserv_succes_form'}
+				%header
+					%h2 Заявка на бронирование подана
+					%p.h2_subtitle
+						Вы подали заявку на бронирование столика 21 мая с 18:00 до 21:00 в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
+				%form{:action => "", :method => "get"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Отлично
+		-# Достижения
+		.wrapper_2#all_ach_wrapper
+			%section.popup_vertical{:id => 'all_ach'}
+				.popup_vertical_symbol
+					%img{:src=>"./images/achievments/symbol_ach.svg"}
+				%header.popup_vertical_header
+					%a.i_l Назад
+					%h5 Достижения
+				%section.wrapper_for_ach
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%ficapation
+							%h6 Маскировка
+							%p 21.09.15
+		-# Навыки
+		.wrapper_2
+			%section.popup_vertical{:id => 'all_talents'}
+				.popup_vertical_symbol
+					%img{:src=>"./images/achievments/symbol_ach.svg"}
+				%header.popup_vertical_header
+					%a.i_l Назад
+					%h5 Навыки
+				%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
+		-# Достижение
+		.wrapper_2.center-center
+			%section.popup_overall{:id => 'achivka'}
+				%img{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
+				%h2 Летняя ночь
+				%h4 21.09.15
+				%p Проработайте всю ночь летом
+
+		-# Color Overlay
+		#color_overlay.color_overlay
+
+		%section.dashboard{:id => 'main_content'}
+			%header#header
+				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+				%nav
+					%a{:id=>"login_btn"} Виталий Пихонт
+					%a{:id=>"signup_btn"} Меню
+					-# %img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
+					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
+			%hr
+			%section.username
+				%h1	Виталий Пихонт
+				%p Санкт-Петербург, Россия
+				%p Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены! 
+			%section.progress_bar
+				%p 4525 очков для следующиего уровня
+				.progress_bar_bg
+					.progress
+
+			%section.user_achievments
+				%header
+					%h4 Достижения
+					#dashboard_ach_btn.number_of 3/25
+				%section.wrapper_for_ach#achievements
+					%figure{:id => 'dashboard_open_ach_btn'}
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+			%section.user_achievments
+				%header
+					%h4 Навыки
+					#dashboard_talents_btn.number_of 3/25
+				%section.wrapper_for_ach#skills
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+					%figure
+						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
+						%figcapation
+							%h6 Маскировка
+							%p 21.09.15
+
+			%section.bottom-rating
+				%article
+					%header
+						%h4 Посещения
+					%table
+						%thead
+							%tr
+								%th Кальянная
+								%th Дата
+								%th Заработано
+								%th Опыт
+						%tbody
+							%tr
+								%td 
+									%h6.color-limon Либерти 
+								%td.td-date 23 июня 2015 20:30 - 23:00
+								%td 1360 рублей
+								%td
+									136 HP
+							%tr
+								%td
+									%h6.color-blue Облака
+								%td.td-date 19 июня 2015 20:30 - 23:00
+								%td 900 рублей
+								%td 90 HP
+							%tr
+								%td
+									%h6.color-blue Облака
+								%td.td-date 19 июня 2015 20:30 - 23:00
+								%td 900 рублей
+								%td 90 HP
+							%tr
+								%td
+									%h6.color-blue Облака
+								%td.td-date 19 июня 2015 20:30 - 23:00
+								%td 900 рублей
+								%td 90 HP
+							%tr
+								%td
+									%h6.color-blue Облака
+								%td.td-date 19 июня 2015 20:30 - 23:00
+								%td 900 рублей
+								%td 90 HP
+				
+				%article
+					%h4 Бонусы
+					%aside
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+
+					%h4 Штрафы
+					%aside
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+
+
+				%article
+					%header
+						%h4 Рейтинг
+					%fieldset
+						%input#rating-per-month{ :type => 'radio' , :name => 'tabs' , :checked => 'true' }
+						%label{ :for => 'rating-per-month' , :title => 'За месяц' }
+							%h6 За месяц
+
+						%input#rating-per-all-time{ :type => 'radio' , :name => 'tabs' }
+						%label{ :for => 'rating-per-all-time' , :title => 'За всё время' }
+							%h6 За все время
+
+						%section#section-per-month
+							%ul.leaders 
+								%li
+									%span 1. Алексей Иванов
+									%span 210 800
+ 
+							%ul.leaders
+								%li
+									%span 2. Антон Максимов
+									%span 175 800
+ 
+							%ul.leaders
+								%li
+									%span 3. Федор Смолов
+									%span 160 800
+ 
+							%ul.leaders
+								%li
+									%span 4. Антон Максимов
+									%span 100 800
+ 
+							%ul.leaders
+								%li
+									%span 5. Федор Смолов
+									%span 90 800
+
+							.border-bottom-dashed
+
+							%ul.leaders
+								%li
+									%span 29. Виталий Пихонт
+									%span 16 800
+						
+						%section#section-per-all-time
+							Секция за все время
