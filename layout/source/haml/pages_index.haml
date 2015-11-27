@@ -18,6 +18,20 @@
 		%script{ :src => "./js/header.js" }
 		%script{ :src => "./js/lounges.js" }
 	%body#html_body
+
+		-# Регистрация
+		.wrapper.center-center{:id => 'wrapper_signup'}
+			%section.popup{:id => 'signup_form'}
+				%header
+					%h2 Регистрация
+					%p.h2_subtitle
+						Регистрация нового пользователя. Если у вас уже есть аккаунт —
+						%a{:href =>"#login"} войдите.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
 			%section.popup{:id => 'login_form'}
@@ -31,18 +45,6 @@
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Войти
 				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
-
-		-# Регистрация
-		.wrapper.center-center{:id => 'wrapper_signup'}
-			%section.popup{:id => 'signup_form'}
-				%header
-					%h2 Регистрация
-					%p.h2_subtitle Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.
-				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
-					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu

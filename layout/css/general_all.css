@@ -266,15 +266,15 @@ button:hover {
 
 @font-face {
   font-family: "Bebas Neue Book";
-  src: url('../../fonts/bebasneue_book-webfont.woff?1448261062') format('woff'), url('../../fonts/bebasneue_book-webfont.svg?1448261062') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf?1448261062') format('truetype');
+  src: url('../../fonts/bebasneue_book-webfont.woff') format('woff'), url('../../fonts/bebasneue_book-webfont.svg') format('svg'), url('../../fonts/bebasneue_book-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Bebas Neue Regular";
-  src: url('../../fonts/bebasneue_regular-webfont.woff?1448261062') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg?1448261062') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf?1448261062') format('truetype');
+  src: url('../../fonts/bebasneue_regular-webfont.woff') format('woff'), url('../../fonts/bebasneue_regular-webfont.svg') format('svg'), url('../../fonts/bebasneue_regular-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Lora";
-  src: url('../../fonts/lora-regular-webfont.ttf?1448261062') format('truetype'), url('../../fonts/lora-regular-webfont.woff?1448261062') format('woff'), url('../../fonts/lora-regular-webfont.svg?1448261062') format('svg');
+  src: url('../../fonts/lora-regular-webfont.ttf') format('truetype'), url('../../fonts/lora-regular-webfont.woff') format('woff'), url('../../fonts/lora-regular-webfont.svg') format('svg');
 }
 @font-face {
   font-family: "Open Sans Bold";
@@ -282,11 +282,11 @@ button:hover {
 }
 @font-face {
   font-family: "Open Sans Regular";
-  src: url('../../fonts/opensans-regular-webfont.woff?1448261062') format('woff'), url('../../fonts/opensans-regular-webfont.svg?1448261062') format('svg'), url('../../fonts/opensans-regular-webfont.ttf?1448261062') format('truetype');
+  src: url('../../fonts/opensans-regular-webfont.woff') format('woff'), url('../../fonts/opensans-regular-webfont.svg') format('svg'), url('../../fonts/opensans-regular-webfont.ttf') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Light";
-  src: url('../../fonts/opensans-light-webfont.woff?1448261062') format('woff'), url('../../fonts/opensans-light-webfont.svg?1448261062') format('svg'), url('../../fonts/opensans-light-webfont.ttf?1448261062') format('truetype');
+  src: url('../../fonts/opensans-light-webfont.woff') format('woff'), url('../../fonts/opensans-light-webfont.svg') format('svg'), url('../../fonts/opensans-light-webfont.ttf') format('truetype');
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
@@ -1528,6 +1528,7 @@ section.popup:before {
   width: calc(100% - 16px);
   height: calc(100% - 32px);
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 2px;
+  z-index: -1;
 }
 
 section.popup_vertical {

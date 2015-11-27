@@ -6,14 +6,29 @@ $(function() {
     animateForm("login_form")
   });
 
+  $('#btn1').on('click', function(){
+    $('body').click();
+    animateSignup();
+  });
+
+  $('#login_form a').click(function(){
+    $('body').click();
+    animateSignup();
+  });
+
+  $('#signup_form a').click(function(){
+    $('body').click();
+    animateForm('login_form');
+  });
+
    //Клик на кнопку регистрация в хедере
   $('#signup_header_btn').on('click', function() {
     animateSignup()
   });
 
   $('#menu_right_part button').on('click', function() {
-    window.tl.reverse()
-    animateForm('login_form')
+    window.tl.reverse();
+    animateForm('login_form');
   });
 
   $('#reserve_table_btn').on('click', function() {
@@ -41,6 +56,7 @@ $(function() {
     e.preventDefault()
     doLogin($('#login_form input[name="phone"]').val().replace('+', ''), $('#login_form input[name="password"]').val())
   });
+
   //Регистрация
   $('#signup_form').on('submit', function(e) {
     e.preventDefault()
@@ -80,9 +96,8 @@ $(function() {
     });
   });
   $('input[name="phone"]').mask('+0000000000000')
+});
 
-
-})
 
 function animateForm(el) {
   var form = document.getElementById(el)

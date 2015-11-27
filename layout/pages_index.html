@@ -18,6 +18,23 @@
     <script src='./js/lounges.js'></script>
   </head>
   <body id='html_body'>
+    <div class='wrapper center-center' id='wrapper_signup'>
+      <section class='popup' id='signup_form'>
+        <header>
+          <h2>Регистрация</h2>
+          <p class='h2_subtitle'>
+            Регистрация нового пользователя. Если у вас уже есть аккаунт —
+            <a href='#login'>войдите.</a>
+          </p>
+        </header>
+        <form action='' method='get'>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <input name='name' placeholder='ФИО' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
+        </form>
+      </section>
+    </div>
     <div class='wrapper center-center' id='wrapper_login'>
       <section class='popup' id='login_form'>
         <header>
@@ -31,20 +48,6 @@
           <input name='phone' placeholder='Номер телефона' type='text'>
           <input name='password' placeholder='Пароль' type='password'>
           <button name='sumbit' type='sumbit'>Войти</button>
-        </form>
-      </section>
-    </div>
-    <div class='wrapper center-center' id='wrapper_signup'>
-      <section class='popup' id='signup_form'>
-        <header>
-          <h2>Регистрация</h2>
-          <p class='h2_subtitle'>Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.</p>
-        </header>
-        <form action='' method='get'>
-          <input name='phone' placeholder='Номер телефона' type='text'>
-          <input name='name' placeholder='ФИО' type='text'>
-          <input name='password' placeholder='Пароль' type='password'>
-          <button id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
         </form>
       </section>
     </div>
