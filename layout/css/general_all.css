@@ -1088,6 +1088,86 @@ section.lounges article.lounge {
   border: 1px solid #EBB22F;
 }
 
+section.bottom-rating {
+  display: block;
+  position: relative;
+  width: 100%;
+  background: #292D34;
+  display: inline-flex;
+  padding: 32px 48px;
+}
+section.bottom-rating h4 {
+  font-size: 18px;
+  font-family: Bebas Neue Book;
+  letter-spacing: 3px;
+  height: 24px;
+  line-height: 25px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+section.bottom-rating h6 {
+  font-weight: 600;
+}
+section.bottom-rating article {
+  width: 33%;
+  font-family: Lora;
+  font-size: 12px;
+}
+section.bottom-rating article th, section.bottom-rating article td.td-date {
+  text-align: left;
+}
+section.bottom-rating article th {
+  color: #565960;
+}
+section.bottom-rating article td {
+  width: 25%;
+  padding: 20px 0;
+}
+section.bottom-rating article td span {
+  font-family: Bebas Neue Book;
+}
+section.bottom-rating article td.td-date {
+  color: #88898C;
+}
+section.bottom-rating article hgroup h6 {
+  margin-left: 16px;
+}
+section.bottom-rating article hgroup * {
+  display: inline-block;
+}
+section.bottom-rating article:last-child {
+  color: #7F8083;
+  font-size: 16px;
+}
+section.bottom-rating article:last-child tr td {
+  width: 35%;
+  text-align: right;
+}
+section.bottom-rating article:last-child tr td:first-child {
+  width: 5%;
+  padding-right: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+section.bottom-rating article:last-child tr td:last-child {
+  text-align: left;
+}
+section.bottom-rating .border-bottom-dashed {
+  border-bottom: 1px dashed;
+}
+section.bottom-rating .color-blue {
+  color: #64B6DC;
+}
+section.bottom-rating .color-limon {
+  color: #ECB72E;
+}
+section.bottom-rating .color-orange {
+  color: #EA562F;
+}
+section.bottom-rating .color-no-active {
+  color: #8A7230;
+}
+
 #reserv_form input {
   width: 160px;
 }
@@ -1233,14 +1313,6 @@ section.user_achievments section.wrapper_for_ach figure figcapation p {
   font-family: Lora;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
-}
-
-section.bottom_rating {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 512px;
-  background: #292D34;
 }
 
 section.wrapper_for_ach {
