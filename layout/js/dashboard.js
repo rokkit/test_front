@@ -1,5 +1,14 @@
 var currentUser = JSON.parse(localStorage.getItem('currentUser'))
 $(function() {
+
+  // Hamburger
+  new svgIcon(
+    document.querySelector('#menu_header_btn'),
+    svgIconConfig,
+    { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
+  );
+
+
   //Работа с сервером
   window.hostUrl = 'http://192.168.1.39:82'
 
