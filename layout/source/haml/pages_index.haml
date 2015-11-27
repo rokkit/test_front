@@ -20,7 +20,7 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-	%body#html_body
+	%body#html_body{:data => {'page' => 'lounges'}}
 
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}
@@ -76,21 +76,23 @@
 			-# Left bar
 			%section#menu_right_part.right_menu
 				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				%a
+					%h3#main_nav_btn Главная страница
+					%p Основная информация
+				%a
+					%h3#lounges_nav_btn Ложи
+					%p Уникальные заведения
 
-				%h3 Главная страница
-				%p Основная информация
+				%a
+					%h3#philosophy_nav_btn Философия
+					%p Наши ценности
 
-				%h3#lounges_nav_btn Ложи
-				%p Уникальные заведения
-
-				%h3#philosophy_nav_btn Философия
-				%p Наши ценности
-
-				%h3#community_nav_btn Сообщество
-				%p Полезно быть своим
-
-				%h3 Франшиза
-				%p Открыть Ложу
+				%a
+					%h3#community_nav_btn Сообщество
+					%p Полезно быть своим
+				%a
+					%h3 Франшиза
+					%p Открыть Ложу
 
 				%button Войти
 

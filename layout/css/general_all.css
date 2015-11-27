@@ -1406,7 +1406,6 @@ section.right_menu button {
   bottom: 48px;
 }
 section.right_menu a {
-  display: inline-block;
   color: #fff;
 }
 section.right_menu a:hover {
@@ -1415,6 +1414,14 @@ section.right_menu a:hover {
 
 .js-closing-menu:hover {
   cursor: pointer;
+}
+
+.text-color-orange {
+  color: #ECB72E !important;
+}
+
+.text-color-white {
+  color: #fff;
 }
 
 #preloader_wrapper {
