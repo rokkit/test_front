@@ -1,6 +1,12 @@
 $(function() {
   window.tl = null;
   window.hostUrl = 'http://192.168.1.39:82'
+
+  new svgIcon(
+    document.querySelector('#menu_header_btn'),
+    svgIconConfig,
+    { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
+  );
   //Клик на кнопку Войти в хедере
   $('#login_header_btn').on('click', function() {
     animateForm("login_form")

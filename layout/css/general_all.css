@@ -1482,12 +1482,10 @@ section.right_menu a:hover {
 #header nav a {
   margin-left: 16px;
 }
-#header nav img.menu {
-  margin-top: 10px;
+#header nav .menu {
+  margin-top: 1px;
   margin-left: 16px;
   float: right;
-  width: 26px;
-  height: 18px;
 }
 
 section.popup {
@@ -1748,10 +1746,8 @@ div.wrapper_2 {
 #header nav a {
   margin-left: 16px;
 }
-#header nav img.menu {
-  margin-top: 10px;
+#header nav .menu {
+  margin-top: 1px;
   margin-left: 16px;
   float: right;
-  width: 26px;
-  height: 18px;
 }

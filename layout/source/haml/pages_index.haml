@@ -17,6 +17,9 @@
 		%script{ :src => "./js/index.js" }
 		%script{ :src => "./js/header.js" }
 		%script{ :src => "./js/lounges.js" }
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
 	%body#html_body
 
 		-# Регистрация
@@ -102,7 +105,7 @@
 					%nav
 						%a{:id=>"login_header_btn"} Войти
 						%a{:id=>"signup_header_btn"} Зарегистрироваться
-						%img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
+						#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
 				%header
 					%h1 Посетите наши лучшие уникальные места
 					%p.h2_subtitle Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю и гостье.
