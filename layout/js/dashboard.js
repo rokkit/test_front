@@ -21,6 +21,10 @@ $(function() {
   		animateForm('reserv_form');
   	});
 
+    $('#invite').click(function(){
+      animateForm('invite_form');
+    });
+
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       var form_reserv = document.getElementById('reserv_form');

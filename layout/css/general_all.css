@@ -1190,6 +1190,11 @@ section.bottom-rating .color-no-active {
   width: 160px;
 }
 
+#invite_form input {
+  width: 158px;
+  margin-top: 10px;
+}
+
 section.dashboard {
   display: block;
   position: relative;

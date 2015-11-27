@@ -15,7 +15,7 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-		
+
 	%body#html_body
 		-# Form
 		.wrapper.center-center
@@ -30,6 +30,21 @@
 					%input{:type => "text", :name => "input", :placeholder => "Дата"}
 					%input{:type => "text", :name => "input", :placeholder => "Время"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
+		-# Form
+		.wrapper.center-center
+			%section.popup{:id => 'invite_form'}
+				%header
+					%h2 Назначить встречу
+					%p.h2_subtitle
+						Мы ставим свой целью не только подовать лучшие кальяны,
+						%brно и помогать людям находить новые полезные знакомства.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "input", :placeholder => "Кальянная"}
+					%input{:type => "text", :name => "input", :placeholder => "Столик"}
+					%input{:type => "text", :name => "input", :placeholder => "Дата"}
+					%input{:type => "text", :name => "input", :placeholder => "Время"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Отправить приглашения
+					%input{:type => "text", :name => "input", :placeholder => "Пригласить"}
 		-# Form
 		.wrapper.h_v_center
 			%section.popup_middle{:id => 'reserv_succes_form'}
@@ -261,7 +276,7 @@
 				%h1	Виталий Пихонт
 				%p Санкт-Петербург, Россия
 				%button.button-dark#n_o_a Забронировать столик
-				%button.button-dark Пригласить на встречу
+				%button.button-dark#invite Пригласить на встречу
 			%section.progress_bar
 				%p 4525 очков для следующиего уровня
 				.progress_bar_bg
@@ -351,8 +366,8 @@
 								%th Статус
 						%tbody
 							%tr
-								%td 
-									%h6.color-limon Либерти 
+								%td
+									%h6.color-limon Либерти
 								%td.td-date 23 июня 2015 20:30 - 23:00
 								%td 5 человек
 								%td
@@ -395,8 +410,8 @@
 								%th Опыт
 						%tbody
 							%tr
-								%td 
-									%h6.color-limon Либерти 
+								%td
+									%h6.color-limon Либерти
 								%td.td-date 23 июня 2015 20:30 - 23:00
 								%td 1360 рублей
 								%td
@@ -485,6 +500,6 @@
 										%td
 											.border-bottom-dashed
 										%td 16 800
-						
+
 						%section#section-per-all-time
 							Секция за все время
