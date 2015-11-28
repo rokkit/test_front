@@ -131,13 +131,14 @@
 #liberty_block5:before
     content: ''
     display: block
-    position: absolute
-    top: 8px
-    left: 8px
-    width: calc(100% - 16px)
-    height: calc(100% - 16px)
-    //box-shadow: inset rgba(122, 195, 108, .5) 0 0 0 2px
-    border-radius: 4px
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: #282C34
+    z-index: 150
+    +opacity(.0)
 
 #liberty_block6
     display: block

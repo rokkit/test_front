@@ -637,12 +637,15 @@ section.lounges article.lounge {
 #liberty_block5:before {
   content: "";
   display: block;
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  width: calc(100% - 16px);
-  height: calc(100% - 16px);
-  border-radius: 4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #282C34;
+  z-index: 150;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
 }
 
 #liberty_block6 {
@@ -1199,11 +1202,6 @@ section.bottom-rating .color-no-active {
 
 #reserv_form input {
   width: 160px;
-}
-
-#invite_form input {
-  width: 158px;
-  margin-top: 10px;
 }
 
 section.dashboard {
