@@ -634,6 +634,17 @@ section.lounges article.lounge {
   line-height: 24px;
 }
 
+#liberty_block5:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border-radius: 4px;
+}
+
 #liberty_block6 {
   display: block;
   position: relative;
