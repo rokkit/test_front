@@ -1,3 +1,13 @@
+$(function(){
+  var h, w;
+      w = $("#viewport-left").width();
+      h = $("#viewport-left").height();
+      this.nodesLeft = new Nodes('viewport-left', w, h);
+      this.nodesLeft.render;
+      this.nodesRight = new Nodes('viewport-right', w, h);
+      this.nodesRight.render;
+});
+
 $(function() {
   window.tl = null;
   window.hostUrl = 'http://192.168.1.39:82'
