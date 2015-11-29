@@ -1617,6 +1617,8 @@ section.popup {
   z-index: 300;
 }
 section.popup a {
+  font: normal normal 300 18px/28px Lora, sans-serif;
+  color: #EBB22F;
   z-index: 250;
 }
 
