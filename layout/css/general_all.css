@@ -1499,11 +1499,6 @@ section.right_menu img {
   height: 16px;
   margin-bottom: 56px;
 }
-section.right_menu p {
-  font-family: Lora;
-  margin-bottom: 32px;
-  color: rgba(255, 255, 255, 0.5);
-}
 section.right_menu button {
   display: block;
   position: absolute;
@@ -1511,6 +1506,12 @@ section.right_menu button {
 }
 section.right_menu a {
   color: #fff;
+}
+section.right_menu a p {
+  font-family: Lora;
+  margin-bottom: 32px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.5);
 }
 section.right_menu a:hover {
   color: #ECB72E;
