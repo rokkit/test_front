@@ -98,6 +98,10 @@ $(function() {
       $('#achivka img').attr('src', (achiv.find('img').attr('src')))
       animateOverall_popup('achivka')
     });
+
+    $('#header img').on('click', function() {
+      document.location.href = '/pages_index.html'
+    });
 });
 
 // PRELOADER
@@ -216,7 +220,7 @@ $(function() {
     $.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token}, function(json) {
       $('#skills').empty()
       $('#dashboard_talents_btn').text(0+'/'+json.length)
-      json = json.slice(0, 5)
+      json = json.slice(0, 6)
 
         $.each(json, function(i) {
           var template = "<figure><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
@@ -267,4 +271,3 @@ function getReservations() {
     })
   })
 }
-
