@@ -17,6 +17,9 @@
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
 		%script{ :src => "./js/header.js" }
+		:css
+			.colored_el { color: #7DBE6D !important; }
+			.colored_background { background: #7DBE6D !important; }
 	%body#html_body
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
@@ -100,12 +103,12 @@
 						#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
 				%hr
 				%section.headerlib
-					%h1 Unity Hall
+					%h1.colored_el Unity Hall
 					%p.h2_subtitle Sed et ceteri codices originale sit unum*
 				%section.information_lib
 					%figure
-						%img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
-						%figcapation Санкт-Петербург,<br>улица Маяковского 27
+						%img#city_img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
+						%figcapation Казань,<br>Бутлерова 21
 					%figure
 						%img{ :src=>"./images/phone.svg" , :alt=>"Город" , :height=>"16px" }
 						%figcapation +7 (812) 922-71-99
@@ -116,10 +119,10 @@
 							%br
 							Сб. - Вс.: с 16:00 до последнего гостя
 				%section.liberactions
-					%button#reserve_table_btn Забронировать столик
+					%button#reserve_table_btn.colored_background Забронировать столик
 					%button.button-dark Связаться с нами
 				%footer
-					%p *Один - остальное копии
+					%p *Оригинал один - остальные копии
 				%img#liberty_herb.layer{ :src=>"./images/blazons/reserv.svg", :"data-depth"=>"0.40"}
 			%section#liberty_block2
 				%h4 Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю
@@ -162,19 +165,19 @@
 
 			%section#liberty_block5
 				%section#map_wrapper
-					%h3 Санкт-Петербург
+					%h3 Казань
 					%h5 Центральный
 
 					%p В первый же день было принято решение отказаться от стандартного позиционирования оплата стала свободной на усмотрение гостя или гостей.
 
-					%small Россия, Санкт-Петербург, улица Маяковского 27
+					%small Россия, Казань, улица Бутлерова 21
 
 			%section#liberty_block6
-				%h2 Контакты
+				%h2.colored_el Контакты
 				%h5 «Либерти» находится в самом центре Санкт-Петербурга!
 
 				%h6 Адрес:
-				%p Санкт-Петербург, улица Маяковского 27
+				%p Казань, улица Бутлерова 21
 
 				%h6 Контактный номер:
 				%p +7 (812) 922-71-99
