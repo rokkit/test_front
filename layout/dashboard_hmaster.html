@@ -1,0 +1,631 @@
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type'>
+    <link href='./css/reset.css' rel='stylesheet'>
+    <link href='./css/general_all.css' rel='stylesheet'>
+    <script src='./js/jquery-2.1.4.min.js'></script>
+    <script src='./js/jquery.gsap.min.js'></script>
+    <script src='./js/TweenLite.min.js'></script>
+    <script src='./js/TweenMax.min.js'></script>
+    <script src='./js/jquery.mask.min.js'></script>
+    <script src='./js/underscore-min.js'></script>
+    <script src='./js/dashboard.js'></script>
+    <script src='./js/lib/snap.svg-min.js'></script>
+    <script src='./js/lib/svgicons-config.js'></script>
+    <script src='./js/lib/svgicons.js'></script>
+  </head>
+  <body id='html_body'>
+    <div class='wrapper center-center'>
+      <section class='popup' id='reserv_form'>
+        <header>
+          <h2>Забронировать столик</h2>
+          <p class='h2_subtitle'>
+            Выберите столик и время для желаемого бронированияю
+          </p>
+        </header>
+        <form action='' method='get'>
+          <input name='input' placeholder='Кальянная' type='text'>
+          <input name='input' placeholder='Столик' type='text'>
+          <input name='input' placeholder='Дата' type='text'>
+          <input name='input' placeholder='Время' type='text'>
+          <button name='sumbit' type='sumbit'>Забронировать</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='reserv_succes_form'>
+        <header>
+          <h2>Заявка на бронирование подана</h2>
+          <p class='h2_subtitle'>
+            Вы подали заявку на бронирование столика 21 мая с 18:00 до 21:00 в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
+          </p>
+        </header>
+        <form action='' method='get'>
+          <button name='sumbit' type='sumbit'>Отлично</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper_2' id='all_ach_wrapper'>
+      <section class='popup_vertical' id='all_ach'>
+        <div class='popup_vertical_symbol'>
+          <img src='./images/achievments/symbol_ach.svg'>
+        </div>
+        <header class='popup_vertical_header'>
+          <a class='i_l'>Назад</a>
+          <h5>Достижения</h5>
+        </header>
+        <section class='wrapper_for_ach'>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+        </section>
+      </section>
+    </div>
+    <div class='wrapper_2'>
+      <section class='popup_vertical' id='all_talents'>
+        <div class='popup_vertical_symbol'>
+          <img src='./images/achievments/symbol_ach.svg'>
+        </div>
+        <header class='popup_vertical_header'>
+          <a class='i_l'>Назад</a>
+          <h5>Навыки</h5>
+        </header>
+        <img alt='Навыки' src='./images/talents/talents.svg'>
+      </section>
+    </div>
+    <div class='wrapper_2 center-center'>
+      <section class='popup_overall' id='achivka'>
+        <img alt='В альт отправляем название достижения' src='./images/achievments/1.svg'>
+        <h2>Летняя ночь</h2>
+        <h4>21.09.15</h4>
+        <p>Проработайте всю ночь летом</p>
+      </section>
+    </div>
+    <div class='color_overlay' id='color_overlay'></div>
+    <section class='dashboard' id='main_content'>
+      <header id='header'>
+        <img alt='Уникальные Кальянные' src='./images/logo.svg'>
+        <nav>
+          <a id='login_btn'>Виталий Пихонт</a>
+          <a id='signup_btn'>Меню</a>
+          <div class='menu' data-icon-name='hamburger' id='menu_header_btn'></div>
+        </nav>
+      </header>
+      <hr>
+      <section class='username'>
+        <h1>Виталий Пихонт</h1>
+        <p>Санкт-Петербург, Россия</p>
+        <p>Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!</p>
+      </section>
+      <section class='progress_bar'>
+        <p>4525 очков для следующиего уровня</p>
+        <div class='progress_bar_bg'>
+          <div class='progress'></div>
+        </div>
+      </section>
+      <section class='user_achievments'>
+        <header>
+          <h4>Достижения</h4>
+          <div class='number_of' id='dashboard_ach_btn'>3/25</div>
+        </header>
+        <section class='wrapper_for_ach' id='achievements'>
+          <figure id='dashboard_open_ach_btn'>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+        </section>
+      </section>
+      <section class='user_achievments'>
+        <header>
+          <h4>Навыки</h4>
+          <div class='number_of' id='dashboard_talents_btn'>3/25</div>
+        </header>
+        <section class='wrapper_for_ach' id='skills'>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+        </section>
+      </section>
+      <section class='bottom-rating'>
+        <article>
+          <header>
+            <h4>Посещения</h4>
+          </header>
+          <table>
+            <thead>
+              <tr>
+                <th>Кальянная</th>
+                <th>Дата</th>
+                <th>Заработано</th>
+                <th>Опыт</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <h6 class='color-limon'>Либерти</h6>
+                </td>
+                <td class='td-date'>23 июня 2015 20:30 - 23:00</td>
+                <td>1360 рублей</td>
+                <td>
+                  136 HP
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>900 рублей</td>
+                <td>90 HP</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>900 рублей</td>
+                <td>90 HP</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>900 рублей</td>
+                <td>90 HP</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>900 рублей</td>
+                <td>90 HP</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <h4>Бонусы</h4>
+          <aside>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+          </aside>
+          <h4>Штрафы</h4>
+          <aside>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+          </aside>
+        </article>
+        <article>
+          <header>
+            <h4>Рейтинг</h4>
+          </header>
+          <fieldset>
+            <input checked='true' id='rating-per-month' name='tabs' type='radio'>
+            <label for='rating-per-month' title='За месяц'>
+              <h6>За месяц</h6>
+            </label>
+            <input id='rating-per-all-time' name='tabs' type='radio'>
+            <label for='rating-per-all-time' title='За всё время'>
+              <h6>За все время</h6>
+            </label>
+            <section id='section-per-month'>
+              <ul class='leaders'>
+                <li>
+                  <span>1. Алексей Иванов</span>
+                  <span>210 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>2. Антон Максимов</span>
+                  <span>175 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>3. Федор Смолов</span>
+                  <span>160 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>4. Антон Максимов</span>
+                  <span>100 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>5. Федор Смолов</span>
+                  <span>90 800</span>
+                </li>
+              </ul>
+              <div class='border-bottom-dashed'></div>
+              <ul class='leaders'>
+                <li>
+                  <span>29. Виталий Пихонт</span>
+                  <span>16 800</span>
+                </li>
+              </ul>
+            </section>
+            <section id='section-per-all-time'>
+              Секция за все время
+            </section>
+          </fieldset>
+        </article>
+      </section>
+    </section>
+  </body>
+</html>
