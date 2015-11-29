@@ -77,6 +77,27 @@ p {
   color: white;
 }
 
+select {
+  position: relative;
+  height: 48px;
+  width: 144px;
+  font-size: 14px;
+  font-family: Open Sans Light;
+  padding: 0 16px 0 16px;
+  border: 0;
+  color: white;
+  box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 0 1px;
+  background: rgba(255, 255, 255, 0.01);
+  text-align: left;
+  line-height: 24px;
+  font-size: 14px;
+  z-index: 400;
+  -moz-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 input {
   position: relative;
   height: 48px;

@@ -9,6 +9,7 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/dashboard.js" }
 
 		-# Habmurger
@@ -25,10 +26,14 @@
 					%p.h2_subtitle
 						Выберите столик и время для желаемого бронированияю
 				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "input", :placeholder => "Кальянная"}
-					%input{:type => "text", :name => "input", :placeholder => "Столик"}
-					%input{:type => "text", :name => "input", :placeholder => "Дата"}
-					%input{:type => "text", :name => "input", :placeholder => "Время"}
+					%select{:name=>"lounge"}
+						%option
+							Кальянная
+					%select{:name=>"table"}
+						%option
+							Столик
+					%input{:type => "text", :name => "visit_date", :placeholder => "Дата"}
+					%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
 		-# Form
 		.wrapper.h_v_center
@@ -347,9 +352,8 @@
 							%tr
 								%th Кальянная
 								%th Дата
-								%th Люди
 								%th Статус
-						%tbody
+						%tbody#reserve_table_body
 							%tr
 								%td
 									%h6.color-limon Либерти

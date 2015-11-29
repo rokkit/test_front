@@ -16,6 +16,34 @@ $(function() {
       		$('section.username h1').text(currentUser.name)
       		$('#login_btn').text(currentUser.name)
   		}
+    //Загрузить начальные данные
+    $(function() {
+      $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
+        _.each(json.lounges, function(lounge) {
+          console.log(lounge)
+          $('select[name="lounge"]').append("<option value="+lounge.id+">"+ lounge.title +"</option>")
+          $('select[name="table"]').append("<optgroup data-id="+lounge.id+" label='"+lounge.title+"'>")
+            _.each(lounge.tables, function(table) {
+                $('optgroup[data-id='+lounge.id+']').append("<option value="+table.id+">"+ table.title +"</option>")
+            })
+          $('select[name="table"]').append("</optgroup>")
+        })
+        var tables = $('select[name="table"]').html()
+        $('select[name="lounge"]').on('change', function() {
+
+          var lounge = $('select[name="lounge"]').val()
+          console.log('change', tables)
+          var options = $(tables).filter("optgroup[data-id="+lounge+"]").html()
+          if (options) {
+            $('select[name="table"]').html(options)
+          } else {
+            $('select[name="table"]').empty()
+          }
+        });
+      });
+      getReservations();
+
+    });
 
   	$('#n_o_a').click(function(e){
   		animateForm('reserv_form');
@@ -27,12 +55,20 @@ $(function() {
 
     $('#reserv_form').submit(function(e){
       e.preventDefault();
+      $.post(hostUrl + '/api/v1/reservations.json', {
+        auth_token: currentUser.auth_token,
+        table_id: $('select[name=table]').val(),
+        visit_date: $('input[name=visit_date]').val() + ' ' + $('input[name=visit_time]').val()
+      }, function() {
+        getReservations()
+      })
       var form_reserv = document.getElementById('reserv_form');
       TweenLite.to(form_reserv, 1, {left:"1860px"});
       animateFormSuccess('reserv_succes_form');
     });
 
     $('#reserv_succes_form').submit(function(e){
+
       var form_success = document.getElementById('reserv_succes_form');
       var html_body3 = document.getElementById("html_body")
       var color_overlay3 = document.getElementById("color_overlay")
@@ -189,9 +225,10 @@ $(function() {
     })
 })
 
-// Центрирование попапов
 
-jQuery.fn.center = function(parent) {
+// Центрирование попапов
+$(function() {
+	jQuery.fn.center = function(parent) {
     if (parent) {
         parent = this.parent();
     } else {
@@ -202,7 +239,32 @@ jQuery.fn.center = function(parent) {
         "top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
         "left": ((($(parent).width() - this.outerWidth()) / 2) + $(parent).scrollLeft() + "px")
     });
-return this;
+	return this;
+	}
+	$("div.target:nth-child(1)").center(true);
+	$("div.target:nth-child(2)").center(false);
+})
+
+
+function getReservations() {
+  moment.locale('ru')
+  $.getJSON(hostUrl + '/api/v1/reservations.json', {auth_token: currentUser.auth_token}, function(json) {
+    $('#reserve_table_body').empty()
+    _.each(json, function(reserv) {
+      var visit_date = moment(reserv.visit_date).format('DD MMMM YYYY HH:mm')
+      var reserv_el = '<tr data-id='+reserv.id+'><td><h6 style="color:'+reserv.lounge.color+';" >'+ reserv.lounge.title
+      +'</h6></td><td class="td-date">'+visit_date+'</td><td>Скоро<br><span class="color-orange cancel_reserv">Отменить</span></td></tr>';
+      $('#reserve_table_body').append(reserv_el)
+    })
+
+  });
+  $(document).on('click', '.cancel_reserv', function(e) {
+    $(this).closest('tr').remove()
+    $.ajax({
+      url: hostUrl + '/api/v1/reservations/'+$(this).closest('tr').data('id'),
+      data: {auth_token: currentUser.auth_token},
+      type: 'DELETE'
+    })
+  })
 }
-$("div.target:nth-child(1)").center(true);
-$("div.target:nth-child(2)").center(false);
+

@@ -9,6 +9,7 @@
     <script src='./js/TweenMax.min.js'></script>
     <script src='./js/jquery.mask.min.js'></script>
     <script src='./js/underscore-min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/dashboard.js'></script>
     <script src='./js/lib/snap.svg-min.js'></script>
     <script src='./js/lib/svgicons-config.js'></script>
@@ -24,10 +25,18 @@
           </p>
         </header>
         <form action='' method='get'>
-          <input name='input' placeholder='Кальянная' type='text'>
-          <input name='input' placeholder='Столик' type='text'>
-          <input name='input' placeholder='Дата' type='text'>
-          <input name='input' placeholder='Время' type='text'>
+          <select name='lounge'>
+            <option>
+              Кальянная
+            </option>
+          </select>
+          <select name='table'>
+            <option>
+              Столик
+            </option>
+          </select>
+          <input name='visit_date' placeholder='Дата' type='text'>
+          <input name='visit_time' placeholder='Время' type='text'>
           <button name='sumbit' type='sumbit'>Забронировать</button>
         </form>
       </section>
@@ -463,11 +472,10 @@
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
-                <th>Люди</th>
                 <th>Статус</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id='reserve_table_body'>
               <tr>
                 <td>
                   <h6 class='color-limon'>Либерти</h6>
