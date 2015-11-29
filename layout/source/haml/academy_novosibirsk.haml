@@ -17,6 +17,9 @@
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
 		%script{ :src => "./js/header.js" }
+		:css
+			.colored_el { color: #5F4D9B !important; }
+			.colored_background { background: #5F4D9B !important; }
 	%body#html_body
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
@@ -100,7 +103,7 @@
 						#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
 				%hr
 				%section.headerlib
-					%h1 Академия
+					%h1.colored_el Академия
 					%p.h2_subtitle Sed et ceteri codices originale sit unum*
 				%section.information_lib
 					%figure
@@ -116,10 +119,10 @@
 							%br
 							Сб. - Вс.: с 16:00 до последнего гостя
 				%section.liberactions
-					%button#reserve_table_btn Забронировать столик
+					%button#reserve_table_btn.colored_background Забронировать столик
 					%button.button-dark Связаться с нами
 				%footer
-					%p *Один - остальное копии
+					%p *Оригинал один - остальные копии
 				%img#liberty_herb.layer{ :src=>"./images/blazons/academy_novosibirsk.svg", :"data-depth"=>"0.40"}
 			%section#liberty_block2
 				%h4 Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю
@@ -170,7 +173,7 @@
 					%small Россия, Санкт-Петербург, улица Маяковского 27
 
 			%section#liberty_block6
-				%h2 Контакты
+				%h2.colored_el Контакты
 				%h5 «Либерти» находится в самом центре Санкт-Петербурга!
 
 				%h6 Адрес:

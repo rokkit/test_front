@@ -8,36 +8,7 @@ $(function() {
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
 
-  if(typeof google !== 'undefined'){
-    (function(){
-      var mapProp = {
-          center:new google.maps.LatLng(59.940477,30.356243),
-          zoom:15,
-          scrollwheel: false,
-          navigationControl: false,
-          mapTypeControl: false,
-          scaleControl: false,
-          draggable: false,
-          mapTypeId:google.maps.MapTypeId.ROADMAP,
-          disableDefaultUI: true
-        };
 
-        var stylez = [{
-            featureType: "all",
-            elementType: "all",
-            stylers: [{ saturation: -100 }]
-          }];
-
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(59.940477,30.356243)
-            //animation:google.maps.Animation.BOUNCE
-        });
-
-        var map = new google.maps.Map(document.getElementById("liberty_block5"),mapProp);
-        marker.setMap(map);
-        map.setOptions({styles: stylez});
-    })();
-  }
 
 
   //Клик на кнопку Войти в хедере
@@ -94,6 +65,10 @@ $(function() {
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
     doLogin($('#login_form input[name="phone"]').val().replace('+', ''), $('#login_form input[name="password"]').val())
+  });
+
+  $('#header img').on('click', function() {
+    document.location.href = '/pages_index.html'
   });
 
   //Регистрация

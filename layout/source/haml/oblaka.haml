@@ -17,6 +17,10 @@
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
 		%script{ :src => "./js/header.js" }
+		%script{ :src => "./js/lounge.js" }
+		:css
+			.colored_el { color: #65B6DC !important; }
+			.colored_background { background: #65B6DC !important; }
 	%body#html_body
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
@@ -100,11 +104,11 @@
 						#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
 				%hr
 				%section.headerlib
-					%h1 Резерв
+					%h1.colored_el Резерв
 					%p.h2_subtitle Sed et ceteri codices originale sit unum*
 				%section.information_lib
 					%figure
-						%img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
+						%img.svg{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
 						%figcapation Санкт-Петербург,<br>улица Маяковского 27
 					%figure
 						%img{ :src=>"./images/phone.svg" , :alt=>"Город" , :height=>"16px" }
@@ -116,10 +120,10 @@
 							%br
 							Сб. - Вс.: с 16:00 до последнего гостя
 				%section.liberactions
-					%button#reserve_table_btn Забронировать столик
+					%button#reserve_table_btn.colored_background Забронировать столик
 					%button.button-dark Связаться с нами
 				%footer
-					%p *Один - остальное копии
+					%p *Оригинал один - остальное копии
 				%img#liberty_herb.layer{ :src=>"./images/blazons/oblaka.svg", :"data-depth"=>"0.40"}
 			%section#liberty_block2
 				%h4 Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю
@@ -170,7 +174,7 @@
 					%small Россия, Санкт-Петербург, улица Маяковского 27
 
 			%section#liberty_block6
-				%h2 Контакты
+				%h2.colored_el Контакты
 				%h5 «Либерти» находится в самом центре Санкт-Петербурга!
 
 				%h6 Адрес:
