@@ -134,7 +134,7 @@ function animateForm(el) {
   var wrapper =document.getElementById('wrapper_login')
   var tl = null;
 
-  normalize(el, 'wrapper_login');
+  //normalize(el, 'wrapper_login');
   var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
     $('.popup').click(function(event){
       event.stopPropagation();
@@ -158,7 +158,7 @@ function animateSignup() {
   var main = document.getElementById('main_content')
   var wrapper =document.getElementById('wrapper_signup')
   var tl = null;
-  normalize('signup_form', 'wrapper_signup');
+  //normalize('signup_form', 'wrapper_signup');
   var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
     $('.popup').click(function(event){
       event.stopPropagation();

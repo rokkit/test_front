@@ -9,8 +9,6 @@ html, body, main {
   width: 100%;
   height: 100%;
   background: #282C35;
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
 }
 
 html {
