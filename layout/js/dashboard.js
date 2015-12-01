@@ -20,7 +20,7 @@ $(function() {
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
         _.each(json.lounges, function(lounge) {
-          console.log(lounge)
+          //console.log(lounge)
           $('select[name="lounge"]').append("<option value="+lounge.id+">"+ lounge.title +"</option>")
           $('select[name="table"]').append("<optgroup data-id="+lounge.id+" label='"+lounge.title+"'>")
             _.each(lounge.tables, function(table) {
@@ -46,7 +46,11 @@ $(function() {
     });
 
   	$('#n_o_a').click(function(e){
-  		animateForm('reserv_form');
+      ReservForm();
+      $('.popup').click(function(event){
+        event.stopPropagation();
+      });
+      bodyClick();
   	});
 
     $('#invite').click(function(){
@@ -62,21 +66,14 @@ $(function() {
       }, function() {
         getReservations()
       })
-      var form_reserv = document.getElementById('reserv_form');
-      TweenLite.to(form_reserv, 1, {left:"1860px"});
-      animateFormSuccess('reserv_succes_form');
+      ReservSuccessForm();
     });
 
     $('#reserv_succes_form').submit(function(e){
-
-      var form_success = document.getElementById('reserv_succes_form');
-      var html_body3 = document.getElementById("html_body")
-      var color_overlay3 = document.getElementById("color_overlay")
-      var main3 = document.getElementById('main_content')
-      TweenLite.to(form_success, 1, {right:"-1260px"});
-      TweenLite.to(html_body3, 1, {overflow:"auto"})
-      TweenLite.to(color_overlay3, 1, {opacity:"0", 'pointer-events': 'none'});
-      TweenLite.to(main3, 1, {filter:"blur(0px)", "-webkit-filter":"blur(0px)", transform:"scale(1, 1)"});
+      animateRevers();
+      $('#reserv_succes_form').click(function(event){
+        event.stopPropagation();
+      });
       e.preventDefault();
     });
 
@@ -106,10 +103,10 @@ $(function() {
   TweenLite.to(html_body, 1, {opacity:1})
 })
 
-function bodyClick(tl){
+function bodyClick(){
   $('body').on('click', function(e) {
     if(e.target.tagName !== 'BUTTON'){
-      tl.reverse();
+      animateRevers();
     }
   });
 }
@@ -135,6 +132,51 @@ function animateFormSuccess(el) {
   var tw4 = TweenLite.to(html_body2, 1, {overflow:"hidden"})
   var tw5 = TweenLite.to(form2, 1, {'pointer-events':"auto"})
   tl = new TimelineLite().add([tw1,tw2,tw3,tw4,tw5], 'sequence');
+}
+
+var animation = {
+  level: 0,
+  body: {},
+  reserv: {},
+  success: {}
+};
+
+function animateBG(){
+  animation.body = new TimelineLite()
+  .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
+  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence')
+  .to('body', 1, {overflow:"hidden"}, 'sequence');
+}
+
+function animateReserv(){
+  animation.reserv = new TimelineLite()
+  .to('#reserv_form', 1, {left:"160px", 'pointer-events':"auto"}, 'sequence');
+  animation.level = 1;
+}
+
+function animateSuccess(){
+  animation.success = new TimelineLite()
+  .to('#reserv_succes_form', 1, {right:"0px", 'pointer-events':"auto"}, 'sequence');
+  animation.level = 2;
+}
+
+function ReservForm(){
+  animateReserv();
+  animateBG();
+}
+
+function ReservSuccessForm(){
+  TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
+  animateSuccess();
+}
+
+function animateRevers(){
+  if(animation.level === 1){
+    TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
+  }else{
+      TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto"}, 'sequence');
+  }
+  animation.body.reverse();
 }
 
 //Анимация формы бронирования
@@ -267,4 +309,3 @@ function getReservations() {
     })
   })
 }
-
