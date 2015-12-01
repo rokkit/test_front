@@ -80,12 +80,22 @@ $(function() {
 
     //Открытие всех достижений
     $('#dashboard_ach_btn').on('click', function() {
-      animateVertical_popup('all_ach')
+      animateAchiv();
+      //animateVertical_popup('all_ach')
+    });
+
+    $('#all_ach a').click(function(){
+      achivReverse();
+    });
+
+    $('#all_talents a').click(function(){
+      talentsReverse();
     });
 
     // Открытие всех навыков
     $('#dashboard_talents_btn').on('click', function() {
-      animateVertical_popup('all_talents')
+      //animateVertical_popup('all_talents')
+      animateTalents();
     });
     // Открытие достижения
     $(document).on('click', '#achievements figure',function() {
@@ -138,7 +148,9 @@ var animation = {
   level: 0,
   body: {},
   reserv: {},
-  success: {}
+  success: {},
+  achiv: {},
+  talents: {}
 };
 
 function animateBG(){
@@ -211,14 +223,44 @@ function animateVertical_popup(el) {
 
   var tl = null
 
-  var tw1 = TweenLite.to(all_ach, 1, {top:"80px", onComplete: function() {
-    bodyClick(tl);
+  var tw1 = TweenLite.to(all_ach, 1, {top:"80px", 'pointer-events':"auto", onComplete: function() {
+    //bodyClick(tl);
   }})
   var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
+  var tw4 = TweenLite.to('body', 1, {overflow:"hidden"})
   var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
   tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'normal');
+}
+
+function animateAchiv(){
+  animation.achiv = new TimelineLite()
+  .to('#all_ach', 1, {top:"80px"});
+  animateBG();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
+  $('#all_ach .popup_vertical_symbol').css('pointer-events',"none");
+}
+
+function animateTalents(){
+  animation.talents = new TimelineLite()
+  .to('#all_talents', 1, {top:"80px"});
+  animateBG();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
+  $('#all_talents .popup_vertical_symbol').css('pointer-events',"none");
+  $('#all_talents').css('pointer-events',"auto");
+}
+
+function achivReverse(){
+  TweenLite.to('#all_ach', 1, {top:"1800px"});
+  //animation.achiv.reverse();
+  animation.body.reverse();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
+}
+
+function talentsReverse(){
+  animation.talents.reverse();
+  animation.body.reverse();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
 }
 
 //Анимация модалки навыков
@@ -233,7 +275,7 @@ function animateOverall_popup(el) {
   }})
   var tw2 = TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
   var tw3 = TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
-  var tw4 = TweenLite.to(html_body, 0.5, {overflow:"hidden"})
+  var tw4 = TweenLite.to('body', 0.5, {overflow:"hidden"})
   tl = new TimelineLite().add([tw1,tw2,tw3,tw4], 'normal');
 }
 

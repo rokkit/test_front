@@ -1386,6 +1386,7 @@ section.wrapper_for_ach figure {
   text-align: center;
   padding: 32px;
   margin-bottom: 32px;
+  margin-right: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 300;
   -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
@@ -1411,10 +1412,6 @@ section.wrapper_for_ach figure p {
 }
 section.wrapper_for_ach figure:hover {
   background: rgba(255, 255, 255, 0.05);
-}
-section.wrapper_for_ach figure:hover img.achievments_icon {
-  height: 160px;
-  width: 160px;
 }
 
 section.edit_profile_list form.edit_profile_form header {
