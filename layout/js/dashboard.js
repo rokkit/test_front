@@ -167,6 +167,7 @@ function animateRevers(){
   }
   animation.body.reverse();
   $('body').css('overflow', "visible");
+  $('body').off('click');
 }
 
 function animateAchiv(){
