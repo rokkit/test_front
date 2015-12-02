@@ -83,23 +83,35 @@ $(function() {
     });
 
     $('#reserv_form').submit(function(e){
-      $('.wrong').removeClass('wrong')
       e.preventDefault();
+      $('.wrong').removeClass('wrong')
+      if(!$('input[name=visit_date]').val()) {
+        $('input[name="visit_date"]').addClass('wrong')
+        return
+      }
+      if($('select[name=visit_time]').val() == 'время') {
+        $('select[name="visit_time"]').addClass('wrong')
+        return
+      }
+
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
         lounge: $('select[name=lounge]').val(),
         table_id: $('select[name=table]').val(),
+        client_count: $('select[name=client_count]').val(),
+        duration: $('select[name=duration]').val(),
         visit_date: $('input[name=visit_date]').val() + ' ' + $('select[name=visit_time]').val()
       }, function(json) {
         if (json.errors) {
           if (json.errors.visit_date) {
             $('input[name="visit_date"]').addClass('wrong')
-            $('input[name="visit_time"]').addClass('wrong')
+            $('select[name="visit_time"]').addClass('wrong')
           }
           if (json.errors.table) {
             $('input[name="lounge"]').addClass('wrong')
           }
         } else {
+          // $('#reserv_succes_form')
           getReservations()
           ReservSuccessForm();
         }
