@@ -2,6 +2,7 @@
 	%head
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/pikaday.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
 		%script{ :src => "./js/jquery-2.1.4.min.js" }
 		%script{ :src => "./js/jquery.gsap.min.js" }
@@ -10,6 +11,7 @@
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/moment-with-locales.js" }
+		%script{ :src => "./js/lib/pikaday.js" }
 		%script{ :src => "./js/dashboard.js" }
 
 		-# Habmurger
@@ -24,7 +26,7 @@
 				%header
 					%h2 Забронировать столик
 					%p.h2_subtitle
-						Выберите время для желаемого бронированияю
+						Выберите время для желаемого бронирования
 				%form{:action => "", :method => "get"}
 					%select{:name=>"lounge"}
 						%option
@@ -32,8 +34,31 @@
 					-# %select{:name=>"table"}
 					-# 	%option
 					-# 		Столик
-					%input{:type => "text", :name => "visit_date", :placeholder => "Дата"}
-					%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
+					%select{:name=>'numPeaple'}
+						%option количество
+						%option 1
+						%option	2
+						%option	3
+						%option	4
+						%option	5
+
+					%select{:name=>'duration'}
+						%option продолжительность
+						%option 1.5
+						%option 2.5
+					%input{:id=> 'datepicker', :type => "text", :name => "visit_date", :placeholder => "Дата"}
+					%select{:name=>'visit_time'}
+						%option время
+						%option{:value => '17:00'} 17:00
+						%option{:value => '18:00'} 18:00
+						%option{:value => '19:00'} 19:00
+						%option{:value => '20:00'} 20:00
+						%option{:value => '21:00'} 21:00
+						%option{:value => '22:00'} 22:00
+						%option{:value => '23:00'} 23:00
+
+
+					-#%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
 		-# Form
 		.wrapper.h_v_center
@@ -268,7 +293,8 @@
 				%button.button-dark#n_o_a Забронировать столик
 				%button.button-dark Пригласить на встречу
 			%section.progress_bar
-				%p 4525 очков для следующиего уровня
+				%p
+					<span>4525</span> очков для следующиего уровня
 				.progress_bar_bg
 					.progress
 
