@@ -93,7 +93,8 @@ $(function() {
         $('select[name="visit_time"]').addClass('wrong')
         return
       }
-
+      var visit_date = $('input[name=visit_date]').val()
+      var visit_time = $('input[name=visit_time]').val()
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
         lounge: $('select[name=lounge]').val(),
@@ -111,7 +112,8 @@ $(function() {
             $('input[name="lounge"]').addClass('wrong')
           }
         } else {
-          // $('#reserv_succes_form')
+          $('#visit_date_result').text(visit_date)
+          $('#visit_time_result').text(visit_time)
           getReservations()
           ReservSuccessForm();
         }
