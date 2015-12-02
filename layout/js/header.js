@@ -183,6 +183,10 @@ $(function() {
 });
 
 function bodyClick(){
+  $('.popup').click(function(event){
+    event.stopPropagation();
+  });
+  
   $('body').on('click', function(e){
     if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
       animationReverse();
