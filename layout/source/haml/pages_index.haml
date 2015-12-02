@@ -40,6 +40,8 @@
 					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
+			%section#error_password.error_tooltip
+				Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
 			%section.popup{:id => 'login_form'}
 				%header
 					%h2 Войти
