@@ -159,7 +159,7 @@ function animateRevers(){
       TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
       break;
     case 2:
-      TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto"}, 'sequence');
+      TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto", onComplete:function(){$('#reserv_succes_form').css('right', '3000px')}}, 'sequence');
       break;
     case 3:
       achivkaReverse();
