@@ -18,7 +18,7 @@ $(function() {
   );
 
   //Работа с сервером
-  window.hostUrl = 'http://192.168.1.39:82'
+  window.hostUrl = 'http://176.112.194.149:81'
   // window.hostUrl = 'http://localhost:3000'
 
   		if (currentUser) {
@@ -37,23 +37,33 @@ $(function() {
             })
           $('select[name="table"]').append("</optgroup>")
         })
-        $('select option:last').attr("selected", "selected");
-        var tables = $('select[name="table"]').html()
-        $('select[name="lounge"]').on('change', function() {
-
-          var lounge = $('select[name="lounge"]').val()
-          console.log('change', tables)
-          var options = $(tables).filter("optgroup[data-id="+lounge+"]").html()
-          if (options) {
-            $('select[name="table"]').html(options)
-          } else {
-            $('select[name="table"]').empty()
-          }
-        });
+        $('select[name="lounge"] option:last').attr("selected", "selected");
+        // var tables = $('select[name="table"]').html()
+        // $('select[name="lounge"]').on('change', function() {
+        //
+        //   var lounge = $('select[name="lounge"]').val()
+        //   console.log('change', tables)
+        //   var options = $(tables).filter("optgroup[data-id="+lounge+"]").html()
+        //   if (options) {
+        //     $('select[name="table"]').html(options)
+        //   } else {
+        //     $('select[name="table"]').empty()
+        //   }
+        // });
 
       });
       getReservations();
 
+      $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
+          var exp = parseInt(json.exp)
+          var need_exp_to_levelup = 5000 - exp
+          $('.progress_bar p span').text(need_exp_to_levelup)
+          var percentsExp = 0
+          if(exp != 0) {
+              percentsExp = parseInt(5000 / (exp * 100))
+          }
+          $('.progress').css('width', percentsExp + '%' )
+      })
     });
 
     // $('input[name="visit_date"]').on('click', function() {
@@ -79,7 +89,7 @@ $(function() {
         auth_token: currentUser.auth_token,
         lounge: $('select[name=lounge]').val(),
         table_id: $('select[name=table]').val(),
-        visit_date: $('input[name=visit_date]').val() + ' ' + $('input[name=visit_time]').val()
+        visit_date: $('input[name=visit_date]').val() + ' ' + $('select[name=visit_time]').val()
       }, function(json) {
         if (json.errors) {
           if (json.errors.visit_date) {

@@ -64,7 +64,7 @@ function animationReverse(){
 
 $(function() {
   window.tl = null;
-  window.hostUrl = 'http://192.168.1.39:82'
+  window.hostUrl = 'http://176.112.194.149:81'
 
   new svgIcon(
     document.querySelector('#menu_header_btn'),

@@ -26,7 +26,7 @@
 				%header
 					%h2 Забронировать столик
 					%p.h2_subtitle
-						Выберите время для желаемого бронированияю
+						Выберите время для желаемого бронирования
 				%form{:action => "", :method => "get"}
 					%select{:name=>"lounge"}
 						%option
@@ -35,26 +35,29 @@
 					-# 	%option
 					-# 		Столик
 					%select{:name=>'numPeaple'}
+						%option количество
 						%option 1
 						%option	2
 						%option	3
 						%option	4
 						%option	5
-						%option количество
-					%select
+
+					%select{:name=>'duration'}
+						%option продолжительность
 						%option 1.5
 						%option 2.5
-						%option продолжительность
-					%select
-						%option 17:00
-						%option 18:00
-						%option 19:00
-						%option 20:00
-						%option 21:00
-						%option 22:00
-						%option 23:00
-						%option время
 					%input{:id=> 'datepicker', :type => "text", :name => "visit_date", :placeholder => "Дата"}
+					%select{:name=>'visit_time'}
+						%option время
+						%option{:value => '17:00'} 17:00
+						%option{:value => '18:00'} 18:00
+						%option{:value => '19:00'} 19:00
+						%option{:value => '20:00'} 20:00
+						%option{:value => '21:00'} 21:00
+						%option{:value => '22:00'} 22:00
+						%option{:value => '23:00'} 23:00
+
+
 					-#%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
 		-# Form
@@ -290,7 +293,8 @@
 				%button.button-dark#n_o_a Забронировать столик
 				%button.button-dark Пригласить на встречу
 			%section.progress_bar
-				%p 4525 очков для следующиего уровня
+				%p
+					<span>4525</span> очков для следующиего уровня
 				.progress_bar_bg
 					.progress
 

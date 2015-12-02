@@ -23,7 +23,7 @@
         <header>
           <h2>Забронировать столик</h2>
           <p class='h2_subtitle'>
-            Выберите время для желаемого бронированияю
+            Выберите время для желаемого бронирования
           </p>
         </header>
         <form action='' method='get'>
@@ -33,29 +33,29 @@
             </option>
           </select>
           <select name='numPeaple'>
+            <option>количество</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
             <option>5</option>
-            <option>количество</option>
           </select>
-          <select>
+          <select name='duration'>
+            <option>продолжительность</option>
             <option>1.5</option>
             <option>2.5</option>
-            <option>продолжительность</option>
-          </select>
-          <select>
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>19:00</option>
-            <option>20:00</option>
-            <option>21:00</option>
-            <option>22:00</option>
-            <option>23:00</option>
-            <option>время</option>
           </select>
           <input id='datepicker' name='visit_date' placeholder='Дата' type='text'>
+          <select name='visit_time'>
+            <option>время</option>
+            <option value='17:00'>17:00</option>
+            <option value='18:00'>18:00</option>
+            <option value='19:00'>19:00</option>
+            <option value='20:00'>20:00</option>
+            <option value='21:00'>21:00</option>
+            <option value='22:00'>22:00</option>
+            <option value='23:00'>23:00</option>
+          </select>
           <button name='sumbit' type='sumbit'>Забронировать</button>
         </form>
       </section>
@@ -376,7 +376,9 @@
         <button class='button-dark'>Пригласить на встречу</button>
       </section>
       <section class='progress_bar'>
-        <p>4525 очков для следующиего уровня</p>
+        <p>
+          <span>4525</span> очков для следующиего уровня
+        </p>
         <div class='progress_bar_bg'>
           <div class='progress'></div>
         </div>
