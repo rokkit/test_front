@@ -103,6 +103,12 @@ $(function() {
     bodyClick();
   });
 
+  $('#reg_block5').on('click', function(){
+    animateSignup();
+    animateBG();
+    bodyClick();
+  });
+
   $('#menu_right_part button').on('click', function() {
     window.tl.reverse();
     animateForm('login_form');
@@ -239,15 +245,20 @@ function animateMenu() {
 }
 
 function successAuth(resp) {
+  TweenLite.to('section.error_tooltip', 1, {opacity: 0});
   localStorage.setItem('currentUser', JSON.stringify(resp))
   document.location.href = './dashboard_client.html'
 }
 
 function doLogin(phone, password) {
   if(!phone) {
+    //$('section.error_tooltip').css('opacity', 1);
+    TweenLite.to('section.error_tooltip', 1, {opacity: 1});
     $('#login_form input[name="phone"]').addClass('wrong')
   }
   if(!password) {
+    //$('section.error_tooltip').css('opacity', 1);
+    TweenLite.to('section.error_tooltip', 1, {opacity: 1});
     $('#login_form input[name="password"]').addClass('wrong')
   }
   if(!phone || !password) { return }
@@ -260,9 +271,13 @@ function doLogin(phone, password) {
     } else {
       $('#login_form input').removeClass('wrong')
       if(resp['errors']['phone']) {
+        //$('section.error_tooltip').css('opacity', 1)
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#login_form input[name="phone"]').addClass('wrong')
       }
       if(resp['errors']['password']) {
+        //$('section.error_tooltip').css('opacity', 1)
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#login_form input[name="password"]').addClass('wrong')
       }
     }
