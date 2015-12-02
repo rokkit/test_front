@@ -183,7 +183,7 @@ function animateRevers(){
       achivkaReverse();
       break;
   }
-  TweenLite.to('body', 0, 'overflow', 'auto');
+  TweenLite.to('body', 0, {'overflow': 'auto'});
   animation.body.reverse();
 
   //$('body').css('overflow', "visible");
