@@ -24,11 +24,20 @@ function animateBG(){
 
 function animateLogin(){
   animation.login = new TimelineLite()
-  .to('#login_form', 1, {left:"160px"});
-  TweenLite.to('#wrapper_login', 1, {'pointer-events':"auto"});
-  animateBG();
+  .to('#login_form', 1, {left:"160px"})
+  .to('#wrapper_login', 0, {'pointer-events':"auto"});
+
   animation.level = 'login';
 }
+
+function animateSignup() {
+  animation.reg = new TimelineLite()
+  .to('#signup_form', 1, {left:"160px"})
+  .to('#wrapper_signup', 0, {'pointer-events':"auto"});
+
+  animation.level = 'reg';
+}
+
 
 function loginReverse(){
   animation.login.reverse();
@@ -39,9 +48,10 @@ function animationReverse(){
   switch (animation.level) {
     case 'login':
       animation.login.reverse();
+      TweenLite.to('#wrapper_login', 1, {'pointer-events':"none"});
       break;
-    case 2:
-      TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto", onComplete:function(){$('#reserv_succes_form').css('right', '3000px')}}, 'sequence');
+    case 'reg':
+      animation.reg.reverse();
       break;
     case 3:
       achivkaReverse();
@@ -64,7 +74,9 @@ $(function() {
 
   //Клик на кнопку Войти в хедере
   $('#login_header_btn').on('click', function() {
-    animateForm("login_form")
+    animateLogin();
+    animateBG();
+    bodyClick();
   });
 
   $('#btn1').on('click', function(){
@@ -73,18 +85,22 @@ $(function() {
   });
 
   $('#login_form a').click(function(){
-    $('body').click();
+    animation.login.reverse();
     animateSignup();
+    bodyClick();
   });
 
   $('#signup_form a').click(function(){
-    $('body').click();
-    animateForm('login_form');
+    animation.reg.reverse();
+    animateLogin();
+    bodyClick();
   });
 
    //Клик на кнопку регистрация в хедере
   $('#signup_header_btn').on('click', function() {
-    animateSignup()
+    animateSignup();
+    animateBG();
+    bodyClick();
   });
 
   $('#menu_right_part button').on('click', function() {
@@ -166,6 +182,14 @@ $(function() {
   $('input[name="phone"]').mask('+0000000000000')
 });
 
+function bodyClick(){
+  $('body').on('click', function(e){
+    if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
+      animationReverse();
+    }
+  });
+}
+
 function animateForm(el) {
   var form = document.getElementById(el)
   var wrapper =document.getElementById('wrapper_login')
@@ -184,29 +208,6 @@ function animateForm(el) {
   var tw4 = TweenLite.to('body', 1, {overflow:"hidden"})
   var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
 
-  tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'sequence');
-}
-
-function animateSignup() {
-  var form = document.getElementById('signup_form')
-  var html_body = document.getElementById("html_body")
-  var color_overlay = document.getElementById("color_overlay")
-  var main = document.getElementById('main_content')
-  var wrapper =document.getElementById('wrapper_signup')
-  var tl = null;
-
-  var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
-    $('.popup').click(function(event){
-      event.stopPropagation();
-    });
-    $('body').on('click', function(e) {
-      tl.reverse()
-    });
-  }})
-  var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
   tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'sequence');
 }
 
