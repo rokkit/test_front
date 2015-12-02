@@ -10,6 +10,7 @@ $(function() {
 
   //Работа с сервером
   window.hostUrl = 'http://192.168.1.39:82'
+  window.hostUrl = 'http://localhost:3000'
 
   		if (currentUser) {
       		$('section.username h1').text(currentUser.name)
@@ -27,6 +28,7 @@ $(function() {
             })
           $('select[name="table"]').append("</optgroup>")
         })
+        $('select option:last').attr("selected", "selected");
         var tables = $('select[name="table"]').html()
         $('select[name="lounge"]').on('change', function() {
 
@@ -39,10 +41,15 @@ $(function() {
             $('select[name="table"]').empty()
           }
         });
+
       });
       getReservations();
 
     });
+
+    $('input[name="visit_date"]').on('click', function() {
+      $(this).val(moment().format('YYYY-MM-DD'))
+    })
 
   	$('#n_o_a').click(function(e){
       ReservForm();
@@ -57,15 +64,28 @@ $(function() {
     });
 
     $('#reserv_form').submit(function(e){
+      $('.wrong').removeClass('wrong')
       e.preventDefault();
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
         table_id: $('select[name=table]').val(),
         visit_date: $('input[name=visit_date]').val() + ' ' + $('input[name=visit_time]').val()
-      }, function() {
-        getReservations()
+      }, function(json) {
+        if (json.errors) {
+          if (json.errors.visit_date) {
+            $('input[name="visit_date"]').addClass('wrong')
+            $('input[name="visit_time"]').addClass('wrong')
+          }
+          if (json.errors.table) {
+            $('input[name="lounge"]').addClass('wrong')
+          }
+        } else {
+          getReservations()
+          ReservSuccessForm();
+        }
+
       })
-      ReservSuccessForm();
+
     });
 
     $('#reserv_succes_form').submit(function(e){

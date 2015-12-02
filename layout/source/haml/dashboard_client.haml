@@ -24,14 +24,14 @@
 				%header
 					%h2 Забронировать столик
 					%p.h2_subtitle
-						Выберите столик и время для желаемого бронированияю
+						Выберите время для желаемого бронированияю
 				%form{:action => "", :method => "get"}
 					%select{:name=>"lounge"}
 						%option
 							Кальянная
-					%select{:name=>"table"}
-						%option
-							Столик
+					-# %select{:name=>"table"}
+					-# 	%option
+					-# 		Столик
 					%input{:type => "text", :name => "visit_date", :placeholder => "Дата"}
 					%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
