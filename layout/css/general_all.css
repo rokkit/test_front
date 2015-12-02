@@ -673,24 +673,26 @@ section.lounges article.lounge {
   width: 100%;
   height: 100%;
   padding: 196px 0px 0px 96px;
-  background: #282C34;
+  background: black;
 }
 #liberty_block6 h2 {
   font-size: 48px;
   font-family: Bebas Neue;
   letter-spacing: 4px;
-  margin-bottom: 32px;
   color: #F2AE32;
 }
 #liberty_block6 h5 {
   margin-bottom: 48px;
 }
 #liberty_block6 h6 {
-  margin-top: 32px;
   margin-bottom: 8px;
 }
 #liberty_block6 p {
-  margin-top: 4px;
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 #philosophie_block1 {
@@ -890,7 +892,6 @@ section.lounges article.lounge {
   display: block;
   position: relative;
   width: 100%;
-  height: 480px;
   padding: 160px;
   text-align: center;
   overflow: hidden;
@@ -903,26 +904,32 @@ section.lounges article.lounge {
   width: 512px;
   top: -50%;
   left: calc(50% - 256px);
+  z-index: 100;
 }
 #philosophie_block5 h2 {
+  position: relative;
   font-size: 48px;
   font-family: Bebas Neue;
   letter-spacing: 4px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   color: white;
+  z-index: 150;
 }
 #philosophie_block5 h6 {
+  position: relative;
   opacity: 0.5;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   font-family: Lora;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0;
+  z-index: 150;
 }
 #philosophie_block5 button {
+  position: relative;
   background: none;
-  margin-top: 32px;
   border: 1px solid #EBB22F;
+  z-index: 150;
 }
 
 #community_block1 {
@@ -970,8 +977,8 @@ section.lounges article.lounge {
 }
 #community_block2 h3 {
   display: inline-block;
-  width: 40%;
-  margin-bottom: 64px;
+  width: 80%;
+  margin-bottom: 48px;
   font-family: Lora;
   font-size: 18px;
   line-height: 1.5;
@@ -994,6 +1001,7 @@ section.lounges article.lounge {
 }
 #community_block2 .game_feature p {
   text-align: center;
+  color: rgba(255, 255, 255, 0.5);
 }
 #community_block2 img {
   width: 80px;
@@ -1119,22 +1127,29 @@ section.lounges article.lounge {
   width: 300px;
   height: 100%;
 }
-#community_block5 .round {
+#community_block5 #communication_is_important {
   display: inline-block;
   position: relative;
-  margin-top: 80px;
+  height: 100%;
+  width: 54%;
+  padding: 120px;
+  background: black;
+}
+#community_block5 #communication_is_important .round {
+  display: inline-block;
+  position: relative;
   height: 160px;
   width: 160px;
   border-radius: 80px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(40, 44, 53, 0.5);
   z-index: 100;
 }
-#community_block5 .round img {
+#community_block5 #communication_is_important .round img {
   position: relative;
   height: 40%;
   top: 30%;
 }
-#community_block5 h3 {
+#community_block5 #communication_is_important h3 {
   display: inline-block;
   position: relative;
   margin-bottom: 24px;
@@ -1143,14 +1158,14 @@ section.lounges article.lounge {
   line-height: 1.2;
   z-index: 400;
 }
-#community_block5 p {
+#community_block5 #communication_is_important p {
   display: inline-block;
-  width: 36%;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
 }
-#community_block5 button {
+#community_block5 #communication_is_important button {
   background: none;
   margin-top: 32px;
   border: 1px solid #EBB22F;
