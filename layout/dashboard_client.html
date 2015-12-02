@@ -2,6 +2,7 @@
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'>
     <link href='./css/reset.css' rel='stylesheet'>
+    <link href='./css/pikaday.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
     <script src='./js/jquery-2.1.4.min.js'></script>
     <script src='./js/jquery.gsap.min.js'></script>
@@ -10,6 +11,7 @@
     <script src='./js/jquery.mask.min.js'></script>
     <script src='./js/underscore-min.js'></script>
     <script src='./js/moment-with-locales.js'></script>
+    <script src='./js/lib/pikaday.js'></script>
     <script src='./js/dashboard.js'></script>
     <script src='./js/lib/snap.svg-min.js'></script>
     <script src='./js/lib/svgicons-config.js'></script>
@@ -30,8 +32,30 @@
               Кальянная
             </option>
           </select>
-          <input name='visit_date' placeholder='Дата' type='text'>
-          <input name='visit_time' placeholder='Время' type='text'>
+          <select name='numPeaple'>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>количество</option>
+          </select>
+          <select>
+            <option>1.5</option>
+            <option>2.5</option>
+            <option>продолжительность</option>
+          </select>
+          <select>
+            <option>17:00</option>
+            <option>18:00</option>
+            <option>19:00</option>
+            <option>20:00</option>
+            <option>21:00</option>
+            <option>22:00</option>
+            <option>23:00</option>
+            <option>время</option>
+          </select>
+          <input id='datepicker' name='visit_date' placeholder='Дата' type='text'>
           <button name='sumbit' type='sumbit'>Забронировать</button>
         </form>
       </section>

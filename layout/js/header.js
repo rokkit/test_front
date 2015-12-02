@@ -24,7 +24,7 @@ function animateBG(){
 
 function animateLogin(){
   animation.login = new TimelineLite()
-  .to('#login_form', 1, {left:"160px"})
+  .to('#login_form', 1, {left:"190px"})
   .to('#wrapper_login', 0, {'pointer-events':"auto"});
 
   animation.level = 'login';
@@ -32,7 +32,7 @@ function animateLogin(){
 
 function animateSignup() {
   animation.reg = new TimelineLite()
-  .to('#signup_form', 1, {left:"160px"})
+  .to('#signup_form', 1, {left:"120px"})
   .to('#wrapper_signup', 0, {'pointer-events':"auto"});
 
   animation.level = 'reg';

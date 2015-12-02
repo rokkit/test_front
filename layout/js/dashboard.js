@@ -1,6 +1,15 @@
 var currentUser = JSON.parse(localStorage.getItem('currentUser'))
 $(function() {
 
+    var picker = new Pikaday(
+    {
+        field: document.getElementById('datepicker'),
+        firstDay: 1,
+        minDate: new Date(2000, 0, 1),
+        maxDate: new Date(2020, 12, 31),
+        yearRange: [2000,2020]
+    });
+
   // Hamburger
   new svgIcon(
     document.querySelector('#menu_header_btn'),
@@ -47,9 +56,9 @@ $(function() {
 
     });
 
-    $('input[name="visit_date"]').on('click', function() {
-      $(this).val(moment().format('YYYY-MM-DD'))
-    })
+    // $('input[name="visit_date"]').on('click', function() {
+    //   $(this).val(moment().format('YYYY-MM-DD'))
+    // })
 
   	$('#n_o_a').click(function(e){
       ReservForm();

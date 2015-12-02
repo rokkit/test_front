@@ -1265,6 +1265,12 @@ section.bottom-rating .color-no-active {
 #reserv_form input {
   width: 160px;
 }
+#reserv_form select {
+  margin-right: 12px;
+}
+#reserv_form button {
+  width: 185px;
+}
 
 section.dashboard {
   display: block;
@@ -1786,6 +1792,7 @@ section.popup a {
   font: normal normal 300 18px/28px Lora, sans-serif;
   color: #EBB22F;
   z-index: 250;
+  letter-spacing: 0;
 }
 
 section.popup:after {
