@@ -125,7 +125,7 @@ function animateBG(){
   animation.body = new TimelineLite()
   .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
   .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
-  TweenLite.to('body', 1, {overflow:"hidden"});
+  TweenLite.to('body', 0, {overflow:"hidden"});
 }
 
 function animateReserv(){
@@ -162,8 +162,10 @@ function animateRevers(){
       achivkaReverse();
       break;
   }
+  TweenLite.to('body', 0, 'overflow', 'auto');
   animation.body.reverse();
-  $('body').css('overflow', "visible");
+
+  //$('body').css('overflow', "visible");
   $('body').off('click');
 }
 
@@ -187,12 +189,14 @@ function animateTalents(){
 function achivReverse(){
   TweenLite.to('#all_ach', 1, {top:"1800px"});
   //animation.achiv.reverse();
+  TweenLite.to('body', 0, {'overflow': 'auto'});
   animation.body.reverse();
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
 }
 
 function talentsReverse(){
   animation.talents.reverse();
+  TweenLite.to('body', 0, {'overflow': 'auto'});
   animation.body.reverse();
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
 }
@@ -219,7 +223,7 @@ $(function() {
       var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
     })
-    json = json.slice(0, 6)
+    json = json.slice(0, 5)
 
       $.each(json, function(i) {
         var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
