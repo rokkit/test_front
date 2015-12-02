@@ -10,7 +10,7 @@ $(function() {
 
   //Работа с сервером
   window.hostUrl = 'http://192.168.1.39:82'
-  window.hostUrl = 'http://localhost:3000'
+  // window.hostUrl = 'http://localhost:3000'
 
   		if (currentUser) {
       		$('section.username h1').text(currentUser.name)
