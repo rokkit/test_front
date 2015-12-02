@@ -9,7 +9,6 @@
     <script src='./js/TweenMax.min.js'></script>
     <script src='./js/jquery.mask.min.js'></script>
     <script src='./js/underscore-min.js'></script>
-    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/dashboard.js'></script>
     <script src='./js/lib/snap.svg-min.js'></script>
     <script src='./js/lib/svgicons-config.js'></script>
@@ -21,17 +20,14 @@
         <header>
           <h2>Забронировать столик</h2>
           <p class='h2_subtitle'>
-            Выберите время для желаемого бронированияю
+            Выберите столик и время для желаемого бронированияю
           </p>
         </header>
         <form action='' method='get'>
-          <select name='lounge'>
-            <option>
-              Кальянная
-            </option>
-          </select>
-          <input name='visit_date' placeholder='Дата' type='text'>
-          <input name='visit_time' placeholder='Время' type='text'>
+          <input name='input' placeholder='Кальянная' type='text'>
+          <input name='input' placeholder='Столик' type='text'>
+          <input name='input' placeholder='Дата' type='text'>
+          <input name='input' placeholder='Время' type='text'>
           <button name='sumbit' type='sumbit'>Забронировать</button>
         </form>
       </section>
@@ -348,8 +344,7 @@
       <section class='username'>
         <h1>Виталий Пихонт</h1>
         <p>Санкт-Петербург, Россия</p>
-        <button class='button-dark' id='n_o_a'>Забронировать столик</button>
-        <button class='button-dark'>Пригласить на встречу</button>
+        <p>Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!</p>
       </section>
       <section class='progress_bar'>
         <p>4525 очков для следующиего уровня</p>
@@ -460,66 +455,6 @@
       <section class='bottom-rating'>
         <article>
           <header>
-            <h4>Брони</h4>
-          </header>
-          <table>
-            <thead>
-              <tr>
-                <th>Кальянная</th>
-                <th>Дата</th>
-                <th>Статус</th>
-              </tr>
-            </thead>
-            <tbody id='reserve_table_body'>
-              <tr>
-                <td>
-                  <h6 class='color-limon'>Либерти</h6>
-                </td>
-                <td class='td-date'>23 июня 2015 20:30 - 23:00</td>
-                <td>5 человек</td>
-                <td>
-                  Скоро
-                  <br>
-                  <span class='color-orange'>Отменить</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>4 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>2 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>7 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>3 человека</td>
-                <td>Прошла</td>
-              </tr>
-            </tbody>
-          </table>
-        </article>
-        <article>
-          <header>
             <h4>Посещения</h4>
           </header>
           <table>
@@ -527,7 +462,7 @@
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
-                <th>Сумма</th>
+                <th>Заработано</th>
                 <th>Опыт</th>
               </tr>
             </thead>
@@ -578,6 +513,62 @@
           </table>
         </article>
         <article>
+          <h4>Бонусы</h4>
+          <aside>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+          </aside>
+          <h4>Штрафы</h4>
+          <aside>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+            <figure>
+              <img src='./images/achievments/1.svg'>
+              <span class='popover'>
+                Трудоголик
+                <br>
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+              </span>
+            </figure>
+          </aside>
+        </article>
+        <article>
           <header>
             <h4>Рейтинг</h4>
           </header>
@@ -591,12 +582,6 @@
               <h6>За все время</h6>
             </label>
             <section id='section-per-month'>
-              <ul class='leaders'>
-                <li>
-                  <span>1. Алексей Иванов</span>
-                  <span>210 800</span>
-                </li>
-              </ul>
               <ul class='leaders'>
                 <li>
                   <span>1. Алексей Иванов</span>

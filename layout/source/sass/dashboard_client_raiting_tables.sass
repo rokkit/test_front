@@ -1,31 +1,35 @@
+
 section.bottom-rating
+	$background-color : #292D34
+	
+	width 		: 100%
 	display 	: block
 	position 	: relative
-	width 		: 100%
-	background 	: #292D34
-	display 	: inline-flex
 	padding 	: 32px 48px
+	font-family	: sans-serif
+	display 	: inline-flex
+	background 	: $background-color
 
 	h4
-		font-size		: 18px
-		font-family		: Bebas Neue Book
 		letter-spacing	: 3px
+		font-weight 	: 600
 		height			: 24px
 		line-height		: 25px
 		margin-bottom 	: 16px
-		font-weight 	: 600
+		font-size		: 18px
 		color 			: #fff
+		font-family		: Bebas Neue Book
 
 	h6
 		font-weight 	: 600
 
 	article
-		width 		: 33%
-		font-family : Lora
-		font-size 	: 12px
+		width 			: 33%
+		font-size 		: 12px
 		
 		th , td.td-date
 			text-align 	: left
+
 		th
 			color 	: #565960
 		td
@@ -39,21 +43,30 @@ section.bottom-rating
 
 
 	article:last-child
-		color 		: #7F8083
-		font-size 	: 16px
 
-		tr
-			td
-				width: 35%
-				text-align 		: right
-				
-			td:first-child
-				width 			: 5%
-				padding-right 	: 8px
-				color 			: #fff
-				font-weight 	: 600
-			td:last-child
-				text-align 		: left
+		ul.leaders
+			padding		: 0
+			max-width	: 40em
+			list-style	: none
+			overflow-x	: hidden
+
+			li:before
+				width		: 0
+				float		: left
+				white-space : nowrap
+				content 	: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . "
+
+			li
+				padding 	: 20px 0
+
+				span:first-child
+					padding-right 	: 0.33em
+					background 		: $background-color
+
+				span + span
+					float 			: right
+					padding-left 	: 0.33em
+					background 		: $background-color
 
 		section
 			display : none
@@ -68,20 +81,20 @@ section.bottom-rating
 
 			h6
 				margin-left	: 8px
+				cursor 		: pointer
 
 		fieldset label
-			display	: inline-block
 			color 	: #8A7230
+			display	: inline-block
 
 		fieldset input:checked + label
-			// Selected input
 			color 	: #ECB72E
 
 		#rating-per-month:checked ~ #section-per-month , #rating-per-all-time:checked ~ #section-per-all-time
 			display : block
 
 	.border-bottom-dashed
-		border-bottom : 1px dashed
+		border-bottom : 1px dashed #3C4047
 
 
 	.color-blue

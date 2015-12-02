@@ -8,9 +8,9 @@ $(function() {
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
 
-
   //Работа с сервером
   window.hostUrl = 'http://192.168.1.39:82'
+  // window.hostUrl = 'http://localhost:3000'
 
   		if (currentUser) {
       		$('section.username h1').text(currentUser.name)
@@ -20,7 +20,7 @@ $(function() {
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
         _.each(json.lounges, function(lounge) {
-          console.log(lounge)
+          //console.log(lounge)
           $('select[name="lounge"]').append("<option value="+lounge.id+">"+ lounge.title +"</option>")
           $('select[name="table"]').append("<optgroup data-id="+lounge.id+" label='"+lounge.title+"'>")
             _.each(lounge.tables, function(table) {
@@ -28,6 +28,7 @@ $(function() {
             })
           $('select[name="table"]').append("</optgroup>")
         })
+        $('select option:last').attr("selected", "selected");
         var tables = $('select[name="table"]').html()
         $('select[name="lounge"]').on('change', function() {
 
@@ -40,13 +41,22 @@ $(function() {
             $('select[name="table"]').empty()
           }
         });
+
       });
       getReservations();
 
     });
 
+    $('input[name="visit_date"]').on('click', function() {
+      $(this).val(moment().format('YYYY-MM-DD'))
+    })
+
   	$('#n_o_a').click(function(e){
-  		animateForm('reserv_form');
+      ReservForm();
+      $('.popup').click(function(event){
+        event.stopPropagation();
+      });
+      bodyClick();
   	});
 
     $('#invite').click(function(){
@@ -54,49 +64,57 @@ $(function() {
     });
 
     $('#reserv_form').submit(function(e){
+      $('.wrong').removeClass('wrong')
       e.preventDefault();
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
+        lounge: $('select[name=lounge]').val(),
         table_id: $('select[name=table]').val(),
         visit_date: $('input[name=visit_date]').val() + ' ' + $('input[name=visit_time]').val()
-      }, function() {
-        getReservations()
+      }, function(json) {
+        if (json.errors) {
+          if (json.errors.visit_date) {
+            $('input[name="visit_date"]').addClass('wrong')
+            $('input[name="visit_time"]').addClass('wrong')
+          }
+          if (json.errors.table) {
+            $('input[name="lounge"]').addClass('wrong')
+          }
+        } else {
+          getReservations()
+          ReservSuccessForm();
+        }
+
       })
-      var form_reserv = document.getElementById('reserv_form');
-      TweenLite.to(form_reserv, 1, {left:"1860px"});
-      animateFormSuccess('reserv_succes_form');
+
     });
 
     $('#reserv_succes_form').submit(function(e){
-
-      var form_success = document.getElementById('reserv_succes_form');
-      var html_body3 = document.getElementById("html_body")
-      var color_overlay3 = document.getElementById("color_overlay")
-      var main3 = document.getElementById('main_content')
-      TweenLite.to(form_success, 1, {right:"-1260px"});
-      TweenLite.to(html_body3, 1, {overflow:"auto"})
-      TweenLite.to(color_overlay3, 1, {opacity:"0", 'pointer-events': 'none'});
-      TweenLite.to(main3, 1, {filter:"blur(0px)", "-webkit-filter":"blur(0px)", transform:"scale(1, 1)"});
+      animateRevers();
+      $('#reserv_succes_form').click(function(event){
+        event.stopPropagation();
+      });
       e.preventDefault();
     });
 
 
     //Открытие всех достижений
-    $('#dashboard_ach_btn').on('click', function() {
-      animateVertical_popup('all_ach')
-    });
+    $('#dashboard_ach_btn').click(animateAchiv);
+
+    $('#all_ach a').click(achivReverse);
+
+    $('#all_talents a').click(talentsReverse);
 
     // Открытие всех навыков
-    $('#dashboard_talents_btn').on('click', function() {
-      animateVertical_popup('all_talents')
-    });
+    $('#dashboard_talents_btn').click(animateTalents);
     // Открытие достижения
     $(document).on('click', '#achievements figure',function() {
       var achiv = $(this)
       $('#achivka h2').text(achiv.find('h6').text())
       $('#achivka p').text(achiv.attr('data-description'))
       $('#achivka img').attr('src', (achiv.find('img').attr('src')))
-      animateOverall_popup('achivka')
+      animateAchivka();
+      bodyClick();
     });
 });
 
@@ -106,93 +124,113 @@ $(function() {
   TweenLite.to(html_body, 1, {opacity:1})
 })
 
-function bodyClick(tl){
+function bodyClick(){
   $('body').on('click', function(e) {
     if(e.target.tagName !== 'BUTTON'){
-      tl.reverse();
+      animateRevers();
     }
   });
 }
 
-function animateFormSuccess(el) {
-  var form2 = document.getElementById(el)
-  var html_body2 = document.getElementById("html_body")
-  var color_overlay2 = document.getElementById("color_overlay")
-  var main2 = document.getElementById('main_content')
-  var wrapper2 =document.getElementById('wrapper_login')
-  var tl = null
+var animation = {
+  level: 0,
+  body: {},
+  reserv: {},
+  success: {},
+  achiv: {},
+  talents: {},
+  achivka: {}
+};
 
-  var tw1 = TweenLite.to(form2, 1, {right:"0px", onComplete: function() {
-    $('.popup').click(function(event){
-      event.stopPropagation();
-    });
-
-    bodyClick(tl);
-
-  }})
-  var tw2 = TweenLite.to(color_overlay2, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main2, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body2, 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(form2, 1, {'pointer-events':"auto"})
-  tl = new TimelineLite().add([tw1,tw2,tw3,tw4,tw5], 'sequence');
+function animateBG(){
+  animation.body = new TimelineLite()
+  .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
+  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
+  TweenLite.to('body', 0, {overflow:"hidden"});
 }
 
-//Анимация формы бронирования
-function animateForm(el) {
-  var form1 = document.getElementById(el)
-  var html_body1 = document.getElementById("html_body")
-  var color_overlay1 = document.getElementById("color_overlay")
-  var main1 = document.getElementById('main_content')
-  var wrapper1 = document.getElementById('wrapper_login')
-  var tl = null;
-  var tw1 = TweenLite.to(form1, 1, {left:"160px", onComplete: function() {
-    $('.popup').click(function(event){
-      event.stopPropagation();
-    });
-    bodyClick(tl);
-
-  }})
-  var tw2 = TweenLite.to(color_overlay1, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main1, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body1, 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(form1, 1, {'pointer-events':"auto"})
-  tl = new TimelineLite().add([tw1,tw2,tw3,tw4,tw5], 'sequence');
+function animateReserv(){
+  animation.reserv = new TimelineLite()
+  .to('#reserv_form', 1, {left:"160px", 'pointer-events':"auto"}, 'sequence');
+  animation.level = 1;
 }
 
-//Анимация модалки всех ачивок
-function animateVertical_popup(el) {
-  var all_ach = document.getElementById(el)
-  var html_body = document.getElementById("html_body")
-  var color_overlay = document.getElementById("color_overlay")
-  var main = document.getElementById('main_content')
-  var wrapper = $('#all_ach_wrapper')[0]
-
-  var tl = null
-
-  var tw1 = TweenLite.to(all_ach, 1, {top:"80px", onComplete: function() {
-    bodyClick(tl);
-  }})
-  var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body, 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
-  tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'normal');
+function animateSuccess(){
+  animation.success = new TimelineLite()
+  .to('#reserv_succes_form', 1, {right:"0px", 'pointer-events':"auto"}, 'sequence');
+  animation.level = 2;
 }
 
-//Анимация модалки навыков
-function animateOverall_popup(el) {
-  var achivka = document.getElementById(el)
-  var html_body = document.getElementById("html_body")
-  var color_overlay = document.getElementById("color_overlay")
-  var main = document.getElementById('main_content')
-  var tl = null
-  var tw1 = TweenLite.to(achivka, 0.5, {top:"0", onComplete: function() {
-    bodyClick(tl);
-  }})
-  var tw2 = TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
-  var tw4 = TweenLite.to(html_body, 0.5, {overflow:"hidden"})
-  tl = new TimelineLite().add([tw1,tw2,tw3,tw4], 'normal');
+function ReservForm(){
+  animateReserv();
+  animateBG();
+}
+
+function ReservSuccessForm(){
+  TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
+  animateSuccess();
+}
+
+function animateRevers(){
+  switch (animation.level) {
+    case 1:
+      TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
+      break;
+    case 2:
+      TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto", onComplete:function(){$('#reserv_succes_form').css('right', '3000px')}}, 'sequence');
+      break;
+    case 3:
+      achivkaReverse();
+      break;
+  }
+  TweenLite.to('body', 0, 'overflow', 'auto');
+  animation.body.reverse();
+
+  //$('body').css('overflow', "visible");
+  $('body').off('click');
+}
+
+function animateAchiv(){
+  animation.achiv = new TimelineLite()
+  .to('#all_ach', 1, {top:"80px"});
+  animateBG();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
+  $('#all_ach .popup_vertical_symbol').css('pointer-events',"none");
+}
+
+function animateTalents(){
+  animation.talents = new TimelineLite()
+  .to('#all_talents', 1, {top:"80px"});
+  animateBG();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
+  $('#all_talents .popup_vertical_symbol').css('pointer-events',"none");
+  $('#all_talents').css('pointer-events',"auto");
+}
+
+function achivReverse(){
+  TweenLite.to('#all_ach', 1, {top:"1800px"});
+  //animation.achiv.reverse();
+  TweenLite.to('body', 0, {'overflow': 'auto'});
+  animation.body.reverse();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
+}
+
+function talentsReverse(){
+  animation.talents.reverse();
+  TweenLite.to('body', 0, {'overflow': 'auto'});
+  animation.body.reverse();
+  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
+}
+
+function animateAchivka(){
+  animation.achivka = new TimelineLite()
+  .to('#achivka', 0.5, {top:"0"});
+  animateBG();
+  animation.level = 3;
+}
+
+function achivkaReverse(){
+  animation.achivka.reverse();
 }
 
 //Загрузка ачивок и скилов
@@ -206,7 +244,7 @@ $(function() {
       var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
     })
-    json = json.slice(0, 6)
+    json = json.slice(0, 5)
 
       $.each(json, function(i) {
         var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
@@ -224,27 +262,6 @@ $(function() {
         })
     })
 })
-
-
-// Центрирование попапов
-$(function() {
-	jQuery.fn.center = function(parent) {
-    if (parent) {
-        parent = this.parent();
-    } else {
-        parent = window;
-    }
-    this.css({
-        "position": "absolute",
-        "top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
-        "left": ((($(parent).width() - this.outerWidth()) / 2) + $(parent).scrollLeft() + "px")
-    });
-	return this;
-	}
-	$("div.target:nth-child(1)").center(true);
-	$("div.target:nth-child(2)").center(false);
-})
-
 
 function getReservations() {
   moment.locale('ru')
@@ -267,4 +284,3 @@ function getReservations() {
     })
   })
 }
-

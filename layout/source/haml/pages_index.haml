@@ -15,6 +15,9 @@
 		%script{ :src => "./js/ui.js" }
 		%script{ :src => "./js/card.js" }
 		%script{ :src => "./js/index.js" }
+		%script{ :src => "./js/lib/d3.js" }
+		%script{ :src => "./js/data.js" }
+		%script{ :src => "./js/nodes.js" }
 		%script{ :src => "./js/header.js" }
 		%script{ :src => "./js/lounges.js" }
 		%script{ :src => "./js/lib/snap.svg-min.js" }
@@ -71,8 +74,9 @@
 
 				%footer
 					%p Copyright © 2015 Уникальные Кальянные
-					%p Создано в
-					%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+					%p
+						Создано в
+						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
 			-# Left bar
 			%section#menu_right_part.right_menu
 				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
@@ -109,8 +113,8 @@
 						%a{:id=>"signup_header_btn"} Зарегистрироваться
 						#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
 				%header
-					%h1 Посетите наши лучшие уникальные места
-					%p.h2_subtitle Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю и гостье.
+					%h1 Посетите наши лучшие уникальные заведения
+					%p.h2_subtitle Заведения нашей сети - первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому клиенту.
 					%button#liberty_btn Открыть
 				%section.instruments
 					%a.magnifying Искать по названию

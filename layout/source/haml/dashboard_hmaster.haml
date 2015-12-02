@@ -9,14 +9,13 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/underscore-min.js" }
-		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/dashboard.js" }
 
 		-# Habmurger
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-
+		
 	%body#html_body
 		-# Form
 		.wrapper.center-center
@@ -24,16 +23,12 @@
 				%header
 					%h2 Забронировать столик
 					%p.h2_subtitle
-						Выберите время для желаемого бронированияю
+						Выберите столик и время для желаемого бронированияю
 				%form{:action => "", :method => "get"}
-					%select{:name=>"lounge"}
-						%option
-							Кальянная
-					-# %select{:name=>"table"}
-					-# 	%option
-					-# 		Столик
-					%input{:type => "text", :name => "visit_date", :placeholder => "Дата"}
-					%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
+					%input{:type => "text", :name => "input", :placeholder => "Кальянная"}
+					%input{:type => "text", :name => "input", :placeholder => "Столик"}
+					%input{:type => "text", :name => "input", :placeholder => "Дата"}
+					%input{:type => "text", :name => "input", :placeholder => "Время"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Забронировать
 		-# Form
 		.wrapper.h_v_center
@@ -265,8 +260,7 @@
 			%section.username
 				%h1	Виталий Пихонт
 				%p Санкт-Петербург, Россия
-				%button.button-dark#n_o_a Забронировать столик
-				%button.button-dark Пригласить на встречу
+				%p Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены! 
 			%section.progress_bar
 				%p 4525 очков для следующиего уровня
 				.progress_bar_bg
@@ -346,61 +340,18 @@
 			%section.bottom-rating
 				%article
 					%header
-						%h4 Брони
-					%table
-						%thead
-							%tr
-								%th Кальянная
-								%th Дата
-								%th Статус
-						%tbody#reserve_table_body
-							%tr
-								%td
-									%h6.color-limon Либерти
-								%td.td-date 23 июня 2015 20:30 - 23:00
-								%td 5 человек
-								%td
-									Скоро
-									%br
-									%span.color-orange Отменить
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 4 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 2 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 7 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 3 человека
-								%td Прошла
-				%article
-					%header
 						%h4 Посещения
 					%table
 						%thead
 							%tr
 								%th Кальянная
 								%th Дата
-								%th Сумма
+								%th Заработано
 								%th Опыт
 						%tbody
 							%tr
-								%td
-									%h6.color-limon Либерти
+								%td 
+									%h6.color-limon Либерти 
 								%td.td-date 23 июня 2015 20:30 - 23:00
 								%td 1360 рублей
 								%td
@@ -429,6 +380,51 @@
 								%td.td-date 19 июня 2015 20:30 - 23:00
 								%td 900 рублей
 								%td 90 HP
+				
+				%article
+					%h4 Бонусы
+					%aside
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+
+					%h4 Штрафы
+					%aside
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+						%figure
+							%img{:src=>"./images/achievments/1.svg"}
+							%span.popover
+								Трудоголик
+								%br
+								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+
+
 				%article
 					%header
 						%h4 Рейтинг
@@ -442,27 +438,26 @@
 							%h6 За все время
 
 						%section#section-per-month
-							%ul.leaders
+							%ul.leaders 
 								%li
 									%span 1. Алексей Иванов
 									%span 210 800
-
-							%ul.leaders
-								%li
-									%span 1. Алексей Иванов
-									%span 210 800
+ 
 							%ul.leaders
 								%li
 									%span 2. Антон Максимов
 									%span 175 800
+ 
 							%ul.leaders
 								%li
 									%span 3. Федор Смолов
 									%span 160 800
+ 
 							%ul.leaders
 								%li
 									%span 4. Антон Максимов
 									%span 100 800
+ 
 							%ul.leaders
 								%li
 									%span 5. Федор Смолов
@@ -474,5 +469,6 @@
 								%li
 									%span 29. Виталий Пихонт
 									%span 16 800
+						
 						%section#section-per-all-time
 							Секция за все время
