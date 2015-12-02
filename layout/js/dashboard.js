@@ -68,6 +68,7 @@ $(function() {
       e.preventDefault();
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
+        lounge: $('select[name=lounge]').val(),
         table_id: $('select[name=table]').val(),
         visit_date: $('input[name=visit_date]').val() + ' ' + $('input[name=visit_time]').val()
       }, function(json) {
