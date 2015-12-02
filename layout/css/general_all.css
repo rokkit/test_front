@@ -760,6 +760,7 @@ section.lounges article.lounge {
   width: 100%;
   position: relative;
   color: #EBB22F;
+  font: normal normal 300 60px/64px Bebas Neue Book, sans-serif;
   margin-bottom: 16px;
   letter-spacing: 7px;
   font-size: 36px;
@@ -806,15 +807,16 @@ section.lounges article.lounge {
   margin-right: 10px;
 }
 #philosophie_block3 .principles-wrap .principle h4 {
+  font: normal normal 300 60px/64px Bebas Neue Book, sans-serif;
   margin-bottom: 10px;
-  font-family: Bebas Neue;
   font-weight: 200;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.2;
-  letter-spacing: 4px;
+  letter-spacing: 1.4px;
 }
 #philosophie_block3 .principles-wrap .principle p {
   font-size: 12px;
+  margin-left: 56px;
   opacity: 0.5;
 }
 #philosophie_block3 aside {

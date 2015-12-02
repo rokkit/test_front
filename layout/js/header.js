@@ -8,6 +8,50 @@ $(function(){
       this.nodesRight.render;
 });
 
+var animation = {
+  level: '',
+  body: {},
+  login: {},
+  reg: {}
+};
+
+function animateBG(){
+  animation.body = new TimelineLite()
+  .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
+  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
+  TweenLite.to('body', 1, {overflow:"hidden"});
+}
+
+function animateLogin(){
+  animation.login = new TimelineLite()
+  .to('#login_form', 1, {left:"160px"});
+  TweenLite.to('#wrapper_login', 1, {'pointer-events':"auto"});
+  animateBG();
+  animation.level = 'login';
+}
+
+function loginReverse(){
+  animation.login.reverse();
+  animation.body.reverse();
+}
+
+function animationReverse(){
+  switch (animation.level) {
+    case 'login':
+      animation.login.reverse();
+      break;
+    case 2:
+      TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto", onComplete:function(){$('#reserv_succes_form').css('right', '3000px')}}, 'sequence');
+      break;
+    case 3:
+      achivkaReverse();
+      break;
+  }
+  animation.body.reverse();
+  $('body').css('overflow', "visible");
+  $('body').off('click');
+}
+
 $(function() {
   window.tl = null;
   window.hostUrl = 'http://192.168.1.39:82'
@@ -17,9 +61,6 @@ $(function() {
     svgIconConfig,
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
-
-
-
 
   //Клик на кнопку Войти в хедере
   $('#login_header_btn').on('click', function() {
@@ -63,14 +104,17 @@ $(function() {
   $('#recover_btn').on('click', function() {
     animateForm('recover_form')
   });
+
   //Клик на войти в форме регисрации
   $('#login_in_signin_btn').on('click', function() {
     animateForm('login_form')
   });
+
   //Клик на войти в форме восстановления пароля
   $('#login_in_recover_btn').on('click', function() {
     animateForm('login_form')
   });
+
   //Создание сесии
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
@@ -122,19 +166,11 @@ $(function() {
   $('input[name="phone"]').mask('+0000000000000')
 });
 
-function normalize(el, parent){
-  var elem = $('#'+el);
-  var parentY = $('#'+parent).offset().top;
-  elem.css('top', parentY);
-}
-
-
 function animateForm(el) {
   var form = document.getElementById(el)
   var wrapper =document.getElementById('wrapper_login')
   var tl = null;
 
-  //normalize(el, 'wrapper_login');
   var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
     $('.popup').click(function(event){
       event.stopPropagation();
@@ -158,7 +194,7 @@ function animateSignup() {
   var main = document.getElementById('main_content')
   var wrapper =document.getElementById('wrapper_signup')
   var tl = null;
-  //normalize('signup_form', 'wrapper_signup');
+
   var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
     $('.popup').click(function(event){
       event.stopPropagation();
@@ -280,8 +316,8 @@ $(function() {
     })
   });
 });
-function strip(html)
-{
+
+function strip(html){
    var tmp = document.createElement("DIV");
    tmp.innerHTML = html;
    return tmp.textContent || tmp.innerText || "";

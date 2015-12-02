@@ -122,13 +122,10 @@ var animation = {
 };
 
 function animateBG(){
-  // $('body').css('overflow', "hidden");
   animation.body = new TimelineLite()
   .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
   .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
-  //.to('body', 1, {overflow:"hidden"}, 'sequence');
-  TweenLite.to('body', 1, {overflow:"hidden"})
-
+  TweenLite.to('body', 1, {overflow:"hidden"});
 }
 
 function animateReserv(){
