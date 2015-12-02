@@ -86,10 +86,12 @@ $(function() {
       e.preventDefault();
       $('.wrong').removeClass('wrong')
       if(!$('input[name=visit_date]').val()) {
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('input[name="visit_date"]').addClass('wrong')
         return
       }
       if($('select[name=visit_time]').val() == 'время') {
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('select[name="visit_time"]').addClass('wrong')
         return
       }
@@ -104,10 +106,12 @@ $(function() {
       }, function(json) {
         if (json.errors) {
           if (json.errors.visit_date) {
+            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
             $('input[name="visit_date"]').addClass('wrong')
             $('select[name="visit_time"]').addClass('wrong')
           }
           if (json.errors.table) {
+            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
             $('input[name="lounge"]').addClass('wrong')
           }
         } else {
@@ -216,7 +220,10 @@ function animateRevers(){
   }
   TweenLite.to('body', 0, {'overflow': 'auto'});
   animation.body.reverse();
-
+  var errTooltip = $('section.error_tooltip').css('opacity');
+  if(errTooltip === '1'){
+      TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+  }
   //$('body').css('overflow', "visible");
   $('body').off('click');
 }
