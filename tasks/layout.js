@@ -22,7 +22,8 @@ gulp.task('layout:sass', function() {
   gulp.src('./layout/source/sass/general_all.sass')
     .pipe($.compass({
       css: './layout/css',
-      sass: './layout/source/sass'
+      sass: './layout/source/sass',
+      font: 'layout/fonts'
     }))
     .pipe(gulp.dest('./layout/css'))
     .pipe($.notify(notifySass));
