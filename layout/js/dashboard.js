@@ -8,7 +8,6 @@ $(function() {
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
 
-
   //Работа с сервером
   window.hostUrl = 'http://192.168.1.39:82'
 
@@ -79,31 +78,22 @@ $(function() {
 
 
     //Открытие всех достижений
-    $('#dashboard_ach_btn').on('click', function() {
-      animateAchiv();
-      //animateVertical_popup('all_ach')
-    });
+    $('#dashboard_ach_btn').click(animateAchiv);
 
-    $('#all_ach a').click(function(){
-      achivReverse();
-    });
+    $('#all_ach a').click(achivReverse);
 
-    $('#all_talents a').click(function(){
-      talentsReverse();
-    });
+    $('#all_talents a').click(talentsReverse);
 
     // Открытие всех навыков
-    $('#dashboard_talents_btn').on('click', function() {
-      //animateVertical_popup('all_talents')
-      animateTalents();
-    });
+    $('#dashboard_talents_btn').click(animateTalents);
     // Открытие достижения
     $(document).on('click', '#achievements figure',function() {
       var achiv = $(this)
       $('#achivka h2').text(achiv.find('h6').text())
       $('#achivka p').text(achiv.attr('data-description'))
       $('#achivka img').attr('src', (achiv.find('img').attr('src')))
-      animateOverall_popup('achivka')
+      animateAchivka();
+      bodyClick();
     });
 });
 
@@ -121,43 +111,24 @@ function bodyClick(){
   });
 }
 
-function animateFormSuccess(el) {
-  var form2 = document.getElementById(el)
-  var html_body2 = document.getElementById("html_body")
-  var color_overlay2 = document.getElementById("color_overlay")
-  var main2 = document.getElementById('main_content')
-  var wrapper2 =document.getElementById('wrapper_login')
-  var tl = null
-
-  var tw1 = TweenLite.to(form2, 1, {right:"0px", onComplete: function() {
-    $('.popup').click(function(event){
-      event.stopPropagation();
-    });
-
-    bodyClick(tl);
-
-  }})
-  var tw2 = TweenLite.to(color_overlay2, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main2, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body2, 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(form2, 1, {'pointer-events':"auto"})
-  tl = new TimelineLite().add([tw1,tw2,tw3,tw4,tw5], 'sequence');
-}
-
 var animation = {
   level: 0,
   body: {},
   reserv: {},
   success: {},
   achiv: {},
-  talents: {}
+  talents: {},
+  achivka: {}
 };
 
 function animateBG(){
+  // $('body').css('overflow', "hidden");
   animation.body = new TimelineLite()
   .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
-  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence')
-  .to('body', 1, {overflow:"hidden"}, 'sequence');
+  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
+  //.to('body', 1, {overflow:"hidden"}, 'sequence');
+  TweenLite.to('body', 1, {overflow:"hidden"})
+
 }
 
 function animateReserv(){
@@ -183,54 +154,19 @@ function ReservSuccessForm(){
 }
 
 function animateRevers(){
-  if(animation.level === 1){
-    TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
-  }else{
+  switch (animation.level) {
+    case 1:
+      TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
+      break;
+    case 2:
       TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto"}, 'sequence');
+      break;
+    case 3:
+      achivkaReverse();
+      break;
   }
   animation.body.reverse();
-}
-
-//Анимация формы бронирования
-function animateForm(el) {
-  var form1 = document.getElementById(el)
-  var html_body1 = document.getElementById("html_body")
-  var color_overlay1 = document.getElementById("color_overlay")
-  var main1 = document.getElementById('main_content')
-  var wrapper1 = document.getElementById('wrapper_login')
-  var tl = null;
-  var tw1 = TweenLite.to(form1, 1, {left:"160px", onComplete: function() {
-    $('.popup').click(function(event){
-      event.stopPropagation();
-    });
-    bodyClick(tl);
-
-  }})
-  var tw2 = TweenLite.to(color_overlay1, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main1, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to(html_body1, 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(form1, 1, {'pointer-events':"auto"})
-  tl = new TimelineLite().add([tw1,tw2,tw3,tw4,tw5], 'sequence');
-}
-
-//Анимация модалки всех ачивок
-function animateVertical_popup(el) {
-  var all_ach = document.getElementById(el)
-  var html_body = document.getElementById("html_body")
-  var color_overlay = document.getElementById("color_overlay")
-  var main = document.getElementById('main_content')
-  var wrapper = $('#all_ach_wrapper')[0]
-
-  var tl = null
-
-  var tw1 = TweenLite.to(all_ach, 1, {top:"80px", 'pointer-events':"auto", onComplete: function() {
-    //bodyClick(tl);
-  }})
-  var tw2 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to('body', 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
-  tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'normal');
+  $('body').css('overflow', "visible");
 }
 
 function animateAchiv(){
@@ -263,20 +199,15 @@ function talentsReverse(){
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
 }
 
-//Анимация модалки навыков
-function animateOverall_popup(el) {
-  var achivka = document.getElementById(el)
-  var html_body = document.getElementById("html_body")
-  var color_overlay = document.getElementById("color_overlay")
-  var main = document.getElementById('main_content')
-  var tl = null
-  var tw1 = TweenLite.to(achivka, 0.5, {top:"0", onComplete: function() {
-    bodyClick(tl);
-  }})
-  var tw2 = TweenLite.to(color_overlay, 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to(main_content, 0.5, {filter:"blur(5px)", "-webkit-filter":"blur(4px)"})
-  var tw4 = TweenLite.to('body', 0.5, {overflow:"hidden"})
-  tl = new TimelineLite().add([tw1,tw2,tw3,tw4], 'normal');
+function animateAchivka(){
+  animation.achivka = new TimelineLite()
+  .to('#achivka', 0.5, {top:"0"});
+  animateBG();
+  animation.level = 3;
+}
+
+function achivkaReverse(){
+  animation.achivka.reverse();
 }
 
 //Загрузка ачивок и скилов
@@ -308,27 +239,6 @@ $(function() {
         })
     })
 })
-
-
-// Центрирование попапов
-$(function() {
-	jQuery.fn.center = function(parent) {
-    if (parent) {
-        parent = this.parent();
-    } else {
-        parent = window;
-    }
-    this.css({
-        "position": "absolute",
-        "top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
-        "left": ((($(parent).width() - this.outerWidth()) / 2) + $(parent).scrollLeft() + "px")
-    });
-	return this;
-	}
-	$("div.target:nth-child(1)").center(true);
-	$("div.target:nth-child(2)").center(false);
-})
-
 
 function getReservations() {
   moment.locale('ru')

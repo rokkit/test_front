@@ -748,41 +748,74 @@ section.lounges article.lounge {
 }
 
 #philosophie_block3 {
-  display: block;
+  display: inline-block;
   position: relative;
   width: 100%;
   padding: 120px 80px;
   text-align: left;
   background: black;
 }
-#philosophie_block3 .cont-wrap {
-  display: block;
-  position: relative;
-  width: 50%;
-}
-#philosophie_block3 .cont-wrap h3 {
+#philosophie_block3 header h3 {
   display: block;
   width: 100%;
   position: relative;
   color: #EBB22F;
   margin-bottom: 16px;
+  letter-spacing: 7px;
   font-size: 36px;
   line-height: 1.2;
   z-index: 200;
 }
-#philosophie_block3 .cont-wrap h4 {
+#philosophie_block3 header h4 {
   display: inline-block;
   position: relative;
   margin-bottom: 32px;
+}
+#philosophie_block3 .cont-wrap {
+  display: block;
+  position: relative;
+  margin-right: 55px;
+  width: 30%;
+  float: left;
 }
 #philosophie_block3 .cont-wrap p {
   display: inline-block;
   position: relative;
   opacity: 0.5;
   margin-bottom: 32px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   z-index: 200;
+}
+#philosophie_block3 .principles-wrap {
+  display: inline-block;
+  position: relative;
+  width: 65%;
+  float: left;
+}
+#philosophie_block3 .principles-wrap .principle {
+  display: inline-block;
+  width: 330px;
+  margin-right: 24px;
+  margin-bottom: 30px;
+}
+#philosophie_block3 .principles-wrap .principle img {
+  float: left;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+#philosophie_block3 .principles-wrap .principle h4 {
+  margin-bottom: 10px;
+  font-family: Bebas Neue;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 4px;
+}
+#philosophie_block3 .principles-wrap .principle p {
+  font-size: 12px;
+  opacity: 0.5;
 }
 #philosophie_block3 aside {
   display: block;
