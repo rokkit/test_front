@@ -109,7 +109,9 @@ $(function() {
   });
 
   $('#reserve_table_btn').on('click', function() {
-    animateSignup()
+    animateSignup();
+    animateBG();
+    bodyClick();
   });
 
      //Клик на кнопку меню в хедере
@@ -186,7 +188,7 @@ function bodyClick(){
   $('.popup').click(function(event){
     event.stopPropagation();
   });
-  
+
   $('body').on('click', function(e){
     if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
       animationReverse();
