@@ -60,6 +60,10 @@ function animationReverse(){
   animation.body.reverse();
   $('body').css('overflow', "visible");
   $('body').off('click');
+  var errTooltip = $('section.error_tooltip').css('opacity');
+  if(errTooltip === '1'){
+      TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+  }
 }
 
 $(function() {
@@ -156,12 +160,15 @@ $(function() {
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
     if(!phone) {
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#signup_form input[name="phone"]').addClass('wrong')
     }
     if(!password) {
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#signup_form input[name="password"]').addClass('wrong')
     }
     if(!name) {
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#signup_form input[name="name"]').addClass('wrong')
     }
 
@@ -176,12 +183,15 @@ $(function() {
       } else {
         $('#signup_form input').removeClass('wrong')
         if(resp['errors']['name']) {
+          TweenLite.to('section.error_tooltip', 1, {opacity: 1});
           $('#signup_form input[name="name"]').addClass('wrong')
         }
         if(resp['errors']['phone']) {
+          TweenLite.to('section.error_tooltip', 1, {opacity: 1});
           $('#signup_form input[name="phone"]').addClass('wrong')
         }
         if(resp['errors']['password']) {
+          TweenLite.to('section.error_tooltip', 1, {opacity: 1});
           $('#signup_form input[name="password"]').addClass('wrong')
         }
       }

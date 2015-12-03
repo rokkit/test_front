@@ -19,6 +19,9 @@
   </head>
   <body id='html_body'>
     <div class='wrapper center-center'>
+      <section class='error_tooltip' id='error_password'>
+        Данные введены неверно! Попробуйте ввести еще раз.
+      </section>
       <section class='popup' id='reserv_form'>
         <header>
           <h2>Забронировать столик</h2>
@@ -32,7 +35,7 @@
               Кальянная
             </option>
           </select>
-          <select name='numPeaple'>
+          <select name='client_count'>
             <option>количество</option>
             <option>1</option>
             <option>2</option>
@@ -49,11 +52,17 @@
           <select name='visit_time'>
             <option>время</option>
             <option value='17:00'>17:00</option>
+            <option value='17:30'>17:30</option>
             <option value='18:00'>18:00</option>
+            <option value='18:30'>18:30</option>
             <option value='19:00'>19:00</option>
+            <option value='19:30'>19:30</option>
             <option value='20:00'>20:00</option>
+            <option value='20:30'>20:30</option>
             <option value='21:00'>21:00</option>
+            <option value='21:30'>21:30</option>
             <option value='22:00'>22:00</option>
+            <option value='22:30'>22:30</option>
             <option value='23:00'>23:00</option>
           </select>
           <button name='sumbit' type='sumbit'>Забронировать</button>
@@ -65,7 +74,7 @@
         <header>
           <h2>Заявка на бронирование подана</h2>
           <p class='h2_subtitle'>
-            Вы подали заявку на бронирование столика 21 мая с 18:00 до 21:00 в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
+            Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
           </p>
         </header>
         <form action='' method='get'>

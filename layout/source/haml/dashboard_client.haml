@@ -22,6 +22,8 @@
 	%body#html_body
 		-# Form
 		.wrapper.center-center
+			%section#error_password.error_tooltip
+				Данные введены неверно! Попробуйте ввести еще раз.
 			%section.popup{:id => 'reserv_form'}
 				%header
 					%h2 Забронировать столик
@@ -34,7 +36,7 @@
 					-# %select{:name=>"table"}
 					-# 	%option
 					-# 		Столик
-					%select{:name=>'numPeaple'}
+					%select{:name=>'client_count'}
 						%option количество
 						%option 1
 						%option	2
@@ -48,13 +50,19 @@
 						%option 2.5
 					%input{:id=> 'datepicker', :type => "text", :name => "visit_date", :placeholder => "Дата"}
 					%select{:name=>'visit_time'}
-						%option время
+						%option{:value => nil} время
 						%option{:value => '17:00'} 17:00
+						%option{:value => '17:30'} 17:30
 						%option{:value => '18:00'} 18:00
+						%option{:value => '18:30'} 18:30
 						%option{:value => '19:00'} 19:00
+						%option{:value => '19:30'} 19:30
 						%option{:value => '20:00'} 20:00
+						%option{:value => '20:30'} 20:30
 						%option{:value => '21:00'} 21:00
+						%option{:value => '21:30'} 21:30
 						%option{:value => '22:00'} 22:00
+						%option{:value => '22:30'} 22:30
 						%option{:value => '23:00'} 23:00
 
 
@@ -66,7 +74,7 @@
 				%header
 					%h2 Заявка на бронирование подана
 					%p.h2_subtitle
-						Вы подали заявку на бронирование столика 21 мая с 18:00 до 21:00 в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
+						Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
 				%form{:action => "", :method => "get"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Отлично
 		-# Достижения

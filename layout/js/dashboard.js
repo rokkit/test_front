@@ -1,14 +1,14 @@
 var currentUser = JSON.parse(localStorage.getItem('currentUser'))
 $(function() {
 
-    var picker = new Pikaday(
-    {
-        field: document.getElementById('datepicker'),
-        firstDay: 1,
-        minDate: new Date(2000, 0, 1),
-        maxDate: new Date(2020, 12, 31),
-        yearRange: [2000,2020]
-    });
+    // var picker = new Pikaday(
+    // {
+    //     field: document.getElementById('datepicker'),
+    //     firstDay: 1,
+    //     minDate: new Date(2000, 0, 1),
+    //     maxDate: new Date(2020, 12, 31),
+    //     yearRange: [2000,2020]
+    // });
 
   // Hamburger
   new svgIcon(
@@ -66,9 +66,9 @@ $(function() {
       })
     });
 
-    // $('input[name="visit_date"]').on('click', function() {
-    //   $(this).val(moment().format('YYYY-MM-DD'))
-    // })
+    $('input[name="visit_date"]').on('click', function() {
+      $(this).val(moment().format('YYYY-MM-DD'))
+    })
 
   	$('#n_o_a').click(function(e){
       ReservForm();
@@ -83,23 +83,41 @@ $(function() {
     });
 
     $('#reserv_form').submit(function(e){
-      $('.wrong').removeClass('wrong')
       e.preventDefault();
+      $('.wrong').removeClass('wrong')
+      if(!$('input[name=visit_date]').val()) {
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+        $('input[name="visit_date"]').addClass('wrong')
+        return
+      }
+      if($('select[name=visit_time]').val() == 'время') {
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+        $('select[name="visit_time"]').addClass('wrong')
+        return
+      }
+      var visit_date = $('input[name=visit_date]').val()
+      var visit_time = $('input[name=visit_time]').val()
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
         lounge: $('select[name=lounge]').val(),
         table_id: $('select[name=table]').val(),
+        client_count: $('select[name=client_count]').val(),
+        duration: $('select[name=duration]').val(),
         visit_date: $('input[name=visit_date]').val() + ' ' + $('select[name=visit_time]').val()
       }, function(json) {
         if (json.errors) {
           if (json.errors.visit_date) {
+            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
             $('input[name="visit_date"]').addClass('wrong')
-            $('input[name="visit_time"]').addClass('wrong')
+            $('select[name="visit_time"]').addClass('wrong')
           }
           if (json.errors.table) {
+            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
             $('input[name="lounge"]').addClass('wrong')
           }
         } else {
+          $('#visit_date_result').text(visit_date)
+          $('#visit_time_result').text(visit_time)
           getReservations()
           ReservSuccessForm();
         }
@@ -204,7 +222,10 @@ function animateRevers(){
   }
   TweenLite.to('body', 0, {'overflow': 'auto'});
   animation.body.reverse();
-
+  var errTooltip = $('section.error_tooltip').css('opacity');
+  if(errTooltip === '1'){
+      TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+  }
   //$('body').css('overflow', "visible");
   $('body').off('click');
 }
