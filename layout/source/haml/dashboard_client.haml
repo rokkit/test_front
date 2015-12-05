@@ -44,33 +44,26 @@
 					-# 	%option
 					-# 		Столик
 					%select{:name=>'client_count'}
-						%option количество
-						%option 1
-						%option	2
-						%option	3
-						%option	4
-						%option	5
+						%option Количество гостей
+						%option{:value => '4'} Трое или меньше
+						%option{:value => '5'} От четырёх до пяти
 
-					%select{:name=>'duration'}
-						%option продолжительность
-						%option 1.5
-						%option 2.5
 					%input{:id=> 'datepicker', :type => "text", :name => "visit_date", :placeholder => "Дата"}
 					%select{:name=>'visit_time'}
 						%option{:value => nil} время
-						%option{:value => '17:00'} 17:00
-						%option{:value => '17:30'} 17:30
-						%option{:value => '18:00'} 18:00
-						%option{:value => '18:30'} 18:30
-						%option{:value => '19:00'} 19:00
-						%option{:value => '19:30'} 19:30
-						%option{:value => '20:00'} 20:00
-						%option{:value => '20:30'} 20:30
-						%option{:value => '21:00'} 21:00
-						%option{:value => '21:30'} 21:30
-						%option{:value => '22:00'} 22:00
-						%option{:value => '22:30'} 22:30
-						%option{:value => '23:00'} 23:00
+						%option{:value => '17:00', :'data-time' => '1700'} 17:00
+						%option{:value => '17:30', :'data-time' => '1730'} 17:30
+						%option{:value => '18:00', :'data-time' => '1800'} 18:00
+						%option{:value => '18:30', :'data-time' => '1830'} 18:30
+						%option{:value => '19:00', :'data-time' => '1900'} 19:00
+						%option{:value => '19:30', :'data-time' => '1930'} 19:30
+						%option{:value => '20:00', :'data-time' => '2000'} 20:00
+						%option{:value => '20:30', :'data-time' => '2030'} 20:30
+						%option{:value => '21:00', :'data-time' => '2100'} 21:00
+						%option{:value => '21:30', :'data-time' => '2130'} 21:30
+						%option{:value => '22:00', :'data-time' => '2200'} 22:00
+						%option{:value => '22:30', :'data-time' => '2230'} 22:30
+						%option{:value => '23:00', :'data-time' => '2300'} 23:00
 
 
 					-#%input{:type => "text", :name => "visit_time", :placeholder => "Время"}

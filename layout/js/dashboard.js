@@ -64,6 +64,24 @@ $(function() {
       bodyClick();
   	});
 
+    var currentTime = new Date()
+    var times = $('select[name="visit_time"]').html()
+    var time_options = $(times).filter(function(index) {
+      return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
+    })
+    $('select[name="visit_time"]').html(time_options)
+    // $('select[name="visit_date"]').on('change', function() {
+    //
+    //   var lounge = $('select[name="lounge"]').val()
+    //   console.log('change', tables)
+    //   var options = $(tables).filter("optgroup[data-id="+lounge+"]").html()
+    //   if (options) {
+    //     $('select[name="table"]').html(options)
+    //   } else {
+    //     $('select[name="table"]').empty()
+    //   }
+    // });
+
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       $('.wrong').removeClass('wrong')
