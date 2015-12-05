@@ -66,12 +66,17 @@ $(function() {
       $(this).val(moment().format('YYYY-MM-DD'))
     })
 
+    function bodyClickOff(){
+      $('body').off('click');
+    }
+
   	$('#n_o_a').click(function(e){
-      ReservForm();
-      $('.popup').click(function(event){
-        event.stopPropagation();
-      });
-      bodyClick();
+      //ReservForm();
+      fx.do(['reserv', 'background'], bodyClick, bodyClickOff);//, bodyClick, function(){ $('body').off('click'); });
+      // $('.popup').click(function(event){
+      //   event.stopPropagation();
+      // });
+      //bodyClick();
   	});
 
     var currentTime = new Date()
@@ -146,7 +151,8 @@ $(function() {
 
     //Открытие всех достижений
     $('#dashboard_ach_btn').click(function(){
-      animateAchiv(bodyClick);
+      fx.do(['allAchiv', 'background'], bodyClick, bodyClickOff);
+      //animateAchiv(bodyClick);
     });
 
     $('#all_ach a').click(function(){
@@ -164,8 +170,8 @@ $(function() {
       $('#achivka h2').text(achiv.find('h6').text())
       $('#achivka p').text(achiv.attr('data-description'))
       $('#achivka img').attr('src', (achiv.find('img').attr('src')))
-      fx.do(['achiv', 'background']);
-      bodyClick();
+      fx.do(['achiv', 'background'], bodyClick, bodyClickOff);
+      //bodyClick();
     });
 
     $(document).on('click', '#skills figure', function(){
@@ -174,25 +180,38 @@ $(function() {
       $('#achivka p').text(skill.attr('data-description'));
       $('#achivka img').attr('src', (skill.find('img').attr('src')));
       fx.do(['skill', 'background']);
-      bodyClick();
+      //bodyClick();
     });
 
-    $('.popup_vertical').click(function(event){
-      //event.stopPropagation();
-    });
+
 });
 
 $(function(){
-  $(document).on('click', '#all_ach figure', function(){
+  //var popupVertical = $('.popup_vertical');
+  //var popupKids = popupVertical.children('.wrapper_for_ach').children('figure');
 
-    var achiv = $(this)
-    $('#achivka h2').text(achiv.find('h6').text())
-    $('#achivka p').text(achiv.attr('data-description'))
-    $('#achivka img').attr('src', (achiv.find('img').attr('src')))
-    animateAchivka();
-    animateAchivBG();
-    //bodyClick();
+  $('.popup').click(function(event){
+    event.stopPropagation();
   });
+
+  //$('figure').addClass('card');
+
+  $('.popup_vertical').click(function(e){
+    e.stopPropagation();
+  });
+});
+
+$(function(){
+  // $(document).on('click', '#all_ach figure', function(){
+  //
+  //   var achiv = $(this)
+  //   $('#achivka h2').text(achiv.find('h6').text())
+  //   $('#achivka p').text(achiv.attr('data-description'))
+  //   $('#achivka img').attr('src', (achiv.find('img').attr('src')))
+  //   animateAchivka();
+  //   animateAchivBG();
+  //   //bodyClick();
+  // });
 })
 
 // PRELOADER
@@ -201,13 +220,16 @@ $(function() {
   TweenLite.to(html_body, 1, {opacity:1})
 })
 
-function bodyClick(){
+function bodyClick(e){
   $('body').on('click', function(e) {
-    if(e.target.tagName !== 'BUTTON'){
-      if(animation.isBody){
-          animateRevers();
-      }
-    }
+    fx.back();
+    // if(e.target.tagName !== 'BUTTON'){
+    //   if(animation.isBody){
+    //       animateRevers();
+    //   }
+    // }
+
+
   });
 }
 
@@ -230,12 +252,6 @@ function animateBG(){
   TweenLite.to('body', 0, {overflow:"hidden"});
 }
 
-$(function(){
-  $('.popup_vertical').click(function(){
-    animation.isBody = false;
-  });
-});
-
 function animateAchivBG(){
   animation.achivBG = new TimelineLite()
   .to('#all_ach_wrapper', 1, {
@@ -248,7 +264,7 @@ function animateAchivBG(){
     'pointer-events': 'none'
   });
   animation.level = 'achivBG';
-  bodyClick();
+  //  bodyClick();
 }
 
 function animateReserv(){
@@ -261,12 +277,6 @@ function animateSuccess(){
   animation.success = new TimelineLite()
   .to('#reserv_succes_form', 1, {right:"0px", 'pointer-events':"auto"}, 'sequence');
   animation.level = 2;
-}
-
-function ReservForm(){
-  fx.do(['reserv', 'background']);
-  //animateReserv();
-  //animateBG();
 }
 
 function ReservSuccessForm(){
@@ -357,13 +367,24 @@ function achivkaReverse(){
 
 //Загрузка ачивок и скилов
 
+function card(){
+    var achiv = $(this)
+    $('#achivka h2').text(achiv.find('h6').text())
+    $('#achivka p').text(achiv.attr('data-description'))
+    $('#achivka img').attr('src', (achiv.find('img').attr('src')))
+    fx.do(['achiv', 'allAchivBG']);
+    //animateAchivka();
+    //animateAchivBG();
+    //bodyClick();
+}
+
 $(function() {
   $.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token}, function(json) {
     $('#achievements').empty()
     $('#all_ach .wrapper_for_ach').empty()
     $('#dashboard_ach_btn').text(0+'/'+json.length)
     $.each(json, function(i) {
-      var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+      var template = "<figure onclick='card()' data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
     })
     json = json.slice(0, 5)

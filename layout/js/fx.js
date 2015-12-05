@@ -13,12 +13,21 @@ var FX = (function(animations){
     }
   };
 
-  module.do = function(arg){
+  module.do = function(arg, cb, rc){
     if(arg instanceof Array){
       module.tl.push(arg);
+      var last = arg[arg.length - 1];
       arg.forEach(function(name){
         if(name in module.animations){
-          render(name);
+          var callback = null;
+          var rC = null;
+
+          if(last === name){
+            callback = cb;
+            rC = rc;
+          }
+
+          render(name, callback, rC);
         }
       });
     }
@@ -31,16 +40,26 @@ var FX = (function(animations){
     });
   }
 
-  function render(name){
+  function render(name, cb, rc){
     var item = module.animations[name];
-    module.animate[name] = new TimelineLite();
+    module.animate[name] = new TimelineLite({onComplete: cb, onReverseComplete: rc});
     if(item instanceof Array){
       item.forEach(function(it){
         var anim = module.animations[it];
-        module.animate[name].to(anim.element, 1, anim.options, 'normal');
+        module.animate[name].to(
+          anim.element,
+          1,
+          anim.options,
+          'normal'
+        );
       });
     } else {
-      module.animate[name].to(item.element, 1, item.options, 'normal');
+      module.animate[name].to(
+        item.element,
+        1,
+        item.options,
+        'normal'
+      );
     }
   }
 
