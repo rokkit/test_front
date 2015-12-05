@@ -1,14 +1,7 @@
-var currentUser = JSON.parse(localStorage.getItem('currentUser'))
-$(function() {
+var fx = new FX(fxa.dashboard);
+var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    // var picker = new Pikaday(
-    // {
-    //     field: document.getElementById('datepicker'),
-    //     firstDay: 1,
-    //     minDate: new Date(2000, 0, 1),
-    //     maxDate: new Date(2020, 12, 31),
-    //     yearRange: [2000,2020]
-    // });
+$(function() {
 
   // Hamburger
   new svgIcon(
@@ -21,10 +14,10 @@ $(function() {
   window.hostUrl = 'http://176.112.194.149:81'
   // window.hostUrl = 'http://localhost:3000'
 
-  		if (currentUser) {
-      		$('section.username h1').text(currentUser.name)
-      		$('#login_btn').text(currentUser.name)
-  		}
+	if (currentUser) {
+  		$('section.username h1').text(currentUser.name)
+  		$('#login_btn').text(currentUser.name)
+	}
     //Загрузить начальные данные
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
@@ -78,10 +71,6 @@ $(function() {
       bodyClick();
   	});
 
-    $('#invite').click(function(){
-      animateForm('invite_form');
-    });
-
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       $('.wrong').removeClass('wrong')
@@ -134,11 +123,15 @@ $(function() {
       e.preventDefault();
     });
 
-
     //Открытие всех достижений
-    $('#dashboard_ach_btn').click(animateAchiv);
+    $('#dashboard_ach_btn').click(function(){
+      animateAchiv(bodyClick);
+    });
 
-    $('#all_ach a').click(achivReverse);
+    $('#all_ach a').click(function(){
+      achivReverse();
+      animation.body.reverse();
+    });
 
     $('#all_talents a').click(talentsReverse);
 
@@ -150,10 +143,36 @@ $(function() {
       $('#achivka h2').text(achiv.find('h6').text())
       $('#achivka p').text(achiv.attr('data-description'))
       $('#achivka img').attr('src', (achiv.find('img').attr('src')))
-      animateAchivka();
+      fx.do(['achiv', 'background']);
       bodyClick();
     });
+
+    $(document).on('click', '#skills figure', function(){
+      var skill = $(this)
+      $('#achivka h2').text(skill.find('h6').text());
+      $('#achivka p').text(skill.attr('data-description'));
+      $('#achivka img').attr('src', (skill.find('img').attr('src')));
+      fx.do(['skill', 'background']);
+      bodyClick();
+    });
+
+    $('.popup_vertical').click(function(event){
+      //event.stopPropagation();
+    });
 });
+
+$(function(){
+  $(document).on('click', '#all_ach figure', function(){
+
+    var achiv = $(this)
+    $('#achivka h2').text(achiv.find('h6').text())
+    $('#achivka p').text(achiv.attr('data-description'))
+    $('#achivka img').attr('src', (achiv.find('img').attr('src')))
+    animateAchivka();
+    animateAchivBG();
+    //bodyClick();
+  });
+})
 
 // PRELOADER
 $(function() {
@@ -164,7 +183,9 @@ $(function() {
 function bodyClick(){
   $('body').on('click', function(e) {
     if(e.target.tagName !== 'BUTTON'){
-      animateRevers();
+      if(animation.isBody){
+          animateRevers();
+      }
     }
   });
 }
@@ -176,7 +197,9 @@ var animation = {
   success: {},
   achiv: {},
   talents: {},
-  achivka: {}
+  achivka: {},
+  achivBG: {},
+  isBody: true
 };
 
 function animateBG(){
@@ -184,6 +207,27 @@ function animateBG(){
   .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
   .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
   TweenLite.to('body', 0, {overflow:"hidden"});
+}
+
+$(function(){
+  $('.popup_vertical').click(function(){
+    animation.isBody = false;
+  });
+});
+
+function animateAchivBG(){
+  animation.achivBG = new TimelineLite()
+  .to('#all_ach_wrapper', 1, {
+    opacity: '0.8',
+    "-webkit-opacity":"1",
+    filter: 'blur(5px)',
+    "-webkit-filter":"blur(4px)",
+    transform: 'scale(0.95, 0.95)',
+    overflow: 'hidden',
+    'pointer-events': 'none'
+  });
+  animation.level = 'achivBG';
+  bodyClick();
 }
 
 function animateReserv(){
@@ -199,8 +243,9 @@ function animateSuccess(){
 }
 
 function ReservForm(){
-  animateReserv();
-  animateBG();
+  fx.do(['reserv', 'background']);
+  //animateReserv();
+  //animateBG();
 }
 
 function ReservSuccessForm(){
@@ -212,30 +257,46 @@ function animateRevers(){
   switch (animation.level) {
     case 1:
       TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
+      animation.level = 'none';
       break;
     case 2:
       TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto", onComplete:function(){$('#reserv_succes_form').css('right', '3000px')}}, 'sequence');
+      animation.level = 'none';
       break;
-    case 3:
+    case 'achivka':
       achivkaReverse();
+      animation.level = 'none';
+      break;
+    case 'achiv':
+      achivReverse();
+      animation.level = 'none';
+      break;
+    case 'achivBG':
+      achivkaReverse();
+      animation.achivBG.reverse();
+      animation.level = 'achiv';
       break;
   }
-  TweenLite.to('body', 0, {'overflow': 'auto'});
-  animation.body.reverse();
-  var errTooltip = $('section.error_tooltip').css('opacity');
-  if(errTooltip === '1'){
-      TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+
+
+  if(animation.level === 'none'){
+    TweenLite.to('body', 0, {'overflow': 'auto'});
+    animation.body.reverse();
+    var errTooltip = $('section.error_tooltip').css('opacity');
+    if(errTooltip === '1'){
+        TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+    }
+      $('body').off('click');
   }
-  //$('body').css('overflow', "visible");
-  $('body').off('click');
 }
 
-function animateAchiv(){
+function animateAchiv(cb){
   animation.achiv = new TimelineLite()
-  .to('#all_ach', 1, {top:"80px"});
+  .to('#all_ach', 1, {top:"80px", onComplete: cb});
   animateBG();
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
   $('#all_ach .popup_vertical_symbol').css('pointer-events',"none");
+  animation.level = 'achiv';
 }
 
 function animateTalents(){
@@ -251,7 +312,7 @@ function achivReverse(){
   TweenLite.to('#all_ach', 1, {top:"1800px"});
   //animation.achiv.reverse();
   TweenLite.to('body', 0, {'overflow': 'auto'});
-  animation.body.reverse();
+  //animation.body.reverse();
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
 }
 
@@ -266,7 +327,7 @@ function animateAchivka(){
   animation.achivka = new TimelineLite()
   .to('#achivka', 0.5, {top:"0"});
   animateBG();
-  animation.level = 3;
+  animation.level = 'achivka';
 }
 
 function achivkaReverse(){
