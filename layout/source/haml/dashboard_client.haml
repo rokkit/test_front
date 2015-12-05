@@ -15,6 +15,11 @@
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/dashboard.js" }
+		%script{ :src => "./js/openapi.js" }
+		%script{ :src => "./js/lib/d3.js" }
+		%script{ :src => "./js/data.js" }
+		%script{ :src => "./js/nodes.js" }
+		%script{ :src => "./js/header.js" }
 
 		-# Habmurger
 		%script{ :src => "./js/lib/snap.svg-min.js" }
@@ -292,8 +297,7 @@
 			%header#header
 				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
-					%a{:id=>"login_btn"} Виталий Пихонт
-					%a{:id=>"signup_btn"} Меню
+					%a{:id=>"login_header_btn"} Виталий Пихонт
 					-# %img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
 					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
 			%hr

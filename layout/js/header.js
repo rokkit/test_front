@@ -15,6 +15,17 @@ var animation = {
   reg: {}
 };
 
+$(function() {
+  window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+  if(currentUser){
+    $('#login_header_btn').text(currentUser.name)
+    $('#signup_header_btn').hide()
+  } else {
+    $('#login_header_btn').text('Войти')
+    $('#signup_header_btn').show()
+  }
+})
+
 function animateBG(){
   animation.body = new TimelineLite()
   .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
@@ -80,9 +91,14 @@ $(function() {
 
   //Клик на кнопку Войти в хедере
   $('#login_header_btn').on('click', function() {
-    animateLogin();
-    animateBG();
-    bodyClick();
+    if (!currentUser) {
+      animateLogin();
+      animateBG();
+      bodyClick();
+    } else {
+      document.location.href = '/dashboard_client.html'
+    }
+
   });
 
   $('#btn1').on('click', function(){

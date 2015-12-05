@@ -3,13 +3,6 @@ var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 $(function() {
 
-  // Hamburger
-  new svgIcon(
-    document.querySelector('#menu_header_btn'),
-    svgIconConfig,
-    { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
-  );
-
   //Работа с сервером
   window.hostUrl = 'http://176.112.194.149:81'
   // window.hostUrl = 'http://localhost:3000'
