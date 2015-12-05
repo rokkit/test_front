@@ -37,6 +37,16 @@ $(function() {
         //   }
         // });
 
+        $('#visit_table_body').empty()
+        _.each(json.payments, function(payment) {
+          var visit_date = moment(payment.visit_date).format('DD MMMM YYYY HH:mm')
+
+          var visit_date = moment(payment.created_at).format('DD MMMM YYYY HH:mm')
+          var el = '<tr data-id='+payment.id+'><td><h6 style="color:#6CB9DD;" >Либерти\
+          </h6></td><td class="td-date">'+visit_date+'</td><td>444</td></tr>';
+          $('#visit_table_body').append(el)
+        })
+
       });
       getReservations();
 
@@ -382,7 +392,7 @@ function getReservations() {
     _.each(json, function(reserv) {
       var visit_date = moment(reserv.visit_date).format('DD MMMM YYYY HH:mm')
       var reserv_el = '<tr data-id='+reserv.id+'><td><h6 style="color:'+reserv.lounge.color+';" >'+ reserv.lounge.title
-      +'</h6></td><td class="td-date">'+visit_date+'</td><td>Скоро<br><span class="color-orange cancel_reserv">Отменить</span></td></tr>';
+      +'</h6></td><td class="td-date">'+visit_date+'</td><td><span class="color-orange cancel_reserv">Отменить</span></td></tr>';
       $('#reserve_table_body').append(reserv_el)
     })
 

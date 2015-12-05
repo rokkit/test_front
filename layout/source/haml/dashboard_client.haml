@@ -74,7 +74,7 @@
 				%header
 					%h2 Заявка на бронирование подана
 					%p.h2_subtitle
-						Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". В ближайшее время вам позвонят для подтверждения заявки
+						Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". Возьмите с собой документы для подтверждения своей личности
 				%form{:action => "", :method => "get"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Отлично
 		-# Достижения
@@ -428,39 +428,33 @@
 							%tr
 								%th Кальянная
 								%th Дата
-								%th Сумма
 								%th Опыт
-						%tbody
+						%tbody#visit_table_body
 							%tr
 								%td
 									%h6.color-limon Либерти
 								%td.td-date 23 июня 2015 20:30 - 23:00
-								%td 1360 рублей
 								%td
 									136 HP
 							%tr
 								%td
 									%h6.color-blue Облака
 								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
 								%td 90 HP
 							%tr
 								%td
 									%h6.color-blue Облака
 								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
 								%td 90 HP
 							%tr
 								%td
 									%h6.color-blue Облака
 								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
 								%td 90 HP
 							%tr
 								%td
 									%h6.color-blue Облака
 								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
 								%td 90 HP
 				%article
 					%header
