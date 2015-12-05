@@ -33,8 +33,10 @@
             <a href='#login'>войдите.</a>
           </p>
         </header>
-        <form action='' method='get'>
-          <input name='phone' placeholder='Номер телефона' type='text'>
+        <form action='' autocomplete='off' method='get'>
+          <input style='display:none'>
+          <input style='display:none' type='password'>
+          <input name='phone' placeholder='Телефон +7XXXXXXX' type='text'>
           <input name='name' placeholder='ФИО' type='text'>
           <input name='password' placeholder='Пароль' type='password'>
           <button id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
