@@ -33,8 +33,10 @@
 					%p.h2_subtitle
 						Регистрация нового пользователя. Если у вас уже есть аккаунт —
 						%a{:href =>"#login"} войдите.
-				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+				%form{:action => "", :method => "get", :autocomplete => "off"}
+					%input{:style => "display:none"}
+					%input{:style => "display:none", :type => "password"}
+					%input{:type => "text", :name => "phone", :placeholder => "Телефон +7XXXXXXX"}
 					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
 					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти

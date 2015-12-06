@@ -1,30 +1,17 @@
-var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+var fx = new FX(fxa.dashboard);
+var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+
 $(function() {
-
-    // var picker = new Pikaday(
-    // {
-    //     field: document.getElementById('datepicker'),
-    //     firstDay: 1,
-    //     minDate: new Date(2000, 0, 1),
-    //     maxDate: new Date(2020, 12, 31),
-    //     yearRange: [2000,2020]
-    // });
-
-  // Hamburger
-  new svgIcon(
-    document.querySelector('#menu_header_btn'),
-    svgIconConfig,
-    { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
-  );
 
   //Работа с сервером
   window.hostUrl = 'http://176.112.194.149:81'
   // window.hostUrl = 'http://localhost:3000'
 
-  		if (currentUser) {
-      		$('section.username h1').text(currentUser.name)
-      		$('#login_btn').text(currentUser.name)
-  		}
+	if (currentUser) {
+  		$('section.username h1').text(currentUser.name)
+  		$('#login_btn').text(currentUser.name)
+	}
     //Загрузить начальные данные
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
@@ -51,6 +38,16 @@ $(function() {
         //   }
         // });
 
+        $('#visit_table_body').empty()
+        _.each(json.payments, function(payment) {
+          var visit_date = moment(payment.visit_date).format('DD MMMM YYYY HH:mm')
+
+          var visit_date = moment(payment.created_at).format('DD MMMM YYYY HH:mm')
+          var el = '<tr data-id='+payment.id+'><td><h6 style="color:#6CB9DD;" >Либерти\
+          </h6></td><td class="td-date">'+visit_date+'</td><td>444</td></tr>';
+          $('#visit_table_body').append(el)
+        })
+
       });
       getReservations();
 
@@ -69,18 +66,35 @@ $(function() {
     $('input[name="visit_date"]').on('click', function() {
       $(this).val(moment().format('YYYY-MM-DD'))
     })
+<<<<<<< HEAD
+=======
+
+    function bodyClickOff(){
+      $('body').off('click');
+    }
+>>>>>>> 860e8bfbd5eef981fdd201d030d47243e12eef2a
 
   	$('#n_o_a').click(function(e){
-      ReservForm();
-      $('.popup').click(function(event){
-        event.stopPropagation();
-      });
-      bodyClick();
+      fx.do(['reserv', 'background'], bodyClick, bodyClickOff);
   	});
 
-    $('#invite').click(function(){
-      animateForm('invite_form');
-    });
+    var currentTime = new Date()
+    var times = $('select[name="visit_time"]').html()
+    var time_options = $(times).filter(function(index) {
+      return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
+    })
+    $('select[name="visit_time"]').html(time_options)
+    // $('select[name="visit_date"]').on('change', function() {
+    //
+    //   var lounge = $('select[name="lounge"]').val()
+    //   console.log('change', tables)
+    //   var options = $(tables).filter("optgroup[data-id="+lounge+"]").html()
+    //   if (options) {
+    //     $('select[name="table"]').html(options)
+    //   } else {
+    //     $('select[name="table"]').empty()
+    //   }
+    // });
 
     $('#reserv_form').submit(function(e){
       e.preventDefault();
@@ -134,11 +148,15 @@ $(function() {
       e.preventDefault();
     });
 
-
     //Открытие всех достижений
-    $('#dashboard_ach_btn').click(animateAchiv);
+    $('#dashboard_ach_btn').click(function(){
+      fx.do(['allAchiv', 'background'], bodyClick, bodyClickOff);
+    });
 
-    $('#all_ach a').click(achivReverse);
+    $('#all_ach a').click(function(){
+      achivReverse();
+      animation.body.reverse();
+    });
 
     $('#all_talents a').click(talentsReverse);
 
@@ -150,10 +168,44 @@ $(function() {
       $('#achivka h2').text(achiv.find('h6').text())
       $('#achivka p').text(achiv.attr('data-description'))
       $('#achivka img').attr('src', (achiv.find('img').attr('src')))
-      animateAchivka();
-      bodyClick();
+      fx.do(['achiv', 'background'], bodyClick, bodyClickOff);
+      //bodyClick();
     });
+
+    $(document).on('click', '#skills figure', function(){
+      var skill = $(this)
+      $('#achivka h2').text(skill.find('h6').text());
+      $('#achivka p').text(skill.attr('data-description'));
+      $('#achivka img').attr('src', (skill.find('img').attr('src')));
+      fx.do(['skill', 'background']);
+      //bodyClick();
+    });
+
+
 });
+
+$(function(){
+  $('.popup').click(function(event){
+    event.stopPropagation();
+  });
+
+  $('.popup_vertical').click(function(e){
+    e.stopPropagation();
+  });
+});
+
+$(function(){
+  // $(document).on('click', '#all_ach figure', function(){
+  //
+  //   var achiv = $(this)
+  //   $('#achivka h2').text(achiv.find('h6').text())
+  //   $('#achivka p').text(achiv.attr('data-description'))
+  //   $('#achivka img').attr('src', (achiv.find('img').attr('src')))
+  //   animateAchivka();
+  //   animateAchivBG();
+  //   //bodyClick();
+  // });
+})
 
 // PRELOADER
 $(function() {
@@ -161,11 +213,9 @@ $(function() {
   TweenLite.to(html_body, 1, {opacity:1})
 })
 
-function bodyClick(){
+function bodyClick(e){
   $('body').on('click', function(e) {
-    if(e.target.tagName !== 'BUTTON'){
-      animateRevers();
-    }
+    fx.back();
   });
 }
 
@@ -176,7 +226,9 @@ var animation = {
   success: {},
   achiv: {},
   talents: {},
-  achivka: {}
+  achivka: {},
+  achivBG: {},
+  isBody: true
 };
 
 function animateBG(){
@@ -184,6 +236,21 @@ function animateBG(){
   .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
   .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
   TweenLite.to('body', 0, {overflow:"hidden"});
+}
+
+function animateAchivBG(){
+  animation.achivBG = new TimelineLite()
+  .to('#all_ach_wrapper', 1, {
+    opacity: '0.8',
+    "-webkit-opacity":"1",
+    filter: 'blur(5px)',
+    "-webkit-filter":"blur(4px)",
+    transform: 'scale(0.95, 0.95)',
+    overflow: 'hidden',
+    'pointer-events': 'none'
+  });
+  animation.level = 'achivBG';
+  //  bodyClick();
 }
 
 function animateReserv(){
@@ -198,11 +265,6 @@ function animateSuccess(){
   animation.level = 2;
 }
 
-function ReservForm(){
-  animateReserv();
-  animateBG();
-}
-
 function ReservSuccessForm(){
   TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
   animateSuccess();
@@ -212,14 +274,27 @@ function animateRevers(){
   switch (animation.level) {
     case 1:
       TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
+      animation.level = 'none';
       break;
     case 2:
       TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto", onComplete:function(){$('#reserv_succes_form').css('right', '3000px')}}, 'sequence');
+      animation.level = 'none';
       break;
-    case 3:
+    case 'achivka':
       achivkaReverse();
+      animation.level = 'none';
+      break;
+    case 'achiv':
+      achivReverse();
+      animation.level = 'none';
+      break;
+    case 'achivBG':
+      achivkaReverse();
+      animation.achivBG.reverse();
+      animation.level = 'achiv';
       break;
   }
+<<<<<<< HEAD
   TweenLite.to('body', 0, {'overflow': 'auto'});
   animation.body.reverse();
   var errTooltip = $('section.error_tooltip').css('opacity');
@@ -228,14 +303,28 @@ function animateRevers(){
   }
   //$('body').css('overflow', "visible");
   $('body').off('click');
+=======
+
+
+  if(animation.level === 'none'){
+    TweenLite.to('body', 0, {'overflow': 'auto'});
+    animation.body.reverse();
+    var errTooltip = $('section.error_tooltip').css('opacity');
+    if(errTooltip === '1'){
+        TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+    }
+      $('body').off('click');
+  }
+>>>>>>> 860e8bfbd5eef981fdd201d030d47243e12eef2a
 }
 
-function animateAchiv(){
+function animateAchiv(cb){
   animation.achiv = new TimelineLite()
-  .to('#all_ach', 1, {top:"80px"});
+  .to('#all_ach', 1, {top:"80px", onComplete: cb});
   animateBG();
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
   $('#all_ach .popup_vertical_symbol').css('pointer-events',"none");
+  animation.level = 'achiv';
 }
 
 function animateTalents(){
@@ -251,7 +340,7 @@ function achivReverse(){
   TweenLite.to('#all_ach', 1, {top:"1800px"});
   //animation.achiv.reverse();
   TweenLite.to('body', 0, {'overflow': 'auto'});
-  animation.body.reverse();
+  //animation.body.reverse();
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
 }
 
@@ -266,7 +355,7 @@ function animateAchivka(){
   animation.achivka = new TimelineLite()
   .to('#achivka', 0.5, {top:"0"});
   animateBG();
-  animation.level = 3;
+  animation.level = 'achivka';
 }
 
 function achivkaReverse(){
@@ -275,13 +364,24 @@ function achivkaReverse(){
 
 //Загрузка ачивок и скилов
 
+function card(){
+    var achiv = $(this)
+    $('#achivka h2').text(achiv.find('h6').text())
+    $('#achivka p').text(achiv.attr('data-description'))
+    $('#achivka img').attr('src', (achiv.find('img').attr('src')))
+    fx.do(['achiv', 'allAchivBG']);
+    //animateAchivka();
+    //animateAchivBG();
+    //bodyClick();
+}
+
 $(function() {
   $.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token}, function(json) {
     $('#achievements').empty()
     $('#all_ach .wrapper_for_ach').empty()
     $('#dashboard_ach_btn').text(0+'/'+json.length)
     $.each(json, function(i) {
-      var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+      var template = "<figure onclick='card()' data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
     })
     json = json.slice(0, 5)
@@ -310,7 +410,7 @@ function getReservations() {
     _.each(json, function(reserv) {
       var visit_date = moment(reserv.visit_date).format('DD MMMM YYYY HH:mm')
       var reserv_el = '<tr data-id='+reserv.id+'><td><h6 style="color:'+reserv.lounge.color+';" >'+ reserv.lounge.title
-      +'</h6></td><td class="td-date">'+visit_date+'</td><td>Скоро<br><span class="color-orange cancel_reserv">Отменить</span></td></tr>';
+      +'</h6></td><td class="td-date">'+visit_date+'</td><td><span class="color-orange cancel_reserv">Отменить</span></td></tr>';
       $('#reserve_table_body').append(reserv_el)
     })
 

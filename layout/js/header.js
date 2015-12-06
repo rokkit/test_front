@@ -15,6 +15,17 @@ var animation = {
   reg: {}
 };
 
+$(function() {
+  window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+  if(currentUser){
+    $('#login_header_btn').text(currentUser.name)
+    $('#signup_header_btn').hide()
+  } else {
+    $('#login_header_btn').text('Войти')
+    $('#signup_header_btn').show()
+  }
+})
+
 function animateBG(){
   animation.body = new TimelineLite()
   .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
@@ -23,6 +34,7 @@ function animateBG(){
 }
 
 function animateLogin(){
+  TweenLite.to('section.error_tooltip', 1, {opacity: 0});
   animation.login = new TimelineLite()
   .to('#login_form', 1, {left:"190px"})
   .to('#wrapper_login', 0, {'pointer-events':"auto"});
@@ -31,6 +43,7 @@ function animateLogin(){
 }
 
 function animateSignup() {
+  TweenLite.to('section.error_tooltip', 1, {opacity: 0});
   animation.reg = new TimelineLite()
   .to('#signup_form', 1, {left:"120px"})
   .to('#wrapper_signup', 0, {'pointer-events':"auto"});
@@ -78,9 +91,14 @@ $(function() {
 
   //Клик на кнопку Войти в хедере
   $('#login_header_btn').on('click', function() {
-    animateLogin();
-    animateBG();
-    bodyClick();
+    if (!currentUser) {
+      animateLogin();
+      animateBG();
+      bodyClick();
+    } else {
+      document.location.href = '/dashboard_client.html'
+    }
+
   });
 
   $('#btn1').on('click', function(){
@@ -164,10 +182,18 @@ $(function() {
       $('#signup_form input[name="phone"]').addClass('wrong')
     }
     if(!password) {
+      $('.error_tooltip').text('Укажите номер телефона правильно')
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+
+      $('#signup_form input[name="phone"]').addClass('wrong')
+    }
+    if(!password) {
+      $('.error_tooltip').text('Укажите пароль')
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#signup_form input[name="password"]').addClass('wrong')
     }
     if(!name) {
+      $('.error_tooltip').text('Укажите своё реальное имя')
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#signup_form input[name="name"]').addClass('wrong')
     }
@@ -197,20 +223,20 @@ $(function() {
       }
     });
   });
-  $('input[name="phone"]').mask('+0000000000000')
+  $('input[name="phone"]').mask('+70000000000')
 });
 
-function bodyClick(){
-  $('.popup').click(function(event){
-    event.stopPropagation();
-  });
-
-  $('body').on('click', function(e){
-    if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
-      animationReverse();
-    }
-  });
-}
+// function bodyClick(){
+//   $('.popup').click(function(event){
+//     event.stopPropagation();
+//   });
+//
+//   $('body').on('click', function(e){
+//     if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
+//       //animationReverse();
+//     }
+//   });
+// }
 
 function animateForm(el) {
   var form = document.getElementById(el)
@@ -263,11 +289,13 @@ function successAuth(resp) {
 function doLogin(phone, password) {
   if(!phone) {
     //$('section.error_tooltip').css('opacity', 1);
+    $('.error_tooltip').text('Указанный телефон не найден')
     TweenLite.to('section.error_tooltip', 1, {opacity: 1});
     $('#login_form input[name="phone"]').addClass('wrong')
   }
   if(!password) {
     //$('section.error_tooltip').css('opacity', 1);
+    $('.error_tooltip').text('Введеный телефон и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.')
     TweenLite.to('section.error_tooltip', 1, {opacity: 1});
     $('#login_form input[name="password"]').addClass('wrong')
   }
