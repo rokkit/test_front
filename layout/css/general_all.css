@@ -1287,6 +1287,10 @@ section.bottom-rating .color-no-active {
   width: 185px;
 }
 
+.cancel_reserv {
+  cursor: pointer;
+}
+
 section.dashboard {
   display: block;
   position: relative;
