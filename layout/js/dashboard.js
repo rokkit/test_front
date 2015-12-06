@@ -71,12 +71,7 @@ $(function() {
     }
 
   	$('#n_o_a').click(function(e){
-      //ReservForm();
-      fx.do(['reserv', 'background'], bodyClick, bodyClickOff);//, bodyClick, function(){ $('body').off('click'); });
-      // $('.popup').click(function(event){
-      //   event.stopPropagation();
-      // });
-      //bodyClick();
+      fx.do(['reserv', 'background'], bodyClick, bodyClickOff);
   	});
 
     var currentTime = new Date()
@@ -152,7 +147,6 @@ $(function() {
     //Открытие всех достижений
     $('#dashboard_ach_btn').click(function(){
       fx.do(['allAchiv', 'background'], bodyClick, bodyClickOff);
-      //animateAchiv(bodyClick);
     });
 
     $('#all_ach a').click(function(){
@@ -187,14 +181,9 @@ $(function() {
 });
 
 $(function(){
-  //var popupVertical = $('.popup_vertical');
-  //var popupKids = popupVertical.children('.wrapper_for_ach').children('figure');
-
   $('.popup').click(function(event){
     event.stopPropagation();
   });
-
-  //$('figure').addClass('card');
 
   $('.popup_vertical').click(function(e){
     e.stopPropagation();
@@ -223,13 +212,6 @@ $(function() {
 function bodyClick(e){
   $('body').on('click', function(e) {
     fx.back();
-    // if(e.target.tagName !== 'BUTTON'){
-    //   if(animation.isBody){
-    //       animateRevers();
-    //   }
-    // }
-
-
   });
 }
 

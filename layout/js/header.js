@@ -222,17 +222,17 @@ $(function() {
   $('input[name="phone"]').mask('+70000000000')
 });
 
-function bodyClick(){
-  $('.popup').click(function(event){
-    event.stopPropagation();
-  });
-
-  $('body').on('click', function(e){
-    if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
-      animationReverse();
-    }
-  });
-}
+// function bodyClick(){
+//   $('.popup').click(function(event){
+//     event.stopPropagation();
+//   });
+//
+//   $('body').on('click', function(e){
+//     if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
+//       //animationReverse();
+//     }
+//   });
+// }
 
 function animateForm(el) {
   var form = document.getElementById(el)
