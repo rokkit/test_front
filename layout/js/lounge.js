@@ -1,3 +1,5 @@
+
+
 /*
  * Replace all SVG images with inline SVG
  */

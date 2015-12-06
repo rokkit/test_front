@@ -8,6 +8,10 @@ var fxa = {
         transform: 'scale(0.95, 0.95)'
       }
     },
+    skillBoard:{
+      element: '#all_talents',
+      options: { top: '80px' }
+    },
     all_ach:{
       element: '#all_ach',
       options: { top: '80px' }
@@ -15,6 +19,10 @@ var fxa = {
     all_ach_wrapper:{
       element: '#all_ach_wrapper',
       options: { 'pointer-events': 'auto' }
+    },
+    all_skill_popup:{
+      element: '#all_talents .popup_vertical_symbol',
+      options: { 'pointer-events': 'none' }
     },
     all_ach_popup:{
       element: '#all_ach .popup_vertical_symbol',
@@ -58,6 +66,53 @@ var fxa = {
       element: '#achivka',
       options: {top:"0"}
     },
+    background: ['main', 'overlay', 'body']
+  },
+  pages_index: {
+    main: {
+      element: '#main_content',
+      options: {
+        filter: 'blur(5px)',
+        '-webkit-filter': 'blur(4px)',
+        transform: 'scale(0.95, 0.95)'
+      }
+    },
+    overlay:{
+      element: '.color_overlay',
+      options: {
+        opacity: '0.8',
+        '-webkit-opacity': '1',
+        'pointer-events': 'auto'
+      }
+    },
+    body:{
+      element: 'body',
+      options: {
+        overflow: 'hidden'
+      }
+    },
+    login: {
+      element: '#login_form',
+      options: { 'left': '190px' }
+    },
+    wrapper_login:{
+      element: '#wrapper_login',
+      options:{ 'pointer-events': 'auto' }
+    },
+    errorTooltip:{
+      element: 'section.error_tooltip',
+      options: { opacity: 0 }
+    },
+    signup:{
+      element: '#signup_form',
+      options: { 'left': '120px' }
+    },
+    wrapper_signup: {
+      element: '#wrapper_signup',
+      options: { 'pointer-events': 'auto' }
+    },
+    signupPopup: ['signup', 'wrapper_signup'],
+    loginPopup: ['login', 'wrapper_login'],
     background: ['main', 'overlay', 'body']
   }
 };

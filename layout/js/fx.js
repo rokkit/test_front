@@ -33,7 +33,19 @@ var FX = (function(animations){
     }
   }
 
-  module.back = function(){
+  module.swap = function(targetName, name){
+    var param = module.tl;
+    module.animate[targetName].reverse();
+    param.forEach(function(v){
+      var i = v.indexOf(targetName);
+      if(i != -1) {
+        v[i] = name;
+        render(name);
+      }
+    });
+  }
+
+  module.back = function(name){
     var param = module.tl.pop();
     param.forEach(function(name){
       module.animate[name].reverse();

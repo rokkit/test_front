@@ -138,9 +138,7 @@ $(function() {
 
     $('#reserv_succes_form').submit(function(e){
       animateRevers();
-      $('#reserv_succes_form').click(function(event){
-        event.stopPropagation();
-      });
+
       e.preventDefault();
     });
 
@@ -149,15 +147,14 @@ $(function() {
       fx.do(['allAchiv', 'background'], bodyClick, bodyClickOff);
     });
 
-    $('#all_ach a').click(function(){
-      achivReverse();
-      animation.body.reverse();
-    });
+    $('#all_ach a').click(fx.back);
 
-    $('#all_talents a').click(talentsReverse);
+    $('#all_talents a').click(fx.back);
 
     // Открытие всех навыков
-    $('#dashboard_talents_btn').click(animateTalents);
+    $('#dashboard_talents_btn').click(function(){
+      fx.do(['skillBoard', 'background'], bodyClick, bodyClickOff);
+    });
     // Открытие достижения
     $(document).on('click', '#achievements figure',function() {
       var achiv = $(this)
@@ -187,6 +184,10 @@ $(function(){
 
   $('.popup_vertical').click(function(e){
     e.stopPropagation();
+  });
+
+  $('#reserv_succes_form').click(function(event){
+    event.stopPropagation();
   });
 });
 
@@ -226,34 +227,6 @@ var animation = {
   achivBG: {},
   isBody: true
 };
-
-function animateBG(){
-  animation.body = new TimelineLite()
-  .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
-  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
-  TweenLite.to('body', 0, {overflow:"hidden"});
-}
-
-function animateAchivBG(){
-  animation.achivBG = new TimelineLite()
-  .to('#all_ach_wrapper', 1, {
-    opacity: '0.8',
-    "-webkit-opacity":"1",
-    filter: 'blur(5px)',
-    "-webkit-filter":"blur(4px)",
-    transform: 'scale(0.95, 0.95)',
-    overflow: 'hidden',
-    'pointer-events': 'none'
-  });
-  animation.level = 'achivBG';
-  //  bodyClick();
-}
-
-function animateReserv(){
-  animation.reserv = new TimelineLite()
-  .to('#reserv_form', 1, {left:"160px", 'pointer-events':"auto"}, 'sequence');
-  animation.level = 1;
-}
 
 function animateSuccess(){
   animation.success = new TimelineLite()
@@ -303,48 +276,12 @@ function animateRevers(){
   }
 }
 
-function animateAchiv(cb){
-  animation.achiv = new TimelineLite()
-  .to('#all_ach', 1, {top:"80px", onComplete: cb});
-  animateBG();
-  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
-  $('#all_ach .popup_vertical_symbol').css('pointer-events',"none");
-  animation.level = 'achiv';
-}
-
-function animateTalents(){
-  animation.talents = new TimelineLite()
-  .to('#all_talents', 1, {top:"80px"});
-  animateBG();
-  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
-  $('#all_talents .popup_vertical_symbol').css('pointer-events',"none");
-  $('#all_talents').css('pointer-events',"auto");
-}
-
 function achivReverse(){
   TweenLite.to('#all_ach', 1, {top:"1800px"});
   //animation.achiv.reverse();
   TweenLite.to('body', 0, {'overflow': 'auto'});
   //animation.body.reverse();
   TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
-}
-
-function talentsReverse(){
-  animation.talents.reverse();
-  TweenLite.to('body', 0, {'overflow': 'auto'});
-  animation.body.reverse();
-  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
-}
-
-function animateAchivka(){
-  animation.achivka = new TimelineLite()
-  .to('#achivka', 0.5, {top:"0"});
-  animateBG();
-  animation.level = 'achivka';
-}
-
-function achivkaReverse(){
-  animation.achivka.reverse();
 }
 
 //Загрузка ачивок и скилов
@@ -355,9 +292,6 @@ function card(){
     $('#achivka p').text(achiv.attr('data-description'))
     $('#achivka img').attr('src', (achiv.find('img').attr('src')))
     fx.do(['achiv', 'allAchivBG']);
-    //animateAchivka();
-    //animateAchivBG();
-    //bodyClick();
 }
 
 $(function() {
