@@ -83,10 +83,10 @@
 						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
 			-# Left bar
 			%section#menu_right_part.right_menu
-				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
-				%a
-					%h3#main_nav_btn Главная страница
-					%p Основная информация
+				%img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				-# %a
+				-# 	%h3#main_nav_btn Главная страница
+				-# 	%p Основная информация
 				%a
 					%h3#lounges_nav_btn Ложи
 					%p Уникальные заведения
@@ -111,13 +111,13 @@
 		%main{:id => 'main_content'}
 			%section.section_1_bg
 				%header#header
-					%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 					%nav
 						%a{:id=>"login_header_btn"} Войти
 						%a{:id=>"signup_header_btn"} Зарегистрироваться
-						#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
+						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 				%header
-					%h1 Посетите наши лучшие уникальные заведения
+					%h1 Посетите наши уникальные заведения
 					%p.h2_subtitle Заведения нашей сети - первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому клиенту.
 					%button#liberty_btn Открыть
 				%section.instruments
