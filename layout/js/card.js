@@ -8,9 +8,10 @@ ui.card = (function () {
     }
 
 function card(blazons, color, name, nameCity, el){
+    blazons = blazons.split('/')[blazons.split('/').length - 1].split('.')[0]
     var path = '../images/blazons/' + blazons +'.svg';
     var cardId = blazons + '-card';
-    var card = d3.select(el).append('article').attr('class', 'lounge');
+    var card = d3.select(el).append('article').attr('class', 'lounge pointer');
     var cardRect = d3.select('.lounge').node().getBoundingClientRect();
   	var w = cardRect.width;
   	var h = cardRect.height;

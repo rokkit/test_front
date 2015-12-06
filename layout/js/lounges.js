@@ -1,19 +1,28 @@
 $(function(){
-  ui.card.render('oblaka', '#65b6dc', 'Облака', 'Воронеж', '.lounges');
-  ui.card.render('academy_novosibirsk', '#5F4D9B', 'Академия', 'Новосибирск', '.lounges');
-  ui.card.render('unityhall', 'red', 'Unity Hall', 'Казань','.lounges');
-  ui.card.render('reserv', 'green', 'Резерв', 'Тюмень','.lounges');
+  window.hostUrl = 'http://176.112.194.149:81'
+  $.getJSON(hostUrl + '/api/v1/lounges.json', {}, function(json) {
 
-  $('#oblaka-card').click(function(e){
+    $.each(json, function() {
+      if(this.title != 'Либерти') {
+        ui.card.render(this.blazon, this.color, this.title, this.city, '.lounges');
+      }
+    })
+
+  });
+
+  $(document).on('click', '#oblaka-card', function() {
     document.location.href="/oblaka.html"
-  });
-  $('#academy_novosibirsk-card').click(function(e){
+  })
+  $(document).on('click', '#academy_novosibirsk-card', function() {
     document.location.href="/academy_novosibirsk.html"
-  });
-  $('#unityhall-card').click(function(e){
+  })
+  $(document).on('click', '#unityhall-card', function() {
     document.location.href="/unityhall.html"
-  });
-  $('#reserv-card').click(function(e){
+  })
+  $(document).on('click', '#reserv-card', function() {
     document.location.href="/reserv.html"
-  });
+  })
+  $(document).on('click', '#liberty-card', function() {
+    document.location.href="/pages_lounges_liberty.html"
+  })
 });
