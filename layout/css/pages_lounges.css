@@ -1,0 +1,15 @@
+h1.style-oblaka , h2.style-oblaka , h3.style-oblaka {
+	color : #92CAE4 !important
+}
+
+#reserve_table_btn.style-oblaka {
+	background-color: #92CAE4 !important;
+}
+
+button.button-dark.style-oblaka {
+	border-color: #92CAE4 !important;
+}
+
+button.button-dark.style-oblaka:hover {
+	background-color: #92CAE4 !important;
+}

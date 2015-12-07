@@ -1,0 +1,149 @@
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+	%head
+		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/slider_style.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/pages_lounges.css" }
+		%script{ :src => "./js/jquery-2.1.4.min.js" }
+		%script{ :src => "./js/jquery.gsap.min.js" }
+		%script{ :src => "./js/TweenLite.min.js" }
+		%script{ :src => "./js/TweenMax.min.js" }
+		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/slider_main.js" }
+		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/openapi.js" }
+		%script{ :src => 'http://maps.googleapis.com/maps/api/js'}
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
+		%script{ :src => "./js/lib/d3.js" }
+		%script{ :src => "./js/data.js" }
+		%script{ :src => "./js/nodes.js" }
+		%script{ :src => "./js/header.js" }
+	%body#html_body
+		-# Основной контент
+		%main{:id => 'main_content'}
+			-# Первый блок
+			%section#liberty_block1
+				-# Хидер
+				%header#header
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%nav
+						%a{:id=>"login_header_btn"} Войти
+						%a{:id=>"signup_header_btn"} Зарегистрироваться
+						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
+				%hr
+				-# Контент
+				%header
+					%h1.style-oblaka Облака
+					%p Esse quam videre*
+				-# Адрес, телефон и время работы
+				%section.information_lib
+					%figure
+						%img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
+						%figcapation Воронеж,<br>б-р Победы, 50а
+					%figure
+						%img{ :src=>"./images/phone.svg" , :alt=>"Город" , :height=>"16px" }
+						%figcapation +7 (903) 851-28-28
+					%figure
+						%img{ :src=>"./images/clock.svg" , :alt=>"Город" , :height=>"16px" }
+						%figcapation
+							Пн. - Пт.: с 16:00 до последнего гостя
+							%br
+							Сб. - Вс.: с 14:00 до последнего гостя
+				-# Кнопка бронирования
+				%section.liberactions
+					%button#reserve_table_btn.style-oblaka Забронировать столик
+					-# 	 Связаться с нами
+
+				-# Подпись
+				%footer
+					%p *Быть, а не казаться
+				-# Герб
+				%img#liberty_herb.layer{ :src=>"./images/blazons/oblaka.svg", :"data-depth"=>"0.40"}
+				
+				%img.gerb_glow_2{ :src=>"./images/gerb_glow.png"}
+				%img.gerb_glow{ :src=>"./images/sun_glow.svg"}
+			
+			-# Второй блок
+			%section#liberty_block2
+				.text-wrapper-liberty
+					%h4 Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю
+					%p Почему же Вам стоит выбрать именно эту кальянную Петербурга? Всех привлекает наша особенная атмосфера. Мы начинали как место только "для своих". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.
+			%section#liberty_block3
+				%section.cd-hero
+					%ul.cd-hero-slider.autoplay
+						%li.selected
+							%img.img-slider{:src => "./images/slider/1.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/2.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/3.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/4.jpg"}
+						%li
+							%img.img-slider{:src => "./images/slider/5.jpg"}
+
+					.cd-slider-nav
+						%nav
+							%ul
+								%li.selected
+									%img.img-nav.pointer{:src => "./images/slider/1.jpg"}
+								%li
+									%img.img-nav.pointer{:src => "./images/slider/2.jpg"}
+								%li
+									%img.img-nav.pointer{:src => "./images/slider/3.jpg"}
+								%li
+									%img.img-nav.pointer{:src => "./images/slider/4.jpg"}
+								%li
+									%img.img-nav.pointer
+
+			%section#liberty_block4
+				%header
+					%h2.style-oblaka Кальянные мастера
+					%p Наши ребята по праву считаются одними из лучших кальянных мастеров Воронежа. Они не боятся экспериментировать, смешивать несмешиваемое, и в результате получают неповторимые вкусы.
+				%br
+				%img{ :src=>"./images/oblaka/baran.svg" , :alt=>"Кальянщик" , :height=>"396px" }
+				%img{ :src=>"./images/oblaka/kondrat.svg" , :alt=>"Кальянщик" , :height=>"396px" }
+				%img{ :src=>"./images/oblaka/bondar.svg" , :alt=>"Кальянщик" , :height=>"396px" }
+
+			%section#liberty_block5
+				.map_overlay
+				.map_wrapper
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.49768307465!2d30.354054316097056!3d59.94047698187685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696319f63171fe9%3A0xf3c2b208dba31de1!2z0YPQuy4g0JzQsNGP0LrQvtCy0YHQutC-0LPQviwgMjcsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTEwMTQ!5e0!3m2!1sru!2sru!4v1449472409367" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+				%section#map_wrapper
+					%header
+						%h3.style-oblaka Воронеж
+						%p Центральный район
+
+					%p Уникальная Кальянная ”Резерв” разместилась близ берегов реки Тура в Тюмени, первом российском городе в Сибири
+
+					%small Россия, Воронеж, бульвар Победы, 50а
+
+			%section#liberty_block6
+				%header
+					%h2.style-oblaka Контакты
+					%h5 По вопросам справки обращайтесь по телефону в рабочее время:
+			
+				%h6 Адрес:
+				%p Санкт-Петербург, улица Маяковского 27
+
+				%h6 Контактный номер:
+				%p +7 (903) 851-28-28
+
+				%h6 Рабочие часы:
+				%p 
+					Понедельник - Пятница .................... с 16:00 и до последнего гостя
+					<br>
+					Cуббота - Воскресенье ...................... с 14:00 и до последнего гостя
+			%section#philosophie_block5
+				%h3 Esse quam videre*
+				%h6 *Быть, а не казаться
+				%br
+				%button.button-dark.style-oblaka Зарегистрироваться
+
+				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
+				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
+				%img.sun_rotation{ :src=>"./images/sun_lines.svg"}
+				%img{ :src=>"./images/sun.svg" , :alt=>"Звезда"}
