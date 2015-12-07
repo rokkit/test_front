@@ -244,9 +244,14 @@ function animateMenu() {
 }
 
 function successAuth(resp) {
+  if(resp.role == 'user') {
+    document.location.href = './dashboard_client.html'
+  } else {
+    document.location.href = './dashboard_hmaster.html'
+  }
   TweenLite.to('section.error_tooltip', 1, {opacity: 0});
   localStorage.setItem('currentUser', JSON.stringify(resp))
-  document.location.href = './dashboard_client.html'
+
 }
 
 function doLogin(phone, password) {

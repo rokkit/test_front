@@ -98,7 +98,9 @@ $(function() {
         localStorage.setItem('currentUser', JSON.stringify(user))
         $('section.username h1').text(currentUser.name)
     		$('#login_btn').text(currentUser.name)
-        $('#city_user span').text(currentUser.city)
+        if(currentUser.city) {
+          $('#city_user span').text(currentUser.city)
+        }
         fx.back();
       }, type: 'PUT'});
     })
