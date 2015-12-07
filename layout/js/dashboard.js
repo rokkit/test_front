@@ -258,7 +258,7 @@ $(function() {
         $('#achievements').append(template)
       })
     })
-    $.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token}, function(json) {
+    $.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token, role: 'user'}, function(json) {
       $('#skills').empty()
       $('#dashboard_talents_btn').text(0+'/'+json.length)
       json = json.slice(0, 5)

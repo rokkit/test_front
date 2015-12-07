@@ -1,3 +1,5 @@
+window.hostUrl = 'http://176.112.194.149:81'
+// window.hostUrlLocal = 'http://localhost:3000'
 $(function() {
   var $profile_wrapper = $('#edit-profile-wrapper')
   $profile_wrapper.find('input[name="name"]').val(currentUser.name)
@@ -10,6 +12,12 @@ $(function() {
 
   $('form.edit_profile_form').on('submit', function(e) {
     e.preventDefault()
-    console.log('update')
+
+    var data = $(this).serialize() + '&auth_token='+currentUser.auth_token
+    console.log('update', data)
+    $.ajax({url: hostUrl + '/api/v1/users/' + currentUser.id, data: data, success: function(user) {
+      window.currentUser = user
+      localStorage.setItem('currentUser', JSON.stringify(user))
+    }, type: 'PUT'});
   })
 });
