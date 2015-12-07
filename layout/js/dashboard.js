@@ -68,9 +68,11 @@ $(function() {
 
     function bodyClickOff(){
       $('body').off('click');
+      $('#reserv_succes_form').css('right', '1600');
     }
 
   	$('#n_o_a').click(function(e){
+      TweenLite.to('section.error_tooltip', 0, {opacity: 0});
       fx.do(['reserv', 'background'], bodyClick, bodyClickOff);
   	});
 
@@ -94,7 +96,7 @@ $(function() {
 
     $('#reserv_form').submit(function(e){
       e.preventDefault();
-      $('.wrong').removeClass('wrong')
+      $('.wrong').removeClass('wrong');
       if(!$('input[name=visit_date]').val()) {
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('input[name="visit_date"]').addClass('wrong')
@@ -128,8 +130,8 @@ $(function() {
         } else {
           $('#visit_date_result').text(visit_date)
           $('#visit_time_result').text(visit_time)
-          getReservations()
-          ReservSuccessForm();
+          getReservations();
+          fx.swap('reserv', 'reserv_succes_form');
         }
 
       })
@@ -137,8 +139,8 @@ $(function() {
     });
 
     $('#reserv_succes_form').submit(function(e){
-      animateRevers();
-
+      //animateRevers();
+      fx.back();
       e.preventDefault();
     });
 
@@ -212,6 +214,7 @@ $(function() {
 
 function bodyClick(e){
   $('body').on('click', function(e) {
+    TweenLite.to('section.error_tooltip', 1, {opacity: 0});
     fx.back();
   });
 }
@@ -232,6 +235,7 @@ function animateSuccess(){
   animation.success = new TimelineLite()
   .to('#reserv_succes_form', 1, {right:"0px", 'pointer-events':"auto"}, 'sequence');
   animation.level = 2;
+  e.preventDefault();
 }
 
 function ReservSuccessForm(){

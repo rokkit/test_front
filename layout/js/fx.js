@@ -35,7 +35,12 @@ var FX = (function(animations){
 
   module.swap = function(targetName, name){
     var param = module.tl;
-    module.animate[targetName].reverse();
+    var targetItem = module.animations[targetName];
+    if('back' in targetItem){
+      renderBack(targetName)
+    }else{
+      module.animate[targetName].reverse();
+    }
     param.forEach(function(v){
       var i = v.indexOf(targetName);
       if(i != -1) {
@@ -45,11 +50,25 @@ var FX = (function(animations){
     });
   }
 
+  function renderBack(name){
+    var item = module.animations[name];
+    TweenLite.to(item.element, 1, item.back, 'normal');
+  }
+
   module.back = function(name){
     var param = module.tl.pop();
     param.forEach(function(name){
-      module.animate[name].reverse();
+      var targetItem = module.animations[name];
+      if('back' in targetItem){
+        renderBack(name);
+      }else{
+        module.animate[name].reverse();
+      }
     });
+
+    if(module.tl.length === 0){
+        module.animate = {};
+    }
   }
 
   function render(name, cb, rc){

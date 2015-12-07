@@ -8,6 +8,15 @@ var fxa = {
         transform: 'scale(0.95, 0.95)'
       }
     },
+    reserv_form:{
+      element: '#reserv_form',
+      options: {left:"1860px", 'pointer-events':"auto"}
+    },
+    reserv_succes_form:{
+      element: '#reserv_succes_form',
+      options: {right:"0px", 'pointer-events':"auto"},
+      back: {right:"-1260px", 'pointer-events':"auto"}
+    },
     skillBoard:{
       element: '#all_talents',
       options: { top: '80px' }
@@ -46,7 +55,8 @@ var fxa = {
       options: {
         left:"160px",
         'pointer-events':"auto",
-      }
+      },
+      back: {left:"1860px", 'pointer-events':"auto"}
     },
     overlay:{
       element: '.color_overlay',
