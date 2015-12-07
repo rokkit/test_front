@@ -1931,6 +1931,10 @@ section.wrapper_for_ach figure:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.color_blue_ach {
+  -webkit-filter: grayscale(100%);
+}
+
 section.edit_profile_list form.edit_profile_form header {
   height: auto;
   margin: 0;
