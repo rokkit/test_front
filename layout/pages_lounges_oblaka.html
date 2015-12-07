@@ -25,6 +25,89 @@
     <script src='./js/header.js'></script>
   </head>
   <body id='html_body'>
+    <div class='wrapper center-center' id='wrapper_signup'>
+      <section class='popup' id='signup_form'>
+        <header>
+          <h2>Регистрация</h2>
+          <p class='h2_subtitle'>
+            Регистрация нового пользователя. Если у вас уже есть аккаунт —
+            <a href='#login'>войдите.</a>
+          </p>
+        </header>
+        <form action='' autocomplete='off' method='get'>
+          <input style='display:none'>
+          <input style='display:none' type='password'>
+          <input name='phone' placeholder='Телефон +7XXXXXXX' type='text'>
+          <input name='name' placeholder='ФИО' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_login'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='login_form'>
+        <header>
+          <h2>Войти</h2>
+          <p class='h2_subtitle'>
+            Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+        </header>
+        <form action='' method='get'>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button name='sumbit' type='sumbit'>Войти</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_menu'>
+      <section class='left_menu' id='menu_left_part'>
+        <img alt='Unique Hookah Places' height='40px' src='./images/logo.svg'>
+        <span>
+          <h4>Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...</h4>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+        </span>
+        <footer>
+          <p>Copyright © 2015 Уникальные Кальянные</p>
+          <p>
+            Создано в
+            <img alt='CPD&amp;BBK' height='24px' src='./images/cpdbbk.svg'>
+          </p>
+        </footer>
+      </section>
+      <section class='right_menu' id='menu_right_part'>
+        <img alt='Закрыть' class='pointer' id='closing' src='./images/cross.svg'>
+        <a>
+          <h3 id='lounges_nav_btn'>Ложи</h3>
+          <p>Уникальные заведения</p>
+        </a>
+        <a>
+          <h3 id='philosophy_nav_btn'>Философия</h3>
+          <p>Наши ценности</p>
+        </a>
+        <a>
+          <h3 id='community_nav_btn'>Сообщество</h3>
+          <p>Полезно быть своим</p>
+        </a>
+        <a>
+          <h3>Франшиза</h3>
+          <p>Открыть Ложу</p>
+        </a>
+        <button>Круг избранных</button>
+      </section>
+    </div>
+    <div class='color_overlay' id='color_overlay'></div>
     <main id='main_content'>
       <section id='liberty_block1'>
         <header id='header'>
