@@ -1,3 +1,4 @@
+/* Кальянная "Облака" Воронеж */
 h1.style-oblaka , h2.style-oblaka , h3.style-oblaka {
 	color : #92CAE4 !important
 }
@@ -13,4 +14,22 @@ button.button-dark.style-oblaka {
 
 button.button-dark.style-oblaka:hover {
 	background-color: #92CAE4 !important;
+}
+
+/* Кальянная "Резерв" Тюмень */
+h1.style-rezerv , h2.style-rezerv , h3.style-rezerv {
+	color : #89C37C !important
+}
+
+#reserve_table_btn.style-rezerv {
+	background-color: #89C37C !important;
+	border : none;
+}
+
+button.button-dark.style-rezerv {
+	border-color: #89C37C !important;
+}
+
+button.button-dark.style-rezerv:hover {
+	background-color: #89C37C !important;
 }
