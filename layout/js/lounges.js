@@ -54,7 +54,7 @@ $(function(){
   });
 
   $(document).on('click', '#oblaka-card', function() {
-    document.location.href="/oblaka.html"
+    document.location.href="/pages_lounges_oblaka.html"
   })
   $(document).on('click', '#academy_novosibirsk-card', function() {
     document.location.href="/academy_novosibirsk.html"
