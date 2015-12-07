@@ -4,6 +4,7 @@ h1.style-oblaka , h2.style-oblaka , h3.style-oblaka {
 
 #reserve_table_btn.style-oblaka {
 	background-color: #92CAE4 !important;
+	border : none;
 }
 
 button.button-dark.style-oblaka {
