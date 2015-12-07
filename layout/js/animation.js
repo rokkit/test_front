@@ -42,9 +42,8 @@ var fxa = {
       options: {
         opacity: '0.8',
         "-webkit-opacity":"1",
-        filter: 'blur(5px)',
-        "-webkit-filter":"blur(4px)",
-        transform: 'scale(0.95, 0.95)',
+        filter: 'blur(6px)',
+        "-webkit-filter":"blur(6px)",
         overflow: 'hidden',
         'pointer-events': 'none'
       }
@@ -66,6 +65,10 @@ var fxa = {
         'pointer-events': 'auto'
       }
     },
+    editProfile: {
+      element: '#edit-profile',
+      options: {left: '80px', 'pointer-events': 'auto'}
+    },
     body:{
       element: 'body',
       options: {
@@ -75,6 +78,10 @@ var fxa = {
     achiv:{
       element: '#achivka',
       options: {top:"0"}
+    },
+    skill:{
+      element: '#skill',
+      options: {top:'0'}
     },
     background: ['main', 'overlay', 'body']
   },

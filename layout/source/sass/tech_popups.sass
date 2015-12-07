@@ -103,7 +103,7 @@ section.popup_vertical
 //
 section.popup_horizontal
     position: relative
-    left: 80px
+    left: 1800px
 
     height: auto
     width: calc(100% - 80px)
@@ -120,6 +120,15 @@ section.popup_horizontal
         h5
             float: right
         margin-bottom: 48px
+section.popup_horizontal:before
+    content: ''
+    position: absolute
+    top: 16px
+    left: 16px
+    width: calc(100% - 16px)
+    height: calc(100% - 32px)
+    box-shadow: inset rgba(255, 255, 255, .1) 0 0 2px
+    z-index: -1
 
 //
 // Центральный попап
@@ -195,6 +204,14 @@ div.wrapper_2
     z-index: 200
 #all_ach_wrapper
     overflow-y: auto
+#edit-profile-wrapper
+    overflow-y: auto
+#all_talents
+    #skill-view
+        height: 100%
+        .link
+            stroke: #F2AE32
+            stroke-width: 1.5px
 
 .center-center
     +display-flex(flex)

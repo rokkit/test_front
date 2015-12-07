@@ -171,14 +171,20 @@ $(function() {
 
     $(document).on('click', '#skills figure', function(){
       var skill = $(this)
-      $('#achivka h2').text(skill.find('h6').text());
-      $('#achivka p').text(skill.attr('data-description'));
-      $('#achivka img').attr('src', (skill.find('img').attr('src')));
-      fx.do(['skill', 'background']);
+      $('#skill h2').text(skill.find('h6').text());
+      $('#skill p').text(skill.attr('data-description'));
+      $('#skill img').attr('src', (skill.find('img').attr('src')));
+      fx.do(['skill', 'background'], bodyClick, bodyClickOff);
       //bodyClick();
     });
 
+    $('.username h1').click(function(){
+      fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
+    });
 
+    $('#edit-profile a').click(function(){
+      fx.back();
+    });
 });
 
 $(function(){
@@ -192,6 +198,10 @@ $(function(){
 
   $('#reserv_succes_form').click(function(event){
     event.stopPropagation();
+  });
+
+  $('.popup_horizontal').click(function(e){
+    e.stopPropagation();
   });
 });
 
