@@ -13,6 +13,8 @@ $(function(){
       .attr('width', layoutWidth)
       .attr('height', layoutHeight);
 
+
+
       var y = 230;//layoutHeight/2;
       var dx = 6;
       var x0 = 75;
@@ -74,17 +76,41 @@ $(function(){
       link.enter().insert("line", ".node").attr("class", "link");
       //link.enter().append("g", '.node').attr("class", "link");
 
-      node.append('circle')
-      .attr('class', 'node')
-      .attr('fill', 'transparent')
-      .attr('x', 10)
-      .attr('y', 10)
-      .attr('r', 40);
+      // var defs = node.append('svg:defs');
+      // defs.append("svg:pattern")
+      // .attr("id", "grump_avatar")
+      // .attr("width", 80)
+      // .attr("height", 80)
+      // .attr("patternUnits", "userSpaceOnUse")
+      // .append("svg:image")
+      // .attr("xlink:href", function(v){
+      //   return 'http://176.112.194.149:81'+v.image;
+      // })
+      // .attr("width", 80)
+      // .attr("height", 80)
+      // .attr("x", 0)
+      // .attr("y", 0);
+
+      // define the clipPath
+link.append("mask")       // define a clip path
+    .attr("id", "ellipse-clip") // give the clipPath an ID
+    .append("circle")          // shape it as an ellipse
+    .attr("x", 10)         // position the x-centre
+    .attr("y", 10)         // position the y-centre
+    .attr("r", 40);         // set the y radius
+
+link.attr("mask", "url(#ellipse-clip)");
+
+      // link.append('circle')
+      // .attr('x', 10)
+      // .attr('y', 10)
+      // .attr('r', 40);
 
       node.append("image")
           .attr("xlink:href", function(v){
             return 'http://176.112.194.149:81'+v.image;
           })
+          //.attr("clip-path", "url(#ellipse-clip)")
           .attr("x", -40)
           .attr("y", -40)
           .attr("width", 80)
