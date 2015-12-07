@@ -551,6 +551,7 @@ section.lounges article.lounge {
   overflow: hidden;
   padding: 48px;
   background: url("../images/places/places_bg_1_gradient.png"), url("../images/places/places_bg_1.png");
+  background-size: auto 100%, auto 100%;
   z-index: 150;
 }
 #liberty_block1 hr {
@@ -1928,6 +1929,10 @@ section.wrapper_for_ach figure p {
 }
 section.wrapper_for_ach figure:hover {
   background: rgba(255, 255, 255, 0.05);
+}
+
+.color_blue_ach {
+  -webkit-filter: grayscale(100%);
 }
 
 section.edit_profile_list form.edit_profile_form header {
