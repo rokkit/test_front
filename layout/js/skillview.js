@@ -1,7 +1,6 @@
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 var sf;
 $(function(){
-  var roles = ['user', 'hookmaster']
   $.getJSON(
     'http://176.112.194.149:81' + '/api/v1/skills.json',
     {auth_token: currentUser.auth_token, role: currentUser.role},
