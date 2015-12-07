@@ -1,0 +1,762 @@
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type'>
+    <link href='./css/reset.css' rel='stylesheet'>
+    <link href='./css/pikaday.css' rel='stylesheet'>
+    <link href='./css/general_all.css' rel='stylesheet'>
+    <script src='./js/jquery-2.1.4.min.js'></script>
+    <script src='./js/jquery.gsap.min.js'></script>
+    <script src='./js/TweenLite.min.js'></script>
+    <script src='./js/TweenMax.min.js'></script>
+    <script src='./js/jquery.mask.min.js'></script>
+    <script src='./js/lib/d3.js'></script>
+    <script src='./js/underscore-min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
+    <script src='./js/lib/pikaday.js'></script>
+    <script src='./js/animation.js'></script>
+    <script src='./js/fx.js'></script>
+    <script src='./js/dashboard.js'></script>
+    <script src='./js/skilldata.js'></script>
+    <script src='./js/skillview.js'></script>
+    <script src='./js/skillgen.js'></script>
+    <script src='./js/openapi.js'></script>
+    <script src='./js/data.js'></script>
+    <script src='./js/nodes.js'></script>
+    <script src='./js/header.js'></script>
+    <script src='./js/lib/snap.svg-min.js'></script>
+    <script src='./js/lib/svgicons-config.js'></script>
+    <script src='./js/lib/svgicons.js'></script>
+  </head>
+  <body id='html_body'>
+    <div class='wrapper center-center'>
+      <section class='error_tooltip' id='error_password'>
+        Данные введены неверно! Попробуйте ввести еще раз.
+      </section>
+      <section class='popup' id='reserv_form'>
+        <header>
+          <h2>Забронировать столик</h2>
+          <p class='h2_subtitle'>
+            Выберите время для желаемого бронирования
+          </p>
+        </header>
+        <form action='' method='get'>
+          <select name='lounge'>
+            <option>
+              Кальянная
+            </option>
+          </select>
+          <select name='client_count'>
+            <option>Количество гостей</option>
+            <option value='4'>Трое или меньше</option>
+            <option value='5'>От четырёх до пяти</option>
+          </select>
+          <input id='datepicker' name='visit_date' placeholder='Дата' type='text'>
+          <select name='visit_time'>
+            <option data-time='1700' value='17:00'>17:00</option>
+            <option data-time='1730' value='17:30'>17:30</option>
+            <option data-time='1800' value='18:00'>18:00</option>
+            <option data-time='1830' value='18:30'>18:30</option>
+            <option data-time='1900' value='19:00'>19:00</option>
+            <option data-time='1930' value='19:30'>19:30</option>
+            <option data-time='2000' value='20:00'>20:00</option>
+            <option data-time='2030' value='20:30'>20:30</option>
+            <option data-time='2100' value='21:00'>21:00</option>
+            <option data-time='2130' value='21:30'>21:30</option>
+            <option data-time='2200' value='22:00'>22:00</option>
+            <option data-time='2230' value='22:30'>22:30</option>
+            <option data-time='2300' value='23:00'>23:00</option>
+          </select>
+          <button name='sumbit' type='sumbit'>Забронировать</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='reserv_succes_form'>
+        <header>
+          <h2>Заявка на бронирование подана</h2>
+          <p class='h2_subtitle'>
+            Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". Возьмите с собой документы для подтверждения своей личности
+          </p>
+        </header>
+        <form action='' method='get'>
+          <button name='sumbit' type='sumbit'>Отлично</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper_2' id='all_ach_wrapper'>
+      <section class='popup_vertical' id='all_ach'>
+        <div class='popup_vertical_symbol'>
+          <img src='./images/achievments/symbol_ach.svg'>
+        </div>
+        <header class='popup_vertical_header'>
+          <a class='i_l'>Назад</a>
+          <h5>Достижения</h5>
+        </header>
+        <section class='wrapper_for_ach'>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <ficapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </ficapation>
+          </figure>
+        </section>
+      </section>
+    </div>
+    <div class='wrapper_2'>
+      <section class='popup_vertical' id='all_talents'>
+        <div class='popup_vertical_symbol'>
+          <img src='./images/achievments/symbol_ach.svg'>
+        </div>
+        <header class='popup_vertical_header'>
+          <a class='i_l'>Назад</a>
+          <h5>Навыки</h5>
+        </header>
+        <div id='skill-view'></div>
+      </section>
+    </div>
+    <div class='wrapper_2 center-center'>
+      <section class='popup_overall' id='achivka'>
+        <img alt='В альт отправляем название достижения' src='./images/achievments/1.svg'>
+        <h2>Летняя ночь</h2>
+        <h4>21.09.15</h4>
+        <p>Проработайте всю ночь летом</p>
+      </section>
+    </div>
+    <div class='wrapper_2 center-center'>
+      <section class='popup_overall' id='skill'>
+        <img alt='В альт отправляем название достижения' src='./images/achievments/1.svg'>
+        <h2>Летняя ночь</h2>
+        <h4>21.09.15</h4>
+        <p>Проработайте всю ночь летом</p>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_menu'>
+      <section class='left_menu' id='menu_left_part'>
+        <img alt='Unique Hookah Places' height='40px' src='./images/logo.svg'>
+        <span>
+          <h4>Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...</h4>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+        </span>
+        <footer>
+          <p>Copyright © 2015 Уникальные Кальянные</p>
+          <p>
+            Создано в
+            <img alt='CPD&amp;BBK' height='24px' src='./images/cpdbbk.svg'>
+          </p>
+        </footer>
+      </section>
+      <section class='right_menu' id='menu_right_part'>
+        <img alt='Закрыть' class='pointer' id='closing' src='./images/cross.svg'>
+        <a>
+          <h3 id='lounges_nav_btn'>Ложи</h3>
+          <p>Уникальные заведения</p>
+        </a>
+        <a>
+          <h3 id='philosophy_nav_btn'>Философия</h3>
+          <p>Наши ценности</p>
+        </a>
+        <a>
+          <h3 id='community_nav_btn'>Сообщество</h3>
+          <p>Полезно быть своим</p>
+        </a>
+        <a>
+          <h3>Франшиза</h3>
+          <p>Открыть Ложу</p>
+        </a>
+        <button>Круг избранных</button>
+      </section>
+    </div>
+    <div class='wrapper_2' id='edit-profile-wrapper'>
+      <section class='popup_horizontal' id='edit-profile'>
+        <div class='popup_horizontal_symbol'>
+        </div>
+        <header class='popup_horizontal_header'>
+          <a class='i_l'>Назад</a>
+        </header>
+        <section class='edit_profile_list'>
+          <form action='' class='edit_profile_form' method='get'>
+            <header>
+              <h2>Редактирование профиля</h2>
+              <h3>Хорошо заполненный профиль способствует увеличению полезных знакомств</h3>
+            </header>
+            <fieldset>
+              <legend>Основная информация</legend>
+              <input name='input' placeholder='ФИО' type='text'>
+              <input name='input' placeholder='Город' type='text'>
+              <input name='input' placeholder='Рабочая должность' type='text'>
+              <input name='input' placeholder='Компания работодатель' type='text'>
+              <input class='large' name='input' placeholder='Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами.' type='text'>
+            </fieldset>
+            <fieldset>
+              <legend>Регистрационные данные</legend>
+              <input name='input' placeholder='Номер телефона' type='text'>
+            </fieldset>
+            <fieldset>
+              <legend>зменить пароль</legend>
+              <input name='input' placeholder='Старый пароль' type='password'>
+              <input name='input' placeholder='Новый пароль' type='password'>
+            </fieldset>
+            <button name='sumbit' type='sumbit'>Сохранить</button>
+          </form>
+        </section>
+      </section>
+    </div>
+    <div class='color_overlay' id='color_overlay'></div>
+    <section class='dashboard' id='main_content'>
+      <header id='header'>
+        <img alt='Уникальные Кальянные' src='./images/logo.svg'>
+        <nav>
+          <a id='login_header_btn'>Виталий Пихонт</a>
+          <div class='menu' data-icon-name='hamburger' id='menu_header_btn'></div>
+        </nav>
+      </header>
+      <hr>
+      <section class='username'>
+        <h1>Виталий Пихонт</h1>
+        <p>Санкт-Петербург, Россия</p>
+        <button class='button-dark' id='n_o_a'>Забронировать столик</button>
+        <button class='button-dark'>Пригласить на встречу</button>
+      </section>
+      <section class='progress_bar'>
+        <p>
+          <span>4525</span> очков для следующиего уровня
+        </p>
+        <div class='progress_bar_bg'>
+          <div class='progress'></div>
+        </div>
+      </section>
+      <section class='user_achievments'>
+        <header>
+          <h4>Достижения</h4>
+          <div class='number_of' id='dashboard_ach_btn'>3/25</div>
+        </header>
+        <section class='wrapper_for_ach' id='achievements'>
+          <figure id='dashboard_open_ach_btn'>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+        </section>
+      </section>
+      <section class='user_achievments'>
+        <header>
+          <h4>Навыки</h4>
+          <div class='number_of' id='dashboard_talents_btn'>3/25</div>
+        </header>
+        <section class='wrapper_for_ach' id='skills'>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+          <figure>
+            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <figcapation>
+              <h6>Маскировка</h6>
+              <p>21.09.15</p>
+            </figcapation>
+          </figure>
+        </section>
+      </section>
+      <section class='bottom-rating'>
+        <article>
+          <header>
+            <h4>Брони</h4>
+          </header>
+          <table>
+            <thead>
+              <tr>
+                <th>Кальянная</th>
+                <th>Дата</th>
+                <th>Статус</th>
+              </tr>
+            </thead>
+            <tbody id='reserve_table_body'>
+              <tr>
+                <td>
+                  <h6 class='color-limon'>Либерти</h6>
+                </td>
+                <td class='td-date'>23 июня 2015 20:30 - 23:00</td>
+                <td>5 человек</td>
+                <td>
+                  Скоро
+                  <br>
+                  <span class='color-orange'>Отменить</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>4 человека</td>
+                <td>Прошла</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>2 человека</td>
+                <td>Прошла</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>7 человека</td>
+                <td>Прошла</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>3 человека</td>
+                <td>Прошла</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <header>
+            <h4>Посещения</h4>
+          </header>
+          <table>
+            <thead>
+              <tr>
+                <th>Кальянная</th>
+                <th>Дата</th>
+                <th>Опыт</th>
+              </tr>
+            </thead>
+            <tbody id='visit_table_body'>
+              <tr>
+                <td>
+                  <h6 class='color-limon'>Либерти</h6>
+                </td>
+                <td class='td-date'>23 июня 2015 20:30 - 23:00</td>
+                <td>
+                  136 HP
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>90 HP</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>90 HP</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>90 HP</td>
+              </tr>
+              <tr>
+                <td>
+                  <h6 class='color-blue'>Облака</h6>
+                </td>
+                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
+                <td>90 HP</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <header>
+            <h4>Рейтинг</h4>
+          </header>
+          <fieldset>
+            <input checked='true' id='rating-per-month' name='tabs' type='radio'>
+            <label for='rating-per-month' title='За месяц'>
+              <h6>За месяц</h6>
+            </label>
+            <input id='rating-per-all-time' name='tabs' type='radio'>
+            <label for='rating-per-all-time' title='За всё время'>
+              <h6>За все время</h6>
+            </label>
+            <section id='section-per-month'>
+              <ul class='leaders'>
+                <li>
+                  <span>1. Алексей Иванов</span>
+                  <span>210 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>1. Алексей Иванов</span>
+                  <span>210 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>2. Антон Максимов</span>
+                  <span>175 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>3. Федор Смолов</span>
+                  <span>160 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>4. Антон Максимов</span>
+                  <span>100 800</span>
+                </li>
+              </ul>
+              <ul class='leaders'>
+                <li>
+                  <span>5. Федор Смолов</span>
+                  <span>90 800</span>
+                </li>
+              </ul>
+              <div class='border-bottom-dashed'></div>
+              <ul class='leaders'>
+                <li>
+                  <span>29. Виталий Пихонт</span>
+                  <span>16 800</span>
+                </li>
+              </ul>
+            </section>
+            <section id='section-per-all-time'>
+              Секция за все время
+            </section>
+          </fieldset>
+        </article>
+      </section>
+    </section>
+  </body>
+</html>
