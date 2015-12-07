@@ -243,8 +243,26 @@ button {
   text-align: left;
   font-size: 14px;
   color: #fff;
+<<<<<<< HEAD
   border: none;
   z-index: 400;
+=======
+  border: 1px solid #EBB22F;
+  z-index: 400;
+  -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+button:hover {
+  background: none;
+  border: 1px solid #EBB22F;
+}
+
+button:active {
+  background: #eba400;
+>>>>>>> 80c7561db0a411054ed18ba988dbf9fa6fcb0041
 }
 
 button:after {
@@ -278,7 +296,11 @@ button.button-dark:hover {
 }
 
 button.button-dark:active {
+<<<<<<< HEAD
   background: red;
+=======
+  background: #EBB22F;
+>>>>>>> 80c7561db0a411054ed18ba988dbf9fa6fcb0041
 }
 
 button.button-dark:after {
@@ -303,6 +325,7 @@ button:hover {
 
 @font-face {
   font-family: "Bebas Neue Book";
+<<<<<<< HEAD
   src: url('../fonts/bebasneue_book-webfont.woff?1447505220') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1447505220') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1447505220') format('truetype');
 }
 @font-face {
@@ -324,6 +347,29 @@ button:hover {
 @font-face {
   font-family: "Open Sans Light";
   src: url('../fonts/opensans-light-webfont.woff?1447505220') format('woff'), url('../fonts/opensans-light-webfont.svg?1447505220') format('svg'), url('../fonts/opensans-light-webfont.ttf?1447505220') format('truetype');
+=======
+  src: url('../fonts/bebasneue_book-webfont.woff?1447420370') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1447420370') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1447420370') format('truetype');
+}
+@font-face {
+  font-family: "Bebas Neue Regular";
+  src: url('../fonts/bebasneue_regular-webfont.woff?1447420370') format('woff'), url('../fonts/bebasneue_regular-webfont.svg?1447420370') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf?1447420370') format('truetype');
+}
+@font-face {
+  font-family: "Lora";
+  src: url('../fonts/lora-regular-webfont.ttf?1447420370') format('truetype'), url('../fonts/lora-regular-webfont.woff?1447420370') format('woff'), url('../fonts/lora-regular-webfont.svg?1447420370') format('svg');
+}
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url('../fonts/opensans-semibold-webfont.woff?1447420370') format('woff'), url('../fonts/opensans-semibold-webfont.svg?1447420370') format('svg'), url('../fonts/opensans-semibold-webfont.ttf?1447420370') format('truetype');
+}
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url('../fonts/opensans-regular-webfont.woff?1447420370') format('woff'), url('../fonts/opensans-regular-webfont.svg?1447420370') format('svg'), url('../fonts/opensans-regular-webfont.ttf?1447420370') format('truetype');
+}
+@font-face {
+  font-family: "Open Sans Light";
+  src: url('../fonts/opensans-light-webfont.woff?1447420370') format('woff'), url('../fonts/opensans-light-webfont.svg?1447420370') format('svg'), url('../fonts/opensans-light-webfont.ttf?1447420370') format('truetype');
+>>>>>>> 80c7561db0a411054ed18ba988dbf9fa6fcb0041
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
@@ -442,7 +488,11 @@ button:hover {
 .section_1_bg {
   display: relative;
   min-height: 60%;
+<<<<<<< HEAD
   background: url("../images/places/places_bg_1_gradient.png"), url("../images/places/places_bg_1.png");
+=======
+  background: url("../images/places/page_index_overlay.png"), url("../images/places/page_index_bg.jpg");
+>>>>>>> 80c7561db0a411054ed18ba988dbf9fa6fcb0041
   background-size: 100% 100%, 100% 100%;
   padding: 160px 48px 32px 48px;
 }
@@ -1568,7 +1618,12 @@ section.lounges article.lounge {
   overflow: hidden;
   text-align: center;
   padding: 48px;
+<<<<<<< HEAD
   background: url("../images/bg_glow.jpg");
+=======
+  background: url("../images/bg/community_block5_bg.png");
+  background-size: cover;
+>>>>>>> 80c7561db0a411054ed18ba988dbf9fa6fcb0041
   z-index: 150;
 }
 #community_block5 #communication_is_important {
