@@ -52,7 +52,8 @@ $(function() {
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
           var exp = parseInt(json.exp)
           var need_exp_to_levelup = 5000 - exp
-          $('.progress_bar p span').text(need_exp_to_levelup)
+          $('#need_points').text(need_exp_to_levelup)
+          $('#next_level').text(currentUser.level + 1)
           var percentsExp = 0
           if(exp != 0) {
               percentsExp = parseInt(5000 / (exp * 100))
@@ -280,13 +281,13 @@ $(function() {
     $('#all_ach .wrapper_for_ach').empty()
     $('#dashboard_ach_btn').text(0+'/'+json.length)
     $.each(json, function(i) {
-      var template = "<figure onclick='card()' data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+      var template = "<figure onclick='card()' data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
     })
     json = json.slice(0, 5)
 
       $.each(json, function(i) {
-        var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+        var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
         $('#achievements').append(template)
       })
     })
@@ -296,7 +297,7 @@ $(function() {
       json = json.slice(0, 5)
 
         $.each(json, function(i) {
-          var template = "<figure><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>21.09.15</p></ficapation></figure>";
+          var template = "<figure><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получен</p></ficapation></figure>";
           $('#skills').append(template)
         })
     })
