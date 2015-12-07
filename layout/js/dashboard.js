@@ -69,6 +69,7 @@ $(function() {
     function bodyClickOff(){
       $('body').off('click');
       $('#reserv_succes_form').css('right', '1600');
+
     }
 
   	$('#n_o_a').click(function(e){
@@ -131,6 +132,7 @@ $(function() {
           $('#visit_date_result').text(visit_date)
           $('#visit_time_result').text(visit_time)
           getReservations();
+          TweenLite.to('section.error_tooltip', 1, {opacity: 0});
           fx.swap('reserv', 'reserv_succes_form');
         }
 
