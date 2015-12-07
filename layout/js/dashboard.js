@@ -8,7 +8,9 @@ $(function() {
 	if (currentUser) {
   		$('section.username h1').text(currentUser.name)
   		$('#login_btn').text(currentUser.name)
-      $('#city_user span').text(currentUser.city)
+      if(currentUser.city) {
+        $('#city_user span').text(currentUser.city)
+      }
 	}
     //Загрузить начальные данные
     $(function() {
@@ -178,6 +180,15 @@ $(function() {
       //bodyClick();
     });
 
+    // $(document).on('click', '.node', function(){
+    //   var skill = $(this)
+    //   $('#skill h2').text(skill.find('h6').text());
+    //   $('#skill p').text(skill.attr('data-description'));
+    //   $('#skill img').attr('src', (skill.find('img').attr('src')));
+    //   fx.do(['skill', 'background'], bodyClick, bodyClickOff);
+    //   //bodyClick();
+    // });
+
     $('.username h1').click(function(){
       fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
     });
@@ -206,7 +217,9 @@ $(function() {
         localStorage.setItem('currentUser', JSON.stringify(user))
         $('section.username h1').text(currentUser.name)
     		$('#login_btn').text(currentUser.name)
-        $('#city_user span').text(currentUser.city)
+        if(currentUser.city) {
+          $('#city_user span').text(currentUser.city)
+        }
         fx.back();
       }, type: 'PUT'});
     })
@@ -239,16 +252,6 @@ $(function(){
   });
   $('#login_header_btn').text(currentUser.name)
   $('#signup_header_btn').hide()
-  // $(document).on('click', '#all_ach figure', function(){
-  //
-  //   var achiv = $(this)
-  //   $('#achivka h2').text(achiv.find('h6').text())
-  //   $('#achivka p').text(achiv.attr('data-description'))
-  //   $('#achivka img').attr('src', (achiv.find('img').attr('src')))
-  //   animateAchivka();
-  //   animateAchivBG();
-  //   //bodyClick();
-  // });
 })
 
 // PRELOADER
@@ -281,13 +284,13 @@ $(function() {
     $('#all_ach .wrapper_for_ach').empty()
     $('#dashboard_ach_btn').text(0+'/'+json.length)
     $.each(json, function(i) {
-      var template = "<figure onclick='card()' data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
+      var template = "<figure onclick='card()' data-description='"+this.description+"'><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
     })
     json = json.slice(0, 5)
 
       $.each(json, function(i) {
-        var template = "<figure data-description='"+this.description+"'><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
+        var template = "<figure data-description='"+this.description+"'><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
         $('#achievements').append(template)
       })
     })
@@ -297,7 +300,7 @@ $(function() {
       json = json.slice(0, 5)
 
         $.each(json, function(i) {
-          var template = "<figure><img class='achievments_icon' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получен</p></ficapation></figure>";
+          var template = "<figure><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получен</p></ficapation></figure>";
           $('#skills').append(template)
         })
     })
