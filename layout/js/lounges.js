@@ -1,43 +1,43 @@
-var fx = new FX(fxa.pages_index);
-
-$(function(){
-  $('.popup').click(function(e){
-    e.stopPropagation();
-  });
-});
-
-function bodyClick(e){
-  $('body').on('click', function(e) {
-    fx.back();
-  });
-}
-
-function bodyClickOff(){
-  $('body').off('click');
-}
-
-$(function(){
-  $('#login_header_btn').on('click', function() {
-    if (!currentUser) {
-      fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
-    } else {
-      document.location.href = '/dashboard_client.html'
-    }
-  });
-
-  //Клик на кнопку регистрация в хедере
- $('#signup_header_btn').on('click', function() {
-   fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
- });
-
- $('#login_form a').click(function(){
-   fx.swap('loginPopup', 'signupPopup');
- });
-
- $('#signup_form a').click(function(){
-   fx.swap('signupPopup', 'loginPopup');
- });
-});
+// var fx = new FX(fxa.pages_index);
+//
+// $(function(){
+//   $('.popup').click(function(e){
+//     e.stopPropagation();
+//   });
+// });
+//
+// function bodyClick(e){
+//   $('body').on('click', function(e) {
+//     fx.back();
+//   });
+// }
+//
+// function bodyClickOff(){
+//   $('body').off('click');
+// }
+//
+// $(function(){
+//   $('#login_header_btn').on('click', function() {
+//     if (!currentUser) {
+//       fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
+//     } else {
+//       document.location.href = '/dashboard_client.html'
+//     }
+//   });
+//
+//   //Клик на кнопку регистрация в хедере
+//  $('#signup_header_btn').on('click', function() {
+//    fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+//  });
+//
+//  $('#login_form a').click(function(){
+//    fx.swap('loginPopup', 'signupPopup');
+//  });
+//
+//  $('#signup_form a').click(function(){
+//    fx.swap('signupPopup', 'loginPopup');
+//  });
+// });
 
 //Клик на кнопку Войти в хедере
 
