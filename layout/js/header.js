@@ -130,6 +130,10 @@ $(function() {
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
     if(!phone) {
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+      $('#signup_form input[name="phone"]').addClass('wrong')
+    }
+    if(!password) {
       $('.error_tooltip').text('Укажите номер телефона правильно')
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
 
