@@ -8,10 +8,10 @@
 		%script{ :src => "./js/TweenLite.min.js" }
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/slider_main.js" }
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/openapi.js" }
-
-		-# Hamburger
+		%script{ :src => 'http://maps.googleapis.com/maps/api/js'}
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
@@ -20,147 +20,77 @@
 		%script{ :src => "./js/nodes.js" }
 		%script{ :src => "./js/header.js" }
 	%body#html_body{:data => {'page' => 'philosophy'}}
-		-# Логин
-		.wrapper.center-center{:id => 'wrapper_login'}
-			%section.popup{:id => 'login_form'}
-				%header
-					%h2 Войти
-					%p.h2_subtitle
-						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
-						%a{:href =>"#registration"} зарегистрируйтесь.
-				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button{:type=>"sumbit", :name=>"sumbit"} Войти
-				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
 
-		-# Регистрация
-		.wrapper.center-center{:id => 'wrapper_signup'}
-			%section.popup{:id => 'signup_form'}
-				%header
-					%h2 Регистрация
-					%p.h2_subtitle Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.
-				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
-					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
-		-# Меню
-		.wrapper.center-center{:id => 'wrapper_menu'}
-			%section#menu_left_part.left_menu
-				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
-				%span
-					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-				%footer
-					%p Copyright © 2015 Уникальные Кальянные
-					%p
-						Создано в
-						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
-			-# Left bar
-			%section#menu_right_part.right_menu
-				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
-
-				%a
-					%h3#main_nav_btn Главная страница
-					%p Основная информация
-				%a
-					%h3#lounges_nav_btn Ложи
-					%p Уникальные заведения
-
-				%a
-					%h3#philosophy_nav_btn Философия
-					%p Наши ценности
-
-				%a
-					%h3#community_nav_btn Сообщество
-					%p Полезно быть своим
-				%a
-					%h3 Франшиза
-					%p Открыть Ложу
-
-				%button Войти
-
-		-# Color Overlay
-		#color_overlay.color_overlay
 		%main{:id => 'main_content'}
-			%header#header
-				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-				%nav
-					%a{:id=>"login_header_btn"} Войти
-					%a{:id=>"signup_header_btn"} Зарегистрироваться
-
-					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
-					-# %img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
+			-# Первый блок
 			%section#philosophie_block1
+				-# Хидер
+				%header#header
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%nav
+						%a{:id=>"login_header_btn"} Войти
+						%a{:id=>"signup_header_btn"} Зарегистрироваться
+						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
+					%hr
+				-# Контент
 				%img{ :src=>"./images/philosophie_h1.svg" , :alt=>"Оригинал один — остальное копии"}
+
+			-# Второй блок	
 			%section#philosophie_block2
 				%blockquote
 					%h4 «Не просто безликая сеть заведений для отдыха и встреч  без изюминки»
 					%cite — Игорь Коновалов
-				%p Рождение идеи “Уникальных Кальянных” состоялось осенью 2012 года. Именно тогда основатель сети Игорь Коновалов решил раздвинуть рамки привычного и создать заведение в принципиально новом формате. Довольно быстро нашлись единомышленники и инвесторы, было снято и подготовлено помещение. Так 8 ноября 2012 года появилась первая кальянная “Либерти”
-				-# %button Прочитать историю
+				%p Рождение идеи “Уникальных Кальянных” состоялось осенью 2012 года. Именно тогда основатель сети Игорь Коновалов решил раздвинуть рамки привычного и создать заведение в принципиально новом формате. Довольно быстро нашлись единомышленники и инвесторы, было снято и подготовлено помещение. Так 8 ноября 2012 года появилась первая кальянная “Либерти”.
+				%button.button-dark Прочитать историю
 			%section#philosophie_block3
 				%header
-					%h3
-						Наши принципы
-						<br> являются фундаментом, основной для работы
-					%h4
-						Каждый клиент для нас уникален. Красота жизни заключается<br>в ее неповторимости и оригинальности.
-				.cont-wrap
-					%p С того момента утекло много времени, наша команда собрала огромное количество единомышленников, но сумела сохранить ту самую атмосферу.
-					%br
-					%p Приходя к нам в первый раз, вы становитесь нашим единомышленником, другом, членом семьи УК. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет. Привлекает наша дружелюбная домашняя атмосфера. Мы начинали как место только "для своих".
-				.principles-wrap
-					.principle
-						%img{ :src => './images/philosophie_f_1.svg'}
-						%h4
-						%h4 ЛОЯЛЬНОСТЬ
-						%p Сложно представить себе тёплые и долгосрочные отношения двух сторон без лояльности по отношению друг к другу. Мы ориентированы именно на такой тип отношений и лояльность всегда будет вознаграждена  в наших стенах.
-					.principle
-						%img{ :src => './images/philosophie_f_2.svg'}
-						%h4 ОТКРЫТОСТЬ В ОБЩЕНИИ
+					%h2 Наши принципы являются фундаментом,<br>основной для работы
+					%h4 Каждый клиент для нас уникален. Красота жизни заключается<br>в ее неповторимости и оригинальности.
+				%figure.principle
+					%img{ :src => './images/philosophie_f_1.svg'}
+					%figcapation
+						%h5 ЛОЯЛЬНОСТЬ
+						%p Сложно представить себе тёплые и долгосрочные отношения двух сторон без лояльности по отношению друг к другу. Мы ориентированы именно на такой тип отношений и лояльность всегда будет вознаграждена в наших стенах.
+				%figure.principle
+					%img{ :src => './images/philosophie_f_2.svg'}
+					%figcapation
+						%h5 ОТКРЫТОСТЬ В ОБЩЕНИИ
 						%p Конечная цель Уникальных Кальянных состоит не в заработке, а в том, чтобы создать вокруг себя сообщество близких по духу людей, готовых делиться опытом, работать, общаться и просто отдыхать вместе.
-					.principle
-						%img{ :src => './images/philosophie_f_3.svg'}
-						%h4 ПРОФЕССИОНАЛИЗМ
-						%p Мы ценим профессионализм во всех его проявлениях. Данное требование предъявляется ко всем заведениям и сотрудникам сети. Кроме того, Уникальные Кальянные всегда особенно рады принимать у себя профессионалов своего дела
-					.principle
-						%img{ :src => './images/philosophie_f_4.svg'}
-						%h4 ЖЕЛАНИЕ РАЗВИВАТЬСЯ
+				%figure.principle
+					%img{ :src => './images/philosophie_f_3.svg'}
+					%figcapation
+						%h5 ПРОФЕССИОНАЛИЗМ
+						%p Мы ценим профессионализм во всех его проявлениях. Данное требование предъявляется ко всем заведениям и сотрудникам сети. Кроме того, Уникальные Кальянные всегда особенно рады принимать у себя профессионалов своего дела.
+				<br>
+				%figure.principle
+					%img{ :src => './images/philosophie_f_4.svg'}
+					%figcapation
+						%h5 ЖЕЛАНИЕ РАЗВИВАТЬСЯ
 						%p Отсутствие развития - это стагнация, но при условии того, что мир движется вперёд, стагнация превращается в деградацию. Мы считаем, что постоянное развитие и оптимизация должны являться непременным атрибутом любого дела.
-					.principle
-						%img{ :src => './images/philosophie_f_5.svg'}
-						%h4 ЧЕСТНОСТЬ
+				%figure.principle
+					%img{ :src => './images/philosophie_f_5.svg'}
+					%figcapation
+						%h5 ЧЕСТНОСТЬ
 						%p Уникальные Кальянные дорожат своей репутацией, краеугольным камнем которой является честность. Никакая выгода не в силах заставить нас обманывать клиента или принимать у себя людей, потерявших лицо.
-						%br
-					.principle
-						%img{ :src => './images/philosophie_f_6.svg'}
-						%h4 ИННОВАЦИИ
+				%figure.principle
+					%img{ :src => './images/philosophie_f_6.svg'}
+					%figcapation
+						%h5 ИННОВАЦИИ
 						%p Сосредоточившись исключительно на развитии существующего можно легко забыть об инновациях. Мы всегда будем радовать вас нововведениями, но их интеграция будет происходить без ущерба для комфорта и традиционных ценностей.
+
 			%section#philosophie_block4
-				%h3 Кальянный мастер
-				%p Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.
-				%br
-				%h5 Игорь Коновалов
-				%br
-				%h6 Основатель франшизы
+				%section.wrapper_konovalov
+					%h3 Кальянный мастер
+					%p Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.
+					%h5 Игорь Коновалов
+					%h6 Основатель франшизы
 			%section#philosophie_block5
-				%h2 Omnis qui quaerit invenit
-				%h6 Всякий ищущий находит
+				%h3 Omnis qui quaerit invenit
+				%h6 *Всякий ищущий находит
 				%br
-				%button Зарегистрироваться
+				%button.button-dark Зарегистрироваться
+
+				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
+				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
+				%img.sun_rotation{ :src=>"./images/sun_lines.svg"}
 				%img{ :src=>"./images/sun.svg" , :alt=>"Звезда"}

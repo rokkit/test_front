@@ -12,11 +12,6 @@ body,html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* -------------------------------- 
-
-Main Components 
-
--------------------------------- */
 
 /* -------------------------------- 
 
@@ -27,7 +22,7 @@ Slider
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-   height: 100%;
+  height: 100%;
 }
 
 .cd-hero-slider {
@@ -60,20 +55,20 @@ Slider
 
 @-webkit-keyframes movearound {
   0% {
-    -webkit-transform: scale(1) translateX(0);
+    -webkit-transform: scale(1);
   }   
   100% {
-    -webkit-transform: scale(1.2) translateX(0);
+    -webkit-transform: scale(1.2);
   }
 }
 
 .cd-hero-slider li.move-left {
   /* slide hidden on the left */
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
 }
 .cd-hero-slider li.is-moving, .cd-hero-slider li.selected {
   /* the is-moving class is assigned to the slide which is moving outside the viewport */
@@ -123,7 +118,6 @@ Slider navigation
 }
 
 
-
 .cd-slider-nav li:hover {
   display: inline-block;
   position: relative;
@@ -136,6 +130,18 @@ Slider navigation
 .cd-slider-nav li:hover .img-nav {
    -webkit-transform: scale(1.2);
 }
+
+.cd-slider-nav li:active .img-nav {
+   -webkit-transform: scale(1);
+}
+
+.cd-slider-nav li.selected:hover .img-nav {
+   -webkit-transform: scale(1.2);
+}
+
+
+
+
 /* -------------------------------- 
 
 My style style

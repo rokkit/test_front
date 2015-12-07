@@ -1,16 +1,29 @@
+// 1. Интро
+// ...................................................................... //
 
 #philosophie_block1
     display: block
     position: relative
     width: 100%
     height: 100%
+    overflow: hidden
+
     text-align: center
+
+    padding: 48px
+
     background: url('../images/bg_smoke_2.jpg')
 
+    z-index: 150
+
     img
+        display: inline-block
         position: relative
         height: 50%
-        top: 25%
+        top: 35%
+
+// 2. История УК
+// ...................................................................... //
 
 #philosophie_block2
     display: block
@@ -24,217 +37,205 @@
         position: relative
         float: left
         text-align: right
-        width: 25%
+        width: 30%
         margin-right: 48px
 
         h4
+            font-size: 20px
             margin-bottom: 16px
 
         cite
             color: #EBB22F
 
-    h3
-        display: inline-block
-        width: 40%
-
-        margin-bottom: 64px
-
-        font-family: Lora
-        font-size: 18px
-        line-height: 1.5
-        letter-spacing: 0
     p
-        -webkit-column-count: 2
-        text-align: justify
+        color: rgba(255,255,255,0.5)
         margin-bottom: 32px
 
     button
-        background: none
         border: 1px solid #EBB22F
 
 
+// 3. Принципы
+// ...................................................................... //
 
 #philosophie_block3
     display: inline-block
     position: relative
     width: 100%
-    padding: 120px 80px
+    padding: 48px
     text-align: left
-    background: black
+    background: url('../images/bg_glow.jpg')
+    background-size: cover
+
     header
-        h3
-            display: block
-            width: 100%
-            position: relative
-            color: #EBB22F
-            font: normal normal 300 60px/64px Bebas Neue Book, sans-serif
+        margin-bottom: 48px
+        h2
             margin-bottom: 16px
-            letter-spacing: 7px
-            font-size: 36px
-            line-height: 1.2
-            z-index: 200
 
         h4
             display: inline-block
+            font-size: 21px
             position: relative
-
-            margin-bottom: 32px
-    .cont-wrap
+        
+    figure.principle
         display: block
         position: relative
-        margin-right: 55px
+        
         width: 30%
+        height: auto
+        
         float: left
 
-        p
-            display: inline-block
-            position: relative
-            opacity: 0.5
-            //text-align: justify
-            margin-bottom: 32px
+        +clearfix
 
-            font-size: 14px
-            line-height: 1.5
-            z-index: 200
+        margin-bottom: 32px
+        margin-right: 32px
+       
+        img
+            display: block
+            width: 64px
+            height: 64px
+            margin-bottom: 24px
 
-    .principles-wrap
-        display: inline-block
-        position: relative
-        width: 65%
-        float: left
-        .principle
-            display: inline-block
-            width: 330px
-            margin-right: 24px
-            margin-bottom: 30px
-            img
-                float: left
-                width: 48px
-                height: 48px
-                //margin-bottom: 100%
-                margin-right: 10px
+            float: left
 
-            h4
-                font: normal normal 300 60px/64px Bebas Neue Book, sans-serif
-                margin-bottom: 10px
-                font-weight: 200
-                font-size: 16px
-                line-height: 1.2
-                letter-spacing: 1.4px
+        figcapation
+            display: block
+            float: left
+
+            +clearfix
+
+            h5
+                font-size: 22px
+                margin-bottom: 8px
             p
                 font-size: 12px
-                margin-left: 56px
-                opacity: 0.5
+                line-height: 18px
+                color: rgba(255,255,255,0.5)
 
-    aside
-        display: block
-        position: relative
-        width: 40%
-        float: left
 
-        article
-            display: block
-            position: relative
-            width: 40%
-
-            img
-                display: block
-                position: relative
-                float: left
-                width: 64px
-                height: 64px
+// 4. Кальянный мастер
+// ...................................................................... //
 
 #philosophie_block4
     display: block
     position: relative
     width: 100%
     height: 100%
-    text-align: left
-    background: black
-    padding: 80px
-    padding: 200px
+    overflow: hidden
+
+    padding: 48px
+
     background: url(../images/konovalov_photo.jpg)
     background-size: cover
-    h3
+
+    z-index: 150
+
+    section.wrapper_konovalov
         display: block
-        width: 100%
-        color: #EBB22F
+        position: relative
 
-        margin-bottom: 16px
+        top: 30%
 
-        font-size: 48px
-        font-family: Bebas Neue
-        font-weight: 300
-        line-height: 1.2
-        letter-spacing: 4px
+        width: 32%
+        height: auto
 
-    p
-        display: inline-block
-        width: 40%
-        color: rgba(255,255,255,0.5)
-        margin-bottom: 64px
+        h3
+            display: block
+            color: #EBB22F
+            margin-bottom: 16px
+        p
+            color: rgba(255,255,255,0.5)
+            margin-bottom: 48px
 
-        font-size: 16px
-        line-height: 1.5
-
-    h5
-        display: inline-block
-        color: #EBB22F
-
-        font-family: Bebas Neue
-        font-size: 24px
-        font-weight: 300
-        line-height: 1.2
-        letter-spacing: 4px
-
-    h6
-        margin-bottom: 32px
-
-        font-family: Lora
-        font-size: 14px
-        line-height: 1.5
-        letter-spacing: 0
+        h5
+            display: block
+            color: #EBB22F
+            margin-bottom: 8px
+        h6
 
 #philosophie_block5
     display: block
     position: relative
+    
     width: 100%
-    padding: 160px
+    height: 400px
+  
     text-align: center
+
+    padding: 128px
+    
     overflow: hidden
+    
     background: url('../images/bg_glow.jpg')
 
     img
         position: absolute
         display: block
-        height: 512px
-        width: 512px
-        top: -50%
-        left: calc(50% - 256px)
-        z-index: 100
+        height: 400
+        width: 400
+        top: -200px
+        left: calc(50% - 200px)
 
-    h2
-        position: relative
-        font-size: 48px
-        font-family: Bebas Neue
-        letter-spacing: 4px
-        margin-bottom: 16px
-        color: white
-        z-index: 150
+    .sun_rotation
+        @include animation(sun_rotation 8s linear 0s infinite normal)
+
+    .sun_glow
+        width: 1024px
+        height: 1024px
+
+        top: -512px
+        left: calc(50% - 512px)
+
+        opacity: .1
+
+        @include animation(sun_glow_scale 16s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
+
+    .sun_glow_2
+        width: 512px
+        height: 512px
+
+        top: -256px
+        left: calc(50% - 256px)
+
+        @include animation(sun_glow_scale 8s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
+    
+    @include keyframes(sun_rotation)
+        0%
+            @include transform( rotate(0) )
+        100%
+            @include transform( rotate(360deg) )
+
+    @include keyframes(sun_glow_scale)
+        0%
+            @include transform( scale(1) )
+        20%
+            @include transform( scale(1.2) )
+        40%
+            @include transform( scale(1.1) )
+        60%
+            @include transform( scale(0.9) )
+        80%
+            @include transform( scale(1.1) )
+        100%
+            @include transform( scale(1) )
+    h3
+        font-size: 40px
+        margin-bottom: 8px
+   
     h6
         position: relative
-        opacity: 0.5
+
+        color: rgba(255,255,255,0.5)
+
+        font-family: Lora
+        font-size: 14px
+        letter-spacing: 0
 
         margin-bottom: 48px
 
-        font-family: Lora
-        font-size: 18px
-        line-height: 1.5
-        letter-spacing: 0
-        z-index: 150
-
     button
-        position: relative
-        background: none
         border: 1px solid #EBB22F
-        z-index: 150
+
+/* ----------------------------------------------------------------------- */
+

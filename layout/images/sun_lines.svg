@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-383 145 512 512" style="enable-background:new -383 145 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#XMLID_54_);}
+	.st3{fill:none;stroke:#F2AE32;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g id="XMLID_14354_">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-368.4" y="145" width="482.8" height="512">
+			
+				<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="source" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="-368.4" y="145" width="482.8" height="512" id="XMLID_54_">
+		<g id="XMLID_49_" class="st0">
+			
+				<ellipse id="XMLID_52_" transform="matrix(-0.8246 -0.5657 0.5657 -0.8246 -458.5751 659.6949)" class="st1" cx="-127" cy="400.9" rx="74.6" ry="74.5"/>
+		</g>
+	</mask>
+	<g id="XMLID_14381_" class="st2">
+		<line id="XMLID_14397_" class="st3" x1="41.5" y1="516.6" x2="-295.5" y2="285.4"/>
+		<line id="XMLID_14396_" class="st3" x1="-10" y1="227.2" x2="-244" y2="574.8"/>
+		<line id="XMLID_14395_" class="st3" x1="-294.9" y1="422.8" x2="40.9" y2="379.2"/>
+		<line id="XMLID_14394_" class="st3" x1="-283.7" y1="341.4" x2="29.7" y2="460.6"/>
+		<line id="XMLID_14393_" class="st3" x1="-15" y1="525.8" x2="-239" y2="276.2"/>
+		<line id="XMLID_14392_" class="st3" x1="-1.4" y1="284.3" x2="-252.6" y2="517.7"/>
+		<line id="XMLID_14391_" class="st3" x1="-190.7" y1="560.2" x2="-63.3" y2="241.8"/>
+		<line id="XMLID_14390_" class="st3" x1="-367.4" y1="486.4" x2="113.4" y2="315.6"/>
+		<line id="XMLID_14389_" class="st3" x1="-120.1" y1="656" x2="-133.9" y2="146"/>
+		<line id="XMLID_14388_" class="st3" x1="-362.7" y1="364.2" x2="108.7" y2="437.8"/>
+		<line id="XMLID_14387_" class="st3" x1="-7.8" y1="607.7" x2="-246.2" y2="194.3"/>
+		<line id="XMLID_14386_" class="st3" x1="-327.5" y1="523.5" x2="73.5" y2="278.5"/>
+		<line id="XMLID_14385_" class="st3" x1="-169.1" y1="632.1" x2="-84.9" y2="169.9"/>
+		<line id="XMLID_14384_" class="st3" x1="-86.9" y1="565.5" x2="-167.1" y2="236.5"/>
+	</g>
+</g>
+</svg>

@@ -95,15 +95,19 @@
 
 		-# Color Overlay
 		#color_overlay.color_overlay
+		
 		%main{:id => 'main_content'}
-			%header#header
-				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-				%nav
-					%a{:id=>"login_header_btn"} Войти
-					%a{:id=>"signup_header_btn"} Зарегистрироваться
-					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
-					-#%img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
+			-# Первый блок
 			%section#community_block1
+				-# Хидер
+				%header#header
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%nav
+						%a{:id=>"login_header_btn"} Войти
+						%a{:id=>"signup_header_btn"} Зарегистрироваться
+						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
+					%hr
+				-# Контент
 				%img{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
 			%section#community_block2
 				%h2
@@ -126,9 +130,8 @@
 					%h4 Неповторимый опыт
 					%p Каждое заведение Уникальных Кальянных предлагает вам атмосферу клуба единомышленников. Заходите, общайтесь с другими гостями, участвуйте в еженедельных мероприятиях и вы поймете в чем заключается наша уникальность.
 			%section#community_block3
-				%h3 Со временем вы обретёте полезные навыки, дающие право на получение определенных бонусов.
-				%p
-					Навыки разнообразны и позволяют получить целый спектр приятных преимуществ, начиная с дополнительных напитков при первом заказе за день и заканчивая возможностью отдыхать в заведении в нерабочие часы
+				%h3 Со временем вы обретёте полезные навыки, дающие право на получение определенных бонусов
+				%p Навыки разнообразны и позволяют получить целый ряд приятных преимуществ, начиная с дополнительных напитков при первом заказе за день и заканчивая возможностью отдыхать в заведении в нерабочие часы.
 				%br
 				%img{ :src=>"./images/game_skillset.svg" , :alt=>"Полезные бонусы"}
 				%video#dust{ :controls=>"false", :src=>"../video/vid.mp4", :autobuffer=>"true", :autoplay=>"true", :loop=>"true"}
@@ -140,8 +143,6 @@
 			-# 	%br
 			-# 	%p Наши заведения посещают люди с разными интересами, компетенциями и статусом. Если вы хотите познакомиться и пообщаться с кем-нибудь из них, вы можете пригласить их на встречу в Уникальных Кальянных.
 			%section#community_block5
-				#viewport-left
-				#viewport-right
 				#communication_is_important
 					.round
 						%img{ :src=>"./images/messages.svg" , :alt=>"Коммуникация"}
@@ -154,7 +155,8 @@
 					%br
 					%p Войдите в сообщество Уникальных Кальянных и вы сможете общаться с лучшими людьми вашего города.
 					%br
-					-# %button Прочитать историю
+					%br
+					%button.button-dark Перейти к философии
 					-# %img#block_5_bg{ :src=>"./images/community/block_5_bg.svg"}
 
 			%section#community_block6

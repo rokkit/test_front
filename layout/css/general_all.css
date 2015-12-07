@@ -25,14 +25,14 @@ body {
 }
 
 h1 {
-  font: normal normal 300 60px/64px Bebas Neue Book, sans-serif;
-  letter-spacing: 2px;
+  font: normal normal 300 53px/64px Bebas Neue Book, sans-serif;
+  letter-spacing: 4px;
   color: white;
   text-transform: uppercase;
 }
 
 h2 {
-  font: normal normal 300 48px/64px Bebas Neue Book, sans-serif;
+  font: normal normal 300 48px/56px Bebas Neue Book, sans-serif;
   letter-spacing: 2px;
   color: #EBB22F;
   text-transform: uppercase;
@@ -40,8 +40,8 @@ h2 {
 
 h3 {
   font-family: Bebas Neue;
-  font-size: 28px;
-  letter-spacing: 2px;
+  font-size: 36px;
+  letter-spacing: 4px;
 }
 
 h4 {
@@ -70,6 +70,7 @@ small {
 p {
   font-family: Open Sans Regular;
   font-size: 14px;
+  line-height: 24px;
   color: white;
   letter-spacing: 0px;
 }
@@ -264,7 +265,16 @@ button.button-dark {
   line-height: 24px;
   text-align: left;
   font-size: 14px;
-  color: #C6C7C8;
+  color: white;
+  -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+button.button-dark:hover {
+  background: #EBB22F;
+  color: white;
 }
 
 button.button-dark:active {
@@ -277,6 +287,10 @@ button.button-dark:after {
   height: 24px;
   float: right;
   background-image: url(../images/goto.svg);
+}
+
+button:focus {
+  outline: none;
 }
 
 a:hover {
@@ -524,6 +538,7 @@ section.lounges article.lounge {
   overflow: hidden;
   padding: 48px;
   background: url("../images/places/places_bg_1_gradient.png"), url("../images/places/places_bg_1.png");
+  z-index: 150;
 }
 #liberty_block1 hr {
   display: block;
@@ -534,13 +549,14 @@ section.lounges article.lounge {
   margin-top: 88px;
   margin-bottom: 88px;
 }
-#liberty_block1 section.headerlib h1 {
-  letter-spacing: 8px;
-  margin-bottom: 16px;
+#liberty_block1 header h1 {
   color: #EBB22F;
+  margin-bottom: 8px;
 }
-#liberty_block1 section.headerlib p.h2_subtitle {
-  margin-bottom: 32px;
+#liberty_block1 header p {
+  font-family: Lora;
+  font-size: 16px;
+  margin-bottom: 48px;
 }
 #liberty_block1 section.information_lib {
   display: block;
@@ -569,25 +585,266 @@ section.lounges article.lounge {
   display: block;
   position: absolute;
   bottom: 48px;
+  color: rgba(255, 255, 255, 0.5);
 }
 #liberty_block1 #liberty_herb {
   position: absolute;
   display: block;
-  top: 15%;
-  left: 60%;
+  top: 20%;
+  left: 64%;
   height: 70%;
 }
-
+#liberty_block1 .gerb_glow_2 {
+  position: absolute;
+  width: 1024px;
+  height: 1024px;
+  top: calc(50% - 512px);
+  right: -380;
+  opacity: 0.5;
+  -moz-animation: sun_glow_scale 10s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  -webkit-animation: sun_glow_scale 10s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  animation: sun_glow_scale 10s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+}
+#liberty_block1 .gerb_glow {
+  position: absolute;
+  width: 512px;
+  height: 512px;
+  top: calc(50% - 256px);
+  right: -168px;
+  opacity: 0.15;
+  -moz-animation: sun_glow_scale 8s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  -webkit-animation: sun_glow_scale 8s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  animation: sun_glow_scale 8s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+}
+@-webkit-keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-ms-keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
 #liberty_block2 {
-  padding: 96px 196px 96px 196px;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
   text-align: center;
+  padding: 96px;
   background: url(../images/bg_glow.png);
   background-size: cover;
+  z-index: 150;
 }
-#liberty_block2 h4 {
+#liberty_block2 .text-wrapper-liberty {
+  display: inline-block;
+  position: relative;
+  width: 70%;
+}
+#liberty_block2 .text-wrapper-liberty h4 {
   margin-bottom: 24px;
 }
-#liberty_block2 p {
+#liberty_block2 .text-wrapper-liberty p {
   font-family: Open Sans Regular;
   font-size: 14px;
   line-height: 18px;
@@ -599,26 +856,31 @@ section.lounges article.lounge {
   position: relative;
   height: 100%;
   width: 100%;
+  overflow: hidden;
+  z-index: 150;
 }
 
 #liberty_block4 {
-  padding: 96px 196px 96px 196px;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
   text-align: center;
+  padding: 96px;
   background: url(../images/bg_glow.png);
   background-size: cover;
+  z-index: 150;
 }
-#liberty_block4 h2 {
-  font-family: Bebas Neue Book;
+#liberty_block4 header {
+  display: inline-block;
+  width: 56%;
+}
+#liberty_block4 header h2 {
   font-size: 40px;
-  color: white;
   margin-bottom: 16px;
 }
-#liberty_block4 p {
-  display: inline-block;
-  width: 70%;
-  font-family: Open Sans Regular;
-  font-size: 14px;
-  line-height: 18px;
+#liberty_block4 header p {
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 48px;
 }
@@ -630,45 +892,64 @@ section.lounges article.lounge {
   display: block;
   position: relative;
   width: 100%;
-  height: 100%;
-  background: url(../images/map_bg.jpg);
+  min-height: 100%;
+  overflow: hidden;
+  text-align: right;
+  padding: 48px;
+  background: black;
+  z-index: 150;
 }
-#liberty_block5 #map_wrapper {
-  position: absolute;
-  padding: 56px;
-  box-sizing: content-box;
-  width: 18%;
-  height: auto;
-  background: #282C34;
-  top: 25%;
-  right: 64px;
-}
-#liberty_block5 #map_wrapper h3 {
-  margin-bottom: 8px;
-  width: 100%;
-  color: #EBB22F;
-}
-#liberty_block5 #map_wrapper h5 {
-  margin-bottom: 32px;
-}
-#liberty_block5 #map_wrapper p {
-  margin-bottom: 32px;
-  font-size: 14px;
-  line-height: 24px;
-}
-
-#liberty_block5:before {
-  content: "";
+#liberty_block5 .map_wrapper {
   display: block;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  overflow: hidden;
+  z-index: 100;
+}
+#liberty_block5 .map_overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 150;
+}
+#liberty_block5 #map_wrapper {
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  height: auto;
+  text-align: left;
+  padding: 48px;
+  box-sizing: content-box;
   background: #282C34;
   z-index: 150;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+}
+#liberty_block5 #map_wrapper header h3 {
+  font-size: 26px;
+  letter-spacing: 3px;
+  color: #EBB22F;
+}
+#liberty_block5 #map_wrapper header p {
+  color: white;
+  font-family: Lora;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+#liberty_block5 #map_wrapper p {
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 32px;
+}
+#liberty_block5 #map_wrapper small {
+  font-size: 12px;
 }
 
 #liberty_block6 {
@@ -704,13 +985,17 @@ section.lounges article.lounge {
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   text-align: center;
+  padding: 48px;
   background: url("../images/bg_smoke_2.jpg");
+  z-index: 150;
 }
 #philosophie_block1 img {
+  display: inline-block;
   position: relative;
   height: 50%;
-  top: 25%;
+  top: 35%;
 }
 
 #philosophie_block2 {
@@ -725,31 +1010,21 @@ section.lounges article.lounge {
   position: relative;
   float: left;
   text-align: right;
-  width: 25%;
+  width: 30%;
   margin-right: 48px;
 }
 #philosophie_block2 blockquote h4 {
+  font-size: 20px;
   margin-bottom: 16px;
 }
 #philosophie_block2 blockquote cite {
   color: #EBB22F;
 }
-#philosophie_block2 h3 {
-  display: inline-block;
-  width: 40%;
-  margin-bottom: 64px;
-  font-family: Lora;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0;
-}
 #philosophie_block2 p {
-  -webkit-column-count: 2;
-  text-align: justify;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 32px;
 }
 #philosophie_block2 button {
-  background: none;
   border: 1px solid #EBB22F;
 }
 
@@ -757,91 +1032,54 @@ section.lounges article.lounge {
   display: inline-block;
   position: relative;
   width: 100%;
-  padding: 120px 80px;
+  padding: 48px;
   text-align: left;
-  background: black;
+  background: url("../images/bg_glow.jpg");
+  background-size: cover;
 }
-#philosophie_block3 header h3 {
-  display: block;
-  width: 100%;
-  position: relative;
-  color: #EBB22F;
-  font: normal normal 300 60px/64px Bebas Neue Book, sans-serif;
+#philosophie_block3 header {
+  margin-bottom: 48px;
+}
+#philosophie_block3 header h2 {
   margin-bottom: 16px;
-  letter-spacing: 7px;
-  font-size: 36px;
-  line-height: 1.2;
-  z-index: 200;
 }
 #philosophie_block3 header h4 {
   display: inline-block;
+  font-size: 21px;
   position: relative;
-  margin-bottom: 32px;
 }
-#philosophie_block3 .cont-wrap {
+#philosophie_block3 figure.principle {
   display: block;
   position: relative;
-  margin-right: 55px;
   width: 30%;
+  height: auto;
   float: left;
-}
-#philosophie_block3 .cont-wrap p {
-  display: inline-block;
-  position: relative;
-  opacity: 0.5;
+  overflow: hidden;
+  *zoom: 1;
   margin-bottom: 32px;
-  font-size: 14px;
-  line-height: 1.5;
-  z-index: 200;
+  margin-right: 32px;
 }
-#philosophie_block3 .principles-wrap {
-  display: inline-block;
-  position: relative;
-  width: 65%;
-  float: left;
-}
-#philosophie_block3 .principles-wrap .principle {
-  display: inline-block;
-  width: 330px;
-  margin-right: 24px;
-  margin-bottom: 30px;
-}
-#philosophie_block3 .principles-wrap .principle img {
-  float: left;
-  width: 48px;
-  height: 48px;
-  margin-right: 10px;
-}
-#philosophie_block3 .principles-wrap .principle h4 {
-  font: normal normal 300 60px/64px Bebas Neue Book, sans-serif;
-  margin-bottom: 10px;
-  font-weight: 200;
-  font-size: 16px;
-  line-height: 1.2;
-  letter-spacing: 1.4px;
-}
-#philosophie_block3 .principles-wrap .principle p {
-  font-size: 12px;
-  margin-left: 56px;
-  opacity: 0.5;
-}
-#philosophie_block3 aside {
+#philosophie_block3 figure.principle img {
   display: block;
-  position: relative;
-  width: 40%;
-  float: left;
-}
-#philosophie_block3 aside article {
-  display: block;
-  position: relative;
-  width: 40%;
-}
-#philosophie_block3 aside article img {
-  display: block;
-  position: relative;
-  float: left;
   width: 64px;
   height: 64px;
+  margin-bottom: 24px;
+  float: left;
+}
+#philosophie_block3 figure.principle figcapation {
+  display: block;
+  float: left;
+  overflow: hidden;
+  *zoom: 1;
+}
+#philosophie_block3 figure.principle figcapation h5 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+#philosophie_block3 figure.principle figcapation p {
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #philosophie_block4 {
@@ -849,106 +1087,317 @@ section.lounges article.lounge {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: left;
-  background: black;
-  padding: 80px;
-  padding: 200px;
+  overflow: hidden;
+  padding: 48px;
   background: url(../images/konovalov_photo.jpg);
   background-size: cover;
+  z-index: 150;
 }
-#philosophie_block4 h3 {
+#philosophie_block4 section.wrapper_konovalov {
   display: block;
-  width: 100%;
+  position: relative;
+  top: 30%;
+  width: 32%;
+  height: auto;
+}
+#philosophie_block4 section.wrapper_konovalov h3 {
+  display: block;
   color: #EBB22F;
   margin-bottom: 16px;
-  font-size: 48px;
-  font-family: Bebas Neue;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 4px;
 }
-#philosophie_block4 p {
-  display: inline-block;
-  width: 40%;
+#philosophie_block4 section.wrapper_konovalov p {
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 64px;
-  font-size: 16px;
-  line-height: 1.5;
+  margin-bottom: 48px;
 }
-#philosophie_block4 h5 {
-  display: inline-block;
+#philosophie_block4 section.wrapper_konovalov h5 {
+  display: block;
   color: #EBB22F;
-  font-family: Bebas Neue;
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 4px;
-}
-#philosophie_block4 h6 {
-  margin-bottom: 32px;
-  font-family: Lora;
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: 0;
+  margin-bottom: 8px;
 }
 
 #philosophie_block5 {
   display: block;
   position: relative;
   width: 100%;
-  padding: 160px;
+  height: 400px;
   text-align: center;
+  padding: 128px;
   overflow: hidden;
   background: url("../images/bg_glow.jpg");
 }
 #philosophie_block5 img {
   position: absolute;
   display: block;
-  height: 512px;
-  width: 512px;
-  top: -50%;
-  left: calc(50% - 256px);
-  z-index: 100;
+  height: 400;
+  width: 400;
+  top: -200px;
+  left: calc(50% - 200px);
 }
-#philosophie_block5 h2 {
-  position: relative;
-  font-size: 48px;
-  font-family: Bebas Neue;
-  letter-spacing: 4px;
-  margin-bottom: 16px;
-  color: white;
-  z-index: 150;
+#philosophie_block5 .sun_rotation {
+  -moz-animation: sun_rotation 8s linear 0s infinite normal;
+  -webkit-animation: sun_rotation 8s linear 0s infinite normal;
+  animation: sun_rotation 8s linear 0s infinite normal;
+}
+#philosophie_block5 .sun_glow {
+  width: 1024px;
+  height: 1024px;
+  top: -512px;
+  left: calc(50% - 512px);
+  opacity: 0.1;
+  -moz-animation: sun_glow_scale 16s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  -webkit-animation: sun_glow_scale 16s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  animation: sun_glow_scale 16s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+}
+#philosophie_block5 .sun_glow_2 {
+  width: 512px;
+  height: 512px;
+  top: -256px;
+  left: calc(50% - 256px);
+  -moz-animation: sun_glow_scale 8s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  -webkit-animation: sun_glow_scale 8s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+  animation: sun_glow_scale 8s cubic-bezier(0.42, 0, 0.58, 1) 0s infinite normal;
+}
+@-webkit-keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes sun_rotation {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-ms-keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes sun_glow_scale {
+  0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  40% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  60% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  80% {
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+#philosophie_block5 h3 {
+  font-size: 40px;
+  margin-bottom: 8px;
 }
 #philosophie_block5 h6 {
   position: relative;
-  opacity: 0.5;
-  margin-bottom: 48px;
+  color: rgba(255, 255, 255, 0.5);
   font-family: Lora;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 14px;
   letter-spacing: 0;
-  z-index: 150;
+  margin-bottom: 48px;
 }
 #philosophie_block5 button {
-  position: relative;
-  background: none;
   border: 1px solid #EBB22F;
-  z-index: 150;
 }
 
+/* ----------------------------------------------------------------------- */
 #community_block1 {
   display: block;
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   text-align: center;
+  padding: 48px;
   background: url("../images/bg_smoke_2.jpg");
+  z-index: 150;
 }
 #community_block1 img {
-  position: relative;
   display: inline-block;
-  height: 320px;
-  top: 180px;
+  position: relative;
+  height: 50%;
+  top: 35%;
 }
 
 #community_block2 {
@@ -1114,30 +1563,19 @@ section.lounges article.lounge {
   display: block;
   position: relative;
   width: 100%;
-  height: 100%;
-  text-align: center;
-  background: url("../images/bg_glow.jpg");
+  min-height: 100%;
+  height: auto;
   overflow: hidden;
-}
-#community_block5 #viewport-left {
-  position: absolute;
-  left: 0px;
-  width: 300px;
-  height: 100%;
-}
-#community_block5 #viewport-right {
-  position: absolute;
-  right: 0px;
-  width: 300px;
-  height: 100%;
+  text-align: center;
+  padding: 48px;
+  background: url("../images/bg_glow.jpg");
+  z-index: 150;
 }
 #community_block5 #communication_is_important {
   display: inline-block;
   position: relative;
-  height: 100%;
-  width: 54%;
-  padding: 120px;
-  background: black;
+  height: auto;
+  width: 32%;
 }
 #community_block5 #communication_is_important .round {
   display: inline-block;
@@ -1145,7 +1583,7 @@ section.lounges article.lounge {
   height: 160px;
   width: 160px;
   border-radius: 80px;
-  background-color: rgba(40, 44, 53, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
 }
 #community_block5 #communication_is_important .round img {
@@ -1156,8 +1594,8 @@ section.lounges article.lounge {
 #community_block5 #communication_is_important h3 {
   display: inline-block;
   position: relative;
-  margin-bottom: 24px;
-  margin-top: -8px;
+  margin-bottom: 32px;
+  margin-top: 16px;
   font-size: 36px;
   line-height: 1.2;
   z-index: 400;
@@ -1170,8 +1608,7 @@ section.lounges article.lounge {
   line-height: 1.5;
 }
 #community_block5 #communication_is_important button {
-  background: none;
-  margin-top: 32px;
+  margin-top: 16px;
   border: 1px solid #EBB22F;
 }
 
@@ -1780,6 +2217,15 @@ section.right_menu a:hover {
   margin-left: 16px;
   float: right;
 }
+#header hr {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-top: 72px;
+  margin-bottom: 88px;
+}
 
 .error_tooltip {
   display: block;
@@ -2065,6 +2511,15 @@ div.wrapper_2 {
   margin-top: 1px;
   margin-left: 16px;
   float: right;
+}
+#header hr {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-top: 72px;
+  margin-bottom: 88px;
 }
 
 .error_tooltip {

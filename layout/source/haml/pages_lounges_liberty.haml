@@ -21,94 +21,23 @@
 		%script{ :src => "./js/nodes.js" }
 		%script{ :src => "./js/header.js" }
 	%body#html_body
-		-# Логин
-		.wrapper.center-center{:id => 'wrapper_login'}
-			%section.popup{:id => 'login_form'}
-				%header
-					%h2 Войти
-					%p.h2_subtitle
-						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
-						%a{:href =>"#registration"} зарегистрируйтесь.
-				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button{:type=>"sumbit", :name=>"sumbit"} Войти
-				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
-
-		-# Регистрация
-		.wrapper.center-center{:id => 'wrapper_signup'}
-			%section.popup{:id => 'signup_form'}
-				%header
-					%h2 Регистрация
-					%p.h2_subtitle Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.
-				%form{:action => "", :method => "get"}
-					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
-					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
-		-# Меню
-		.wrapper.center-center{:id => 'wrapper_menu'}
-			%section#menu_left_part.left_menu
-				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
-				%span
-					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
-
-
-				%footer
-					%p Copyright © 2015 Уникальные Кальянные
-					%p
-						Создано в
-						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
-			-# Left bar
-			%section#menu_right_part.right_menu
-				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
-				%a
-					%h3#main_nav_btn Главная страница
-					%p Основная информация
-				%a
-					%h3#lounges_nav_btn Ложи
-					%p Уникальные заведения
-
-				%a
-					%h3#philosophy_nav_btn Философия
-					%p Наши ценности
-
-				%a
-					%h3#community_nav_btn Сообщество
-					%p Полезно быть своим
-				%a
-					%h3 Франшиза
-					%p Открыть Ложу
-
-				%button Круг избранных
-		-# Color Overlay
-		#color_overlay.color_overlay
+		-# Основной контент
 		%main{:id => 'main_content'}
+			-# Первый блок
 			%section#liberty_block1
+				-# Хидер
 				%header#header
-					%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 					%nav
 						%a{:id=>"login_header_btn"} Войти
 						%a{:id=>"signup_header_btn"} Зарегистрироваться
-						#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
-						-# %img.menu{ :id=>"menu_header_btn" , :src=>"./images/menu.svg" , :alt=>"Меню"}
+						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 				%hr
-				%section.headerlib
+				-# Контент
+				%header
 					%h1 Либерти
-					%p.h2_subtitle Sed et ceteri codices originale sit unum*
+					%p Sed et ceteri codices originale sit unum*
+				-# Адрес, телефон и время работы
 				%section.information_lib
 					%figure
 						%img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
@@ -122,15 +51,25 @@
 							Пн. - Пт.: с 17:00 до последнего гостя
 							%br
 							Сб. - Вс.: с 16:00 до последнего гостя
+				-# Кнопка бронирования
 				%section.liberactions
 					%button#reserve_table_btn Забронировать столик
-					-# %button.button-dark Связаться с нами
+					-# 	 Связаться с нами
+
+				-# Подпись
 				%footer
 					%p *Оригинал один - остальное копии
+				-# Герб
 				%img#liberty_herb.layer{ :src=>"./images/gerb_final.svg", :"data-depth"=>"0.40"}
+				
+				%img.gerb_glow_2{ :src=>"./images/gerb_glow.png"}
+				%img.gerb_glow{ :src=>"./images/sun_glow.svg"}
+			
+			-# Второй блок
 			%section#liberty_block2
-				%h4 Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю
-				%p Почему же Вам стоит выбрать именно эту кальянную Петербурга? Всех привлекает наша особенная атмосфера. Мы начинали как место только "для своих". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.
+				.text-wrapper-liberty
+					%h4 Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю
+					%p Почему же Вам стоит выбрать именно эту кальянную Петербурга? Всех привлекает наша особенная атмосфера. Мы начинали как место только "для своих". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.
 			%section#liberty_block3
 				%section.cd-hero
 					%ul.cd-hero-slider.autoplay
@@ -144,41 +83,48 @@
 							%img.img-slider{:src => "./images/slider/4.jpg"}
 						%li
 							%img.img-slider{:src => "./images/slider/5.jpg"}
+
 					.cd-slider-nav
 						%nav
 							%ul
 								%li.selected
-									%img.img-nav{:src => "./images/slider/1.jpg"}
+									%img.img-nav.pointer{:src => "./images/slider/1.jpg"}
 								%li
-									%img.img-nav{:src => "./images/slider/2.jpg"}
+									%img.img-nav.pointer{:src => "./images/slider/2.jpg"}
 								%li
-									%img.img-nav{:src => "./images/slider/3.jpg"}
+									%img.img-nav.pointer{:src => "./images/slider/3.jpg"}
 								%li
-									%img.img-nav{:src => "./images/slider/4.jpg"}
+									%img.img-nav.pointer{:src => "./images/slider/4.jpg"}
 								%li
-									%img.img-nav{:src => "./images/slider/5.jpg"}
+									%img.img-nav.pointer
 
 			%section#liberty_block4
-				%h2 Кальянные мастера
-				%p В Уникальных Кальянных работают только профессионалы своего дела. Наши кальянные мастера подходят к смешиванию табака и созданию вкуса как к тонкому искусству. Вы всегда сможете положиться на них в вопросах качества.
+				%header
+					%h2 Кальянные мастера
+					%p В Уникальных Кальянных работают только профессионалы своего дела. Наши кальянные мастера подходят к смешиванию табака и созданию вкуса как к тонкому искусству. Вы всегда сможете положиться на них в вопросах качества.
 				%br
 				%img{ :src=>"./images/shisha.svg" , :alt=>"Кальянщик" , :height=>"396px" }
 				%img{ :src=>"./images/shisha.svg" , :alt=>"Кальянщик" , :height=>"396px" }
 				%img{ :src=>"./images/shisha.svg" , :alt=>"Кальянщик" , :height=>"396px" }
 
 			%section#liberty_block5
+				.map_overlay
+				.map_wrapper
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.49768307465!2d30.354054316097056!3d59.94047698187685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696319f63171fe9%3A0xf3c2b208dba31de1!2z0YPQuy4g0JzQsNGP0LrQvtCy0YHQutC-0LPQviwgMjcsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTEwMTQ!5e0!3m2!1sru!2sru!4v1449472409367" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 				%section#map_wrapper
-					%h3 Санкт-Петербург
-					%h5 Центральный район
+					%header
+						%h3 Санкт-Петербург
+						%p Центральный район
 
 					%p Уникальная Кальянная “Либерти” расположена в историческом центре Санкт-Петербурга, практически в самом сердце города.
 
 					%small Россия, Санкт-Петербург, улица Маяковского 27
 
 			%section#liberty_block6
-				%h2 Контакты
-				%h5 По вопросам справки обращайтесь по телефону в рабочее время:
-				%br
+				%header
+					%h2 Контакты
+					%h5 По вопросам справки обращайтесь по телефону в рабочее время:
+			
 				%h6 Адрес:
 				%p Санкт-Петербург, улица Маяковского 27
 
@@ -190,3 +136,13 @@
 					Понедельник - Пятница .................... с 17:00 и до последнего гостя
 					<br>
 					Cуббота - Воскресенье ...................... с 16:00 и до последнего гостя
+			%section#philosophie_block5
+				%h3 Omnis qui quaerit invenit
+				%h6 *Всякий ищущий находит
+				%br
+				%button.button-dark Зарегистрироваться
+
+				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
+				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
+				%img.sun_rotation{ :src=>"./images/sun_lines.svg"}
+				%img{ :src=>"./images/sun.svg" , :alt=>"Звезда"}
