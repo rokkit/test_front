@@ -22,7 +22,7 @@
 		%script{ :src => "./js/openapi.js" }
 		%script{ :src => "./js/data.js" }
 		%script{ :src => "./js/nodes.js" }
-		%script{ :src => "./js/header.js" }
+		-# %script{ :src => "./js/header.js" }
 		%script{ :src => "./js/profile.js" }
 
 		-# Habmurger
@@ -379,13 +379,13 @@
 			%header#header
 				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
-					%a{:id=>"login_header_btn"} Виталий Пихонт
+					%a{:id=>"login_header_btn"} В
 					-# %img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
 					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
 				%h1	Виталий Пихонт
-				%p Санкт-Петербург, Россия
+				%p#city_user <span>Санкт-Петербург</span>, Россия
 				%button.button-dark#n_o_a Забронировать столик
 				%button.button-dark Пригласить на встречу
 			%section.progress_bar

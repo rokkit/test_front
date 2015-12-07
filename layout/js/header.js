@@ -8,12 +8,47 @@ $(function(){
       this.nodesRight.render;
 });
 
-var animation = {
-  level: '',
-  body: {},
-  login: {},
-  reg: {}
-};
+
+var fx = new FX(fxa.pages_index);
+
+$(function(){
+  $('.popup').click(function(e){
+    e.stopPropagation();
+  });
+});
+
+function bodyClick(e){
+  $('body').on('click', function(e) {
+    fx.back();
+  });
+}
+
+function bodyClickOff(){
+  $('body').off('click');
+}
+
+$(function(){
+  $('#login_header_btn').on('click', function() {
+    if (!currentUser) {
+      fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
+    } else {
+      document.location.href = '/dashboard_client.html'
+    }
+  });
+
+  //Клик на кнопку регистрация в хедере
+ $('#signup_header_btn').on('click', function() {
+   fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+ });
+
+ $('#login_form a').click(function(){
+   fx.swap('loginPopup', 'signupPopup');
+ });
+
+ $('#signup_form a').click(function(){
+   fx.swap('signupPopup', 'loginPopup');
+ });
+});
 
 $(function() {
   window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -26,39 +61,7 @@ $(function() {
   }
 })
 
-function animateBG(){
-  animation.body = new TimelineLite()
-  .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
-  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
-  TweenLite.to('body', 1, {overflow:"hidden"});
-}
 
-function loginReverse(){
-  animation.login.reverse();
-  animation.body.reverse();
-}
-
-function animationReverse(){
-  switch (animation.level) {
-    case 'login':
-      animation.login.reverse();
-      TweenLite.to('#wrapper_login', 1, {'pointer-events':"none"});
-      break;
-    case 'reg':
-      animation.reg.reverse();
-      break;
-    case 3:
-      achivkaReverse();
-      break;
-  }
-  animation.body.reverse();
-  $('body').css('overflow', "visible");
-  $('body').off('click');
-  var errTooltip = $('section.error_tooltip').css('opacity');
-  if(errTooltip === '1'){
-      TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-  }
-}
 
 $(function() {
   window.tl = null;
@@ -75,6 +78,14 @@ $(function() {
   $('#btn1').on('click', function(){
     $('body').click();
     animateSignup();
+  });
+
+  $('#philosophie_block5 .button-dark').on('click', function(){
+    if (!currentUser) {
+      fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
+    } else {
+      document.location.href = '/dashboard_client.html'
+    }
   });
 
   $('#reg_block5').on('click', function(){

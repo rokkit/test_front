@@ -19,8 +19,91 @@
 		%script{ :src => "./js/lib/d3.js" }
 		%script{ :src => "./js/data.js" }
 		%script{ :src => "./js/nodes.js" }
+		%script{ :src => "./js/animation.js" }
+		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/header.js" }
 	%body#html_body
+		-# Регистрация
+		.wrapper.center-center{:id => 'wrapper_signup'}
+			%section.popup{:id => 'signup_form'}
+				%header
+					%h2 Регистрация
+					%p.h2_subtitle
+						Регистрация нового пользователя. Если у вас уже есть аккаунт —
+						%a{:href =>"#login"} войдите.
+				%form{:action => "", :method => "get", :autocomplete => "off"}
+					%input{:style => "display:none"}
+					%input{:style => "display:none", :type => "password"}
+					%input{:type => "text", :name => "phone", :placeholder => "Телефон +7XXXXXXX"}
+					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
+		-# Логин
+		.wrapper.center-center{:id => 'wrapper_login'}
+			%section#error_password.error_tooltip
+				Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+			%section.popup{:id => 'login_form'}
+				%header
+					%h2 Войти
+					%p.h2_subtitle
+						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
+						%a{:href =>"#registration"} зарегистрируйтесь.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Войти
+				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+		-# Меню
+		.wrapper.center-center{:id => 'wrapper_menu'}
+			%section#menu_left_part.left_menu
+				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%span
+					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+
+				%footer
+					%p Copyright © 2015 Уникальные Кальянные
+					%p
+						Создано в
+						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+			-# Left bar
+			%section#menu_right_part.right_menu
+				%img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				-# %a
+				-# 	%h3#main_nav_btn Главная страница
+				-# 	%p Основная информация
+				%a
+					%h3#lounges_nav_btn Ложи
+					%p Уникальные заведения
+
+				%a
+					%h3#philosophy_nav_btn Философия
+					%p Наши ценности
+
+				%a
+					%h3#community_nav_btn Сообщество
+					%p Полезно быть своим
+				%a
+					%h3 Франшиза
+					%p Открыть Ложу
+
+				%button Круг избранных
+
+		-# Color Overlay
+		#color_overlay.color_overlay
 		-# Основной контент
 		%main{:id => 'main_content'}
 			-# Первый блок
@@ -61,10 +144,10 @@
 					%p *Оригинал один - остальное копии
 				-# Герб
 				%img#liberty_herb.layer{ :src=>"./images/gerb_final.svg", :"data-depth"=>"0.40"}
-				
+
 				%img.gerb_glow_2{ :src=>"./images/gerb_glow.png"}
 				%img.gerb_glow{ :src=>"./images/sun_glow.svg"}
-			
+
 			-# Второй блок
 			%section#liberty_block2
 				.text-wrapper-liberty
@@ -124,7 +207,7 @@
 				%header
 					%h2 Контакты
 					%h5 По вопросам справки обращайтесь по телефону в рабочее время:
-			
+
 				%h6 Адрес:
 				%p Санкт-Петербург, улица Маяковского 27
 
@@ -132,7 +215,7 @@
 				%p +7 (812) 777-38-08
 
 				%h6 Рабочие часы:
-				%p 
+				%p
 					Понедельник - Пятница .................... с 17:00 и до последнего гостя
 					<br>
 					Cуббота - Воскресенье ...................... с 16:00 и до последнего гостя
