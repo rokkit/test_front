@@ -23,6 +23,7 @@
 		%script{ :src => "./js/data.js" }
 		%script{ :src => "./js/nodes.js" }
 		%script{ :src => "./js/header.js" }
+		%script{ :src => "./js/profile.js" }
 
 		-# Habmurger
 		%script{ :src => "./js/lib/snap.svg-min.js" }
@@ -356,18 +357,19 @@
 							%h3 Хорошо заполненный профиль способствует увеличению полезных знакомств
 						%fieldset
 							%legend	Основная информация
-							%input{:type => "text", :name => "input", :placeholder => "ФИО"}
-							%input{:type => "text", :name => "input", :placeholder => "Город"}
-							%input{:type => "text", :name => "input", :placeholder => "Рабочая должность"}
-							%input{:type => "text", :name => "input", :placeholder => "Компания работодатель"}
-							%input.large{:type => "text", :name => "input", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
+							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+							%input{:type => "text", :name => "city", :placeholder => "Город"}
+							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
+							%input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
+							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
 						%fieldset
 							%legend	Регистрационные данные
-							%input{:type => "text", :name => "input", :placeholder => "Номер телефона"}
+							%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+							%input{:type => "text", :name => "email", :placeholder => "E-mail"}
 						%fieldset
-							%legend	зменить пароль
-							%input{:type => "password", :name => "input", :placeholder => "Старый пароль"}
-							%input{:type => "password", :name => "input", :placeholder => "Новый пароль"}
+							%legend	сменить пароль
+							%input{:type => "password", :name => "old_password", :placeholder => "Старый пароль"}
+							%input{:type => "password", :name => "new_password", :placeholder => "Новый пароль"}
 						%button{:type=>"sumbit", :name=>"sumbit"} Сохранить
 
 		-# Color Overlay

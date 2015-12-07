@@ -23,6 +23,7 @@
     <script src='./js/data.js'></script>
     <script src='./js/nodes.js'></script>
     <script src='./js/header.js'></script>
+    <script src='./js/profile.js'></script>
     <script src='./js/lib/snap.svg-min.js'></script>
     <script src='./js/lib/svgicons-config.js'></script>
     <script src='./js/lib/svgicons.js'></script>
@@ -435,20 +436,21 @@
             </header>
             <fieldset>
               <legend>Основная информация</legend>
-              <input name='input' placeholder='ФИО' type='text'>
-              <input name='input' placeholder='Город' type='text'>
-              <input name='input' placeholder='Рабочая должность' type='text'>
-              <input name='input' placeholder='Компания работодатель' type='text'>
-              <input class='large' name='input' placeholder='Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами.' type='text'>
+              <input name='name' placeholder='ФИО' type='text'>
+              <input name='city' placeholder='Город' type='text'>
+              <input name='employe' placeholder='Рабочая должность' type='text'>
+              <input name='work_company' placeholder='Компания работодатель' type='text'>
+              <input class='large' name='hobby' placeholder='Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами.' type='text'>
             </fieldset>
             <fieldset>
               <legend>Регистрационные данные</legend>
-              <input name='input' placeholder='Номер телефона' type='text'>
+              <input name='phone' placeholder='Номер телефона' type='text'>
+              <input name='email' placeholder='E-mail' type='text'>
             </fieldset>
             <fieldset>
-              <legend>зменить пароль</legend>
-              <input name='input' placeholder='Старый пароль' type='password'>
-              <input name='input' placeholder='Новый пароль' type='password'>
+              <legend>сменить пароль</legend>
+              <input name='old_password' placeholder='Старый пароль' type='password'>
+              <input name='new_password' placeholder='Новый пароль' type='password'>
             </fieldset>
             <button name='sumbit' type='sumbit'>Сохранить</button>
           </form>
