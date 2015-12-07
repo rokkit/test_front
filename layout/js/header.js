@@ -33,25 +33,6 @@ function animateBG(){
   TweenLite.to('body', 1, {overflow:"hidden"});
 }
 
-function animateLogin(){
-  TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-  animation.login = new TimelineLite()
-  .to('#login_form', 1, {left:"190px"})
-  .to('#wrapper_login', 0, {'pointer-events':"auto"});
-
-  animation.level = 'login';
-}
-
-function animateSignup() {
-  TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-  animation.reg = new TimelineLite()
-  .to('#signup_form', 1, {left:"120px"})
-  .to('#wrapper_signup', 0, {'pointer-events':"auto"});
-
-  animation.level = 'reg';
-}
-
-
 function loginReverse(){
   animation.login.reverse();
   animation.body.reverse();
@@ -89,40 +70,11 @@ $(function() {
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
 
-  //Клик на кнопку Войти в хедере
-  $('#login_header_btn').on('click', function() {
-    if (!currentUser) {
-      animateLogin();
-      animateBG();
-      bodyClick();
-    } else {
-      document.location.href = '/dashboard_client.html'
-    }
 
-  });
 
   $('#btn1').on('click', function(){
     $('body').click();
     animateSignup();
-  });
-
-  $('#login_form a').click(function(){
-    animation.login.reverse();
-    animateSignup();
-    bodyClick();
-  });
-
-  $('#signup_form a').click(function(){
-    animation.reg.reverse();
-    animateLogin();
-    bodyClick();
-  });
-
-   //Клик на кнопку регистрация в хедере
-  $('#signup_header_btn').on('click', function() {
-    animateSignup();
-    animateBG();
-    bodyClick();
   });
 
   $('#reg_block5').on('click', function(){

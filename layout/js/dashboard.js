@@ -1,7 +1,6 @@
 var fx = new FX(fxa.dashboard);
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-
 $(function() {
 
   //Работа с сервером
@@ -66,15 +65,15 @@ $(function() {
     $('input[name="visit_date"]').on('click', function() {
       $(this).val(moment().format('YYYY-MM-DD'))
     })
-<<<<<<< HEAD
-=======
 
     function bodyClickOff(){
       $('body').off('click');
+      $('#reserv_succes_form').css('right', '1600');
+
     }
->>>>>>> 860e8bfbd5eef981fdd201d030d47243e12eef2a
 
   	$('#n_o_a').click(function(e){
+      TweenLite.to('section.error_tooltip', 0, {opacity: 0});
       fx.do(['reserv', 'background'], bodyClick, bodyClickOff);
   	});
 
@@ -98,7 +97,7 @@ $(function() {
 
     $('#reserv_form').submit(function(e){
       e.preventDefault();
-      $('.wrong').removeClass('wrong')
+      $('.wrong').removeClass('wrong');
       if(!$('input[name=visit_date]').val()) {
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('input[name="visit_date"]').addClass('wrong')
@@ -132,8 +131,9 @@ $(function() {
         } else {
           $('#visit_date_result').text(visit_date)
           $('#visit_time_result').text(visit_time)
-          getReservations()
-          ReservSuccessForm();
+          getReservations();
+          TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+          fx.swap('reserv', 'reserv_succes_form');
         }
 
       })
@@ -141,10 +141,8 @@ $(function() {
     });
 
     $('#reserv_succes_form').submit(function(e){
-      animateRevers();
-      $('#reserv_succes_form').click(function(event){
-        event.stopPropagation();
-      });
+      //animateRevers();
+      fx.back();
       e.preventDefault();
     });
 
@@ -153,15 +151,14 @@ $(function() {
       fx.do(['allAchiv', 'background'], bodyClick, bodyClickOff);
     });
 
-    $('#all_ach a').click(function(){
-      achivReverse();
-      animation.body.reverse();
-    });
+    $('#all_ach a').click(fx.back);
 
-    $('#all_talents a').click(talentsReverse);
+    $('#all_talents a').click(fx.back);
 
     // Открытие всех навыков
-    $('#dashboard_talents_btn').click(animateTalents);
+    $('#dashboard_talents_btn').click(function(){
+      fx.do(['skillBoard', 'background'], bodyClick, bodyClickOff);
+    });
     // Открытие достижения
     $(document).on('click', '#achievements figure',function() {
       var achiv = $(this)
@@ -174,14 +171,20 @@ $(function() {
 
     $(document).on('click', '#skills figure', function(){
       var skill = $(this)
-      $('#achivka h2').text(skill.find('h6').text());
-      $('#achivka p').text(skill.attr('data-description'));
-      $('#achivka img').attr('src', (skill.find('img').attr('src')));
-      fx.do(['skill', 'background']);
+      $('#skill h2').text(skill.find('h6').text());
+      $('#skill p').text(skill.attr('data-description'));
+      $('#skill img').attr('src', (skill.find('img').attr('src')));
+      fx.do(['skill', 'background'], bodyClick, bodyClickOff);
       //bodyClick();
     });
 
+    $('.username h1').click(function(){
+      fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
+    });
 
+    $('#edit-profile a').click(function(){
+      fx.back();
+    });
 });
 
 $(function(){
@@ -190,6 +193,14 @@ $(function(){
   });
 
   $('.popup_vertical').click(function(e){
+    e.stopPropagation();
+  });
+
+  $('#reserv_succes_form').click(function(event){
+    event.stopPropagation();
+  });
+
+  $('.popup_horizontal').click(function(e){
     e.stopPropagation();
   });
 });
@@ -215,152 +226,11 @@ $(function() {
 
 function bodyClick(e){
   $('body').on('click', function(e) {
+    TweenLite.to('section.error_tooltip', 1, {opacity: 0});
     fx.back();
   });
 }
 
-var animation = {
-  level: 0,
-  body: {},
-  reserv: {},
-  success: {},
-  achiv: {},
-  talents: {},
-  achivka: {},
-  achivBG: {},
-  isBody: true
-};
-
-function animateBG(){
-  animation.body = new TimelineLite()
-  .to('.color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"}, 'sequence')
-  .to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"}, 'sequence');
-  TweenLite.to('body', 0, {overflow:"hidden"});
-}
-
-function animateAchivBG(){
-  animation.achivBG = new TimelineLite()
-  .to('#all_ach_wrapper', 1, {
-    opacity: '0.8',
-    "-webkit-opacity":"1",
-    filter: 'blur(5px)',
-    "-webkit-filter":"blur(4px)",
-    transform: 'scale(0.95, 0.95)',
-    overflow: 'hidden',
-    'pointer-events': 'none'
-  });
-  animation.level = 'achivBG';
-  //  bodyClick();
-}
-
-function animateReserv(){
-  animation.reserv = new TimelineLite()
-  .to('#reserv_form', 1, {left:"160px", 'pointer-events':"auto"}, 'sequence');
-  animation.level = 1;
-}
-
-function animateSuccess(){
-  animation.success = new TimelineLite()
-  .to('#reserv_succes_form', 1, {right:"0px", 'pointer-events':"auto"}, 'sequence');
-  animation.level = 2;
-}
-
-function ReservSuccessForm(){
-  TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
-  animateSuccess();
-}
-
-function animateRevers(){
-  switch (animation.level) {
-    case 1:
-      TweenLite.to('#reserv_form', 1, {left:"1860px", 'pointer-events':"auto"}, 'sequence');
-      animation.level = 'none';
-      break;
-    case 2:
-      TweenLite.to('#reserv_succes_form', 1, {right:"-1260px", 'pointer-events':"auto", onComplete:function(){$('#reserv_succes_form').css('right', '3000px')}}, 'sequence');
-      animation.level = 'none';
-      break;
-    case 'achivka':
-      achivkaReverse();
-      animation.level = 'none';
-      break;
-    case 'achiv':
-      achivReverse();
-      animation.level = 'none';
-      break;
-    case 'achivBG':
-      achivkaReverse();
-      animation.achivBG.reverse();
-      animation.level = 'achiv';
-      break;
-  }
-<<<<<<< HEAD
-  TweenLite.to('body', 0, {'overflow': 'auto'});
-  animation.body.reverse();
-  var errTooltip = $('section.error_tooltip').css('opacity');
-  if(errTooltip === '1'){
-      TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-  }
-  //$('body').css('overflow', "visible");
-  $('body').off('click');
-=======
-
-
-  if(animation.level === 'none'){
-    TweenLite.to('body', 0, {'overflow': 'auto'});
-    animation.body.reverse();
-    var errTooltip = $('section.error_tooltip').css('opacity');
-    if(errTooltip === '1'){
-        TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-    }
-      $('body').off('click');
-  }
->>>>>>> 860e8bfbd5eef981fdd201d030d47243e12eef2a
-}
-
-function animateAchiv(cb){
-  animation.achiv = new TimelineLite()
-  .to('#all_ach', 1, {top:"80px", onComplete: cb});
-  animateBG();
-  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
-  $('#all_ach .popup_vertical_symbol').css('pointer-events',"none");
-  animation.level = 'achiv';
-}
-
-function animateTalents(){
-  animation.talents = new TimelineLite()
-  .to('#all_talents', 1, {top:"80px"});
-  animateBG();
-  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"auto"});
-  $('#all_talents .popup_vertical_symbol').css('pointer-events',"none");
-  $('#all_talents').css('pointer-events',"auto");
-}
-
-function achivReverse(){
-  TweenLite.to('#all_ach', 1, {top:"1800px"});
-  //animation.achiv.reverse();
-  TweenLite.to('body', 0, {'overflow': 'auto'});
-  //animation.body.reverse();
-  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
-}
-
-function talentsReverse(){
-  animation.talents.reverse();
-  TweenLite.to('body', 0, {'overflow': 'auto'});
-  animation.body.reverse();
-  TweenLite.to('#all_ach_wrapper', 1, {'pointer-events':"none"});
-}
-
-function animateAchivka(){
-  animation.achivka = new TimelineLite()
-  .to('#achivka', 0.5, {top:"0"});
-  animateBG();
-  animation.level = 'achivka';
-}
-
-function achivkaReverse(){
-  animation.achivka.reverse();
-}
 
 //Загрузка ачивок и скилов
 
@@ -370,9 +240,6 @@ function card(){
     $('#achivka p').text(achiv.attr('data-description'))
     $('#achivka img').attr('src', (achiv.find('img').attr('src')))
     fx.do(['achiv', 'allAchivBG']);
-    //animateAchivka();
-    //animateAchivBG();
-    //bodyClick();
 }
 
 $(function() {
