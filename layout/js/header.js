@@ -38,7 +38,12 @@ $(function(){
 
   //Клик на кнопку регистрация в хедере
  $('#signup_header_btn').on('click', function() {
-   fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+
+   if (!currentUser) {
+     fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+   } else {
+     document.location.href = '/dashboard_client.html'
+   }
  });
 
  $('#login_form a').click(function(){
@@ -52,13 +57,6 @@ $(function(){
 
 $(function() {
   window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
-  if(currentUser){
-    $('#login_header_btn').text(currentUser.name)
-    $('#signup_header_btn').hide()
-  } else {
-    $('#login_header_btn').text('Войти')
-    $('#signup_header_btn').show()
-  }
 })
 
 

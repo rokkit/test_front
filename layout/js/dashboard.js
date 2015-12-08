@@ -14,7 +14,7 @@ $(function() {
 
 	if (currentUser) {
   		$('section.username h1').text(currentUser.name);
-  		$('#login_btn').text(currentUser.name);
+  		// $('#login_btn').text(currentUser.name);
       if(currentUser.city) {
         $('#city_user span').text(currentUser.city);
       }
@@ -198,9 +198,18 @@ $(function() {
     $('.username h1').click(function(){
       fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
     });
+    $('#edit_profile_btn').click(function(){
+      fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
+    });
 
     $('#edit-profile a').click(function(){
       fx.back();
+    });
+
+    $('#logout_btn').click(function() {
+      localStorage.removeItem('currentUser')
+      window.currentUser = null
+      document.location.href = '/pages_index.html'
     });
 
     window.hostUrl = 'http://176.112.194.149:81'
@@ -256,8 +265,8 @@ $(function(){
       window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
 
   });
-  $('#login_header_btn').text(currentUser.name)
-  $('#signup_header_btn').hide()
+  // $('#login_header_btn').text(currentUser.name)
+  // $('#signup_header_btn').hide()
 })
 
 // PRELOADER
@@ -289,7 +298,7 @@ $(function() {
   $.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token, role: 'user'}, function(json) {
     $('#achievements').empty()
     $('#all_ach .wrapper_for_ach').empty()
-    $('#dashboard_ach_btn').text(0+'/'+json.length)
+    $('#dashboard_ach_btn').text(currentUser.achievements.length+'/'+json.length)
     $.each(json, function(i) {
       var template = "<figure data-id="+this.id+" onclick='card("+this.id+")' data-description='"+this.description+"'><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
@@ -303,7 +312,8 @@ $(function() {
     })
     $.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token, role: 'user'}, function(json) {
       $('#skills').empty()
-      $('#dashboard_talents_btn').text(0+'/'+json.length)
+
+      $('#dashboard_talents_btn').text(currentUser.skills.length+'/'+json.length)
       json = json.slice(0, 5)
         $.each(json, function(i) {
           var template = "<figure><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получен</p></ficapation></figure>";

@@ -73,7 +73,7 @@ $(function(){
       node = node.data(force.nodes());
       link = link.data(force.links());
 
-      node.enter().append("g").attr("class", "node");
+      node.enter().append("g").attr("class", "node").attr('data-id', function(v) { return v.id });
       link.enter().insert("line", ".node").attr("class", "link");
       //link.enter().append("g", '.node').attr("class", "link");
 
@@ -111,13 +111,15 @@ link.attr("mask", "url(#ellipse-clip)");
         var skill = $(this)
         if(!d.has){
           if(d.can_take){
-            $('#skill h4').text('ЭТОТ НАВЫК ДОСТУПЕН ДЛЯ ПОЛУЧЕНИЯ');
+            $('#skill h4').text('ЭТОТ НАВЫК ДОСТУПЕН ДЛЯ ИЗУЧЕНИЯ');
             $('#skill button').show();
             $('#skill button').on('click', function(){
               $.post('http://176.112.194.149:81/api/v1/skills/'+d.id+'/take.json', {auth_token: currentUser.auth_token});
+              $('.node[data-id='+d.id+'] text:last').text('изучен')
+              $('#dashboard_talents_btn').text((currentUser.skills.length+1)+'/'+json.length)
             });
           }else{
-            $('#skill h4').text('ЭТОТ НАВЫК НЕ ПОЛУЧЕН');
+            $('#skill h4').text('ЭТОТ НАВЫК НЕ ИЗУЧЕН');
             $('#skill img').addClass('color_blue_ach');
             $('#skill button').hide();
           }
@@ -163,7 +165,7 @@ link.attr("mask", "url(#ellipse-clip)");
           .attr("x", -40)
           .attr("y", -40)
           .attr("width", 80)
-          .attr("height", 80);
+          .attr("height", 80)
 
       var title = node.append('text')
       .text(function(e){
@@ -179,7 +181,9 @@ link.attr("mask", "url(#ellipse-clip)");
       node.append('text')
       .text(function(e){
         if (!e.has){
-          return 'не получено';
+          return 'не изучен';
+        } else {
+          return 'изучен';
         }
       })
       .attr('fill', 'rgba(255,255,255,0.3)')
