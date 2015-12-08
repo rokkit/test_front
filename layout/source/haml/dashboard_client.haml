@@ -27,7 +27,14 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-
+	%script{type: "text/template", id: 'reservation_tpl'}
+		%tr
+			%td{date: {id: '{{ id }}'}}
+				%h6{style: 'color: {{ color }};'} {{ name }}
+			%td.td-date {{ visit_date }} {{ visit_time }} - {{ end_visit_time }}
+			%td {{ client_count }}
+			%td
+				%span.color-orange.cancel_reserv Отменить
 	%body#html_body
 		-# Form
 		.wrapper.center-center
@@ -45,12 +52,15 @@
 					-# %select{:name=>"table"}
 					-# 	%option
 					-# 		Столик
-					%select{:name=>'client_count'}
+					%select{:name=>'client_count', style: 'width: 160px;'}
 						%option Количество гостей
-						%option{:value => '4'} Трое или меньше
-						%option{:value => '5'} От четырёх до пяти
+						%option{:value => '4'} 2-3
+						%option{:value => '5'} 3-5
 
-					%input{:id=> 'datepicker', :type => "text", :name => "visit_date", :placeholder => "Дата"}
+					%select{:id => 'visit_date', :type => "text", :name => "visit_date", :placeholder => "Дата"}
+						%option{:value => 'today', :selected => 'true'} Сегодня
+						%option{:value => 'tomorrow'} Завтра
+						%option{:value => 'date_choose'} Указать дату
 					%select{:name=>'visit_time'}
 						%option{:value => '17:00', :'data-time' => '1700'} 17:00
 						%option{:value => '17:30', :'data-time' => '1730'} 17:30
@@ -259,6 +269,7 @@
 							%tr
 								%th Кальянная
 								%th Дата
+								%th Количество
 								%th Статус
 						%tbody#reserve_table_body
 							%tr
@@ -270,30 +281,6 @@
 									Скоро
 									%br
 									%span.color-orange Отменить
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 4 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 2 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 7 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 3 человека
-								%td Прошла
 				%article
 					%header
 						%h4 Посещения
