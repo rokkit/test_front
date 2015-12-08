@@ -10,7 +10,9 @@ $(function() {
 	if (currentUser) {
   		$('section.username h1').text(currentUser.name)
   		$('#login_btn').text(currentUser.name)
-      $('#city_user span').text(currentUser.city)
+      if(currentUser.city) {
+        $('#city_user span').text(currentUser.city)
+      }
 	}
     //Загрузить начальные данные
     $(function() {

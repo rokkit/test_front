@@ -13,7 +13,7 @@ body,html {
   box-sizing: border-box;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 Slider
 
@@ -56,7 +56,7 @@ Slider
 @-webkit-keyframes movearound {
   0% {
     -webkit-transform: scale(1);
-  }   
+  }
   100% {
     -webkit-transform: scale(1.2);
   }
@@ -76,7 +76,7 @@ Slider
   -moz-transition: -moz-transform 0.5s;
   transition: transform 0.5s;
 }
-/* -------------------------------- 
+/* --------------------------------
 
 Slider navigation
 
@@ -107,10 +107,10 @@ Slider navigation
   float: left;
   overflow: hidden;
 
-  -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
-  -moz-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
-  -o-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
-  transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+  -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
 }
 
 .cd-slider-nav li.selected {
@@ -142,7 +142,7 @@ Slider navigation
 
 
 
-/* -------------------------------- 
+/* --------------------------------
 
 My style style
 
@@ -160,8 +160,8 @@ My style style
   position: relative;
   width: 100%;
 
-  -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
-  -moz-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
-  -o-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
-  transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+  -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
 }
