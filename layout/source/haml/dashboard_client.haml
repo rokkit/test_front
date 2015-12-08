@@ -28,13 +28,19 @@
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
 	%script{type: "text/template", id: 'reservation_tpl'}
-		%tr
-			%td{date: {id: '{{ id }}'}}
+		%tr{data: {id: '{{ id }}'}}
+			%td
 				%h6{style: 'color: {{ color }};'} {{ name }}
 			%td.td-date {{ visit_date }} {{ visit_time }} - {{ end_visit_time }}
 			%td {{ client_count }}
 			%td
 				%span.color-orange.cancel_reserv Отменить
+				.popover-reserv
+					%p Отменить бронирование
+					.buttons
+						%span.cancel_reserv_confirm Да
+						%span.cancel_reserv_decline Нет
+					.popover-reserv-arrow
 	%body#html_body
 		-# Form
 		.wrapper.center-center
@@ -53,9 +59,9 @@
 					-# 	%option
 					-# 		Столик
 					%select{:name=>'client_count', style: 'width: 160px;'}
-						%option Количество гостей
-						%option{:value => '4'} 2-3
-						%option{:value => '5'} 3-5
+						%option{:value => '2-3'} Количество гостей
+						%option{:value => '2-3'} 2-3
+						%option{:value => '3-5'} 3-5
 
 					%select{:id => 'visit_date', :type => "text", :name => "visit_date", :placeholder => "Дата"}
 						%option{:value => 'today', :selected => 'true'} Сегодня

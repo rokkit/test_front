@@ -26,14 +26,22 @@
     <script src='./js/lib/svgicons.js'></script>
   </head>
   <script id='reservation_tpl' type='text/template'>
-    <tr>
-      <td date-id='{{ id }}'>
+    <tr data-id='{{ id }}'>
+      <td>
         <h6 style='color: {{ color }};'>{{ name }}</h6>
       </td>
       <td class='td-date'>{{ visit_date }} {{ visit_time }} - {{ end_visit_time }}</td>
       <td>{{ client_count }}</td>
       <td>
         <span class='color-orange cancel_reserv'>Отменить</span>
+        <div class='popover-reserv'>
+          <p>Отменить бронирование</p>
+          <div class='buttons'>
+            <span class='cancel_reserv_confirm'>Да</span>
+            <span class='cancel_reserv_decline'>Нет</span>
+          </div>
+          <div class='popover-reserv-arrow'></div>
+        </div>
       </td>
     </tr>
   </script>
@@ -56,9 +64,9 @@
             </option>
           </select>
           <select name='client_count' style='width: 160px;'>
-            <option>Количество гостей</option>
-            <option value='4'>2-3</option>
-            <option value='5'>3-5</option>
+            <option value='2-3'>Количество гостей</option>
+            <option value='2-3'>2-3</option>
+            <option value='3-5'>3-5</option>
           </select>
           <select id='visit_date' name='visit_date' placeholder='Дата' type='text'>
             <option selected='true' value='today'>Сегодня</option>
