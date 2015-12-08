@@ -2450,6 +2450,9 @@ section.popup_overall h4 {
 section.popup_overall p {
   color: rgba(255, 255, 255, 0.5);
 }
+section.popup_overall button {
+  display: none;
+}
 
 div.wrapper {
   position: fixed;
