@@ -33,3 +33,21 @@ button.button-dark.style-rezerv {
 button.button-dark.style-rezerv:hover {
 	background-color: #89C37C !important;
 }
+
+/* Кальянная "Unityhall" Казань */
+h1.style-unityhall , h2.style-unityhall , h3.style-unityhall {
+	color : #E76044 !important
+}
+
+#reserve_table_btn.style-unityhall {
+	background-color: #E76044 !important;
+	border : none;
+}
+
+button.button-dark.style-unityhall {
+	border-color: #E76044 !important;
+}
+
+button.button-dark.style-unityhall:hover {
+	background-color: #E76044 !important;
+}
