@@ -1,5 +1,6 @@
 var fxa = {
   dashboard:{
+    defaultTime: 1,
     main:{
       element: '#main_content',
       options: {
@@ -86,6 +87,7 @@ var fxa = {
     background: ['main', 'overlay', 'body']
   },
   pages_index: {
+    defaultTime: 1,
     main: {
       element: '#main_content',
       options: {

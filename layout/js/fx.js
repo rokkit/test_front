@@ -1,4 +1,6 @@
 var FX = (function(animations){
+  var defaultTime = animations.defaultTime;
+
   var module = {
     animations: {},
     animate: {},
@@ -77,17 +79,19 @@ var FX = (function(animations){
     if(item instanceof Array){
       item.forEach(function(it){
         var anim = module.animations[it];
+        var time = (anim.time !== undefined) ? anim.time : defaultTime;
         module.animate[name].to(
           anim.element,
-          1,
+          time,
           anim.options,
           'normal'
         );
       });
     } else {
+      var time = (item.time !== undefined) ? item.time : defaultTime;
       module.animate[name].to(
         item.element,
-        1,
+        time,
         item.options,
         'normal'
       );

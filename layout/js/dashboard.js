@@ -2,7 +2,7 @@ var fx = new FX(fxa.dashboard);
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 $(function() {
-
+  console.log('%c Created by CPDBBK', 'font-size: 26px; color: blue');
   window.hostUrl = 'http://176.112.194.149:81'
 
 	if (currentUser) {
