@@ -3,6 +3,7 @@
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/clouds.css" }
 		%script{ :src => "./js/jquery-2.1.4.min.js" }
 		%script{ :src => "./js/jquery.gsap.min.js" }
 		%script{ :src => "./js/TweenLite.min.js" }
@@ -21,6 +22,7 @@
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/header.js" }
+
 	%body#html_body{:data => {'page' => 'philosophy'}}
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}
@@ -106,6 +108,10 @@
 		%main{:id => 'main_content'}
 			-# Первый блок
 			%section#philosophie_block1
+				#viewport
+					#world
+				#viewport2
+					#world2
 				-# Хидер
 				%header#header
 					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
@@ -115,7 +121,9 @@
 						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 					%hr
 				-# Контент
-				%img{ :src=>"./images/philosophie_h1.svg" , :alt=>"Оригинал один — остальное копии"}
+				%img.image{ :src=>"./images/philosophie_h1.svg" , :alt=>"Оригинал один — остальное копии"}
+
+
 
 			-# Второй блок
 			%section#philosophie_block2
@@ -176,3 +184,5 @@
 				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
 				%img.sun_rotation{ :src=>"./images/sun_lines.svg"}
 				%img{ :src=>"./images/sun.svg" , :alt=>"Звезда"}
+		%script{ :src => "./js/clouds.js" }
+		%script{ :src => "./js/clouds2.js" }

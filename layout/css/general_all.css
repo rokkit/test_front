@@ -1005,7 +1005,7 @@ section.lounges article.lounge {
   background: url("../images/bg_smoke_2.jpg");
   z-index: 150;
 }
-#philosophie_block1 img {
+#philosophie_block1 img.image {
   display: inline-block;
   position: relative;
   height: 50%;
@@ -1893,21 +1893,38 @@ section.user_achievments section.wrapper_for_ach figure figcapation p {
 
 .popover-reserv {
   position: absolute;
-  width: 150px;
-  height: 50px;
-  background-color: #e9d4de;
+  display: none;
+  width: 200px;
+  height: 80px;
+  background-color: #181B21;
   border-radius: 4px;
-  top: 0px;
-  left: 255px;
+  top: 50px;
+  left: 50px;
+  color: #fff;
+  text-align: center;
+}
+.popover-reserv button {
+  width: 80px;
+  background-color: #181B21;
+  border: 0;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.popover-reserv .buttons {
+  text-align: center;
+}
+.popover-reserv p {
+  padding-top: 12px;
 }
 
 .popover-reserv-arrow {
   position: absolute;
-  bottom: -20px;
-  left: 80px;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #e9d4de;
+  bottom: -10px;
+  left: 90px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #181B21;
   width: 0;
   height: 0;
 }

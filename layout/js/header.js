@@ -127,7 +127,7 @@ $(function() {
   //Создание сесии
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
-    doLogin($('#login_form input[name="phone"]').val().replace('+', ''), $('#login_form input[name="password"]').val())
+    doLogin(formatPhone($('#login_form input[name="phone"]').val()), $('#login_form input[name="password"]').val())
   });
 
   $('#header img').on('click', function() {
@@ -186,7 +186,7 @@ $(function() {
       }
     });
   });
-  $('input[name="phone"]').mask('+70000000000')
+  $('input[name="phone"]').mask('+7 (000) 000-00-00')
 });
 
 // function bodyClick(){
@@ -351,3 +351,7 @@ function strip(html){
    return tmp.textContent || tmp.innerText || "";
 }
 // Конец
+function formatPhone(raw_number) {
+  raw_number = raw_number.replace(/ /g, '').replace('+', '').replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
+  return raw_number
+}

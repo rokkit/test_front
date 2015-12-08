@@ -35,8 +35,12 @@
 			%td {{ client_count }}
 			%td
 				%span.color-orange.cancel_reserv Отменить
-				%div.popover-reserv
-					%div.popover-reserv-arrow
+				.popover-reserv
+					%p Отменить бронирование
+					.buttons
+						%span.cancel_reserv_confirm Да
+						%span.cancel_reserv_decline Нет
+					.popover-reserv-arrow
 	%body#html_body
 		-# Form
 		.wrapper.center-center
