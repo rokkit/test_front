@@ -43,12 +43,16 @@
               Кальянная
             </option>
           </select>
-          <select name='client_count'>
+          <select name='client_count' style='width: 160px;'>
             <option>Количество гостей</option>
-            <option value='4'>Трое или меньше</option>
-            <option value='5'>От четырёх до пяти</option>
+            <option value='4'>2-3</option>
+            <option value='5'>3-5</option>
           </select>
-          <input id='datepicker' name='visit_date' placeholder='Дата' type='text'>
+          <select id='visit_date' name='visit_date' placeholder='Дата' type='text'>
+            <option selected='true' value='today'>Сегодня</option>
+            <option value='tomorrow'>Завтра</option>
+            <option value='date_choose'>Указать дату</option>
+          </select>
           <select name='visit_time'>
             <option data-time='1700' value='17:00'>17:00</option>
             <option data-time='1730' value='17:30'>17:30</option>

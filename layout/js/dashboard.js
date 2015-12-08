@@ -68,9 +68,9 @@ console.log("%c Created by CPDBBK", css);
       })
     });
 
-    $('input[name="visit_date"]').on('click', function() {
-      $(this).val(moment().format('YYYY-MM-DD'))
-    })
+    // $('input[name="visit_date"]').on('click', function() {
+    //   $(this).val(moment().format('YYYY-MM-DD'))
+    // })
 
     function bodyClickOff(){
       $('body').off('click');
@@ -89,40 +89,47 @@ console.log("%c Created by CPDBBK", css);
       return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
     })
     $('select[name="visit_time"]').html(time_options)
-    // $('select[name="visit_date"]').on('change', function() {
-    //
-    //   var lounge = $('select[name="lounge"]').val()
-    //   console.log('change', tables)
-    //   var options = $(tables).filter("optgroup[data-id="+lounge+"]").html()
-    //   if (options) {
-    //     $('select[name="table"]').html(options)
-    //   } else {
-    //     $('select[name="table"]').empty()
-    //   }
-    // });
+
+    $('#visit_date').on('change', function() {
+      var visit_date = $(this).val()
+      console.log(visit_date)
+      if(visit_date == 'today') {
+        var time_options = $(times).filter(function(index) {
+          return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
+        })
+        $('select[name="visit_time"]').html(time_options)
+      } else if (visit_date == 'tomorrow') {
+          $('select[name="visit_time"]').html(times)
+      } else if (visit_date == 'date_choose') {
+          $(this).replaceWith('<input type=text name="visit_date" id="visit_date" placeholder="ГГГГ-ММ-ДД"/>')
+          $('#visit_date').mask('0000-00-00')
+          $('select[name="visit_time"]').html(times)
+      }
+    });
 
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       $('.wrong').removeClass('wrong');
-      if(!$('input[name=visit_date]').val()) {
-        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-        $('input[name="visit_date"]').addClass('wrong')
-        return
-      }
       if($('select[name=visit_time]').val() == 'время') {
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('select[name="visit_time"]').addClass('wrong')
         return
       }
-      var visit_date = $('input[name=visit_date]').val()
-      var visit_time = $('input[name=visit_time]').val()
+      var visit_date = $('#visit_date').val()
+      if(visit_date == 'today') {
+        visit_date = moment().format('YYYY-MM-DD')
+
+      } else if(visit_date == 'tomorrow') {
+        visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
+      }
+      var visit_time = $('select[name=visit_time]').val()
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
         lounge: $('select[name=lounge]').val(),
         table_id: $('select[name=table]').val(),
         client_count: $('select[name=client_count]').val(),
         duration: $('select[name=duration]').val(),
-        visit_date: $('input[name=visit_date]').val() + ' ' + $('select[name=visit_time]').val()
+        visit_date: visit_date + ' ' + $('select[name=visit_time]').val()
       }, function(json) {
         if (json.errors) {
           if (json.errors.visit_date) {
