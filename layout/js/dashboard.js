@@ -343,11 +343,13 @@ function getReservations() {
 
   });
   $(document).on('click', '.cancel_reserv', function(e) {
-    $(this).closest('tr').remove()
-    $.ajax({
-      url: hostUrl + '/api/v1/reservations/'+$(this).closest('tr').data('id'),
-      data: {auth_token: currentUser.auth_token},
-      type: 'DELETE'
-    })
+    var $popover = $(this).closest('tr').find('.popover')
+    $popover.show()
+    // $(this).closest('tr').remove()
+    // $.ajax({
+    //   url: hostUrl + '/api/v1/reservations/'+$(this).closest('tr').data('id'),
+    //   data: {auth_token: currentUser.auth_token},
+    //   type: 'DELETE'
+    // })
   })
 }
