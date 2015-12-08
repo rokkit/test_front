@@ -94,11 +94,6 @@ $(function() {
     bodyClick();
   });
 
-  $('#menu_right_part button').on('click', function() {
-    window.tl.reverse();
-    animateForm('login_form');
-  });
-
   $('#reserve_table_btn').on('click', function() {
     animateSignup();
     animateBG();
@@ -301,6 +296,18 @@ $(function(){
   });
 
 })
+
+//Ссылка в логотипе
+$(function() {
+  $('#uhp_logo').on('click', function() {
+    document.location.href = '/pages_index.html'
+  });
+
+  $('#menu_right_part button').on('click', function() {
+    document.location.href = 'http://176.112.194.149:81/admin'
+  });
+
+});
 
 //Переходы по страницам меню
 $(function() {
