@@ -3,7 +3,7 @@ var sf;
 $(function(){
   $.getJSON(
     'http://176.112.194.149:81' + '/api/v1/skills.json',
-    {auth_token: currentUser.auth_token, role: currentUser.role},
+    {auth_token: currentUser.auth_token, role: 'user'},
     function(json) {
       sf = skillgen(json);
       var layoutWidth = $('#skill-view').width();
@@ -116,16 +116,16 @@ link.attr("mask", "url(#ellipse-clip)");
           .attr("width", 80)
           .attr("height", 80);
 
-      node.append('text')
+      var title = node.append('text')
       .text(function(e){
         return e.name;
       })
       .attr('fill', 'rgba(255,255,255,255)')
-      .attr('x', -30)
-      .attr('y', 55)
-      .attr("font-size", 10)
-      .attr('letter-spacing', 0.5)
-      .attr("font-family", "normal normal 300 18px Bebas Neue Book");
+      .attr('x', 40)
+      .attr('y', 40)
+      .attr("font-size", 12)
+      .attr('letter-spacing', 1)
+      .attr("font-family", "Bebas Neue Book");
 
       node.append('text')
       .text(function(e){
