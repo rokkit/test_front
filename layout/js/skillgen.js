@@ -8,10 +8,10 @@ function skillgen(data){
   result.nodes = skills.map(function (v) {
     var y = 230;
     v.fixed = true;
-    
+
     switch (v.cost) {
       case 1:
-        v.x = 60;
+        v.x = 80;
         break;
       case 2:
         v.x = 260;

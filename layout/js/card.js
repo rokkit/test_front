@@ -63,6 +63,7 @@ function card(blazons, color, name, nameCity, el){
 		.text('"' + name + '"')
 		.attr("font-size", 24)
 		.attr('letter-spacing', 4)
+    .attr('text-align', 'center')
 		.attr("font-family", "Bebas Neue");
 
 		var titleWidth = title.node().getBoundingClientRect().width;

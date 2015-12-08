@@ -2,7 +2,6 @@
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'>
     <link href='./css/reset.css' rel='stylesheet'>
-    <link href='./css/pikaday.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
     <script src='./js/jquery-2.1.4.min.js'></script>
     <script src='./js/jquery.gsap.min.js'></script>
@@ -12,7 +11,6 @@
     <script src='./js/lib/d3.js'></script>
     <script src='./js/underscore-min.js'></script>
     <script src='./js/moment-with-locales.js'></script>
-    <script src='./js/lib/pikaday.js'></script>
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
     <script src='./js/dashboard.js'></script>
@@ -27,6 +25,18 @@
     <script src='./js/lib/svgicons-config.js'></script>
     <script src='./js/lib/svgicons.js'></script>
   </head>
+  <script id='reservation_tpl' type='text/template'>
+    <tr>
+      <td date-id='{{ id }}'>
+        <h6 style='color: {{ color }};'>{{ name }}</h6>
+      </td>
+      <td class='td-date'>{{ visit_date }} {{ visit_time }} - {{ end_visit_time }}</td>
+      <td>{{ client_count }}</td>
+      <td>
+        <span class='color-orange cancel_reserv'>Отменить</span>
+      </td>
+    </tr>
+  </script>
   <body id='html_body'>
     <div class='wrapper center-center'>
       <section class='error_tooltip' id='error_password'>
@@ -45,12 +55,16 @@
               Кальянная
             </option>
           </select>
-          <select name='client_count'>
+          <select name='client_count' style='width: 160px;'>
             <option>Количество гостей</option>
-            <option value='4'>Трое или меньше</option>
-            <option value='5'>От четырёх до пяти</option>
+            <option value='4'>2-3</option>
+            <option value='5'>3-5</option>
           </select>
-          <input id='datepicker' name='visit_date' placeholder='Дата' type='text'>
+          <select id='visit_date' name='visit_date' placeholder='Дата' type='text'>
+            <option selected='true' value='today'>Сегодня</option>
+            <option value='tomorrow'>Завтра</option>
+            <option value='date_choose'>Указать дату</option>
+          </select>
           <select name='visit_time'>
             <option data-time='1700' value='17:00'>17:00</option>
             <option data-time='1730' value='17:30'>17:30</option>
@@ -103,7 +117,7 @@
         </section>
       </section>
     </div>
-    <div class='wrapper_2'>
+    <div class='wrapper_2' id='all-skill'>
       <section class='popup_vertical' id='all_talents'>
         <div class='popup_vertical_symbol'>
           <img src='./images/achievments/symbol_ach.svg'>
@@ -129,6 +143,7 @@
         <h2>Летняя ночь</h2>
         <h4>Не получено</h4>
         <p>Проработайте всю ночь летом</p>
+        <button>Получить навык</button>
       </section>
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>
@@ -288,6 +303,7 @@
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
+                <th>Количество</th>
                 <th>Статус</th>
               </tr>
             </thead>
@@ -303,38 +319,6 @@
                   <br>
                   <span class='color-orange'>Отменить</span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>4 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>2 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>7 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>3 человека</td>
-                <td>Прошла</td>
               </tr>
             </tbody>
           </table>
@@ -394,7 +378,7 @@
         </article>
         <article>
           <header>
-            <h4>Рейтинг</h4>
+            <h4>Р��йтинг</h4>
           </header>
           <fieldset>
             <input checked='true' id='rating-per-month' name='tabs' type='radio'>

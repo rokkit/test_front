@@ -1,5 +1,6 @@
 var fxa = {
   dashboard:{
+    defaultTime: 1,
     main:{
       element: '#main_content',
       options: {
@@ -19,7 +20,7 @@ var fxa = {
     },
     skillBoard:{
       element: '#all_talents',
-      options: { top: '80px' }
+      options: { top: '80px', 'pointer-events': 'auto' }
     },
     all_ach:{
       element: '#all_ach',
@@ -27,7 +28,8 @@ var fxa = {
     },
     all_ach_wrapper:{
       element: '#all_ach_wrapper',
-      options: { 'pointer-events': 'auto' }
+      options: { 'pointer-events': 'auto' },
+      time: 0
     },
     all_skill_popup:{
       element: '#all_talents .popup_vertical_symbol',
@@ -35,11 +37,23 @@ var fxa = {
     },
     all_ach_popup:{
       element: '#all_ach .popup_vertical_symbol',
-      options: { 'pointer-events': 'none' }
+      options: { 'pointer-events': 'none' },
+      time: 0
     },
     allAchivBG:{
       element: '#all_ach_wrapper',
       options: {
+        opacity: '0.8',
+        "-webkit-opacity":"1",
+        filter: 'blur(6px)',
+        "-webkit-filter":"blur(6px)",
+        overflow: 'hidden',
+        'pointer-events': 'none'
+      }
+    },
+    skillBG:{
+      element: '#all-skill',
+      options:{
         opacity: '0.8',
         "-webkit-opacity":"1",
         filter: 'blur(6px)',
@@ -81,11 +95,12 @@ var fxa = {
     },
     skill:{
       element: '#skill',
-      options: {top:'0'}
+      options: {top:'0', 'pointer-events': 'auto'}
     },
     background: ['main', 'overlay', 'body']
   },
   pages_index: {
+    defaultTime: 1,
     main: {
       element: '#main_content',
       options: {
