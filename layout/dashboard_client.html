@@ -25,6 +25,18 @@
     <script src='./js/lib/svgicons-config.js'></script>
     <script src='./js/lib/svgicons.js'></script>
   </head>
+  <script id='reservation_tpl' type='text/template'>
+    <tr>
+      <td date-id='{{ id }}'>
+        <h6 style='color: {{ color }};'>{{ name }}</h6>
+      </td>
+      <td class='td-date'>{{ visit_date }} {{ visit_time }} - {{ end_visit_time }}</td>
+      <td>{{ client_count }}</td>
+      <td>
+        <span class='color-orange cancel_reserv'>Отменить</span>
+      </td>
+    </tr>
+  </script>
   <body id='html_body'>
     <div class='wrapper center-center'>
       <section class='error_tooltip' id='error_password'>
@@ -290,6 +302,7 @@
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
+                <th>Количество</th>
                 <th>Статус</th>
               </tr>
             </thead>
@@ -305,38 +318,6 @@
                   <br>
                   <span class='color-orange'>Отменить</span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>4 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>2 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>7 человека</td>
-                <td>Прошла</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>3 человека</td>
-                <td>Прошла</td>
               </tr>
             </tbody>
           </table>

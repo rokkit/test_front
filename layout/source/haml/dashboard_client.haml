@@ -27,7 +27,14 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-
+	%script{type: "text/template", id: 'reservation_tpl'}
+		%tr
+			%td{date: {id: '{{ id }}'}}
+				%h6{style: 'color: {{ color }};'} {{ name }}
+			%td.td-date {{ visit_date }} {{ visit_time }} - {{ end_visit_time }}
+			%td {{ client_count }}
+			%td
+				%span.color-orange.cancel_reserv Отменить
 	%body#html_body
 		-# Form
 		.wrapper.center-center
@@ -261,6 +268,7 @@
 							%tr
 								%th Кальянная
 								%th Дата
+								%th Количество
 								%th Статус
 						%tbody#reserve_table_body
 							%tr
@@ -272,30 +280,6 @@
 									Скоро
 									%br
 									%span.color-orange Отменить
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 4 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 2 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 7 человека
-								%td Прошла
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 3 человека
-								%td Прошла
 				%article
 					%header
 						%h4 Посещения
