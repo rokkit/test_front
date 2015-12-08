@@ -1,6 +1,7 @@
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 var sf;
 $(function(){
+  //$('#skill button').hide();
   $.getJSON(
     'http://176.112.194.149:81' + '/api/v1/skills.json',
     {auth_token: currentUser.auth_token, role: 'user'},
@@ -106,11 +107,59 @@ link.attr("mask", "url(#ellipse-clip)");
       // .attr('y', 10)
       // .attr('r', 40);
 
+      node.on('click', function(d){
+        var skill = $(this)
+        if(!d.has){
+          if(d.can_take){
+            $('#skill h4').text('ЭТОТ НАВЫК ДОСТУПЕН ДЛЯ ПОЛУЧЕНИЯ');
+            $('#skill button').show();
+            $('#skill button').on('click', function(){
+              $.post('http://176.112.194.149:81/api/v1/skills/'+d.id+'/take.json', {auth_token: currentUser.auth_token});
+            });
+          }else{
+            $('#skill h4').text('ЭТОТ НАВЫК НЕ ПОЛУЧЕН');
+            $('#skill img').addClass('color_blue_ach');
+            $('#skill button').hide();
+          }
+        }else{
+          if(d.used_at === null){
+            $('#skill h4').text('У ВАС УЖЕ ЕСТЬ ЭТОТ НАВЫК');
+            $('#skill button').show();
+            $('#skill button').text('Использовать');
+            $('#skill button').on('click', function(){
+              $.post('http://176.112.194.149:81/api/v1/skills/'+d.id+'/use.json', {auth_token: currentUser.auth_token});
+            });
+          }else{
+            var date = moment(d.used_at).format('YYYY-MM-DD');
+            $('#skill h4').text(date);
+            $('#skill button').hide();
+          }
+
+        }
+        $('#skill h2').text(d.name);
+        $('#skill p').text(d.description);
+        $('#skill img').attr('src', 'http://176.112.194.149:81'+d.image);
+        fx.do(['skill', 'skillBG']);
+      });
+
+      layout.append('filter')
+      .attr('id','desaturate')
+      .append('feColorMatrix')
+      .attr('type','matrix')
+      .attr('values',"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0");
+
       node.append("image")
           .attr("xlink:href", function(v){
             return 'http://176.112.194.149:81'+v.image;
           })
-          //.attr("clip-path", "url(#ellipse-clip)")
+          .style("filter", function(d){
+            var cls = '';
+            if(!d.can_take){
+              return ("filter", "url(#desaturate)");
+            }else{
+              return '';
+            }
+          })
           .attr("x", -40)
           .attr("y", -40)
           .attr("width", 80)
@@ -121,22 +170,24 @@ link.attr("mask", "url(#ellipse-clip)");
         return e.name;
       })
       .attr('fill', 'rgba(255,255,255,255)')
-      .attr('x', 40)
-      .attr('y', 40)
+      .attr('y', 60)
+      .attr("text-anchor", "middle")
       .attr("font-size", 12)
       .attr('letter-spacing', 1)
       .attr("font-family", "Bebas Neue Book");
 
       node.append('text')
       .text(function(e){
-        return e.date;
+        if (!e.has){
+          return 'не получено';
+        }
       })
       .attr('fill', 'rgba(255,255,255,0.3)')
-      .attr('x', -16)
-      .attr('y', 68)
-      .attr("font-size", 8)
-      .attr('letter-spacing', 0.5)
-      .attr("font-family", "normal normal 300 18px Bebas Neue Book");
+      .attr('y', 75)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 10)
+      .attr('letter-spacing', 1)
+      .attr("font-family", "Bebas Neue Book");
 
       for (var i = 1; i < 7; i++) {
         layout.append('text')
@@ -146,7 +197,7 @@ link.attr("mask", "url(#ellipse-clip)");
         .attr('y', 500)
         .attr("font-size", 80)
         .attr('letter-spacing', 0)
-        .attr("font-family", "normal normal 300 18px Bebas Neue Book");
+        .attr("font-family", "Bebas Neue Book");
       }
 
       force.start();

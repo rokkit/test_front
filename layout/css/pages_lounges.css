@@ -33,3 +33,39 @@ button.button-dark.style-rezerv {
 button.button-dark.style-rezerv:hover {
 	background-color: #89C37C !important;
 }
+
+/* Кальянная "Unityhall" Казань */
+h1.style-unityhall , h2.style-unityhall , h3.style-unityhall {
+	color : #E76044 !important
+}
+
+#reserve_table_btn.style-unityhall {
+	background-color: #E76044 !important;
+	border : none;
+}
+
+button.button-dark.style-unityhall {
+	border-color: #E76044 !important;
+}
+
+button.button-dark.style-unityhall:hover {
+	background-color: #E76044 !important;
+}
+
+/* Кальянная "Академия" Новосибирск */
+h1.style-academy , h2.style-academy , h3.style-academy {
+	color : #5F4D9B !important
+}
+
+#reserve_table_btn.style-academy {
+	background-color: #5F4D9B !important;
+	border : none;
+}
+
+button.button-dark.style-academy {
+	border-color: #5F4D9B !important;
+}
+
+button.button-dark.style-academy:hover {
+	background-color: #5F4D9B !important;
+}
