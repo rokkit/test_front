@@ -121,7 +121,7 @@
 				%hr
 				-# Контент
 				%header
-					%h1.style-unityhall Академия
+					%h1.style-academy Академия
 					%p Trahit sua quemque voluptas*
 				-# Адрес, телефон и время работы
 				%section.information_lib
@@ -134,22 +134,19 @@
 					%figure
 						%img{ :src=>"./images/clock.svg" , :alt=>"Город" , :height=>"16px" }
 						%figcapation
-							Пн.-Чт. 14:00-02:00
-							%br
-							Пт.-Сб. 14:00-04:00
-							Вс. 14:00-02:00
+							Ежедневно с 16:00 и до последнего гостя
 				-# Кнопка бронирования
 				%section.liberactions
-					%button#reserve_table_btn.style-unityhall Забронировать столик
+					%button#reserve_table_btn.style-academy Забронировать столик
 					-# 	 Связаться с нами
 
 				-# Подпись
 				%footer
 					%p *Ничто не истинно, Все дозволено
 				-# Герб
-				%img#liberty_herb.layer{ :src=>"./images/blazons/unityhall.svg", :"data-depth"=>"0.40"}
+				%img#liberty_herb.layer{ :src=>"./images/blazons/academy.svg", :"data-depth"=>"0.40"}
 				
-				%img.gerb_glow_2{ :src=>"images/unityhall/glow.png"}
+				%img.gerb_glow_2{ :src=>"images/academy/glow.png"}
 				-#%img.gerb_glow{ :src=>"./images/sun_glow.svg"}
 			
 			-# Второй блок
@@ -166,42 +163,39 @@
 				%section.cd-hero
 					%ul.cd-hero-slider.autoplay
 						%li.selected
-							%img.img-slider{:src => "./images/unityhall/slider/1.jpg"}
+							%img.img-slider{:src => "./images/academy/slider/1.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/2.jpg"}
+							%img.img-slider{:src => "./images/academy/slider/2.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/3.jpg"}
+							%img.img-slider{:src => "./images/academy/slider/3.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/4.jpg"}
+							%img.img-slider{:src => "./images/academy/slider/4.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/5.jpg"}
+							%img.img-slider{:src => "./images/academy/slider/5.jpg"}
 
 					.cd-slider-nav
 						%nav
 							%ul
 								%li.selected
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/1.jpg"}
+									%img.img-nav.pointer{:src => "./images/academy/slider/1.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/2.jpg"}
+									%img.img-nav.pointer{:src => "./images/academy/slider/2.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/3.jpg"}
+									%img.img-nav.pointer{:src => "./images/academy/slider/3.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/4.jpg"}
+									%img.img-nav.pointer{:src => "./images/academy/slider/4.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/5.jpg"}
+									%img.img-nav.pointer{:src => "./images/academy/slider/5.jpg"}
 
 			%section#liberty_block4
 				%header
-					%h2.style-unityhall Кальянные мастера
-					%p Команда "Академия" формировалась по принципу всестороннего развития коллектива. Каждое звено нашего братства поддерживает слабые и дополняет сильные стороны другого звена. Вместе это образует единый механизм, систему, способную выдержать высокий уровень сервиса и, при этом, каждый бармен, администратор или кальянный мастер является личностью и профессионалом, способным поддержать диалог в своей сфере интересов.
+					%h2.style-academy Кальянные мастера
+					%p
+						Чем больше свободы в профессии - тем больше каждый человек проецирует себя в неё. Кальянное ремесло - одна из таких профессий. По нашей команде это хорошо видно: кто-то допускает больше творчества и бешеных сочетаний вкуса, кто-то делает проверенные стабильные кальяны. Они одинаково качественны, и ты можешь открыть для себя что-то новое в разные дни работы "Академии".
 				%br
-				%img{ :src=>"./images/unityhall/hms/belancheva.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/chernov.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/efrem.svg" 			, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/gabdulhakov.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/seifulin.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/sokolov.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/valeev.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
+				%img{ :src=>"./images/academy/hms/bojestvenni.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
+				%img{ :src=>"./images/academy/hms/poleshuk.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
+				%img{ :src=>"./images/academy/hms/ryabichenko.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
 
 			%section#liberty_block5
 				.map_overlay
@@ -209,7 +203,7 @@
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2164.2275622027437!2d65.58541431566806!3d57.1502669809501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43bbe14b82c77751%3A0xed22e04acbb3594f!2z0YPQuy4g0JzQtdC70YzQvdC40LrQsNC50YLQtSwgNTQvMSwg0KLRjtC80LXQvdGMLCDQotGO0LzQtdC90YHQutCw0Y8g0L7QsdC7LiwgNjI1MDQ4!5e0!3m2!1sru!2sru!4v1449519253668" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 				%section#map_wrapper
 					%header
-						%h3.style-unityhall Казань
+						%h3.style-academy Новосибирск
 						%p Центральный район
 
 					%p Уникальная Кальянная ”Резерв” разместилась близ берегов реки Тура в Тюмени, первом российском городе в Сибири
@@ -218,7 +212,7 @@
 
 			%section#liberty_block6
 				%header
-					%h2.style-unityhall Контакты
+					%h2.style-academy Контакты
 					%h5 По вопросам справки обращайтесь по телефону в рабочее время:
 			
 				%h6 Адрес:
@@ -229,15 +223,13 @@
 
 				%h6 Рабочие часы:
 				%p 
-					Пн.-Чт. 14:00-02:00
-					<br>
-					Пт.-Сб. 14:00-04:00
-					Вс. 14:00-02:00
+					Ежедневно с 16:00 и до последнего гостя
+
 			%section#philosophie_block5
 				%h3 Trahit sua quemque voluptas*
 				%h6 *Ничто не истинно, Все дозволено
 				%br
-				%button.button-dark.style-unityhall Зарегистрироваться
+				%button.button-dark.style-academy Зарегистрироваться
 
 				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
 				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
