@@ -4,7 +4,7 @@ $(function(){
   //$('#skill button').hide();
   $.getJSON(
     'http://176.112.194.149:81' + '/api/v1/skills.json',
-    {auth_token: currentUser.auth_token, role: 'user'},
+    {auth_token: currentUser.auth_token, role: 'hookmaster'},
     function(json) {
       sf = skillgen(json);
       var layoutWidth = $('#skill-view').width();

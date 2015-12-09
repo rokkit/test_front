@@ -14,7 +14,7 @@
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/dashboard_hmaster.js" }
 		%script{ :src => "./js/skilldata.js" }
-		%script{ :src => "./js/skillview.js" }
+		%script{ :src => "./js/skillviewh.js" }
 		%script{ :src => "./js/skillgen.js" }
 		%script{ :src => "./js/menu.js" }
 
@@ -244,14 +244,15 @@
 							%h6 Маскировка
 							%p 21.09.15
 		-# Навыки
-		.wrapper_2
+		.wrapper_2#all-skill
 			%section.popup_vertical{:id => 'all_talents'}
 				.popup_vertical_symbol
 					%img{:src=>"./images/achievments/symbol_ach.svg"}
 				%header.popup_vertical_header
 					%a.i_l Назад
 					%h5 Навыки
-				%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
+				#skill-view
+				-#%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
 		-# Достижение
 		.wrapper_2.center-center
 			%section.popup_overall{:id => 'achivka'}
