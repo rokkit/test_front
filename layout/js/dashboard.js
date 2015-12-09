@@ -70,7 +70,6 @@ $(function() {
           var percentsExp = 0
           if(exp != 0) {
               percentsExp = parseInt(exp*100 / (need_to_levelup + exp))
-
           }
           $('.progress').css('width', percentsExp + '%' )
           window.currentUser = json
