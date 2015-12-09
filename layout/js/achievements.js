@@ -105,13 +105,12 @@ $(function() {
     $('#achivka img').attr('src', (achiv.find('img').attr('src')))
 
     if(achiv.data('open')) {
-      $('#achivka h4').text('Получено')
+      $('#achivka .skill_state').text('Получено')
     } else {
-      $('#achivka h4').text('Не получено')
+      $('#achivka .skill_state').text('Не получено')
     }
 
     fx.do(['achiv', 'background'], bodyClick, bodyClickOff);
-    //bodyClick();
   });
   // Открытие навыка
   $(document).on('click', '#skills figure', function(){
@@ -139,4 +138,5 @@ $(function() {
   $('.popup_horizontal').click(function(e){
     e.stopPropagation();
   });
+
 })
