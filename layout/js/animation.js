@@ -83,6 +83,11 @@ var fxa = {
       element: '#edit-profile',
       options: {left: '80px', 'pointer-events': 'auto'}
     },
+    editProfileShow: {
+      element: '#edit-profile',
+      options: { display: 'block' },
+      time: 0
+    },
     body:{
       element: 'body',
       options: {
@@ -152,15 +157,15 @@ var fxa = {
 // Анимация попапа
 
 $(function(){
-  
+
   var history_open_anim = new TimelineMax({paused:true});
   history_open_anim.from("#philosophie_block2_history", 0.1, {autoAlpha:0});
   history_open_anim.to("#philosophie_block2_history", 0.1, {autoAlpha:1});
   history_open_anim.to("#history_wrapper", 1, {top:0, ease: Power4.easeOut});
   history_open_anim.to("#html_body", 0.1, {overflow:"hidden"});
-  
+
   $("#open_history_btn").click(function() {
-    history_open_anim.play();  
+    history_open_anim.play();
   });
 
   $("#close_history_btn").click(function() {
@@ -171,16 +176,16 @@ $(function(){
 // Анимация попапа
 
 // $(function(){
-  
+
 //   var history_popup = document.getElementById("philosophie_history"),
 //       open_history_btn = document.getElementById("open_history_btn"),
 //       close_history_btn = document.getElementById("close_history_btn");
-      
+
 //   history_open_anim = new TimelineMax({paused:true}),
 //   history_open_anim.add(TweenLite.to(history_popup, 1, {left:0, top:0, width:"100vh", height:"100vh"}));
 
 //   $("#open_history_btn").click(function() {
-//     history_open_anim.play();  
+//     history_open_anim.play();
 //   });
 
 //   $("#close_history_btn").click(function() {

@@ -33,15 +33,22 @@ $(function() {
         })
         $('select[name="lounge"] option:last').attr("selected", "selected");
 
-        $('#visit_table_body').empty()
-        _.each(json.payments, function(payment) {
-          var visit_date = moment(payment.visit_date).format('DD MMMM YYYY HH:mm')
+        if(json.payments.length > 0){
+          $('#visit-list .nodata').hide();
+          $('#visit-list table').show();
+          $('#visit_table_body').empty()
+          _.each(json.payments, function(payment) {
+            var visit_date = moment(payment.visit_date).format('DD MMMM YYYY HH:mm')
 
-          var visit_date = moment(payment.created_at).format('DD MMMM YYYY HH:mm')
-          var el = '<tr data-id='+payment.id+'><td><h6 style="color:#6CB9DD;" >Либерти\
-          </h6></td><td class="td-date">'+visit_date+'</td><td>444</td></tr>';
-          $('#visit_table_body').append(el)
-        })
+            var visit_date = moment(payment.created_at).format('DD MMMM YYYY HH:mm')
+            var el = '<tr data-id='+payment.id+'><td><h6 style="color:#6CB9DD;" >Либерти\
+            </h6></td><td class="td-date">'+visit_date+'</td><td>444</td></tr>';
+            $('#visit_table_body').append(el);
+          });
+        }else {
+          $('#visit-list table').hide();
+          $('#visit-list .nodata').show();
+        }
 
       });
       getReservations();
@@ -68,6 +75,7 @@ $(function() {
     // })
 
     function bodyClickOff(){
+      $('#edit-profile').hide();
       $('body').off('click');
       $('#reserv_succes_form').css('right', '1600');
 
@@ -161,6 +169,7 @@ $(function() {
       fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
     });
     $('#edit_profile_btn').click(function(){
+      $('#edit-profile').show();
       fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
     });
 
@@ -241,24 +250,31 @@ function bodyClick(e){
 function getReservations() {
   moment.locale('ru')
   $.getJSON(hostUrl + '/api/v1/reservations.json', {auth_token: currentUser.auth_token}, function(json) {
-    $('#reserve_table_body').empty()
-    var reserv_tpl = _.template($('#reservation_tpl').html())
-    _.each(json, function(reserv) {
-      var visit_date_obj = moment(reserv.visit_date)
-      var visit_date = visit_date_obj.format('DD MMMM YYYY')
-      var visit_time = visit_date_obj.format('HH:mm')
-      var end_visit_time = moment(reserv.end_visit_date).format('HH:mm')
-      var reserv_el = reserv_tpl({
-          id: reserv.id,
-          color: reserv.lounge.color,
-          name: reserv.lounge.title,
-          visit_date: visit_date,
-          visit_time: visit_time,
-          end_visit_time: end_visit_time,
-          client_count: reserv.client_count
-      })
-      $('#reserve_table_body').append(reserv_el)
-    })
+    if(json.length > 0){
+      $('#reserv-list .nodata').hide();
+      $('#reserv-list table').show();
+      $('#reserve_table_body').empty()
+        var reserv_tpl = _.template($('#reservation_tpl').html())
+        _.each(json, function(reserv) {
+          var visit_date_obj = moment(reserv.visit_date)
+          var visit_date = visit_date_obj.format('DD MMMM YYYY')
+          var visit_time = visit_date_obj.format('HH:mm')
+          var end_visit_time = moment(reserv.end_visit_date).format('HH:mm')
+          var reserv_el = reserv_tpl({
+            id: reserv.id,
+            color: reserv.lounge.color,
+            name: reserv.lounge.title,
+            visit_date: visit_date,
+            visit_time: visit_time,
+            end_visit_time: end_visit_time,
+            client_count: reserv.client_count
+          });
+          $('#reserve_table_body').append(reserv_el);
+        });
+    }else{
+      $('#reserv-list table').hide();
+      $('#reserv-list .nodata').show();
+    }
 
   });
 
