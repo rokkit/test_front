@@ -92,6 +92,16 @@
     return Nodes;
 
   })();
+  $(function(){
+    var h, w;
+        w = $("#viewport-left").width();
+        h = $("#viewport-left").height();
+        this.nodesLeft = new Nodes('viewport-left', w, h);
+        this.nodesLeft.render;
+        this.nodesRight = new Nodes('viewport-right', w, h);
+        this.nodesRight.render;
+  });
   $(function() {
-    new Nodes('community_block6', '500', '500')
+    //new Nodes('viewport-left', '500', '500')
+    //new Nodes('community_block6', '500', '500')
   })

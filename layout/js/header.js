@@ -1,12 +1,4 @@
-$(function(){
-  var h, w;
-      w = $("#viewport-left").width();
-      h = $("#viewport-left").height();
-      this.nodesLeft = new Nodes('viewport-left', w, h);
-      this.nodesLeft.render;
-      this.nodesRight = new Nodes('viewport-right', w, h);
-      this.nodesRight.render;
-});
+
 
 
 var fx = new FX(fxa.pages_index);

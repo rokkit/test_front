@@ -1642,9 +1642,19 @@ section.lounges article.lounge img {
   overflow: hidden;
   text-align: center;
   padding: 48px;
-  background: url("../images/bg/community_block5_bg.png");
   background-size: cover;
   z-index: 150;
+}
+#community_block5 #viewport-left {
+  width: 400px;
+  left: 0;
+  position: absolute;
+  height: 100%;
+}
+#community_block5 #viewport-right {
+  width: 400px;
+  right: 0;
+  position: absolute;
 }
 #community_block5 #communication_is_important {
   display: inline-block;
