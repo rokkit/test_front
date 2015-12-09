@@ -9,6 +9,9 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/lib/d3.js" }
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/animation.js" }
@@ -20,7 +23,7 @@
 		%script{ :src => "./js/openapi.js" }
 		%script{ :src => "./js/data.js" }
 		%script{ :src => "./js/nodes.js" }
-		-# %script{ :src => "./js/header.js" }
+		%script{ :src => "./js/menu.js" }
 		%script{ :src => "./js/profile.js" }
 		%script{ :src => "./js/achievements.js" }
 
@@ -182,7 +185,8 @@
 					%h3 Франшиза
 					%p Открыть Ложу
 
-				%button Круг избранных
+				%button#go_login_from_menu_btn Круг избранных
+
 
 		.wrapper_2#edit-profile-wrapper
 			-# Form
@@ -221,10 +225,9 @@
 			%header#header
 				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
-					%a#edit_profile_btn Редактировать
+					%a#edit_profile_btn Редактировать профиль
 					%a#logout_btn Выйти
-					-# %img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
-					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
+					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
 				%h1	Виталий Пихонт

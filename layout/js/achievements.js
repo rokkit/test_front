@@ -100,25 +100,29 @@ $(function() {
   // Открытие достижения
   $(document).on('click', '#achievements figure',function() {
     var achiv = $(this)
-    $('#achivka h2').text(achiv.find('h6').text())
-    $('#achivka p').text(achiv.attr('data-description'))
+    $('#achivka .skill_header').text(achiv.find('h6').text())
+    $('#achivka .skill_description').text(achiv.attr('data-description'))
     $('#achivka img').attr('src', (achiv.find('img').attr('src')))
 
     if(achiv.data('open')) {
-      $('#achivka h4').text('Получено')
+      $('#achivka .skill_state').text('Получено')
     } else {
-      $('#achivka h4').text('Не получено')
+      $('#achivka .skill_state').text('Не получено')
     }
 
     fx.do(['achiv', 'background'], bodyClick, bodyClickOff);
-    //bodyClick();
   });
   // Открытие навыка
   $(document).on('click', '#skills figure', function(){
     var skill = $(this)
-    $('#skill h2').text(skill.find('h6').text());
-    $('#skill p').text(skill.attr('data-description'));
+    $('#skill .skill_header').text(skill.find('h6').text());
+    $('#skill .skill_description').text(skill.attr('data-description'));
     $('#skill img').attr('src', (skill.find('img').attr('src')));
+    if(skill.data('has')) {
+      $('#skill .skill_state').text('Изучен')
+    } else {
+      $('#skill .skill_state').text('Не изучен')
+    }
     fx.do(['skill', 'background'], bodyClick, bodyClickOff);
   });
 
@@ -134,4 +138,5 @@ $(function() {
   $('.popup_horizontal').click(function(e){
     e.stopPropagation();
   });
+
 })
