@@ -13,6 +13,14 @@ $(function() {
     $('#community_nav_btn').on('click', function() {
       document.location.href = '/pages_community.html'
     });
+
+    $('#go_admin_from_menu_btn').click(function() {
+      if(window.currentUser) {
+        if(window.currentUser.role == 'admin') {
+          document.location.href = 'http://176.112.194.149:81/admin';
+        }
+      }
+    });
 });
 
 function animateMenu() {

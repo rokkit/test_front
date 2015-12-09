@@ -278,11 +278,6 @@ $(function() {
   $('#uhp_logo').on('click', function() {
     document.location.href = '/pages_index.html'
   });
-
-  $('#menu_right_part button').on('click', function() {
-    document.location.href = 'http://176.112.194.149:81/admin'
-  });
-
 });
 
 
