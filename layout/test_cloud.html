@@ -1,53 +1,30 @@
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'>
-
+    <link href='./css/reset.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
     <link href='./css/clouds.css' rel='stylesheet'>
-    <script src='./js/lib/snap.svg-min.js'></script>
-    <script src='./js/lib/svgicons-config.js'></script>
-    <script src='./js/lib/svgicons.js'></script>
-      <script src='./js/underscore-min.js'></script>
-      <script src='./js/jquery-2.1.4.min.js'></script>
-      <script src='./js/jquery.mask.min.js'></script>
-      <script src='./js/jquery.gsap.min.js'></script>
-      <script src='./js/TweenLite.min.js'></script>
-      <script src='./js/TweenMax.min.js'></script>
-      <script src='./js/openapi.js'></script>
+    <script src='./js/jquery-2.1.4.min.js'></script>
+    <script src='./js/jquery.gsap.min.js'></script>
+    <script src='./js/TweenLite.min.js'></script>
+    <script src='./js/TweenMax.min.js'></script>
+    <script src='./js/jquery.mask.min.js'></script>
+    <script src='./js/underscore-min.js'></script>
+    <script src='./js/openapi.js'></script>
     <script src='./js/lib/d3.js'></script>
     <script src='./js/data.js'></script>
     <script src='./js/nodes.js'></script>
+    <script src='./js/lib/snap.svg-min.js'></script>
+    <script src='./js/lib/svgicons-config.js'></script>
+    <script src='./js/lib/svgicons.js'></script>
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
     <script src='./js/header.js'></script>
-
-
-
+    <script src='./js/community.js'></script>
+    <script src='./js/menu.js'></script>
   </head>
-  <body data-page='philosophy' id='html_body'>
-    <div class='wrapper center-center' id='wrapper_signup'>
-      <section class='popup' id='signup_form'>
-        <header>
-          <h2>Регистрация</h2>
-          <p class='h2_subtitle'>
-            Регистрация нового пользователя. Если у вас уже есть аккаунт —
-            <a href='#login'>войдите.</a>
-          </p>
-        </header>
-        <form action='' autocomplete='off' method='get'>
-          <input style='display:none'>
-          <input style='display:none' type='password'>
-          <input name='phone' placeholder='Телефон +7XXXXXXX' type='text'>
-          <input name='name' placeholder='ФИО' type='text'>
-          <input name='password' placeholder='Пароль' type='password'>
-          <button id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
-        </form>
-      </section>
-    </div>
+  <body data-page='community' id='html_body'>
     <div class='wrapper center-center' id='wrapper_login'>
-      <section class='error_tooltip' id='error_password'>
-        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
-      </section>
       <section class='popup' id='login_form'>
         <header>
           <h2>Войти</h2>
@@ -60,6 +37,20 @@
           <input name='phone' placeholder='Номер телефона' type='text'>
           <input name='password' placeholder='Пароль' type='password'>
           <button name='sumbit' type='sumbit'>Войти</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_signup'>
+      <section class='popup' id='signup_form'>
+        <header>
+          <h2>Регистрация</h2>
+          <p class='h2_subtitle'>Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.</p>
+        </header>
+        <form action='' method='get'>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <input name='name' placeholder='ФИО' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
         </form>
       </section>
     </div>
@@ -87,7 +78,11 @@
         </footer>
       </section>
       <section class='right_menu' id='menu_right_part'>
-        <img alt='Закрыть' class='pointer' id='closing' src='./images/cross.svg'>
+        <img alt='Закрыть' id='closing' src='./images/cross.svg'>
+        <a>
+          <h3 id='main_nav_btn'>Главная страница</h3>
+          <p>Основная информация</p>
+        </a>
         <a>
           <h3 id='lounges_nav_btn'>Ложи</h3>
           <p>Уникальные заведения</p>
@@ -104,12 +99,12 @@
           <h3>Франшиза</h3>
           <p>Открыть Ложу</p>
         </a>
-        <button>Круг избранных</button>
+        <button>Войти</button>
       </section>
     </div>
     <div class='color_overlay' id='color_overlay'></div>
     <main id='main_content'>
-      <section id='philosophie_block1'>
+      <section id='community_block1'>
         <div id='viewport'>
           <div id='world'></div>
         </div>
@@ -125,85 +120,64 @@
           </nav>
           <hr>
         </header>
-        <img alt='Оригинал один — остальное копии' src='./images/philosophie_h1.svg'>
+        <img alt='Полезно быть своим' class='image' src='./images/community_h1.svg'>
       </section>
-      <section id='philosophie_block2'>
-        <blockquote>
-          <h4>«Не просто безликая сеть заведений для отдыха и встреч  без изюминки»</h4>
-          <cite>— Игорь Коновалов</cite>
-        </blockquote>
-        <p>Рождение идеи “Уникальных Кальянных” состоялось осенью 2012 года. Именно тогда основатель сети Игорь Коновалов решил раздвинуть рамки привычного и создать заведение в принципиально новом формате. Довольно быстро нашлись единомышленники и инвесторы, было снято и подготовлено помещение. Так 8 ноября 2012 года появилась первая кальянная “Либерти”.</p>
-        <button class='button-dark'>Прочитать историю</button>
-      </section>
-      <section id='philosophie_block3'>
-        <header>
-          <h2>Наши принципы являются фундаментом,<br>основной для работы</h2>
-          <h4>Каждый клиент для нас уникален. Красота жизни заключается<br>в ее неповторимости и оригинальности.</h4>
-        </header>
-        <figure class='principle'>
-          <img src='./images/philosophie_f_1.svg'>
-          <figcapation>
-            <h5>ЛОЯЛЬНОСТЬ</h5>
-            <p>Сложно представить себе тёплые и долгосрочные отношения двух сторон без лояльности по отношению друг к другу. Мы ориентированы именно на такой тип отношений и лояльность всегда будет вознаграждена в наших стенах.</p>
-          </figcapation>
-        </figure>
-        <figure class='principle'>
-          <img src='./images/philosophie_f_2.svg'>
-          <figcapation>
-            <h5>ОТКРЫТОСТЬ В ОБЩЕНИИ</h5>
-            <p>Конечная цель Уникальных Кальянных состоит не в заработке, а в том, чтобы создать вокруг себя сообщество близких по духу людей, готовых делиться опытом, работать, общаться и просто отдыхать вместе.</p>
-          </figcapation>
-        </figure>
-        <figure class='principle'>
-          <img src='./images/philosophie_f_3.svg'>
-          <figcapation>
-            <h5>ПРОФЕССИОНАЛИЗМ</h5>
-            <p>Мы ценим профессионализм во всех его проявлениях. Данное требование предъявляется ко всем заведениям и сотрудникам сети. Кроме того, Уникальные Кальянные всегда особенно рады принимать у себя профессионалов своего дела.</p>
-          </figcapation>
-        </figure>
+      <!-- <section id='community_block2'>
+        <h2>
+          Самая лучшая сеть
+          <br>
+          кальянных и только для вас
+        </h2>
         <br>
-        <figure class='principle'>
-          <img src='./images/philosophie_f_4.svg'>
-          <figcapation>
-            <h5>ЖЕЛАНИЕ РАЗВИВАТЬСЯ</h5>
-            <p>Отсутствие развития - это стагнация, но при условии того, что мир движется вперёд, стагнация превращается в деградацию. Мы считаем, что постоянное развитие и оптимизация должны являться непременным атрибутом любого дела.</p>
-          </figcapation>
-        </figure>
-        <figure class='principle'>
-          <img src='./images/philosophie_f_5.svg'>
-          <figcapation>
-            <h5>ЧЕСТНОСТЬ</h5>
-            <p>Уникальные Кальянные дорожат своей репутацией, краеугольным камнем которой является честность. Никакая выгода не в силах заставить нас обманывать клиента или принимать у себя людей, потерявших лицо.</p>
-          </figcapation>
-        </figure>
-        <figure class='principle'>
-          <img src='./images/philosophie_f_6.svg'>
-          <figcapation>
-            <h5>ИННОВАЦИИ</h5>
-            <p>Сосредоточившись исключительно на развитии существующего можно легко забыть об инновациях. Мы всегда будем радовать вас нововведениями, но их интеграция будет происходить без ущерба для комфорта и традиционных ценностей.</p>
-          </figcapation>
-        </figure>
-      </section>
-      <section id='philosophie_block4'>
-        <section class='wrapper_konovalov'>
-          <h3>Кальянный мастер</h3>
-          <p>Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.</p>
-          <h5>Игорь Коновалов</h5>
-          <h6>Основатель франшизы</h6>
+        <h3>Мы ценим профессионализм во всех его проявлениях. Данное требование предъявляется ко всем заведениям и сотрудникам сети. Кроме того, Уникальные Кальянные всегда особенно рады принимать у себя профессионалов своего дела</h3>
+        <br>
+        <section class='game_feature'>
+          <img alt='Общество равных' src='./images/game_feature_1.svg'>
+          <h4>Общество равных</h4>
+          <p>Уже много лет мы собираем вокруг себя близких по духу людей и это значит, что в стенах Уникальных Кальянных наши гости всегда смогут найти собеседника достойного уровня, завязать полезные знакомства и найти нужные контакты.</p>
+        </section>
+        <section class='game_feature'>
+          <img alt='Программа лояльности' src='./images/game_feature_2.svg'>
+          <h4>Программа лояльности</h4>
+          <p>Лояльность и доверие - для нас это не пустой звук, с древних времен эти понятия считались высшими ценностями в жизни. Записи о каждом вашем визите бережно хранятся в наших архивах и когда придёт срок, каждый будет вознаграждён.</p>
+        </section>
+        <section class='game_feature'>
+          <img alt='Неповторимый опыт' src='./images/game_feature_3.svg'>
+          <h4>Неповторимый опыт</h4>
+          <p>Каждое заведение Уникальных Кальянных предлагает вам атмосферу клуба единомышленников. Заходите, общайтесь с другими гостями, участвуйте в еженедельных мероприятиях и вы поймете в чем заключается наша уникальность.</p>
         </section>
       </section>
-      <section id='philosophie_block5'>
-        <h3>Omnis qui quaerit invenit</h3>
-        <h6>*Всякий ищущий находит</h6>
+      <section id='community_block3'>
+        <h3>Со временем вы обретёте полезные навыки, дающие право на получение определенных бонусов</h3>
+        <p>Навыки разнообразны и позволяют получить целый ряд приятных преимуществ, начиная с дополнительных напитков при первом заказе за день и заканчивая возможностью отдыхать в заведении в нерабочие часы.</p>
         <br>
-        <button class='button-dark'>Зарегистрироваться</button>
-        <img class='sun_glow_2' src='./images/sun_glow.png'>
-        <img class='sun_glow' src='./images/sun_glow.svg'>
-        <img class='sun_rotation' src='./images/sun_lines.svg'>
-        <img alt='Звезда' src='./images/sun.svg'>
+        <img alt='Полезные бонусы' src='./images/game_skillset.svg'>
+        <video autobuffer='true' autoplay='true' controls='false' id='dust' loop='true' src='../video/vid.mp4'></video>
+        <div id='cb3grad'></div>
+        <div id='cb3grad2'></div>
+        <video autobuffer='true' autoplay='true' controls='false' id='cb3smoke' loop='true' src='../video/vid2.mp4'></video>
+      </section> -->
+      <section id='community_block5'>
+        <div id='communication_is_important'>
+          <div class='round'>
+            <img alt='Коммуникация' src='./images/messages.svg'>
+          </div>
+          <br>
+          <h3>Общение — это важно</h3>
+          <br>
+          <p>Мы общаемся с окружающими нас людьми каждый день, но в жизни современного человека общение это нечто большее чем просто обмен информацией.</p>
+          <br>
+          <p>Именно от общения зависит наше положение в обществе, наши цели и настроение, поэтому круг общения играет важную роль</p>
+          <br>
+          <p>Войдите в сообщество Уникальных Кальянных и вы сможете общаться с лучшими людьми вашего города.</p>
+          <br>
+          <br>
+          <button class='button-dark'>Перейти к философии</button>
+        </div>
       </section>
+      <section id='community_block6'></section>
     </main>
-  <script src='./js/clouds.js'></script>
-  <script src='./js/clouds2.js'></script>
+    <script src='./js/clouds.js'></script>
+    <script src='./js/clouds2.js'></script>
   </body>
 </html>

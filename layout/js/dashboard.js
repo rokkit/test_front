@@ -62,15 +62,14 @@ $(function() {
       getReservations();
 
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
-          var exp = parseInt(json.exp)
-          var need_exp_to_levelup = 6000 - exp
-
-          $('#need_points').text(need_exp_to_levelup)
+          var exp = parseInt(json.exp, 10)
+          var need_to_levelup = parseInt(json.need_to_levelup, 10)
+          $('#need_points').text(need_to_levelup)
           $('#next_level').text(currentUser.level + 1)
 
           var percentsExp = 0
           if(exp != 0) {
-              percentsExp = parseInt(6000 / (exp * 100))
+              percentsExp = parseInt(exp*100 / (need_to_levelup + exp))
           }
           $('.progress').css('width', percentsExp + '%' )
           window.currentUser = json
@@ -171,52 +170,12 @@ $(function() {
     });
 
 
-
-
-    $('.username h1').click(function(){
-      fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
-    });
-    $('#edit_profile_btn').click(function(){
-      $('#edit-profile').show();
-      fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
-    });
-
-    $('#edit-profile a').click(function(){
-      fx.back();
-    });
-
     $('#logout_btn').click(function() {
       localStorage.removeItem('currentUser')
       window.currentUser = null
       document.location.href = '/pages_index.html'
     });
 
-    window.hostUrl = 'http://176.112.194.149:81'
-    // window.hostUrlLocal = 'http://localhost:3000'
-    var $profile_wrapper = $('#edit-profile-wrapper')
-    $profile_wrapper.find('input[name="name"]').val(currentUser.name)
-    $profile_wrapper.find('input[name="city"]').val(currentUser.city)
-    $profile_wrapper.find('input[name="employe"]').val(currentUser.employe)
-    $profile_wrapper.find('input[name="work_company"]').val(currentUser.work_company)
-    $profile_wrapper.find('input[name="hobby"]').val(currentUser.hobby)
-    $profile_wrapper.find('input[name="phone"]').val('+'+currentUser.phone)
-    $profile_wrapper.find('input[name="email"]').val(currentUser.email)
-
-    $('form.edit_profile_form').on('submit', function(e) {
-      e.preventDefault()
-
-      var data = $(this).serialize() + '&auth_token='+currentUser.auth_token
-      $.ajax({url: hostUrl + '/api/v1/users/' + currentUser.id, data: data, success: function(user) {
-        window.currentUser = user
-        localStorage.setItem('currentUser', JSON.stringify(user))
-        $('section.username h1').text(currentUser.name)
-    		$('#login_btn').text(currentUser.name)
-        if(currentUser.city) {
-          $('#city_user span').text(currentUser.city)
-        }
-        fx.back();
-      }, type: 'PUT'});
-    })
 });
 
 $(function(){
