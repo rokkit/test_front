@@ -17,13 +17,18 @@
 		%script{ :src => "./js/skillviewh.js" }
 		%script{ :src => "./js/skillgen.js" }
 		%script{ :src => "./js/menu.js" }
+		%script{ :src => "./js/profile.js" }
+		%script{ :src => "./js/achievements.js" }
 
 		-# Habmurger
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
 
-
+	%script{type: "text/template", id: 'user_rating_tpl'}
+		%li
+			%span {{ number }}. {{ name }}
+			%span {{ exp }}
 	%body#html_body
 		.wrapper_2#edit-profile-wrapper
 			-# Form
@@ -68,181 +73,6 @@
 						%ficapation
 							%h6 Маскировка
 							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
 		-# Навыки
 		.wrapper_2#all-skill
 			%section.popup_vertical{:id => 'all_talents'}
@@ -257,10 +87,64 @@
 		.wrapper_2.center-center
 			%section.popup_overall{:id => 'achivka'}
 				%img{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
-				%h2 Летняя ночь
-				%h4 21.09.15
-				%p Проработайте всю ночь летом
+				%h2.skill_header
+				%h4.skill_state
+				%p.skill_description
+		.wrapper_2.center-center
+			%section.popup_overall{:id => 'skill'}
+				%img{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
+				%h2.skill_header
+				%h4.skill_state
+				%p.skill_description
+				%button Получить навык
+		-# Меню
+		.wrapper.center-center{:id => 'wrapper_menu'}
+			%section#menu_left_part.left_menu
+				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%span
+					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
+					%p 24 июл в 14:44 от #unihuqhookahplaces
 
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+
+				%footer
+					%p Copyright © 2015 Уникальные Кальянные
+					%p
+						Создано в
+						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+			-# Left bar
+			%section#menu_right_part.right_menu
+				%img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				-# %a
+				-# 	%h3#main_nav_btn Главная страница
+				-# 	%p Основная информация
+				%a
+					%h3#lounges_nav_btn Ложи
+					%p Уникальные заведения
+
+				%a
+					%h3#philosophy_nav_btn Философия
+					%p Наши ценности
+
+				%a
+					%h3#community_nav_btn Сообщество
+					%p Полезно быть своим
+				%a
+					%h3 Франшиза
+					%p Открыть Ложу
+
+				%button#go_login_from_menu_btn Круг избранных
 		-# Color Overlay
 		#color_overlay.color_overlay
 
@@ -268,18 +152,17 @@
 			%header#header
 				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
-					%a{:id=>"login_btn"} Виталий Пихонт
-					%a{:id=>"signup_btn"} Меню
-					-# %img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
-					#menu_header_btn.menu{:data => {'icon-name' => 'hamburger'}}
+					%a#edit_profile_btn Редактировать профиль
+					%a#logout_btn Выйти
+					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
 				%h1	Виталий Пихонт
 				%p#city_user <span>Санкт-Петербург</span>, Россия
-				%p Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!
+				%p#hookmaster_description Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!
 			%section.progress_bar
 				%p
-					<span>4525</span> очков для следующиего уровня
+					<span id='need_points'>4525</span> очков до <span id='next_level'></span> уровня
 				.progress_bar_bg
 					.progress
 
@@ -456,36 +339,6 @@
 
 						%section#section-per-month
 							%ul.leaders
-								%li
-									%span 1. Алексей Иванов
-									%span 210 800
-
-							%ul.leaders
-								%li
-									%span 2. Антон Максимов
-									%span 175 800
-
-							%ul.leaders
-								%li
-									%span 3. Федор Смолов
-									%span 160 800
-
-							%ul.leaders
-								%li
-									%span 4. Антон Максимов
-									%span 100 800
-
-							%ul.leaders
-								%li
-									%span 5. Федор Смолов
-									%span 90 800
-
-							.border-bottom-dashed
-
-							%ul.leaders
-								%li
-									%span 29. Виталий Пихонт
-									%span 16 800
 
 						%section#section-per-all-time
 							Секция за все время

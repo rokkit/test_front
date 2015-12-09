@@ -20,13 +20,11 @@ $(function() {
   //console.log('%c Created by CPDBBK', 'font-size: 26px; color: blue');
   window.hostUrl = 'http://176.112.194.149:81'
 
-	if (currentUser) {
   		$('section.username h1').text(currentUser.name);
   		// $('#login_btn').text(currentUser.name);
       if(currentUser.city) {
         $('#city_user span').text(currentUser.city);
       }
-	}
     //Загрузить начальные данные
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
@@ -57,8 +55,12 @@ $(function() {
           $('#visit-list table').hide();
           $('#visit-list .nodata').show();
         }
-        makeUserRating(json.users)
+
       });
+
+      $.getJSON(hostUrl + '/api/v1/users/rating.json', {role: currentUser.role, auth_token: currentUser.auth_token}, function(json) {
+        makeUserRating(json)
+      })
       getReservations();
 
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
@@ -79,7 +81,7 @@ $(function() {
     });
 
     function makeUserRating(users) {
-      users = _.sortBy(_.filter(users, function(u) { return u.experience > 0 }), function(u) { u.experience }).reverse()
+      users = _.sortBy(_.filter(users, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
       $('#section-per-month .leaders').empty()
       var user_rating_tpl = _.template($('#user_rating_tpl').html())
       $.each(users, function(i) {
@@ -87,7 +89,7 @@ $(function() {
         $('#section-per-month .leaders').append(user_rating_tpl({
           name: this.name,
           number: i+1,
-          exp: parseInt(this.experience, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+          exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
         }))
       })
     }
