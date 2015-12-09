@@ -1462,7 +1462,7 @@ section.lounges article.lounge {
   background-size: cover;
   z-index: 150;
 }
-#community_block1 img {
+#community_block1 img.image {
   display: inline-block;
   position: relative;
   height: 50%;
