@@ -50,6 +50,12 @@
       </td>
     </tr>
   </script>
+  <script id='user_rating_tpl' type='text/template'>
+    <li>
+      <span>{{ number }}. {{ name }}</span>
+      <span>{{ exp }}</span>
+    </li>
+  </script>
   <body id='html_body'>
     <div class='wrapper center-center'>
       <section class='error_tooltip' id='error_password'>
@@ -410,49 +416,9 @@
               <h6>За все время</h6>
             </label>
             <section id='section-per-month'>
-              <ul class='leaders'>
-                <li>
-                  <span>1. Алексей Иванов</span>
-                  <span>210 800</span>
-                </li>
-              </ul>
-              <ul class='leaders'>
-                <li>
-                  <span>1. Алексей Иванов</span>
-                  <span>210 800</span>
-                </li>
-              </ul>
-              <ul class='leaders'>
-                <li>
-                  <span>2. Антон Максимов</span>
-                  <span>175 800</span>
-                </li>
-              </ul>
-              <ul class='leaders'>
-                <li>
-                  <span>3. Федор Смолов</span>
-                  <span>160 800</span>
-                </li>
-              </ul>
-              <ul class='leaders'>
-                <li>
-                  <span>4. Антон Максимов</span>
-                  <span>100 800</span>
-                </li>
-              </ul>
-              <ul class='leaders'>
-                <li>
-                  <span>5. Федор Смолов</span>
-                  <span>90 800</span>
-                </li>
-              </ul>
+              <ul class='leaders'></ul>
               <div class='border-bottom-dashed'></div>
-              <ul class='leaders'>
-                <li>
-                  <span>29. Виталий Пихонт</span>
-                  <span>16 800</span>
-                </li>
-              </ul>
+              <ul class='leaders'></ul>
             </section>
             <section id='section-per-all-time'>
               Секция за все время

@@ -57,7 +57,7 @@ $(function() {
           $('#visit-list table').hide();
           $('#visit-list .nodata').show();
         }
-
+        makeUserRating(json.users)
       });
       getReservations();
 
@@ -75,7 +75,22 @@ $(function() {
           window.currentUser = json
           localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
       })
+
     });
+
+    function makeUserRating(users) {
+      users = _.sortBy(_.filter(users, function(u) { return u.experience > 0 }), function(u) { u.experience }).reverse()
+      $('#section-per-month .leaders').empty()
+      var user_rating_tpl = _.template($('#user_rating_tpl').html())
+      $.each(users, function(i) {
+
+        $('#section-per-month .leaders').append(user_rating_tpl({
+          name: this.name,
+          number: i+1,
+          exp: parseInt(this.experience, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+        }))
+      })
+    }
 
     // $('input[name="visit_date"]').on('click', function() {
     //   $(this).val(moment().format('YYYY-MM-DD'))
