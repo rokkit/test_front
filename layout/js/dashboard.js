@@ -62,15 +62,15 @@ $(function() {
       getReservations();
 
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
-          var exp = parseInt(json.exp)
-          var need_exp_to_levelup = 6000 - exp
-
-          $('#need_points').text(need_exp_to_levelup)
+          var exp = parseInt(json.exp, 10)
+          var need_to_levelup = parseInt(json.need_to_levelup, 10)
+          $('#need_points').text(need_to_levelup)
           $('#next_level').text(currentUser.level + 1)
 
           var percentsExp = 0
           if(exp != 0) {
-              percentsExp = parseInt(6000 / (exp * 100))
+              percentsExp = parseInt(exp*100 / (need_to_levelup + exp))
+
           }
           $('.progress').css('width', percentsExp + '%' )
           window.currentUser = json
