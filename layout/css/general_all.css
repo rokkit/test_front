@@ -539,6 +539,11 @@ section.lounges article.lounge {
   border-radius: 8px;
   background: linear-gradient(#ffffff, #e0e8ee);
 }
+section.lounges article.lounge img {
+  position: absolute;
+  width: 200px;
+  margin: 48px 35px 35px 35px;
+}
 
 #liberty_block1 {
   display: block;
