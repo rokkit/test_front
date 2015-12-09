@@ -173,6 +173,13 @@ $(function() {
       $('#achivka h2').text(achiv.find('h6').text())
       $('#achivka p').text(achiv.attr('data-description'))
       $('#achivka img').attr('src', (achiv.find('img').attr('src')))
+
+      if(achiv.data('open')) {
+        $('#achivka h4').text('Получено')
+      } else {
+        $('#achivka h4').text('Не получено')
+      }
+
       fx.do(['achiv', 'background'], bodyClick, bodyClickOff);
       //bodyClick();
     });
@@ -288,9 +295,15 @@ function bodyClick(e){
 function card(id){
     var achiv = $(this)
     var el = $('#all_ach figure[data-id='+id+']')
+    console.log(el.attr('data-open'))
     $('#achivka h2').text(el.find('h6').text())
     $('#achivka p').text(el.attr('data-description'))
     $('#achivka img').attr('src', (el.find('img').attr('src')))
+    if(el.data('open') == true) {
+      $('#achivka h4').text('Получено')
+    } else {
+      $('#achivka h4').text('Не получено')
+    }
     fx.do(['achiv', 'allAchivBG']);
 }
 
@@ -299,14 +312,29 @@ $(function() {
     $('#achievements').empty()
     $('#all_ach .wrapper_for_ach').empty()
     $('#dashboard_ach_btn').text(currentUser.achievements.length+'/'+json.length)
+    var user_achivs = _.map(currentUser.achievements, function(a) { return a.id });
     $.each(json, function(i) {
-      var template = "<figure data-id="+this.id+" onclick='card("+this.id+")' data-description='"+this.description+"'><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
+      var open = _.contains(user_achivs, this.id)
+      var klass = ''
+      var state = 'Получено'
+      if(!open) {
+        klass = 'color_blue_ach'
+        state = 'Не получено'
+      }
+      var template = "<figure data-open="+open+" data-id="+this.id+" onclick='card("+this.id+")' data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template)
     })
     json = json.slice(0, 5)
 
       $.each(json, function(i) {
-        var template = "<figure data-description='"+this.description+"'><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получено</p></ficapation></figure>";
+        var open = _.contains(user_achivs, this.id)
+        var klass = ''
+        var state = 'Получено'
+        if(!open) {
+          klass = 'color_blue_ach'
+          state = 'Не получено'
+        }
+        var template = "<figure data-open="+open+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
         $('#achievements').append(template)
       })
     })
@@ -316,7 +344,14 @@ $(function() {
       $('#dashboard_talents_btn').text(currentUser.skills.length+'/'+json.length)
       json = json.slice(0, 5)
         $.each(json, function(i) {
-          var template = "<figure><img class='achievments_icon color_blue_ach' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>Не получен</p></ficapation></figure>";
+
+          var klass = ''
+          var state = 'Изучен'
+          if(!this.has) {
+            klass = 'color_blue_ach'
+            state = 'Не изучен'
+          }
+          var template = "<figure data-has="+this.has+" data-id="+this.id+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
           $('#skills').append(template)
         })
     })
