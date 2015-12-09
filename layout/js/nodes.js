@@ -5,15 +5,17 @@
   Nodes = (function() {
     Nodes.prototype.w = 400;
     Nodes.prototype.h = 500;
-    Nodes.prototype.nodes = Graph.nodes;
-    Nodes.prototype.links = Graph.links;
+    Nodes.prototype.nodes = {};
+    Nodes.prototype.links = {};
     Nodes.prototype.node = {};
     Nodes.prototype.link = {};
     Nodes.prototype.force = {};
     Nodes.prototype.element = '';
 
-    function Nodes(el, w, h) {
-      var links, nodes, rightSide;
+    function Nodes(el, w, h, nodes, links) {
+      var links, rightSide;
+      this.nodes = nodes;
+      this.links = links;
       this.element = el;
       this.w = w;
       this.h = h;
@@ -47,8 +49,8 @@
           });
         };
       })(this));
-      nodes = this.force.nodes();
-      links = this.force.links();
+      this.force.nodes();
+      this.force.links();
       this.render();
     }
 
@@ -96,12 +98,8 @@
     var h, w;
         w = $("#viewport-left").width();
         h = $("#viewport-left").height();
-        this.nodesLeft = new Nodes('viewport-left', w, h);
-        this.nodesLeft.render;
-        this.nodesRight = new Nodes('viewport-right', w, h);
-        this.nodesRight.render;
+        this.nodesLeft = new Nodes('viewport-left', w, h, Graph.nodes, Graph.links);
+        // this.nodesLeft.render;
+        this.nodesRight = new Nodes('viewport-right', w, h, Graph.nodes2, Graph.links2);
+        // this.nodesRight.render;
   });
-  $(function() {
-    //new Nodes('viewport-left', '500', '500')
-    //new Nodes('community_block6', '500', '500')
-  })

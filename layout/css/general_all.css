@@ -313,27 +313,27 @@ button:hover {
 
 @font-face {
   font-family: "Bebas Neue Book";
-  src: url('../fonts/bebasneue_book-webfont.woff?1448261062') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1448261062') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1448261062') format('truetype');
+  src: url('../fonts/bebasneue_book-webfont.woff?1447505220') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1447505220') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1447505220') format('truetype');
 }
 @font-face {
   font-family: "Bebas Neue Regular";
-  src: url('../fonts/bebasneue_regular-webfont.woff?1448261062') format('woff'), url('../fonts/bebasneue_regular-webfont.svg?1448261062') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf?1448261062') format('truetype');
+  src: url('../fonts/bebasneue_regular-webfont.woff?1447505220') format('woff'), url('../fonts/bebasneue_regular-webfont.svg?1447505220') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf?1447505220') format('truetype');
 }
 @font-face {
   font-family: "Lora";
-  src: url('../fonts/lora-regular-webfont.ttf?1448261062') format('truetype'), url('../fonts/lora-regular-webfont.woff?1448261062') format('woff'), url('../fonts/lora-regular-webfont.svg?1448261062') format('svg');
+  src: url('../fonts/lora-regular-webfont.ttf?1447505220') format('truetype'), url('../fonts/lora-regular-webfont.woff?1447505220') format('woff'), url('../fonts/lora-regular-webfont.svg?1447505220') format('svg');
 }
 @font-face {
   font-family: "Open Sans Bold";
-  src: url('../fonts/opensans-semibold-webfont.woff?1448261062') format('woff'), url('../fonts/opensans-semibold-webfont.svg?1448261062') format('svg'), url('../fonts/opensans-semibold-webfont.ttf?1448261062') format('truetype');
+  src: url('../fonts/opensans-semibold-webfont.woff?1447505220') format('woff'), url('../fonts/opensans-semibold-webfont.svg?1447505220') format('svg'), url('../fonts/opensans-semibold-webfont.ttf?1447505220') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Regular";
-  src: url('../fonts/opensans-regular-webfont.woff?1448261062') format('woff'), url('../fonts/opensans-regular-webfont.svg?1448261062') format('svg'), url('../fonts/opensans-regular-webfont.ttf?1448261062') format('truetype');
+  src: url('../fonts/opensans-regular-webfont.woff?1447505220') format('woff'), url('../fonts/opensans-regular-webfont.svg?1447505220') format('svg'), url('../fonts/opensans-regular-webfont.ttf?1447505220') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Light";
-  src: url('../fonts/opensans-light-webfont.woff?1448261062') format('woff'), url('../fonts/opensans-light-webfont.svg?1448261062') format('svg'), url('../fonts/opensans-light-webfont.ttf?1448261062') format('truetype');
+  src: url('../fonts/opensans-light-webfont.woff?1447505220') format('woff'), url('../fonts/opensans-light-webfont.svg?1447505220') format('svg'), url('../fonts/opensans-light-webfont.ttf?1447505220') format('truetype');
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
@@ -1641,7 +1641,6 @@ section.lounges article.lounge img {
   height: auto;
   overflow: hidden;
   text-align: center;
-  padding: 48px;
   background-size: cover;
   z-index: 150;
 }
@@ -1661,6 +1660,7 @@ section.lounges article.lounge img {
   position: relative;
   height: auto;
   width: 32%;
+  margin-top: 48px;
 }
 #community_block5 #communication_is_important .round {
   display: inline-block;

@@ -12,7 +12,8 @@ function card(blazons, color, name, nameCity, el){
     blazons = blazons.split('/')[blazons.split('/').length - 1].split('.')[0]
     var path = '../images/blazons/' + blazons +'.svg';
     var cardId = blazons + '-card';
-    var card = d3.select(el).append('article').attr('class', 'lounge pointer');
+    var card = d3.select(el).append('article').attr('class', 'lounge pointer')
+    .attr('id', blazons + '-card');
     //var gerb = card.append('div');
     var img = card.append('img').attr('src', img);
     var cardRect = d3.select('.lounge').node().getBoundingClientRect();
