@@ -130,7 +130,7 @@ $(function() {
   //Регистрация
   $('#signup_form').on('submit', function(e) {
     e.preventDefault()
-    var phone = $('#signup_form input[name="phone"]').val().replace('+', '')
+    var phone = formatPhone($('#signup_form input[name="phone"]').val())
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
     if(!phone) {
