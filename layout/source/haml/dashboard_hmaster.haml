@@ -9,6 +9,7 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/lib/d3.js" }
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
@@ -24,7 +25,10 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-
+	%script{type: "text/template", id: 'user_rating_tpl'}
+		%li
+			%span {{ number }}. {{ name }}
+			%span {{ exp }}
 	%script{type: "text/template", id: 'work_tpl'}
 		%tr
 			%td

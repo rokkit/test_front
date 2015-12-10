@@ -9,6 +9,7 @@
     <script src='./js/TweenMax.min.js'></script>
     <script src='./js/jquery.mask.min.js'></script>
     <script src='./js/underscore-min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/lib/d3.js'></script>
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
@@ -23,6 +24,12 @@
     <script src='./js/lib/svgicons-config.js'></script>
     <script src='./js/lib/svgicons.js'></script>
   </head>
+  <script id='user_rating_tpl' type='text/template'>
+    <li>
+      <span>{{ number }}. {{ name }}</span>
+      <span>{{ exp }}</span>
+    </li>
+  </script>
   <script id='work_tpl' type='text/template'>
     <tr>
       <td>
@@ -399,7 +406,7 @@
               <span class='popover'>
                 Трудоголик
                 <br>
-                отработал б��льшее количество смен, чем остальные в твоём городе в течении 1-го месяца
+                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
               </span>
             </figure>
           </aside>

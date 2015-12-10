@@ -62,9 +62,10 @@ function makeHookmasterWorks(works) {
     $.each(works, function(i) {
       var work_at = moment(this.work_at)
       var end_work_at = moment(this.end_work_at)
+
       $('#works_table tbody').append(work_tpl({
         id: this.id,
-        lounge: this.lounge.name,
+        lounge: this.lounge.title,
         work_at: work_at.format('YYYY-MM-DD HH:mm'),
         end_work_at: end_work_at.format('HH:mm'),
         amount: this.amount
