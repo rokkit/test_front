@@ -35,6 +35,13 @@ $(function() {
   $.getJSON(hostUrl + '/api/v1/users/rating.json', {role: currentUser.role, auth_token: currentUser.auth_token}, function(json) {
     makeUserRating(json)
   })
+  // $.getJSON(hostUrl + '/api/v1/works.json', {auth_token: currentUser.auth_token}, function(json) {
+  //   makeHookmasterWorks(json)
+  // })
+
+  $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '/load_hookmaster_data.json', {auth_token: currentUser.auth_token}, function(json) {
+    makeHookmasterWorks(json.works)
+  })
 })
 
 function makeUserRating(users) {
@@ -49,6 +56,29 @@ function makeUserRating(users) {
       exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     }))
   })
+}
+function makeHookmasterWorks(works) {
+  if(works.length > 0) {
+    $('#works .nodata').hide();
+    $('#works_table').show();
+    $('#works_table tbody').empty()
+    var work_tpl = _.template($('#work_tpl').html())
+    $.each(works, function(i) {
+      var work_at = moment(this.work_at)
+      var end_work_at = moment(this.end_work_at)
+
+      $('#works_table tbody').append(work_tpl({
+        id: this.id,
+        lounge: this.lounge.title,
+        work_at: work_at.format('YYYY-MM-DD HH:mm'),
+        end_work_at: end_work_at.format('HH:mm'),
+        amount: parseInt(this.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+      }))
+    })
+  } else {
+    $('#works_table').hide();
+    $('#works .nodata').show();
+  }
 }
 
 function bodyClickOff(){

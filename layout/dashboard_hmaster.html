@@ -10,6 +10,7 @@
     <script src='./js/TweenMax.min.js'></script>
     <script src='./js/jquery.mask.min.js'></script>
     <script src='./js/underscore-min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/lib/d3.js'></script>
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
@@ -29,6 +30,15 @@
       <span>{{ number }}. {{ name }}</span>
       <span>{{ exp }}</span>
     </li>
+  </script>
+  <script id='work_tpl' type='text/template'>
+    <tr>
+      <td>
+        <h6 class='color-blue'>{{ lounge }}</h6>
+      </td>
+      <td class='td-date'>{{ work_at }} - {{ end_work_at }}</td>
+      <td>{{ amount }}р.</td>
+    </tr>
   </script>
   <body id='html_body'>
     <div class='wrapper_2' id='edit-profile-wrapper'>
@@ -285,17 +295,19 @@
         </section>
       </section>
       <section class='bottom-rating'>
-        <article>
+        <article id='works'>
           <header>
             <h4>Посещения</h4>
           </header>
-          <table>
+          <div class='nodata'>
+            нет данных
+          </div>
+          <table id='works_table'>
             <thead>
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
                 <th>Заработано</th>
-                <th>Опыт</th>
               </tr>
             </thead>
             <tbody>

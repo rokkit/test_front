@@ -10,6 +10,7 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/lib/d3.js" }
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
@@ -25,11 +26,16 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-
 	%script{type: "text/template", id: 'user_rating_tpl'}
 		%li
 			%span {{ number }}. {{ name }}
 			%span {{ exp }}
+	%script{type: "text/template", id: 'work_tpl'}
+		%tr
+			%td
+				%h6.color-blue {{ lounge }}
+			%td.td-date {{ work_at }} - {{ end_work_at }}
+			%td {{ amount }}р.
 	%body#html_body
 		.wrapper_2#edit-profile-wrapper
 			-# Form
@@ -239,16 +245,17 @@
 							%p 21.09.15
 
 			%section.bottom-rating
-				%article
+				%article#works
 					%header
 						%h4 Посещения
-					%table
+					.nodata
+						нет данных
+					%table#works_table
 						%thead
 							%tr
 								%th Кальянная
 								%th Дата
 								%th Заработано
-								%th Опыт
 						%tbody
 							%tr
 								%td
