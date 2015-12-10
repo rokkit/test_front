@@ -62,24 +62,24 @@ $(function(){
 
             link
             .attr("x1", function(d) {
-              // var x = d.source.x - d.target.x;
-              // var y = d.source.y - d.target.y;
-              // //var x = d.target.x - d.source.x;
-              // //var y = d.target.y - d.source.y;
-              //
-              // var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
-              // var rad = angle * (Math.PI/180);
-              // return d.source.x + 40 * Math.cos(rad);
-              return d.source.x;
+              //var x = d.source.x - d.target.x;
+              //var y = d.source.y - d.target.y;
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
+
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = (angle + 180) * (Math.PI/180);
+              return d.source.x + 40 * Math.cos(rad);
+              //return d.source.x;
             })
             .attr("y1", function(d) {
-              // var x = d.source.x - d.target.x;
-              // var y = d.source.y - d.target.y;
-              //
-              // var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
-              // var rad = angle * (Math.PI/180);
-              // return d.target.y + 40 * Math.sin(rad);
-              return d.source.y;
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
+
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = (angle+180) * (Math.PI/180);
+              return d.source.y + 40 * Math.sin(rad);
+              //return d.source.y;
             })
             .attr("x2", function(d) {
               var x = d.target.x - d.source.x;
