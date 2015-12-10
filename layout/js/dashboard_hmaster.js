@@ -3,6 +3,7 @@ var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 window.hostUrl = 'http://176.112.194.149:81'
 
 $(function() {
+  $('.popup_vertical_symbol').css('pointer-events', 'none');
   new svgIcon(
     document.querySelector('#menu_header_btn'),
     svgIconConfig,
