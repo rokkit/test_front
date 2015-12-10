@@ -2594,9 +2594,6 @@ div.wrapper_2 {
 #edit-profile-wrapper {
   overflow-y: auto;
 }
-#edit-profile-wrapper #edit-profile {
-  display: none;
-}
 
 #all_talents #skill-view {
   height: 100%;
