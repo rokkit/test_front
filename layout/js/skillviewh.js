@@ -59,10 +59,46 @@ $(function(){
             //link.attr('transform', function(d){ return "translate(" + d.x + "," + d.y + ")";});
             node.attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; });
-            link.attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+
+            link
+            .attr("x1", function(d) {
+              // var x = d.source.x - d.target.x;
+              // var y = d.source.y - d.target.y;
+              // //var x = d.target.x - d.source.x;
+              // //var y = d.target.y - d.source.y;
+              //
+              // var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              // var rad = angle * (Math.PI/180);
+              // return d.source.x + 40 * Math.cos(rad);
+              return d.source.x;
+            })
+            .attr("y1", function(d) {
+              // var x = d.source.x - d.target.x;
+              // var y = d.source.y - d.target.y;
+              //
+              // var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              // var rad = angle * (Math.PI/180);
+              // return d.target.y + 40 * Math.sin(rad);
+              return d.source.y;
+            })
+            .attr("x2", function(d) {
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
+
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = angle * (Math.PI/180);
+              return d.target.x + 40 * Math.cos(rad);
+              //return d.target.x;
+            })
+            .attr("y2", function(d) {
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
+
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = angle * (Math.PI/180);
+              return d.target.y + 40 * Math.sin(rad);
+              //return d.target.y;
+            });
 
 
       }
@@ -74,7 +110,7 @@ $(function(){
       link = link.data(force.links());
 
       node.enter().append("g").attr("class", "node").attr('data-id', function(v) { return v.id });
-      link.enter().insert("line", ".node").attr("class", "link");
+      link.enter().insert("line", ".node");//.attr("class", "link");
       //link.enter().append("g", '.node').attr("class", "link");
 
       // var defs = node.append('svg:defs');
@@ -93,14 +129,33 @@ $(function(){
       // .attr("y", 0);
 
       // define the clipPath
-link.append("mask")       // define a clip path
+layout.append("defs")
+    .append('clipPath')
     .attr("id", "ellipse-clip") // give the clipPath an ID
     .append("circle")          // shape it as an ellipse
-    .attr("x", 10)         // position the x-centre
-    .attr("y", 10)         // position the y-centre
-    .attr("r", 40);         // set the y radius
+    .attr('clip-rule', 'evenodd')
+    .attr("cx", 260)         // position the x-centre
+    .attr("cy", 150)         // position the y-centre
+    .attr("r", 100);         // set the y radius
 
-link.attr("mask", "url(#ellipse-clip)");
+link
+.attr('stroke', function(d){
+  var lineColor = '#fff';
+  if(d.lineColor){
+    return '#F2AE32';
+  }
+  return lineColor;
+})
+.attr('opacity', function(d){
+  var lineColor = 0.3;
+  if(d.lineColor){
+    return 1;
+  }
+  return lineColor;
+});
+
+
+//link.attr("clip-path", "url(#ellipse-clip)");
 
       // link.append('circle')
       // .attr('x', 10)
@@ -149,6 +204,7 @@ link.attr("mask", "url(#ellipse-clip)");
       .append('feColorMatrix')
       .attr('type','matrix')
       .attr('values',"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0");
+
 
       node.append("image")
           .attr("xlink:href", function(v){
@@ -202,6 +258,15 @@ link.attr("mask", "url(#ellipse-clip)");
         .attr("font-size", 80)
         .attr('letter-spacing', 0)
         .attr("font-family", "Bebas Neue Book");
+
+        layout.append('line')
+        .attr('x1', 200 * i-55)
+        .attr('y1', 10)
+        .attr('x2', 200 * i-55)
+        .attr('y2', 500)
+        .attr('opacity', 0.1)
+        .attr('stroke', '#000')
+        .attr('stroke-width', 2)
       }
 
       force.start();

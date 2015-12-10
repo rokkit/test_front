@@ -59,7 +59,9 @@ $(function(){
             //link.attr('transform', function(d){ return "translate(" + d.x + "," + d.y + ")";});
             node.attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; });
-            link.attr("x1", function(d) { return d.source.x; })
+            link.attr("x1", function(d) {
+              return d.source.x;
+            })
             .attr("y1", function(d) { return d.source.y; })
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
@@ -93,12 +95,14 @@ $(function(){
       // .attr("y", 0);
 
       // define the clipPath
-link.append("mask")       // define a clip path
+layout.append("defs")
+    .append('clipPath')
     .attr("id", "ellipse-clip") // give the clipPath an ID
     .append("circle")          // shape it as an ellipse
-    .attr("x", 10)         // position the x-centre
-    .attr("y", 10)         // position the y-centre
-    .attr("r", 40);         // set the y radius
+    .attr('clip-rule', 'evenodd')
+    .attr("cx", 260)         // position the x-centre
+    .attr("cy", 150)         // position the y-centre
+    .attr("r", 100);         // set the y radius
 
 link
 .attr('stroke', function(d){
@@ -117,7 +121,7 @@ link
 });
 
 
-link.attr("mask", "url(#ellipse-clip)");
+//link.attr("clip-path", "url(#ellipse-clip)");
 
       // link.append('circle')
       // .attr('x', 10)
