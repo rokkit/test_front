@@ -74,7 +74,7 @@ $(function(){
       link = link.data(force.links());
 
       node.enter().append("g").attr("class", "node").attr('data-id', function(v) { return v.id });
-      link.enter().insert("line", ".node").attr("class", "link");
+      link.enter().insert("line", ".node");//.attr("class", "link");
       //link.enter().append("g", '.node').attr("class", "link");
 
       // var defs = node.append('svg:defs');
@@ -99,6 +99,23 @@ link.append("mask")       // define a clip path
     .attr("x", 10)         // position the x-centre
     .attr("y", 10)         // position the y-centre
     .attr("r", 40);         // set the y radius
+
+link
+.attr('stroke', function(d){
+  var lineColor = '#fff';
+  if(d.lineColor){
+    return '#F2AE32';
+  }
+  return lineColor;
+})
+.attr('opacity', function(d){
+  var lineColor = 0.3;
+  if(d.lineColor){
+    return 1;
+  }
+  return lineColor;
+});
+
 
 link.attr("mask", "url(#ellipse-clip)");
 
@@ -202,6 +219,15 @@ link.attr("mask", "url(#ellipse-clip)");
         .attr("font-size", 80)
         .attr('letter-spacing', 0)
         .attr("font-family", "Bebas Neue Book");
+
+        layout.append('line')
+        .attr('x1', 200 * i-55)
+        .attr('y1', 10)
+        .attr('x2', 200 * i-55)
+        .attr('y2', 500)
+        .attr('opacity', 0.1)
+        .attr('stroke', '#000')
+        .attr('stroke-width', 2)
       }
 
       force.start();
