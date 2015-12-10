@@ -2005,6 +2005,41 @@ section.user_achievments section.wrapper_for_ach figure figcapation p {
   height: 0;
 }
 
+label.myLabel input[type="file"] {
+  position: fixed;
+  top: -1000px;
+}
+
+/***** Example custom styling **** */
+.myLabel {
+  position: relative;
+  height: 48px;
+  width: 100px;
+  background: #EBB22F;
+  padding: 12px 16px 0 16px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  border: 1px solid #EBB22F;
+  -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.myLabel:hover {
+  background: none;
+  border: 1px solid #EBB22F;
+}
+.myLabel:active {
+  background: #CCF;
+}
+.myLabel :valid + span {
+  color: #323640;
+}
+
 section.wrapper_for_ach {
   position: relative;
   width: 100%;
