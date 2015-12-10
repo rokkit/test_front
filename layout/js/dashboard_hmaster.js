@@ -35,8 +35,12 @@ $(function() {
   $.getJSON(hostUrl + '/api/v1/users/rating.json', {role: currentUser.role, auth_token: currentUser.auth_token}, function(json) {
     makeUserRating(json)
   })
-  $.getJSON(hostUrl + '/api/v1/works.json', {auth_token: currentUser.auth_token}, function(json) {
-    makeHookmasterWorks(json)
+  // $.getJSON(hostUrl + '/api/v1/works.json', {auth_token: currentUser.auth_token}, function(json) {
+  //   makeHookmasterWorks(json)
+  // })
+
+  $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '/load_hookmaster_data.json', {auth_token: currentUser.auth_token}, function(json) {
+    makeHookmasterWorks(json.works)
   })
 })
 
@@ -68,7 +72,7 @@ function makeHookmasterWorks(works) {
         lounge: this.lounge.title,
         work_at: work_at.format('YYYY-MM-DD HH:mm'),
         end_work_at: end_work_at.format('HH:mm'),
-        amount: this.amount
+        amount: parseInt(this.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
       }))
     })
   } else {
