@@ -23,11 +23,14 @@
     <script src='./js/lib/svgicons-config.js'></script>
     <script src='./js/lib/svgicons.js'></script>
   </head>
-  <script id='user_rating_tpl' type='text/template'>
-    <li>
-      <span>{{ number }}. {{ name }}</span>
-      <span>{{ exp }}</span>
-    </li>
+  <script id='work_tpl' type='text/template'>
+    <tr>
+      <td>
+        <h6 class='color-blue'>{{ lounge }}</h6>
+      </td>
+      <td class='td-date'>{{ work_at }} - {{ end_work_at }}</td>
+      <td>{{ amount }} XP</td>
+    </tr>
   </script>
   <body id='html_body'>
     <div class='wrapper_2' id='edit-profile-wrapper'>
@@ -173,7 +176,7 @@
       <section class='username'>
         <h1>Виталий Пихонт</h1>
         <p id='city_user'><span>Санкт-Петербург</span>, Россия</p>
-        <p id='hookmaster_description'>Работаю в сети с 2012 года. Стараюсь вседа делать лучшие ��альяны, приходите в мои смены!</p>
+        <p id='hookmaster_description'>Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!</p>
       </section>
       <section class='progress_bar'>
         <p>
@@ -284,16 +287,18 @@
         </section>
       </section>
       <section class='bottom-rating'>
-        <article>
+        <article id='works'>
           <header>
             <h4>Посещения</h4>
           </header>
-          <table>
+          <div class='nodata'>
+            нет данных
+          </div>
+          <table id='works_table'>
             <thead>
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
-                <th>Заработано</th>
                 <th>Опыт</th>
               </tr>
             </thead>
@@ -394,7 +399,7 @@
               <span class='popover'>
                 Трудоголик
                 <br>
-                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+                отработал б��льшее количество смен, чем остальные в твоём городе в течении 1-го месяца
               </span>
             </figure>
           </aside>
