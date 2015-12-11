@@ -55,7 +55,7 @@
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu
-				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%img#uhp_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
 				%span
 					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
 					%p 24 июл в 14:44 от #unihuqhookahplaces
@@ -72,6 +72,7 @@
 					%h5 Она задала нам неожиданный вопрос
 					%p 24 июл в 14:44 от #unihuqhookahplaces
 
+
 				%footer
 					%p Copyright © 2015 Уникальные Кальянные
 					%p
@@ -79,30 +80,32 @@
 						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
 			-# Left bar
 			%section#menu_right_part.right_menu
-				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				%img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				-# %a
+				-# 	%h3#main_nav_btn Главная страница
+				-# 	%p Основная информация
+				%a
+					%h3#lounges_nav_btn Ложи
+					%p Уникальные заведения
 
-				%h3 Главная страница
-				%p Основная информация
+				%a
+					%h3#philosophy_nav_btn Философия
+					%p Наши ценности
 
-				%h3#lounges_nav_btn Ложи
-				%p Уникальные заведения
+				%a
+					%h3#community_nav_btn Сообщество
+					%p Полезно быть своим
+				%a
+					%h3 Франшиза
+					%p Открыть Ложу
 
-				%h3#philosophy_nav_btn Философия
-				%p Наши ценности
-
-				%h3#community_nav_btn Сообщество
-				%p Полезно быть своим
-
-				%h3 Франшиза
-				%p Открыть Ложу
-
-				%button Войти
+				%button#go_login_from_menu_btn Круг избранных
 		-# Color Overlay
 		#color_overlay.color_overlay
 		%main{:id => 'main_content'}
 			%section#liberty_block1
 				%header#header
-					%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 					%nav
 						%a{:id=>"login_header_btn"} Войти
 						%a{:id=>"signup_header_btn"} Зарегистрироваться

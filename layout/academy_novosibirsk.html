@@ -61,7 +61,7 @@
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>
       <section class='left_menu' id='menu_left_part'>
-        <img alt='Unique Hookah Places' height='40px' src='./images/logo.svg'>
+        <img alt='Unique Hookah Places' class='pointer' height='40px' id='uhp_logo' src='./images/logo.svg'>
         <span>
           <h4>Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...</h4>
           <p>24 июл в 14:44 от #unihuqhookahplaces</p>
@@ -83,25 +83,31 @@
         </footer>
       </section>
       <section class='right_menu' id='menu_right_part'>
-        <img alt='Закрыть' id='closing' src='./images/cross.svg'>
-        <h3>Главная страница</h3>
-        <p>Основная информация</p>
-        <h3 id='lounges_nav_btn'>Ложи</h3>
-        <p>Уникальные заведения</p>
-        <h3 id='philosophy_nav_btn'>Философия</h3>
-        <p>Наши ценности</p>
-        <h3 id='community_nav_btn'>Сообщество</h3>
-        <p>Полезно быть своим</p>
-        <h3>Франшиза</h3>
-        <p>Открыть Ложу</p>
-        <button>Войти</button>
+        <img alt='Закрыть' class='pointer' id='closing' src='./images/cross.svg'>
+        <a>
+          <h3 id='lounges_nav_btn'>Ложи</h3>
+          <p>Уникальные заведения</p>
+        </a>
+        <a>
+          <h3 id='philosophy_nav_btn'>Философия</h3>
+          <p>Наши ценности</p>
+        </a>
+        <a>
+          <h3 id='community_nav_btn'>Сообщество</h3>
+          <p>Полезно быть своим</p>
+        </a>
+        <a>
+          <h3>Франшиза</h3>
+          <p>Открыть Ложу</p>
+        </a>
+        <button id='go_login_from_menu_btn'>Круг избранных</button>
       </section>
     </div>
     <div class='color_overlay' id='color_overlay'></div>
     <main id='main_content'>
       <section id='liberty_block1'>
         <header id='header'>
-          <img alt='Уникальные Кальянные' src='./images/logo.svg'>
+          <img alt='Уникальные Кальянные' class='pointer' src='./images/logo.svg'>
           <nav>
             <a id='login_header_btn'>Войти</a>
             <a id='signup_header_btn'>Зарегистрироваться</a>

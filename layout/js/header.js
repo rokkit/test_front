@@ -255,7 +255,7 @@ function doLogin(phone, password) {
 
 $(function(){
   $('#menu_right_part h3').each(function(i, v){
-    $(v).attr('class', 'text-color-white');
+    //$(v).attr('class', 'text-color-white');
   });
   $('#'+$('body').data('page')+'_nav_btn').attr('class', 'text-color-orange');
 
