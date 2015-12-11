@@ -1,6 +1,7 @@
 window.hostUrl = 'http://176.112.194.149:81'
 $(function() {
   $('.username h1').click(function(){
+    $('#edit-profile').show();
     fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
   });
   $('#edit_profile_btn').click(function(){
@@ -25,17 +26,29 @@ $(function() {
 
   $('form.edit_profile_form').on('submit', function(e) {
     e.preventDefault()
-
-    var data = $(this).serialize() + '&auth_token='+currentUser.auth_token
-    $.ajax({url: hostUrl + '/api/v1/users/' + currentUser.id, data: data, success: function(user) {
-      window.currentUser = user
-      localStorage.setItem('currentUser', JSON.stringify(user))
-      $('section.username h1').text(currentUser.name)
-      $('#login_btn').text(currentUser.name)
-      if(currentUser.city) {
-        $('#city_user span').text(currentUser.city)
-      }
-      fx.back();
-    }, type: 'PUT'});
-  })
+    var formData = new FormData(this);
+    formData.append('auth_token', currentUser.auth_token);
+    $.ajax({
+        type:'PUT',
+        url: hostUrl + '/api/v1/users/' + currentUser.id,
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function(user){
+          window.currentUser = user
+          localStorage.setItem('currentUser', JSON.stringify(user))
+          $('section.username h1').text(currentUser.name)
+          $('#login_btn').text(currentUser.name)
+          if(currentUser.city) {
+            $('#city_user span').text(currentUser.city)
+          }
+          fx.back();
+        },
+        error: function(data){
+            console.log("error");
+            console.log(data);
+        }
+    });
+  });
 });

@@ -199,3 +199,34 @@ section.user_achievments
     border-top: 10px solid #181B21
     width: 0
     height: 0
+
+label.myLabel input[type="file"]
+    position: fixed
+    top: -1000px
+
+/***** Example custom styling ****
+
+.myLabel
+    position : relative
+    height : 48px
+    width : 100px
+    background : #EBB22F
+    padding: 12px 16px 0 16px
+    line-height: 24px
+    text-align: center
+    font-size : 14px
+    color : #fff
+    border : 1px solid #EBB22F
+
+    +transition(all, 250ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+    display: inline-block
+    margin-bottom: 16px
+    &:hover
+        background: none
+        border : 1px solid #EBB22F
+    &:active
+        background: #CCF
+    // \:invalid + span
+    //     color: #A44
+    \:valid + span
+        color: #323640

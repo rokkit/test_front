@@ -168,27 +168,71 @@ $(function(){
     history_open_anim.play();
   });
 
-  $("#close_history_btn").click(function() {
+  $(".cross_white_popup").click(function() {
     history_open_anim.reverse();
     });
 })
 
-// Анимация попапа
 
-// $(function(){
+// Анимация попапа на странице кальянщиков
+////////////////////////////////////////////////////////
 
-//   var history_popup = document.getElementById("philosophie_history"),
-//       open_history_btn = document.getElementById("open_history_btn"),
-//       close_history_btn = document.getElementById("close_history_btn");
+// Филипп Бойцов
+$(function(){
 
-//   history_open_anim = new TimelineMax({paused:true}),
-//   history_open_anim.add(TweenLite.to(history_popup, 1, {left:0, top:0, width:"100vh", height:"100vh"}));
+  var hm_open_anim = new TimelineMax({paused:true});
+  
+  hm_open_anim.from("#hookah_popups", 0.1, {autoAlpha:0});
+  hm_open_anim.to("#hookah_popups", 0.1, {autoAlpha:1});
+  
+  hm_open_anim.to("#hm_ilya_ponomarev", 1, {top:0, ease: Power4.easeOut});
+  hm_open_anim.to("#html_body", 0.1, {overflow:"hidden"});
 
-//   $("#open_history_btn").click(function() {
-//     history_open_anim.play();
-//   });
+  $("#open_hm_ilya_ponomarev").click(function() {
+    hm_open_anim.play();
+  });
 
-//   $("#close_history_btn").click(function() {
-//     history_open_anim.reverse();
-//   });
-// })
+  $(".cross_white_popup").click(function() {
+    hm_open_anim.reverse();
+    });
+})
+
+// Филипп Бойцов
+$(function(){
+
+  var hm_open_anim = new TimelineMax({paused:true});
+  
+  hm_open_anim.from("#hookah_popups", 0.1, {autoAlpha:0});
+  hm_open_anim.to("#hookah_popups", 0.1, {autoAlpha:1});
+  
+  hm_open_anim.to("#hm_philipp_boicov", 1, {top:0, ease: Power4.easeOut});
+  hm_open_anim.to("#html_body", 0.1, {overflow:"hidden"});
+
+  $("#open_hm_philipp_boicov").click(function() {
+    hm_open_anim.play();
+  });
+
+  $(".cross_white_popup").click(function() {
+    hm_open_anim.reverse();
+    });
+})
+
+// Игорь Коновалов
+$(function(){
+
+  var hm_open_anim = new TimelineMax({paused:true});
+  
+  hm_open_anim.from("#hookah_popups", 0.1, {autoAlpha:0});
+  hm_open_anim.to("#hookah_popups", 0.1, {autoAlpha:1});
+  
+  hm_open_anim.to("#hm_igor_konovalov", 1, {top:0, ease: Power4.easeOut});
+  hm_open_anim.to("#html_body", 0.1, {overflow:"hidden"});
+
+  $("#open_hm_igor_konovalov").click(function() {
+    hm_open_anim.play();
+  });
+
+  $(".cross_white_popup").click(function() {
+    hm_open_anim.reverse();
+    });
+})
