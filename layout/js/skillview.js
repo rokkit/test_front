@@ -61,8 +61,6 @@ $(function(){
                 .attr("cy", function(d) { return d.y; });
                 link
                 .attr("x1", function(d) {
-                  //var x = d.source.x - d.target.x;
-                  //var y = d.source.y - d.target.y;
                   var x = d.target.x - d.source.x;
                   var y = d.target.y - d.source.y;
 
@@ -108,7 +106,7 @@ $(function(){
       node = node.data(force.nodes());
       link = link.data(force.links());
 
-      node.enter().append("g").attr("class", "node").attr('data-id', function(v) { return v.id });
+      node.enter().append("g").attr("class", "node pointer").attr('data-id', function(v) { return v.id });
       link.enter().insert("line", ".node");//.attr("class", "link");
       //link.enter().append("g", '.node').attr("class", "link");
 

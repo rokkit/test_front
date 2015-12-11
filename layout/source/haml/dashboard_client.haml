@@ -38,13 +38,12 @@
 			%td.td-date {{ visit_date }} {{ visit_time }} - {{ end_visit_time }}
 			%td {{ client_count }}
 			%td
-				%span.color-orange.cancel_reserv Отменить
-				.popover-reserv
-					%p Отменить бронирование
-					.buttons
+				%span.color-orange.cancel_reserv
+					Отменить
+					%span.popover-reserv
+						%p Отменить бронирование
 						%span.cancel_reserv_confirm Да
 						%span.cancel_reserv_decline Нет
-					-# .popover-reserv-arrow
 	%script{type: "text/template", id: 'user_rating_tpl'}
 		%li
 			%span {{ number }}. {{ name }}
@@ -237,7 +236,8 @@
 					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
-				%h1
+				#face
+				%h1	Виталий Пихонт
 				%p#city_user <span>Санкт-Петербург</span>, Россия
 				%button.button-dark#n_o_a Забронировать столик
 				-# %button.button-dark Пригласить на встречу
@@ -269,7 +269,7 @@
 							%tr
 								%th Кальянная
 								%th Дата
-								%th Количество
+								%th Количество гостей
 								%th Статус
 						%tbody#reserve_table_body
 				%article#visit-list

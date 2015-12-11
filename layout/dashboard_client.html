@@ -38,14 +38,14 @@
       <td class='td-date'>{{ visit_date }} {{ visit_time }} - {{ end_visit_time }}</td>
       <td>{{ client_count }}</td>
       <td>
-        <span class='color-orange cancel_reserv'>Отменить</span>
-        <div class='popover-reserv'>
-          <p>Отменить бронирование</p>
-          <div class='buttons'>
+        <span class='color-orange cancel_reserv'>
+          Отменить
+          <span class='popover-reserv'>
+            <p>Отменить бронирование</p>
             <span class='cancel_reserv_confirm'>Да</span>
             <span class='cancel_reserv_decline'>Нет</span>
-          </div>
-        </div>
+          </span>
+        </span>
       </td>
     </tr>
   </script>
@@ -256,7 +256,8 @@
       </header>
       <hr>
       <section class='username'>
-        <h1></h1>
+        <div id='face'></div>
+        <h1>Виталий Пихонт</h1>
         <p id='city_user'><span>Санкт-Петербург</span>, Россия</p>
         <button class='button-dark' id='n_o_a'>Забронировать столик</button>
       </section>
@@ -295,7 +296,7 @@
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
-                <th>Количество</th>
+                <th>Количество гостей</th>
                 <th>Статус</th>
               </tr>
             </thead>
