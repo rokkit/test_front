@@ -313,6 +313,7 @@ button:hover {
 
 @font-face {
   font-family: "Bebas Neue Book";
+<<<<<<< HEAD
   src: url('../fonts/bebasneue_book-webfont.woff?1448261062') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1448261062') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1448261062') format('truetype');
 }
 @font-face {
@@ -334,6 +335,29 @@ button:hover {
 @font-face {
   font-family: "Open Sans Light";
   src: url('../fonts/opensans-light-webfont.woff?1448261062') format('woff'), url('../fonts/opensans-light-webfont.svg?1448261062') format('svg'), url('../fonts/opensans-light-webfont.ttf?1448261062') format('truetype');
+=======
+  src: url('../fonts/bebasneue_book-webfont.woff?1447505220') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1447505220') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1447505220') format('truetype');
+}
+@font-face {
+  font-family: "Bebas Neue Regular";
+  src: url('../fonts/bebasneue_regular-webfont.woff?1447505220') format('woff'), url('../fonts/bebasneue_regular-webfont.svg?1447505220') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf?1447505220') format('truetype');
+}
+@font-face {
+  font-family: "Lora";
+  src: url('../fonts/lora-regular-webfont.ttf?1447505220') format('truetype'), url('../fonts/lora-regular-webfont.woff?1447505220') format('woff'), url('../fonts/lora-regular-webfont.svg?1447505220') format('svg');
+}
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url('../fonts/opensans-semibold-webfont.woff?1447505220') format('woff'), url('../fonts/opensans-semibold-webfont.svg?1447505220') format('svg'), url('../fonts/opensans-semibold-webfont.ttf?1447505220') format('truetype');
+}
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url('../fonts/opensans-regular-webfont.woff?1447505220') format('woff'), url('../fonts/opensans-regular-webfont.svg?1447505220') format('svg'), url('../fonts/opensans-regular-webfont.ttf?1447505220') format('truetype');
+}
+@font-face {
+  font-family: "Open Sans Light";
+  src: url('../fonts/opensans-light-webfont.woff?1447505220') format('woff'), url('../fonts/opensans-light-webfont.svg?1447505220') format('svg'), url('../fonts/opensans-light-webfont.ttf?1447505220') format('truetype');
+>>>>>>> 9f99bd9b866b427e0e5885ae75ef1a1512a179f2
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {
@@ -1860,6 +1884,7 @@ section.dashboard section.username #face {
   margin-right: 20px;
 }
 section.dashboard section.username h1 {
+  cursor: pointer;
   margin-bottom: 16px;
   letter-spacing: 6px;
   color: #EBB22F;
@@ -2389,6 +2414,7 @@ section.right_menu a:hover {
 #header img {
   float: left;
   height: 40px;
+  cursor: pointer;
 }
 #header nav {
   line-height: 44px;
@@ -2772,6 +2798,7 @@ div.wrapper_2 {
 #header img {
   float: left;
   height: 40px;
+  cursor: pointer;
 }
 #header nav {
   line-height: 44px;
