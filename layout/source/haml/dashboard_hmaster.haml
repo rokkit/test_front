@@ -157,92 +157,34 @@
 
 		%section.dashboard{:id => 'main_content'}
 			%header#header
-				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+				%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
 					%a#edit_profile_btn Редактировать профиль
 					%a#logout_btn Выйти
 					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
-				%h1	Виталий Пихонт
+				%h1
 				%p#city_user <span>Санкт-Петербург</span>, Россия
 				%p#hookmaster_description Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!
 			%section.progress_bar
 				%p
-					<span id='need_points'>4525</span> очков до <span id='next_level'></span> уровня
+					<span id='need_points'></span> очков до <span id='next_level'></span> уровня
 				.progress_bar_bg
 					.progress
 
 			%section.user_achievments
 				%header
 					%h4 Достижения
-					#dashboard_ach_btn.number_of 3/25
+					#dashboard_ach_btn.number_of
 				%section.wrapper_for_ach#achievements
-					%figure{:id => 'dashboard_open_ach_btn'}
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
+
 			%section.user_achievments
 				%header
 					%h4 Навыки
-					#dashboard_talents_btn.number_of 3/25
+					#dashboard_talents_btn.number_of
 				%section.wrapper_for_ach#skills
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
+
 
 			%section.bottom-rating
 				%article#works
@@ -257,37 +199,6 @@
 								%th Дата
 								%th Заработано
 						%tbody
-							%tr
-								%td
-									%h6.color-limon Либерти
-								%td.td-date 23 июня 2015 20:30 - 23:00
-								%td 1360 рублей
-								%td
-									136 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
 
 				%article
 					%h4 Бонусы
