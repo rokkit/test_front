@@ -106,7 +106,7 @@ $(function(){
       node = node.data(force.nodes());
       link = link.data(force.links());
 
-      node.enter().append("g").attr("class", "node").attr('data-id', function(v) { return v.id });
+      node.enter().append("g").attr("class", "node pointer").attr('data-id', function(v) { return v.id });
       link.enter().insert("line", ".node");//.attr("class", "link");
       //link.enter().append("g", '.node').attr("class", "link");
 

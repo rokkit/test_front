@@ -2111,6 +2111,7 @@ section.wrapper_for_ach figure {
   position: relative;
   display: inline-block;
   width: 18%;
+  cursor: pointer;
   text-align: center;
   padding: 32px;
   margin-bottom: 32px;
