@@ -165,6 +165,7 @@ link
           if(d.can_take){
             $('#skill h4').text('ЭТОТ НАВЫК ДОСТУПЕН ДЛЯ ИЗУЧЕНИЯ');
             $('#skill button').show();
+            $('#skill button').off('click')
             $('#skill button').on('click', function(){
               $.post('http://176.112.194.149:81/api/v1/skills/'+d.id+'/take.json', {auth_token: currentUser.auth_token});
               $('.node[data-id='+d.id+'] text:last').text('изучен')
@@ -208,7 +209,7 @@ link
           })
           .style("filter", function(d){
             var cls = '';
-            if(!d.can_take){
+            if(!d.can_take && !d.has){
               return ("filter", "url(#desaturate)");
             }else{
               return '';
