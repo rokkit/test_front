@@ -181,15 +181,49 @@
 									%img.img-nav.pointer{:src => "./images/slider/4.jpg"}
 								%li
 									%img.img-nav.pointer{:src => "./images/slider/5.jpg"}
+			
+			-# Блок 4
+			-# ///////////////////////////////////////////////////////////////////////
 
 			%section#liberty_block4
 				%header
 					%h2 Кальянные мастера
 					%p В Уникальных Кальянных работают только профессионалы своего дела. Наши кальянные мастера подходят к смешиванию табака и созданию вкуса как к тонкому искусству. Вы всегда сможете положиться на них в вопросах качества.
 				%br
-				%img{ :src=>"./images/hm/hm_1.png" , :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/hm/hm_2.png" , :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/hm/hm_3.png" , :alt=>"Кальянщик" , :height=>"396px" }
+				%img#open_hm_ilya_ponomarev.pointer{ :src=>"./images/hm/hm_1.png" , :alt=>"Кальянщик" , :height=>"396px" }
+				%img#open_hm_philipp_boicov.pointer{ :src=>"./images/hm/hm_2.png" , :alt=>"Кальянщик" , :height=>"396px" }
+				%img#open_hm_igor_konovalov.pointer{ :src=>"./images/hm/hm_3.png" , :alt=>"Кальянщик" , :height=>"396px" }
+
+			-# Попапы кальянщиков
+
+			.popup_overall_white#hookah_popups
+				
+				-# Илья Пономарев
+				%article.pow_wrapper#hm_ilya_ponomarev
+					%header
+						%h2 Илья Пономарев
+						%p Проворный
+					%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
+					%section
+				
+				-# Филипп Бойцов
+				%article.pow_wrapper#hm_philipp_boicov
+					%header
+						%h2 Филипп Бойцов
+						%p Проворный
+					%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
+					%section
+
+				-# Игорь Коновалов
+				%article.pow_wrapper#hm_igor_konovalov
+					%header
+						%h2 Игорь Коновалов
+						%p Проворный
+					%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
+					%section
+
+			-# Блок 5
+			-# ///////////////////////////////////////////////////////////////////////
 
 			%section#liberty_block5
 				.map_overlay
