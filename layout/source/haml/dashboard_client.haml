@@ -38,13 +38,12 @@
 			%td.td-date {{ visit_date }} {{ visit_time }} - {{ end_visit_time }}
 			%td {{ client_count }}
 			%td
-				%span.color-orange.cancel_reserv Отменить
-				.popover-reserv
-					%p Отменить бронирование
-					.buttons
+				%span.color-orange.cancel_reserv
+					Отменить
+					%span.popover-reserv
+						%p Отменить бронирование
 						%span.cancel_reserv_confirm Да
 						%span.cancel_reserv_decline Нет
-					-# .popover-reserv-arrow
 	%script{type: "text/template", id: 'user_rating_tpl'}
 		%li
 			%span {{ number }}. {{ name }}
