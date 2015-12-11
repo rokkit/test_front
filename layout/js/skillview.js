@@ -61,8 +61,6 @@ $(function(){
                 .attr("cy", function(d) { return d.y; });
                 link
                 .attr("x1", function(d) {
-                  //var x = d.source.x - d.target.x;
-                  //var y = d.source.y - d.target.y;
                   var x = d.target.x - d.source.x;
                   var y = d.target.y - d.source.y;
 

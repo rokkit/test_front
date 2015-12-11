@@ -4,7 +4,11 @@ $(function() {
     fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
   });
   $('#edit_profile_btn').click(function(){
-    fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
+    $('#edit-profile').css('display', 'block');
+    fx.do(['background', 'editProfile'], bodyClick, function(){
+      $('#edit-profile').css('display', 'none');
+      $('body').off('click');
+    });
   });
 
   $('#edit-profile a').click(function(){
@@ -34,16 +38,4 @@ $(function() {
       fx.back();
     }, type: 'PUT'});
   })
-})
-
-function bodyClick(e){
-  $('body').on('click', function(e) {
-    TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-    fx.back();
-  });
-}
-
-function bodyClickOff(){
-  $('body').off('click');
-  $('#reserv_succes_form').css('right', '1600');
-}
+});

@@ -2,6 +2,99 @@ var fx = new FX(fxa.dashboard);
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 window.hostUrl = 'http://176.112.194.149:81'
 
+$(function(){
+
+  function rndR(min, max) {
+    var rand = min + Math.random() * (max - min)
+    rand = Math.round(rand);
+    return rand;
+  }
+
+  var layoutWidth = $('#face').width();
+  var layoutHeight = $('#face').height();
+
+  var layout = d3.select('#face').append('svg')
+  .attr('width', layoutWidth)
+  .attr('height', layoutHeight);
+
+  layout.append("defs")
+      .append('pattern')
+      .attr("id", "face-img")
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', 200)
+      .attr('height', 200)
+      .attr('patternUnits', 'userSpaceOnUse')
+      .append("image")
+      .attr('x', 20)
+      .attr('y', 0)
+      .attr('width', 200)
+      .attr('height', 200)
+      .attr('xlink:href', 'http://comicsboom.net/uploads/posts/2013-04/1364881758_nigra1.jpg');
+
+
+  layout.append('circle')
+  .attr('r', 70)
+  .attr('fill', 'transparent')
+  .attr('stroke', '#fff')
+  .attr('opacity', 0.4)
+  .attr('cx', layoutWidth/2)
+  .attr('cy', layoutHeight/2);
+
+  layout.append('circle')
+  .attr('r', 50)
+  .attr('stroke', '#EBB22F')
+  .attr('stroke-width', 2.5)
+  .attr('fill', 'transparent')
+  .attr('cx', layoutWidth/2)
+  .attr('cy', layoutHeight/2);
+
+  layout.append('circle')
+  .attr('r', 44)
+  // .attr('stroke', '#EBB22F')
+  // .attr('stroke-width', 2.5)
+  .attr('fill', 'url(#face-img)')
+  .attr('cx', layoutWidth/2)
+  .attr('cy', layoutHeight/2);
+
+  for (var i = 0; i < 360; i += 12) {
+    var r = rndR(68, 100);
+    layout.append('line')
+    .attr('stroke', '#EBB22F')
+    .attr('opacity', function(){
+      var res = 1;
+      if(r < 85){
+        res = 0.6;
+      }
+      if(r < 80){
+        res = 0.4;
+      }
+      if(r < 76){
+        res = 0.2;
+      }
+      return res;
+    })
+    .attr('stroke-width', '2.4')
+    .attr('x1', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + 50 * Math.cos(rad);
+    })
+    .attr('y1', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + 50 * Math.sin(rad);
+    })
+    .attr('x2', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + r * Math.cos(rad);
+    })
+    .attr('y2', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + r * Math.sin(rad);
+    });
+  }
+
+});
+
 $(function() {
   $('.popup_vertical_symbol').css('pointer-events', 'none');
   new svgIcon(
