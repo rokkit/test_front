@@ -1,12 +1,4 @@
-$(function(){
-  var h, w;
-      w = $("#viewport-left").width();
-      h = $("#viewport-left").height();
-      this.nodesLeft = new Nodes('viewport-left', w, h);
-      this.nodesLeft.render;
-      this.nodesRight = new Nodes('viewport-right', w, h);
-      this.nodesRight.render;
-});
+
 
 
 var fx = new FX(fxa.pages_index);
@@ -38,7 +30,12 @@ $(function(){
 
   //Клик на кнопку регистрация в хедере
  $('#signup_header_btn').on('click', function() {
-   fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+
+   if (!currentUser) {
+     fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+   } else {
+     document.location.href = '/dashboard_client.html'
+   }
  });
 
  $('#login_form a').click(function(){
@@ -52,13 +49,6 @@ $(function(){
 
 $(function() {
   window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
-  if(currentUser){
-    $('#login_header_btn').text(currentUser.name)
-    $('#signup_header_btn').hide()
-  } else {
-    $('#login_header_btn').text('Войти')
-    $('#signup_header_btn').show()
-  }
 })
 
 
@@ -100,10 +90,7 @@ $(function() {
     bodyClick();
   });
 
-     //Клик на кнопку меню в хедере
-  $('#menu_header_btn').on('click', function() {
-    animateMenu()
-  });
+
 
   $('#recover_btn').on('click', function() {
     animateForm('recover_form')
@@ -132,7 +119,7 @@ $(function() {
   //Регистрация
   $('#signup_form').on('submit', function(e) {
     e.preventDefault()
-    var phone = $('#signup_form input[name="phone"]').val().replace('+', '')
+    var phone = formatPhone($('#signup_form input[name="phone"]').val())
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
     if(!phone) {
@@ -217,26 +204,7 @@ function animateForm(el) {
   tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'sequence');
 }
 
-function animateMenu() {
-  var left_part = document.getElementById("menu_left_part")
-  var right_part = document.getElementById("menu_right_part")
-  var html_body = document.getElementById("html_body")
-  var color_overlay = document.getElementById("color_overlay")
-  var main_content = document.getElementById('main_content')
-  var wrapper =document.getElementById('wrapper_menu')
 
-  var tw1 = TweenLite.to(left_part, 0.5, {left:"0", onComplete: function() {
-    $('#closing').on('click', function(e) {
-      window.tl.reverse()
-    });
-  }})
-  var tw2 = TweenLite.to(right_part, 0.5, {right:"0"})
-  var tw3 = TweenLite.to(color_overlay, 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw4 = TweenLite.to(main_content, 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw5 = TweenLite.to(html_body, 1, {overflow:"hidden"})
-  var tw6 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
-  window.tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5, tw6], 'sequence');
-}
 
 function successAuth(resp) {
   if(resp.role == 'user') {
@@ -302,25 +270,9 @@ $(function() {
   $('#uhp_logo').on('click', function() {
     document.location.href = '/pages_index.html'
   });
-
-  $('#menu_right_part button').on('click', function() {
-    document.location.href = 'http://176.112.194.149:81/admin'
-  });
-
 });
 
-//Переходы по страницам меню
-$(function() {
-  $('#lounges_nav_btn').on('click', function() {
-    document.location.href = '/pages_index.html'
-  });
-  $('#philosophy_nav_btn').on('click', function() {
-    document.location.href = '/pages_philosophy.html'
-  });
-  $('#community_nav_btn').on('click', function() {
-    document.location.href = '/pages_community.html'
-  });
-});
+
 
 // PRELOADER
 $(function() {

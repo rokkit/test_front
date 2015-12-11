@@ -3,6 +3,7 @@
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/clouds.css" }
 		%script{ :src => "./js/jquery-2.1.4.min.js" }
 		%script{ :src => "./js/jquery.gsap.min.js" }
 		%script{ :src => "./js/TweenLite.min.js" }
@@ -21,6 +22,7 @@
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/header.js" }
 		%script{ :src => "./js/community.js" }
+		%script{ :src => "./js/menu.js" }
 	%body#html_body{:data => {'page' => 'community'}}
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
@@ -102,6 +104,10 @@
 		%main{:id => 'main_content'}
 			-# Первый блок
 			%section#community_block1
+				#viewport
+					#world
+				#viewport2
+					#world2
 				-# Хидер
 				%header#header
 					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
@@ -111,7 +117,7 @@
 						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 					%hr
 				-# Контент
-				%img{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
+				%img.image{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
 			%section#community_block2
 				%h2
 					Самая лучшая сеть
@@ -146,6 +152,8 @@
 			-# 	%br
 			-# 	%p Наши заведения посещают люди с разными интересами, компетенциями и статусом. Если вы хотите познакомиться и пообщаться с кем-нибудь из них, вы можете пригласить их на встречу в Уникальных Кальянных.
 			%section#community_block5
+				#viewport-left
+				#viewport-right
 				#communication_is_important
 					.round
 						%img{ :src=>"./images/messages.svg" , :alt=>"Коммуникация"}
@@ -163,3 +171,5 @@
 					-# %img#block_5_bg{ :src=>"./images/community/block_5_bg.svg"}
 
 			%section#community_block6
+		%script{ :src => "./js/clouds.js" }
+		%script{ :src => "./js/clouds2.js" }

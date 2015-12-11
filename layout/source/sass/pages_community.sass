@@ -14,11 +14,11 @@
 
 	background: url('../images/bg_smoke_2.jpg')
 	background-size: cover
-	
+
 
 	z-index: 150
 
-	img
+	img.image
 		display: inline-block
 		position: relative
 		height: 50%
@@ -202,18 +202,30 @@
 
 	text-align: center
 
-	padding: 48px
+	// padding: 48px
 
-	background: url('../images/bg/community_block5_bg.png')
+	//background: url('../images/bg/community_block5_bg.png')
 	background-size: cover
 
 	z-index: 150
+
+	#viewport-left
+		width: 400px
+		left: 0
+		position: absolute
+		height: 100%
+
+	#viewport-right
+		width: 400px
+		right: 0
+		position: absolute
 
 	#communication_is_important
 		display: inline-block
 		position: relative
 		height: auto
 		width: 32%
+		margin-top: 48px
 
 		.round
 			display: inline-block

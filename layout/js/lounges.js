@@ -60,10 +60,10 @@ $(function(){
     document.location.href="/academy_novosibirsk.html"
   })
   $(document).on('click', '#unityhall-card', function() {
-    document.location.href="/unityhall.html"
+    document.location.href="/pages_lounges_unityhall.html"
   })
   $(document).on('click', '#reserv-card', function() {
-    document.location.href="/reserv.html"
+    document.location.href="/pages_lounges_reserv.html"
   })
   $(document).on('click', '#liberty-card', function() {
     document.location.href="/pages_lounges_liberty.html"

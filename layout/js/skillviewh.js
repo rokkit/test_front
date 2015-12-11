@@ -4,7 +4,7 @@ $(function(){
   //$('#skill button').hide();
   $.getJSON(
     'http://176.112.194.149:81' + '/api/v1/skills.json',
-    {auth_token: currentUser.auth_token, role: 'user'},
+    {auth_token: currentUser.auth_token, role: 'hookmaster'},
     function(json) {
       sf = skillgen(json);
       var layoutWidth = $('#skill-view').width();
@@ -59,45 +59,46 @@ $(function(){
             //link.attr('transform', function(d){ return "translate(" + d.x + "," + d.y + ")";});
             node.attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; });
-                link
-                .attr("x1", function(d) {
-                  //var x = d.source.x - d.target.x;
-                  //var y = d.source.y - d.target.y;
-                  var x = d.target.x - d.source.x;
-                  var y = d.target.y - d.source.y;
 
-                  var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
-                  var rad = (angle + 180) * (Math.PI/180);
-                  return d.source.x + 40 * Math.cos(rad);
-                  //return d.source.x;
-                })
-                .attr("y1", function(d) {
-                  var x = d.target.x - d.source.x;
-                  var y = d.target.y - d.source.y;
+            link
+            .attr("x1", function(d) {
+              //var x = d.source.x - d.target.x;
+              //var y = d.source.y - d.target.y;
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
 
-                  var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
-                  var rad = (angle+180) * (Math.PI/180);
-                  return d.source.y + 40 * Math.sin(rad);
-                  //return d.source.y;
-                })
-                .attr("x2", function(d) {
-                  var x = d.target.x - d.source.x;
-                  var y = d.target.y - d.source.y;
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = (angle + 180) * (Math.PI/180);
+              return d.source.x + 40 * Math.cos(rad);
+              //return d.source.x;
+            })
+            .attr("y1", function(d) {
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
 
-                  var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
-                  var rad = angle * (Math.PI/180);
-                  return d.target.x + 40 * Math.cos(rad);
-                  //return d.target.x;
-                })
-                .attr("y2", function(d) {
-                  var x = d.target.x - d.source.x;
-                  var y = d.target.y - d.source.y;
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = (angle+180) * (Math.PI/180);
+              return d.source.y + 40 * Math.sin(rad);
+              //return d.source.y;
+            })
+            .attr("x2", function(d) {
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
 
-                  var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
-                  var rad = angle * (Math.PI/180);
-                  return d.target.y + 40 * Math.sin(rad);
-                  //return d.target.y;
-                });
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = angle * (Math.PI/180);
+              return d.target.x + 40 * Math.cos(rad);
+              //return d.target.x;
+            })
+            .attr("y2", function(d) {
+              var x = d.target.x - d.source.x;
+              var y = d.target.y - d.source.y;
+
+              var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
+              var rad = angle * (Math.PI/180);
+              return d.target.y + 40 * Math.sin(rad);
+              //return d.target.y;
+            });
 
 
       }
@@ -203,6 +204,7 @@ link
       .append('feColorMatrix')
       .attr('type','matrix')
       .attr('values',"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0");
+
 
       node.append("image")
           .attr("xlink:href", function(v){

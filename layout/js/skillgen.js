@@ -59,13 +59,32 @@ function skillgen(data){
 
   skills.forEach(function(v){
     if(v.parents){
+      var lineColor = false;
       for (var i = 0; i < v.parents.length; i++) {
         var source = getIndex(v.id);
         var target = getIndex(v.parents[i]);
-        result.links.push({source: source, target: target});
+        var parent = getSkillById(v.parents[i]);
+        if(v.can_take && parent.can_take){
+          lineColor = true;
+        }else{
+          lineColor = false;
+        }
+        result.links.push({source: source, target: target, lineColor});
       }
     }
   });
+
+  function getSkillById(id){
+    var res;
+
+    skills.forEach(function(v){
+      if(v.id === id){
+        res = v;
+      }
+    });
+
+    return res;
+  }
 
   function getIndex(id){
     var res

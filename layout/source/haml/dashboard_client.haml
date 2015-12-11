@@ -9,6 +9,9 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/lib/d3.js" }
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/animation.js" }
@@ -20,8 +23,9 @@
 		%script{ :src => "./js/openapi.js" }
 		%script{ :src => "./js/data.js" }
 		%script{ :src => "./js/nodes.js" }
-		-# %script{ :src => "./js/header.js" }
+		%script{ :src => "./js/menu.js" }
 		%script{ :src => "./js/profile.js" }
+		%script{ :src => "./js/achievements.js" }
 
 		-# Habmurger
 		%script{ :src => "./js/lib/snap.svg-min.js" }
@@ -40,7 +44,11 @@
 					.buttons
 						%span.cancel_reserv_confirm Да
 						%span.cancel_reserv_decline Нет
-					.popover-reserv-arrow
+					-# .popover-reserv-arrow
+	%script{type: "text/template", id: 'user_rating_tpl'}
+		%li
+			%span {{ number }}. {{ name }}
+			%span {{ exp }}
 	%body#html_body
 		-# Form
 		.wrapper.center-center
@@ -123,15 +131,15 @@
 		.wrapper_2.center-center
 			%section.popup_overall{:id => 'achivka'}
 				%img{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
-				%h2 Летняя ночь
-				%h4 Не получено
-				%p Проработайте всю ночь летом
+				%h2.skill_header
+				%h4.skill_state
+				%p.skill_description
 		.wrapper_2.center-center
 			%section.popup_overall{:id => 'skill'}
 				%img{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
-				%h2 Летняя ночь
-				%h4 Не получено
-				%p Проработайте всю ночь летом
+				%h2.skill_header
+				%h4.skill_state
+				%p.skill_description
 				%button Получить навык
 
 		-# Меню
@@ -181,7 +189,8 @@
 					%h3 Франшиза
 					%p Открыть Ложу
 
-				%button Круг избранных
+				%button#go_login_from_menu_btn Круг избранных
+
 
 		.wrapper_2#edit-profile-wrapper
 			-# Form
@@ -198,6 +207,9 @@
 							%h3 Хорошо заполненный профиль способствует увеличению полезных знакомств
 						%fieldset
 							%legend	Основная информация
+							-# %label.myLabel
+								%input{:required => "", :type => "file", name: "image"}
+								%span Фото
 							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 							%input{:type => "text", :name => "city", :placeholder => "Город"}
 							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
@@ -220,11 +232,9 @@
 			%header#header
 				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
-					%a{:id=>"login_header_btn"} В
-					
-					%a Редактировать профиль
-					%a Выйти
-					%img.menu{ :src=>"./images/menu.svg" , :alt=>"Меню"}
+					%a#edit_profile_btn Редактировать профиль
+					%a#logout_btn Выйти
+					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
 				%h1	Виталий Пихонт
@@ -269,9 +279,11 @@
 							%p 21.09.15
 
 			%section.bottom-rating
-				%article
+				%article#reserv-list
 					%header
 						%h4 Брони
+					.nodata
+						нет данных
 					%table
 						%thead
 							%tr
@@ -289,9 +301,11 @@
 									Скоро
 									%br
 									%span.color-orange Отменить
-				%article
+				%article#visit-list
 					%header
 						%h4 Посещения
+						.nodata
+							нет данных
 					%table
 						%thead
 							%tr
@@ -339,36 +353,9 @@
 
 						%section#section-per-month
 							%ul.leaders
-								%li
-									%span 1. Алексей Иванов
-									%span 210 800
-
-							%ul.leaders
-								%li
-									%span 1. Алексей Иванов
-									%span 210 800
-							%ul.leaders
-								%li
-									%span 2. Антон Максимов
-									%span 175 800
-							%ul.leaders
-								%li
-									%span 3. Федор Смолов
-									%span 160 800
-							%ul.leaders
-								%li
-									%span 4. Антон Максимов
-									%span 100 800
-							%ul.leaders
-								%li
-									%span 5. Федор Смолов
-									%span 90 800
 
 							.border-bottom-dashed
 
 							%ul.leaders
-								%li
-									%span 29. Виталий Пихонт
-									%span 16 800
 						%section#section-per-all-time
 							Секция за все время

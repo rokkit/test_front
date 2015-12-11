@@ -8,10 +8,14 @@ ui.card = (function () {
     }
 
 function card(blazons, color, name, nameCity, el){
+    var img = blazons;
     blazons = blazons.split('/')[blazons.split('/').length - 1].split('.')[0]
     var path = '../images/blazons/' + blazons +'.svg';
     var cardId = blazons + '-card';
-    var card = d3.select(el).append('article').attr('class', 'lounge pointer');
+    var card = d3.select(el).append('article').attr('class', 'lounge pointer')
+    .attr('id', blazons + '-card');
+    //var gerb = card.append('div');
+    var img = card.append('img').attr('src', img);
     var cardRect = d3.select('.lounge').node().getBoundingClientRect();
   	var w = cardRect.width;
   	var h = cardRect.height;
@@ -47,7 +51,7 @@ function card(blazons, color, name, nameCity, el){
 		if (error) throw error;
 		//var importedNode = document.importNode(xml.documentElement, true);
     	//svgCard.node().appendChild(importedNode).setAttribute('id', blazons);
-    	renderNode(svgCard, xml, blazons);
+    	//renderNode(svgCard, xml, blazons);
       var blazonWidth = w - 80;
     	var blazonHeight = h - 80;
     	var blazonX = w/2 - blazonWidth/2;
