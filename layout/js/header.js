@@ -155,14 +155,17 @@ $(function() {
         $('#signup_form input').removeClass('wrong')
         if(resp['errors']['name']) {
           TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+          $('#error_password').text('Вы не указали имя')
           $('#signup_form input[name="name"]').addClass('wrong')
         }
         if(resp['errors']['phone']) {
           TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+          $('#error_password').text('Данный номер телефона уже зарегистрирован в системе')
           $('#signup_form input[name="phone"]').addClass('wrong')
         }
         if(resp['errors']['password']) {
           TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+          $('#error_password').text('Укажите пароль')
           $('#signup_form input[name="password"]').addClass('wrong')
         }
       }
