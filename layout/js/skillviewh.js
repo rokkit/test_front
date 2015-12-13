@@ -1,9 +1,8 @@
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 var sf;
 $(function(){
-  //$('#skill button').hide();
   $.getJSON(
-    'http://176.112.194.149:81' + '/api/v1/skills.json',
+    'http://176.112.194.149:81/api/v1/skills.json',
     {auth_token: currentUser.auth_token, role: 'hookmaster'},
     function(json) {
       sf = skillgen(json);
@@ -14,63 +13,29 @@ $(function(){
       .attr('width', layoutWidth)
       .attr('height', layoutHeight);
 
-
-
-      var y = 230;//layoutHeight/2;
+      var y = 230;
       var dx = 6;
       var x0 = 75;
-
-      // var nodes = [
-      //   {id: 0, x:x0 + 10 * dx, y:y, fixed: true},
-      //   {id: 1, x:x0 + 60 * dx, y:y, fixed: true},
-      //   {id: 2, x:x0 + 110 * dx, y:y, fixed: true},
-      //   {id: 3, x:x0 + 160 * dx, y:y, fixed: true},
-      //   {id: 4, x:x0 + 210 * dx, y:y, fixed: true},
-      //   {id: 5, x:x0 + 260 * dx, y:y, fixed: true},
-      // ];
-      //
-      // var n = [
-      //   {id: 0, x: 60, y:y, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 1, x: 260, y:y-80, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 2, x: 260, y:y+80, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 3, x: 460, y:y-80, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 4, x: 460, y:y+80, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 5, x: 660, y:y-170, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 6, x: 660, y:y, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 7, x: 660, y:y+170, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 8, x: 860, y:y-80, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 9, x: 860, y:y+80, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      //   {id: 10, x: 1060, y:y, title: 'ЛОГИСТИКА', date: '21.09.15', fixed: true},
-      // ];
-
-      //var sf = skillgen(skilldata);
 
       var force = d3.layout.force()
       .size([layoutWidth, layoutHeight])
       .nodes(sf.nodes)
       .links(sf.links)
-      // .linkStrength(15)
-      // .linkDistance(600)
-      // .gravity(0)
       .on('tick', tick);
 
       function tick() {
             node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-            //link.attr('transform', function(d){ return "translate(" + d.x + "," + d.y + ")";});
             node.attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; });
 
             link
             .attr("x1", function(d) {
-              //var x = d.source.x - d.target.x;
-              //var y = d.source.y - d.target.y;
               var x = d.target.x - d.source.x;
               var y = d.target.y - d.source.y;
 
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = (angle + 180) * (Math.PI/180);
               return d.source.x + 40 * Math.cos(rad);
-              //return d.source.x;
             })
             .attr("y1", function(d) {
               var x = d.target.x - d.source.x;
@@ -79,7 +44,6 @@ $(function(){
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = (angle+180) * (Math.PI/180);
               return d.source.y + 40 * Math.sin(rad);
-              //return d.source.y;
             })
             .attr("x2", function(d) {
               var x = d.target.x - d.source.x;
@@ -88,7 +52,6 @@ $(function(){
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = angle * (Math.PI/180);
               return d.target.x + 40 * Math.cos(rad);
-              //return d.target.x;
             })
             .attr("y2", function(d) {
               var x = d.target.x - d.source.x;
@@ -97,10 +60,7 @@ $(function(){
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = angle * (Math.PI/180);
               return d.target.y + 40 * Math.sin(rad);
-              //return d.target.y;
             });
-
-
       }
 
       var node = layout.selectAll('.node');
@@ -110,57 +70,24 @@ $(function(){
       link = link.data(force.links());
 
       node.enter().append("g").attr("class", "node pointer").attr('data-id', function(v) { return v.id });
-      link.enter().insert("line", ".node");//.attr("class", "link");
-      //link.enter().append("g", '.node').attr("class", "link");
-
-      // var defs = node.append('svg:defs');
-      // defs.append("svg:pattern")
-      // .attr("id", "grump_avatar")
-      // .attr("width", 80)
-      // .attr("height", 80)
-      // .attr("patternUnits", "userSpaceOnUse")
-      // .append("svg:image")
-      // .attr("xlink:href", function(v){
-      //   return 'http://176.112.194.149:81'+v.image;
-      // })
-      // .attr("width", 80)
-      // .attr("height", 80)
-      // .attr("x", 0)
-      // .attr("y", 0);
-
-      // define the clipPath
-layout.append("defs")
-    .append('clipPath')
-    .attr("id", "ellipse-clip") // give the clipPath an ID
-    .append("circle")          // shape it as an ellipse
-    .attr('clip-rule', 'evenodd')
-    .attr("cx", 260)         // position the x-centre
-    .attr("cy", 150)         // position the y-centre
-    .attr("r", 100);         // set the y radius
-
-link
-.attr('stroke', function(d){
-  var lineColor = '#fff';
-  if(d.lineColor){
-    return '#F2AE32';
-  }
-  return lineColor;
-})
-.attr('opacity', function(d){
-  var lineColor = 0.3;
-  if(d.lineColor){
-    return 1;
-  }
-  return lineColor;
-});
+      link.enter().insert("line", ".node");
 
 
-//link.attr("clip-path", "url(#ellipse-clip)");
-
-      // link.append('circle')
-      // .attr('x', 10)
-      // .attr('y', 10)
-      // .attr('r', 40);
+      link
+      .attr('stroke', function(d){
+        var lineColor = '#fff';
+        if(d.lineColor){
+          return '#F2AE32';
+        }
+        return lineColor;
+      })
+      .attr('opacity', function(d){
+        var lineColor = 0.3;
+        if(d.lineColor){
+          return 1;
+        }
+        return lineColor;
+      });
 
       node.on('click', function(d){
         var skill = $(this)

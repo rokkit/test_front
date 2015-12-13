@@ -34,6 +34,24 @@ button.button-dark.style-rezerv:hover {
 	background-color: #89C37C !important;
 }
 
+/* Кальянная "Крафт" Нижний новгород */
+h1.style-craft , h2.style-craft , h3.style-craft {
+	color : #C14253 !important
+}
+
+#reserve_table_btn.style-craft {
+	background-color: #C14253 !important;
+	border : none;
+}
+
+button.button-dark.style-craft {
+	border-color: #C14253 !important;
+}
+
+button.button-dark.style-craft:hover {
+	background-color: #C14253 !important;
+}
+
 /* Кальянная "Unityhall" Казань */
 h1.style-unityhall , h2.style-unityhall , h3.style-unityhall {
 	color : #E76044 !important
