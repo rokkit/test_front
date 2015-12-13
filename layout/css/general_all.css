@@ -2497,6 +2497,9 @@ section.popup {
   background-image: linear-gradient(to right top, #151719 0%, #424756 100%);
   z-index: 300;
 }
+section.popup select {
+  width: auto;
+}
 section.popup a {
   font: normal normal 300 18px/28px Lora, sans-serif;
   color: #EBB22F;
