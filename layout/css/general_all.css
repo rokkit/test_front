@@ -2503,6 +2503,9 @@ section.popup a {
   z-index: 250;
   letter-spacing: 0;
 }
+section.popup small {
+  opacity: 0.4;
+}
 
 section.popup:after {
   content: "";
