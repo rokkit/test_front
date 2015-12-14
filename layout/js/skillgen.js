@@ -2,9 +2,10 @@ function skillgen(data){
   var skills = data;
   var result = {
     nodes: [],
-    links: []
+    links: [],
+    skillCount: 0
   };
-
+  result.skillCount = data.length;
   result.nodes = skills.map(function (v) {
     var y = 230;
     v.fixed = true;
