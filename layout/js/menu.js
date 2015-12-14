@@ -55,7 +55,7 @@ $(function() {
     var newsTpl = _.template(newsHtml)
     var news = _.filter(json, function(post) {
       if (_.isObject(post)) {
-        return post.text.indexOf('#uhpfamily') > -1
+        return post.text.indexOf('#uhpfamily') > -1 || post.text.indexOf('#uhp') > -1 || post.text.indexOf('#uniquehookahplace') > -1
       }
     })
     news = news.splice(0, 5)
