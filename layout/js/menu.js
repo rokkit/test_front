@@ -1,3 +1,27 @@
+String.prototype.regexIndexOf = function(regex, startpos) {
+    var indexOf = this.substring(startpos || 0).search(regex);
+    return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
+}
+
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+    regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
+    if(typeof (startpos) == "undefined") {
+        startpos = this.length;
+    } else if(startpos < 0) {
+        startpos = 0;
+    }
+    var stringToWorkWith = this.substring(0, startpos + 1);
+    var lastIndexOf = -1;
+    var nextStop = 0;
+    while((result = regex.exec(stringToWorkWith)) != null) {
+        lastIndexOf = result.index;
+        regex.lastIndex = ++nextStop;
+    }
+    return lastIndexOf;
+}
+_.templateSettings =  {
+  interpolate :/\{\{(.+?)\}\}/g
+}
 $(function() {
   //Клик на кнопку меню в хедере
   $('#menu_header_btn').on('click', function() {
@@ -49,14 +73,14 @@ $(function() {
   VK.init({
     apiId: 5023577
   })
+  var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
+  var newsTpl = _.template(newsHtml)
   VK.Api.call('wall.get', {domain: 'libertyfamily', filter: 'owner'}, function(json) {
     json = json.response
     console.log(json)
-    var newsHtml = '<h5 data-url="<%= vk_url %>"><%= text %></h5><p><%= date %> в <%= time %> от #unihuqhookahplaces</p>'
-    var newsTpl = _.template(newsHtml)
     var news = _.filter(json, function(post) {
       if (_.isObject(post)) {
-        return post.text.indexOf('#uhpfamily') > -1 || post.text.indexOf('#uhp') > -1 || post.text.indexOf('#uniquehookahplace') > -1
+        return post.text.indexOf('#uhpspb') > -1 || post.text.regexIndexOf(/#uhp$/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
       }
     })
 
@@ -75,7 +99,11 @@ $(function() {
         }
         newsText = newsText.substring(0, end_of_string_index)
         var vk_url = 'https://vk.com/libertyfamily?w=wall' + n.from_id + '_' + n.id;
-        var newsEl = newsTpl({text: newsText, date: '12.04.2015', time: '12:30', vk_url: vk_url})
+
+        var date = '12.05.2015'
+        console.log({text: newsText, date: date, time: '12:30', vk_url: vk_url})
+        var newsEl = newsTpl({text: newsText, date: date, time: '12:30', vk_url: vk_url})
+        console.log(newsEl)
         $('#menu_left_part span').append(newsEl)
     })
 

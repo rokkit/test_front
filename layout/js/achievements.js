@@ -34,7 +34,7 @@ function card(id){
 }
 
 $(function() {
-  $.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token, role: 'user'}, function(json) {
+  $.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token, role: currentUser.role}, function(json) {
     $('#achievements').empty()
     $('#all_ach .wrapper_for_ach').empty()
     $('#dashboard_ach_btn').text(currentUser.achievements.length+'/'+json.length)
@@ -64,7 +64,8 @@ $(function() {
         $('#achievements').append(template)
       })
     })
-    $.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token, role: 'user'}, function(json) {
+
+    $.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token, role: currentUser.role}, function(json) {
       $('#skills').empty()
 
       $('#dashboard_talents_btn').text(currentUser.skills.length+'/'+json.length)
