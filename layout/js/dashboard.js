@@ -32,7 +32,6 @@ $(function(){
       .attr('y', 0)
       .attr('width', 200)
       .attr('height', 200)
-      .attr('xlink:href', 'http://comicsboom.net/uploads/posts/2013-04/1364881758_nigra1.jpg');
 
 
   layout.append('circle')

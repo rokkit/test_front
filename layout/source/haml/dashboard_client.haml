@@ -17,9 +17,9 @@
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/dashboard.js" }
-		%script{ :src => "./js/skilldata.js" }
 		%script{ :src => "./js/skillview.js" }
 		%script{ :src => "./js/skillgen.js" }
+		%script{ :src => "./js/skillBoard.js" }
 		%script{ :src => "./js/openapi.js" }
 		%script{ :src => "./js/data.js" }
 		%script{ :src => "./js/nodes.js" }
@@ -65,7 +65,7 @@
 					-# %select{:name=>"table"}
 					-# 	%option
 					-# 		Столик
-					%select{:name=>'client_count', style: 'width: 160px;'}
+					%select{:name=>'client_count'}
 						%option{:value => '2-3'} Количество гостей
 						%option{:value => '2-3'} 2-3
 						%option{:value => '3-5'} 3-5
@@ -188,7 +188,7 @@
 					%h3 Франшиза
 					%p Открыть Ложу
 
-				%button#go_login_from_menu_btn Круг избранных
+				-# %button#go_login_from_menu_btn Круг избранных
 
 
 		.wrapper_2#edit-profile-wrapper
@@ -217,7 +217,7 @@
 						%fieldset
 							%legend	Регистрационные данные
 							%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-							%input{:type => "text", :name => "email", :placeholder => "E-mail"}
+							-# %input{:type => "text", :name => "email", :placeholder => "E-mail"}
 						%fieldset
 							%legend	сменить пароль
 							%input{:type => "password", :name => "old_password", :placeholder => "Старый пароль"}
