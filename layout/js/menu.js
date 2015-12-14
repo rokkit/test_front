@@ -59,6 +59,7 @@ $(function() {
         return post.text.indexOf('#uhpfamily') > -1 || post.text.indexOf('#uhp') > -1 || post.text.indexOf('#uniquehookahplace') > -1
       }
     })
+
     news = news.splice(0, 5)
     $('#menu_left_part span').empty()
     _.each(news, function(n) {
@@ -73,7 +74,7 @@ $(function() {
           end_of_string_index = newsText.indexOf('.');
         }
         newsText = newsText.substring(0, end_of_string_index)
-        var vk_url = 'https://vk.com/libertyfamily?w=wall' + news.from_id + '_' + news.id;
+        var vk_url = 'https://vk.com/libertyfamily?w=wall' + n.from_id + '_' + n.id;
         var newsEl = newsTpl({text: newsText, date: '12.04.2015', time: '12:30', vk_url: vk_url})
         $('#menu_left_part span').append(newsEl)
     })
