@@ -51,6 +51,7 @@ $(function() {
   })
   VK.Api.call('wall.get', {domain: 'libertyfamily', filter: 'owner'}, function(json) {
     json = json.response
+    console.log(json)
     var newsHtml = '<h5><%= text %></h5><p><%= date %> в <%= time %> от #unihuqhookahplaces</p>'
     var newsTpl = _.template(newsHtml)
     var news = _.filter(json, function(post) {
@@ -61,7 +62,17 @@ $(function() {
     news = news.splice(0, 5)
     $('#menu_left_part span').empty()
     _.each(news, function(n) {
-        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '').substr(0, 140).replace('.', '. ')
+
+        var end_of_string_index = 0;
+        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '')
+        if (newsText.indexOf('!') > -1) {
+          end_of_string_index = newsText.indexOf('!');
+        } else if (newsText.indexOf('?') > -1) {
+          end_of_string_index = newsText.indexOf('?');
+        } else if (newsText.indexOf('.') > -1) {
+          end_of_string_index = newsText.indexOf('.');
+        }
+        newsText = newsText.substring(0, end_of_string_index)
         var newsEl = newsTpl({text: newsText, date: '12.04.2015', time: '12:30'})
         $('#menu_left_part span').append(newsEl)
     })
