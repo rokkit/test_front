@@ -1,5 +1,5 @@
 /* Кальянная "Облака" Воронеж */
-h1.style-oblaka , h2.style-oblaka , h3.style-oblaka {
+h1.style-oblaka , h2.style-oblaka , h3.style-oblaka  {
 	color : #92CAE4 !important
 }
 
@@ -17,7 +17,7 @@ button.button-dark.style-oblaka:hover {
 }
 
 /* Кальянная "Резерв" Тюмень */
-h1.style-rezerv , h2.style-rezerv , h3.style-rezerv {
+h1.style-rezerv , h2.style-rezerv , h3.style-rezerv  {
 	color : #89C37C !important
 }
 
@@ -35,7 +35,7 @@ button.button-dark.style-rezerv:hover {
 }
 
 /* Кальянная "Крафт" Нижний новгород */
-h1.style-craft , h2.style-craft , h3.style-craft {
+h1.style-craft , h2.style-craft , h3.style-craft  {
 	color : #C14253 !important
 }
 
@@ -45,7 +45,7 @@ h1.style-craft , h2.style-craft , h3.style-craft {
 }
 
 button.button-dark.style-craft {
-	border-color: #C14253 !important;
+	border-color: #C14253 !important; 
 }
 
 button.button-dark.style-craft:hover {
@@ -53,7 +53,7 @@ button.button-dark.style-craft:hover {
 }
 
 /* Кальянная "Unityhall" Казань */
-h1.style-unityhall , h2.style-unityhall , h3.style-unityhall {
+h1.style-unityhall , h2.style-unityhall , h3.style-unityhall  {
 	color : #E76044 !important
 }
 
@@ -71,7 +71,7 @@ button.button-dark.style-unityhall:hover {
 }
 
 /* Кальянная "Академия" Новосибирск */
-h1.style-academy , h2.style-academy , h3.style-academy {
+h1.style-academy , h2.style-academy , h3.style-academy  {
 	color : #5F4D9B !important
 }
 
