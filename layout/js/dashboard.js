@@ -368,10 +368,25 @@ function getReservations() {
   $(document).on('click', '.cancel_reserv_decline', function(e) {
     var $popover = $(this).closest('tr').find('.popover-reserv')
     $popover.hide()
-  })
+  });
+
   $(document).on('click', '.cancel_reserv', function(e) {
-    var $popover = $(this).closest('tr').find('.popover-reserv')
-    $popover.show()
-  })
+    var _this     = this;
+    var $popover  = $(this).closest('tr').find('.popover-reserv');
+    $popover.toggleClass('popover-reserv-open popover-reserv-close');
+
+ 
+  });
+  
+  $(document).on('click' , 'body' , function( e ){
+    var $popover = $('.popover-reserv');
+
+    if ($(e.target).closest($popover).length){
+      return;
+    }else{
+      $popover.removeClass('popover-reserv-open');
+      $popover.addClass('popover-reserv-close');
+    }
+  });
 
 }

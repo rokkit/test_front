@@ -38,9 +38,9 @@
 			%td.td-date {{ visit_date }} {{ visit_time }} - {{ end_visit_time }}
 			%td {{ client_count }}
 			%td
-				%span.color-orange.cancel_reserv
+				%div.color-orange.cancel_reserv
 					Отменить
-					%span.popover-reserv
+					%div.popover-reserv{ :data => { :opened => 'false' } }
 						%p Отменить бронирование
 						%span.cancel_reserv_confirm Да
 						%span.cancel_reserv_decline Нет
@@ -258,6 +258,21 @@
 					#dashboard_talents_btn.number_of
 				%section.wrapper_for_ach#skills
 
+			%section.demo-test
+				#demo
+					.wrapper
+						.content
+							%ul
+								%a{:href => "#"}
+									%li Lorem ipsum dolor
+								%a{:href => "#"}
+									%li Consectetur adipisicing
+								%a{:href => "#"}
+									%li Reprehenderit
+								%a{:href => "#"}
+									%li Commodo consequat
+						.parent Выпадающее меню 1
+
 			%section.bottom-rating
 				%article#reserv-list
 					%header
@@ -274,7 +289,9 @@
 						%tbody#reserve_table_body
 				%article#visit-list
 					%header
-						%h4 Посещения
+						%h4
+							Посещения
+
 						.nodata
 							нет данных
 					%table

@@ -12,14 +12,6 @@
         margin-right: 12px
     button
         width: 185px
-.cancel_reserv
-    position    : relative
-    &:hover
-        .popover-reserv
-            display             : block
-            -webkit-animation   : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
-            -moz-animation      : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
-            -ms-animation       : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
 
 section.dashboard
     display: block
@@ -181,6 +173,23 @@ label.myLabel input[type="file"]
     top: -1000px
 
 // ####### POPOVER DASHBOARD CLIENT #########
+.cancel_reserv
+    position    : relative
+    // &:hover
+.popover-reserv-open
+    display             : block !important
+    // -webkit-animation   : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    // -moz-animation      : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    // -ms-animation       : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    -webkit-animation   : fade-in-reserv 0.3s linear 1
+    -moz-animation      : fade-in-reserv 0.3s linear 1
+    -ms-animation       : fade-in-reserv 0.3s linear 1
+
+.popover-reserv-close
+    -webkit-animation   : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    -moz-animation      : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    -ms-animation       : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+
 $color-popover : #3E4248
 .popover-reserv
     z-index             : 4
@@ -209,6 +218,9 @@ $color-popover : #3E4248
         position        : absolute
         border          : 7px solid transparent
         border-bottom   : 7px solid #181B21
+
+    &:hover
+        display : block
 
 @-webkit-keyframes fade-in-reserv
     from

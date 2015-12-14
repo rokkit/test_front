@@ -38,14 +38,14 @@
       <td class='td-date'>{{ visit_date }} {{ visit_time }} - {{ end_visit_time }}</td>
       <td>{{ client_count }}</td>
       <td>
-        <span class='color-orange cancel_reserv'>
+        <div class='color-orange cancel_reserv'>
           Отменить
-          <span class='popover-reserv'>
+          <div class='popover-reserv' data-opened='false'>
             <p>Отменить бронирование</p>
             <span class='cancel_reserv_confirm'>Да</span>
             <span class='cancel_reserv_decline'>Нет</span>
-          </span>
-        </span>
+          </div>
+        </div>
       </td>
     </tr>
   </script>
@@ -283,6 +283,29 @@
         </header>
         <section class='wrapper_for_ach' id='skills'></section>
       </section>
+      <section class='demo-test'>
+        <div id='demo'>
+          <div class='wrapper'>
+            <div class='content'>
+              <ul>
+                <a href='#'>
+                  <li>Lorem ipsum dolor</li>
+                </a>
+                <a href='#'>
+                  <li>Consectetur adipisicing</li>
+                </a>
+                <a href='#'>
+                  <li>Reprehenderit</li>
+                </a>
+                <a href='#'>
+                  <li>Commodo consequat</li>
+                </a>
+              </ul>
+            </div>
+            <div class='parent'>Выпадающее меню 1</div>
+          </div>
+        </div>
+      </section>
       <section class='bottom-rating'>
         <article id='reserv-list'>
           <header>
@@ -305,7 +328,9 @@
         </article>
         <article id='visit-list'>
           <header>
-            <h4>Посещения</h4>
+            <h4>
+              Посещения
+            </h4>
             <div class='nodata'>
               нет данных
             </div>

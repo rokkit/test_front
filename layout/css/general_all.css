@@ -1828,16 +1828,6 @@ section.bottom-rating .color-no-active {
   width: 185px;
 }
 
-.cancel_reserv {
-  position: relative;
-}
-.cancel_reserv:hover .popover-reserv {
-  display: block;
-  -webkit-animation: fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1;
-  -moz-animation: fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1;
-  -ms-animation: fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1;
-}
-
 section.dashboard {
   display: block;
   position: relative;
@@ -1995,6 +1985,23 @@ label.myLabel input[type="file"] {
   top: -1000px;
 }
 
+.cancel_reserv {
+  position: relative;
+}
+
+.popover-reserv-open {
+  display: block !important;
+  -webkit-animation: fade-in-reserv 0.3s linear 1;
+  -moz-animation: fade-in-reserv 0.3s linear 1;
+  -ms-animation: fade-in-reserv 0.3s linear 1;
+}
+
+.popover-reserv-close {
+  -webkit-animation: fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1;
+  -moz-animation: fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1;
+  -ms-animation: fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1;
+}
+
 .popover-reserv {
   z-index: 4;
   border-radius: 5px;
@@ -2022,6 +2029,9 @@ label.myLabel input[type="file"] {
   position: absolute;
   border: 7px solid transparent;
   border-bottom: 7px solid #181B21;
+}
+.popover-reserv:hover {
+  display: block;
 }
 
 @-webkit-keyframes fade-in-reserv {
