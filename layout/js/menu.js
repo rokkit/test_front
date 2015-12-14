@@ -61,7 +61,7 @@ $(function() {
     news = news.splice(0, 5)
     $('#menu_left_part span').empty()
     _.each(news, function(n) {
-        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '').substr(0, 140)
+        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '').substr(0, 140).replace('.', '. ')
         var newsEl = newsTpl({text: newsText, date: '12.04.2015', time: '12:30'})
         $('#menu_left_part span').append(newsEl)
     })
