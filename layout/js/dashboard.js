@@ -371,6 +371,7 @@ function getReservations() {
   });
 
   $(document).on('click', '.cancel_reserv', function(e) {
+    console.log('Click cancel_reserv');
     var _this     = this;
     var $popover  = $(this).closest('tr').find('.popover-reserv');
     $popover.toggleClass('popover-reserv-open popover-reserv-close');
@@ -379,13 +380,17 @@ function getReservations() {
   });
   
   $(document).on('click' , 'body' , function( e ){
-    var $popover = $('.popover-reserv');
+    console.log('Body click');
+    var $popover      = $('.popover-reserv');
+    var $popover_link = $('.cancel_reserv');
 
-    if ($(e.target).closest($popover).length){
+    if ($(e.target).closest($popover).length || $(e.target).closest($popover_link).length && $popover.hasClass('popover-reserv-open') ){
       return;
-    }else{
-      $popover.removeClass('popover-reserv-open');
-      $popover.addClass('popover-reserv-close');
+    } else {
+      if( $popover.hasClass('popover-reserv-open') ){
+        $popover.removeClass('popover-reserv-open');
+        $popover.addClass('popover-reserv-close');
+      }
     }
   });
 
