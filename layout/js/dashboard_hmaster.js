@@ -123,6 +123,9 @@ $(function() {
       $('.progress').css('width', percentsExp + '%' )
       window.currentUser = json
       localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
+      if (currentUser.role == 'user' && document.location.href.split('/')[3] == 'dashboard_hmaster.html') {
+        document.location.href = '/dashboard_client.html'
+      }
   })
 
   $.getJSON(hostUrl + '/api/v1/users/rating.json', {role: currentUser.role, auth_token: currentUser.auth_token}, function(json) {

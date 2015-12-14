@@ -169,6 +169,10 @@ $(function() {
           $('.progress').css('width', percentsExp + '%' )
           window.currentUser = json
           localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
+          if (currentUser.role == 'hookmaster' && document.location.href.split('/')[3] == 'dashboard_client.html') {
+            document.location.href = '/dashboard_hmaster.html'
+          }
+
       })
 
     });
@@ -375,9 +379,9 @@ function getReservations() {
     var $popover  = $(this).closest('tr').find('.popover-reserv');
     $popover.toggleClass('popover-reserv-open popover-reserv-close');
 
- 
+
   });
-  
+
   $(document).on('click' , 'body' , function( e ){
     console.log('Body click');
     var $popover      = $('.popover-reserv');

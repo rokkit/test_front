@@ -23,6 +23,9 @@ $(function() {
   $profile_wrapper.find('input[name="hobby"]').val(currentUser.hobby)
   $profile_wrapper.find('input[name="phone"]').val('+'+currentUser.phone)
   $profile_wrapper.find('input[name="email"]').val(currentUser.email)
+  if (currentUser.freezed) {
+    $profile_wrapper.find('button').hide()
+  }
 
   $('form.edit_profile_form').on('submit', function(e) {
     e.preventDefault()
