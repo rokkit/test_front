@@ -368,6 +368,8 @@ $(function() {
       }
     });
 
+
+
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       $('.wrong').removeClass('wrong');

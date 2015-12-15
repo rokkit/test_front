@@ -24,7 +24,7 @@ $(function(){
     if (!currentUser) {
       fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
     } else {
-      document.location.href = '/dashboard_client.html'
+      document.location.href = '/tech_preloader.html?redirect=profile'
     }
   });
 
@@ -34,7 +34,7 @@ $(function(){
    if (!currentUser) {
      fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
    } else {
-     document.location.href = '/dashboard_client.html'
+     document.location.href = '/tech_preloader.html?redirect=profile'
    }
  });
 
@@ -281,8 +281,6 @@ $(function() {
   });
 });
 
-
-
 // PRELOADER
 $(function() {
   var html_body = document.getElementById("main_content")
@@ -295,3 +293,11 @@ function formatPhone(raw_number) {
   raw_number = raw_number.replace(/ /g, '').replace('+', '').replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
   return raw_number
 }
+
+// Страница 404
+////////////////////////////////////////////////////////
+$(function() {
+  $('#button_404').on('click', function() {
+    document.location.href = '/pages_index.html'
+  });
+});
