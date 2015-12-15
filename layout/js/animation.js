@@ -172,7 +172,7 @@ var fxa = {
   }
 };
 
-// Анимация попапа
+// Анимация попапа истории
 
 $(function(){
 
@@ -186,7 +186,7 @@ $(function(){
     history_open_anim.play();
   });
 
-  $(".cross_white_popup").click(function() {
+  $("#close_history_btn").click(function() {
     history_open_anim.reverse();
     });
 })
