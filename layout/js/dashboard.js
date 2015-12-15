@@ -466,6 +466,30 @@ function bodyClick(e){
   });
 }
 
+$(function(){
+  $(document).on('click', '.cancel_reserv_confirm', function(e) {
+    var $popover = $(this).closest('tr').find('.popover-reserv')
+    $(this).closest('tr').remove()
+    $.ajax({
+      url: hostUrl + '/api/v1/reservations/'+$(this).closest('tr').data('id'),
+      data: {auth_token: currentUser.auth_token},
+      type: 'DELETE'
+    })
+  });
+
+  $(document).on('click', '.cancel_reserv_decline', function(e) {
+    var $popover = $(this).closest('tr').find('.popover-reserv')
+    $popover.hide()
+  });
+
+  $(document).on('click', '.cancel_reserv', function(e) {
+    console.log('Click cancel_reserv');
+    var _this     = this;
+    var $popover  = $(this).closest('tr').find('.popover-reserv');
+    $popover.toggleClass('popover-reserv-open popover-reserv-close');
+  });
+});
+
 function getReservations() {
   moment.locale('ru')
   $.getJSON(hostUrl + '/api/v1/reservations.json', {auth_token: currentUser.auth_token}, function(json) {
@@ -497,28 +521,7 @@ function getReservations() {
 
   });
 
-  $(document).on('click', '.cancel_reserv_confirm', function(e) {
-    var $popover = $(this).closest('tr').find('.popover-reserv')
-    $(this).closest('tr').remove()
-    $.ajax({
-      url: hostUrl + '/api/v1/reservations/'+$(this).closest('tr').data('id'),
-      data: {auth_token: currentUser.auth_token},
-      type: 'DELETE'
-    })
-  })
-  $(document).on('click', '.cancel_reserv_decline', function(e) {
-    var $popover = $(this).closest('tr').find('.popover-reserv')
-    $popover.hide()
-  });
 
-  $(document).on('click', '.cancel_reserv', function(e) {
-    console.log('Click cancel_reserv');
-    var _this     = this;
-    var $popover  = $(this).closest('tr').find('.popover-reserv');
-    $popover.toggleClass('popover-reserv-open popover-reserv-close');
-
-
-  });
 
   $(document).on('click' , 'body' , function( e ){
     console.log('Body click');
