@@ -272,8 +272,6 @@ $(function() {
   });
 });
 
-
-
 // PRELOADER
 $(function() {
   var html_body = document.getElementById("main_content")
@@ -314,3 +312,12 @@ function formatPhone(raw_number) {
   raw_number = raw_number.replace(/ /g, '').replace('+', '').replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
   return raw_number
 }
+
+// Страница 404
+////////////////////////////////////////////////////////
+$(function() {
+  $('#button_404').on('click', function() {
+    document.location.href = '/pages_index.html'
+  });
+});
+

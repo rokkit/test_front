@@ -1,0 +1,133 @@
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+	%head
+		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%script{ :src => "./js/jquery-2.1.4.min.js" }
+		%script{ :src => "./js/jquery.gsap.min.js" }
+		%script{ :src => "./js/TweenLite.min.js" }
+		%script{ :src => "./js/TweenMax.min.js" }
+		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/openapi.js" }
+		%script{ :src => "./js/lib/d3.min.js"}
+		%script{ :src => "./js/ui.js" }
+		%script{ :src => "./js/card.js" }
+		%script{ :src => "./js/index.js" }
+		%script{ :src => "./js/lib/d3.js" }
+		%script{ :src => "./js/data.js" }
+		%script{ :src => "./js/nodes.js" }
+		%script{ :src => "./js/animation.js" }
+		%script{ :src => "./js/fx.js" }
+		%script{ :src => "./js/lounges.js" }
+		%script{ :src => "./js/header.js" }
+		%script{ :src => "./js/menu.js" }
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
+	%body#html_body{:data => {'page' => 'lounges'}}
+
+		-# Регистрация
+		.wrapper.center-center{:id => 'wrapper_signup'}
+			%section.popup{:id => 'signup_form'}
+				%header
+					%h2 Регистрация
+					%p.h2_subtitle
+						Регистрация нового пользователя. Если у вас уже есть аккаунт —
+						%a{:href =>"#login"} войдите.
+				%form{:action => "", :method => "get", :autocomplete => "off"}
+					%input{:style => "display:none"}
+					%input{:style => "display:none", :type => "password"}
+					%input{:type => "text", :name => "phone", :placeholder => "Телефон +7XXXXXXX"}
+					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
+		-# Логин
+		.wrapper.center-center{:id => 'wrapper_login'}
+			%section#error_password.error_tooltip
+				Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+			%section.popup{:id => 'login_form'}
+				%header
+					%h2 Войти
+					%p.h2_subtitle
+						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
+						%a{:href =>"#registration"} зарегистрируйтесь.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Войти
+				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+		-# Меню
+		.wrapper.center-center{:id => 'wrapper_menu'}
+			%section#menu_left_part.left_menu
+				%img#uhp_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%span
+					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+
+				%footer
+					%p Copyright © 2015 Уникальные Кальянные
+					%p
+						Создано в
+						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+			-# Left bar
+			%section#menu_right_part.right_menu
+				%img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				-# %a
+				-# 	%h3#main_nav_btn Главная страница
+				-# 	%p Основная информация
+				%a
+					%h3#lounges_nav_btn Ложи
+					%p Уникальные заведения
+
+				%a
+					%h3#philosophy_nav_btn Философия
+					%p Наши ценности
+
+				%a
+					%h3#community_nav_btn Сообщество
+					%p Полезно быть своим
+				%a
+					%h3 Франшиза
+					%p Открыть Ложу
+
+				%button#go_login_from_menu_btn Круг избранных
+
+		-# Color Overlay
+		#color_overlay.color_overlay
+
+		-# Main conent
+		%main{:id => 'main_content'}
+			%section#page_404
+				%header#header
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%nav
+						%a{:id=>"login_header_btn"} Войти
+						%a{:id=>"signup_header_btn"} Зарегистрироваться
+						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
+				.wrapper_404
+					.wrapper_img_404
+						%img.error_404{:src=>"./images/404_error.svg"}
+						%img.error_glow{ :src=>"./images/sun_glow.svg"}
+						%img.error_glow_2{ :src=>"./images/gerb_glow.png"}
+
+					%h1 Извините, мы не можем найти эту страницу!
+					%h2 Попробуйте вернуться на главну страницу,<br>откуда вы точно не собъетесь с пути.
+				%button.button-dark#button_404{:href=>"/pages_index.html"} Вернуться на главную
+
+
+
+
