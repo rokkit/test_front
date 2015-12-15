@@ -306,16 +306,15 @@ $(function() {
     var currentTime = new Date()
     var times = $('select[name="visit_time"]').html()
     var time_options = $(times).filter(function(index) {
-      return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
+      return $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString());
     })
     $('select[name="visit_time"]').html(time_options)
 
     $('#visit_date').on('change', function() {
       var visit_date = $(this).val()
-      console.log(visit_date)
       if(visit_date == 'today') {
         var time_options = $(times).filter(function(index) {
-          return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
+          return $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString());
         })
         $('select[name="visit_time"]').html(time_options)
       } else if (visit_date == 'tomorrow') {
