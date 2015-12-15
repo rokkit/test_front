@@ -114,14 +114,37 @@ $(function() {
   console.log('%c Created by CPDBBK', css1);
   window.hostUrl = 'http://176.112.194.149:81'
 
-  		$('section.username h1').text(currentUser.name);
-  		// $('#login_btn').text(currentUser.name);
-      if(currentUser.city) {
-        $('#city_user span').text(currentUser.city);
-      }
+	$('section.username h1').text(currentUser.name);
+	// $('#login_btn').text(currentUser.name);
+  if(currentUser.city) {
+    $('#city_user span').text(currentUser.city);
+  }
     //Загрузить начальные данные
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
+        if(json.meets.length > 0){
+          //fx.do(['background']);
+          var last = json.meets.length - 1;
+          json.meets.forEach(function(meet, i){
+            if(meet.status === 'wait' && last === i){
+              var date = moment(meet.visit_date).format('LL');
+              var timeStart = 'c ' + moment(meet.visit_date).format('H:mm');
+              var timeEnd = ' до ' + moment(meet.end_visit_date).format('H:mm');
+              var curLounge = meet.lounge.title;
+              var u = meet.owner.name+'(организатор)';
+              meet.users.forEach(function(user){
+                u = u + ', '+user.name;
+              });
+              var html = date +' '+timeStart + timeEnd + ' в '+curLounge+' <br> '+u;
+              $('#invate_me p').html(html);
+              $('#invate_me p').css('font-family', 'Open Sans Regular');
+              $('#invate_me p').css('font-size', '14px');
+              $('#invate_me button').data('value', meet.id);
+              fx.do(['invate_me', 'background']);
+            }
+          });
+        }
+
         json.users.forEach(function(user){
             $('select[name="invate-dropdown"]').append("<option value="+user.id+">"+ user.name +"</option>");
         });
@@ -147,6 +170,24 @@ $(function() {
           itemSelected.append(closeBtn);
           $('#invite_form .select-cont').append(itemSelected);
           invateUsers.push(id);
+        });
+
+        $('#invate_me button[name="cancel"]').on('click', function(e){
+          var id = $(e.currentTarget).data('value');
+          $.post(hostUrl + '/api/v1/meets/'+id+'/decline', {
+            auth_token: currentUser.auth_token
+          }, function(){
+            fx.back();
+          });
+        });
+
+        $('#invate_me button[name="ok"]').on('click', function(e){
+          var id = $(e.currentTarget).data('value');
+          $.post(hostUrl + '/api/v1/meets/'+id+'/accept', {
+            auth_token: currentUser.auth_token
+          }, function(){
+            fx.back();
+          });
         });
 
         $('#invite_form').submit(function(e){
@@ -291,6 +332,7 @@ $(function() {
       $('#edit-profile').hide();
       $('body').off('click');
       $('#reserv_succes_form').css('right', '1600');
+      $('#invate_me').css('right', '1600');
     }
 
   	$('#n_o_a').click(function(e){

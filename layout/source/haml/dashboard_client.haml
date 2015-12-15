@@ -165,6 +165,16 @@
 						<br> вы увидете уведомление в личном кабинете.
 				%form{:action => "", :method => "get"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Отлично
+		-# Form you invate
+		.wrapper.h_v_center
+			%section.popup_middle{:id => 'invate_me'}
+				%header
+					%h2 Вас приглашают на встречу
+					%p.h2_subtitle
+						21 мая с 18-00 до 21-00 в Либерти
+						<br> Макс, Петя, Вася
+					%button.cancel-btn{:type=>"button", :name=>"cancel"} Отказаться
+					%button{:type=>"button", :name=>"ok"} Согласиться
 		-# Достижения
 		.wrapper_2#all_ach_wrapper
 			%section.popup_vertical{:id => 'all_ach'}

@@ -23,6 +23,11 @@ var fxa = {
       options: {right:'0px', 'pointer-events':'auto'},
       back: {right: '-1260px', 'pointer-events':'auto'}
     },
+    invate_me:{
+      element: '#invate_me',
+      options: {right:'0px', 'pointer-events':'auto'},
+      back: {right: '-1260px', 'pointer-events':'auto'}
+    },
     skillBoard:{
       element: '#all_talents',
       options: { top: '80px', 'pointer-events': 'auto' }
