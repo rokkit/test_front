@@ -500,6 +500,10 @@ function getReservations() {
   $(document).on('click', '.cancel_reserv_confirm', function(e) {
     var $popover = $(this).closest('tr').find('.popover-reserv')
     $(this).closest('tr').remove()
+    if ($('#reserve_table_body tr').length == 0) {
+      $('#reserv-list .nodata').show()
+      $('#reserv-list table').hide()
+    }
     $.ajax({
       url: hostUrl + '/api/v1/reservations/'+$(this).closest('tr').data('id'),
       data: {auth_token: currentUser.auth_token},
