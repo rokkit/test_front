@@ -310,8 +310,7 @@ $(function() {
       return $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString());
     })
     $('select[name="visit_time"]').html(time_options)
-
-    $('#visit_date').on('change', function() {
+    $('select[name="visit_date"]').on('change', function() {
       var visit_date = $(this).val()
       if(visit_date == 'today') {
         var time_options = $(times).filter(function(index) {
