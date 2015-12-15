@@ -261,6 +261,10 @@ $(function() {
           $('.progress').css('width', percentsExp + '%' )
           window.currentUser = json
           localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
+          if (currentUser.role == 'hookmaster' && document.location.href.split('/')[3] == 'dashboard_client.html') {
+            document.location.href = '/dashboard_hmaster.html'
+          }
+
       })
 
     });
@@ -464,10 +468,30 @@ function getReservations() {
   $(document).on('click', '.cancel_reserv_decline', function(e) {
     var $popover = $(this).closest('tr').find('.popover-reserv')
     $popover.hide()
-  })
+  });
+
   $(document).on('click', '.cancel_reserv', function(e) {
-    var $popover = $(this).closest('tr').find('.popover-reserv')
-    $popover.show()
-  })
+    console.log('Click cancel_reserv');
+    var _this     = this;
+    var $popover  = $(this).closest('tr').find('.popover-reserv');
+    $popover.toggleClass('popover-reserv-open popover-reserv-close');
+
+
+  });
+
+  $(document).on('click' , 'body' , function( e ){
+    console.log('Body click');
+    var $popover      = $('.popover-reserv');
+    var $popover_link = $('.cancel_reserv');
+
+    if ($(e.target).closest($popover).length || $(e.target).closest($popover_link).length && $popover.hasClass('popover-reserv-open') ){
+      return;
+    } else {
+      if( $popover.hasClass('popover-reserv-open') ){
+        $popover.removeClass('popover-reserv-open');
+        $popover.addClass('popover-reserv-close');
+      }
+    }
+  });
 
 }

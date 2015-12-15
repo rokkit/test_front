@@ -122,6 +122,12 @@ $(function() {
     var phone = formatPhone($('#signup_form input[name="phone"]').val())
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
+    if (password.length < 5) {
+      $('.error_tooltip').text('Длина пароля должна быть не менее 5 символов')
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+      $('#signup_form input[name="password"]').addClass('wrong')
+      return
+    }
     if(!phone) {
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#signup_form input[name="phone"]').addClass('wrong')

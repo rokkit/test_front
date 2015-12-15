@@ -201,6 +201,23 @@ label.myLabel input[type="file"]
     top: -1000px
 
 // ####### POPOVER DASHBOARD CLIENT #########
+.cancel_reserv
+    position    : relative
+    // &:hover
+.popover-reserv-open
+    display             : block !important
+    // -webkit-animation   : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    // -moz-animation      : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    // -ms-animation       : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    -webkit-animation   : fade-in-reserv 0.3s linear 1
+    -moz-animation      : fade-in-reserv 0.3s linear 1
+    -ms-animation       : fade-in-reserv 0.3s linear 1
+
+.popover-reserv-close
+    -webkit-animation   : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    -moz-animation      : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+    -ms-animation       : fade-in-reserv 0.3s linear 1, move-up-reserv 0.3s linear 1
+
 $color-popover : #3E4248
 .popover-reserv
     z-index             : 4
@@ -216,6 +233,7 @@ $color-popover : #3E4248
     position            : absolute
     font-family         : 'Helvetica',sans-serif
     box-shadow          : 0 0 5px rgba(0,0,0,0.4)
+    left                : 30%
 
     p
         padding: 12px 0px
@@ -229,6 +247,14 @@ $color-popover : #3E4248
         position        : absolute
         border          : 7px solid transparent
         border-bottom   : 7px solid #181B21
+
+    &:hover
+        display : block
+
+    span
+        font-size: 16px
+    .cancel_reserv_decline
+        margin-left     : 32px
 
 @-webkit-keyframes fade-in-reserv
     from

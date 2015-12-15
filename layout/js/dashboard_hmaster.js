@@ -137,9 +137,12 @@ $(function() {
       if(exp != 0) {
           percentsExp = parseInt(exp*100 / (need_to_levelup + exp));
       }
-      $('.progress').css('width', percentsExp + '%' );
-      window.currentUser = json;
-      localStorage.setItem('currentUser', JSON.stringify(window.currentUser));
+      $('.progress').css('width', percentsExp + '%' )
+      window.currentUser = json
+      localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
+      if (currentUser.role == 'user' && document.location.href.split('/')[3] == 'dashboard_hmaster.html') {
+        document.location.href = '/dashboard_client.html'
+      }
   })
 
   $.getJSON(hostUrl + '/api/v1/users/rating.json', {role: currentUser.role, auth_token: currentUser.auth_token}, function(json) {

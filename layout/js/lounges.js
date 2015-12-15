@@ -57,7 +57,7 @@ $(function(){
     document.location.href="/pages_lounges_oblaka.html"
   })
   $(document).on('click', '#academy_novosibirsk-card', function() {
-    document.location.href="/academy_novosibirsk.html"
+    document.location.href="/pages_lounges_academy.html"
   })
   $(document).on('click', '#unityhall-card', function() {
     document.location.href="/pages_lounges_unityhall.html"
