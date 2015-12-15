@@ -54,10 +54,11 @@
 						%fieldset
 							%legend	Основная информация
 							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+							%input{:type => "text", :name => "country", :placeholder => "Страна"}
 							%input{:type => "text", :name => "city", :placeholder => "Город"}
 							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
 							%input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
-							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
+							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, о себе, так будет проще найти людей со схожими интересами."}
 						%fieldset
 							%legend	Регистрационные данные
 							%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
@@ -148,9 +149,9 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
-				%a
-					%h3 Франшиза
-					%p Открыть Ложу
+				-# %a
+				-# 	%h3 Франшиза
+				-# 	%p Открыть Ложу
 
 				-# %button#go_login_from_menu_btn Круг избранных
 		-# Color Overlay
@@ -165,9 +166,9 @@
 					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
-				#face
+				-# #face
 				%h1	Виталий Пихонт
-				%p#city_user <span>Санкт-Петербург</span>, Россия
+				%p#city_user
 				%p#hookmaster_description Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!
 			%section.progress_bar
 				%p

@@ -49,6 +49,59 @@
 			%span {{ number }}. {{ name }}
 			%span {{ exp }}
 	%body#html_body
+		-# Form invite
+		.wrapper.center-center
+			%section#error_password.error_tooltip
+				Данные введены неверно! Попробуйте ввести еще раз.
+			%section.popup{:id => 'invite_form'}
+				%header
+					%h2 Назначить встречу
+					%p.h2_subtitle
+						Мы ставим своей целью не только подавать лучшие кальяны,
+						<br>
+						но и  помогать людям находить новые полезные знакомства.
+				%form{:action => "", :method => "get"}
+					%select{:name=>"lounge"}
+						%option
+							Кальянная
+					-# %select{:name=>"table"}
+					-# 	%option
+					-# 		Столик
+					-# %select{:name=>'client_count'}
+					-# 	%option{:value => '2-3'} Количество гостей
+					-# 	%option{:value => '2-3'} 2-3
+					-# 	%option{:value => '3-5'} 3-5
+
+					%select{:id => 'visit_date', :type => "text", :name => "visit_date", :placeholder => "Дата"}
+						%option{:value => 'today', :selected => 'true'} Сегодня
+						%option{:value => 'tomorrow'} Завтра
+						%option{:value => 'date_choose'} Указать дату
+					%select{:name=>'visit_time'}
+						%option{:value => '17:00', :'data-time' => '1700'} 17:00
+						%option{:value => '17:30', :'data-time' => '1730'} 17:30
+						%option{:value => '18:00', :'data-time' => '1800'} 18:00
+						%option{:value => '18:30', :'data-time' => '1830'} 18:30
+						%option{:value => '19:00', :'data-time' => '1900'} 19:00
+						%option{:value => '19:30', :'data-time' => '1930'} 19:30
+						%option{:value => '20:00', :'data-time' => '2000'} 20:00
+						%option{:value => '20:30', :'data-time' => '2030'} 20:30
+						%option{:value => '21:00', :'data-time' => '2100'} 21:00
+						%option{:value => '21:30', :'data-time' => '2130'} 21:30
+						%option{:value => '22:00', :'data-time' => '2200'} 22:00
+						%option{:value => '22:30', :'data-time' => '2230'} 22:30
+						%option{:value => '23:00', :'data-time' => '2300'} 23:00
+
+					-#%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Отправить приглашения
+					%br
+					%select{:name=>'invate-dropdown'}
+						%option
+							Пригласить
+					%span.select-cont
+						-# <span class='item-select'>Maxim <a href='#' class='close-btn'></a></span>
+						-# <span class='item-select'>Pety <a href='#' class='close-btn'></a></span>
+						-# <span class='item-select'>Vasya <a href='#' class='close-btn'></a></span>
+						-# <span class='item-select'>Ivan <a href='#' class='close-btn'></a></span>
 		-# Form
 		.wrapper.center-center
 			%section#error_password.error_tooltip
@@ -99,6 +152,16 @@
 					%h2 Заявка на бронирование подана
 					%p.h2_subtitle
 						Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". Возьмите с собой документы для подтверждения своей личности
+				%form{:action => "", :method => "get"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Отлично
+		-# Form invate
+		.wrapper.h_v_center
+			%section.popup_middle{:id => 'invate_succes_form'}
+				%header
+					%h2 Приглашения отправлены
+					%p.h2_subtitle
+						Если кто-то из приглашенных вами людей согласится на встречу,
+						<br> вы увидете уведомление в личном кабинете.
 				%form{:action => "", :method => "get"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Отлично
 		-# Достижения
@@ -184,9 +247,9 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
-				%a
-					%h3 Франшиза
-					%p Открыть Ложу
+				-# %a
+				-# 	%h3 Франшиза
+				-# 	%p Открыть Ложу
 
 				-# %button#go_login_from_menu_btn Круг избранных
 
@@ -210,6 +273,7 @@
 								%input{:required => "", :type => "file", name: "image"}
 								%span Фото
 							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+							%input{:type => "text", :name => "country", :placeholder => "Страна"}
 							%input{:type => "text", :name => "city", :placeholder => "Город"}
 							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
 							%input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
@@ -236,11 +300,11 @@
 					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
-				#face
+				-# #face
 				%h1	Виталий Пихонт
-				%p#city_user <span>Санкт-Петербург</span>, Россия
+				%p#city_user
 				%button.button-dark#n_o_a Забронировать столик
-				-# %button.button-dark Пригласить на встречу
+				%button.button-dark#inviteto Пригласить на встречу
 			%section.progress_bar
 				%p
 					<span id='need_points'></span> очков до <span id='next_level'></span> уровня

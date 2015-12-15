@@ -5,6 +5,19 @@
     font-size: 16px
     opacity: 0.4
 
+.close-btn:after
+    content: '×'
+    cursor: pointer
+    color: #ffffff
+    opacity: 0.4
+    font-size: 20px
+    margin-left: 5px
+
+.item-select
+    margin-left: 12px
+    font-size: 17px
+    font-family: Open Sans Light
+
 #reserv_form
     input
         width: 160px
@@ -12,6 +25,13 @@
         margin-right: 12px
     button
         width: 185px
+#invite_form
+    select
+        margin-left: 10px
+        margin-bottom: 15px
+    button
+        margin-left: 10px
+
 .cancel_reserv
     position    : relative
     &:hover
@@ -196,7 +216,7 @@ $color-popover : #3E4248
     position            : absolute
     font-family         : 'Helvetica',sans-serif
     box-shadow          : 0 0 5px rgba(0,0,0,0.4)
-    
+
     p
         padding: 12px 0px
 
