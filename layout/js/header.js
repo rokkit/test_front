@@ -34,7 +34,7 @@ $(function(){
    if (!currentUser) {
      fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
    } else {
-     document.location.href = '/dashboard_client.html'
+     document.location.href = '/tech_preloader.html?redirect=profile'
    }
  });
 
