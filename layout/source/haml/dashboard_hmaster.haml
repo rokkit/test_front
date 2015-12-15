@@ -10,14 +10,15 @@
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/openapi.js" }
 		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/lib/d3.js" }
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/dashboard_hmaster.js" }
-		%script{ :src => "./js/skilldata.js" }
 		%script{ :src => "./js/skillviewh.js" }
 		%script{ :src => "./js/skillgen.js" }
+		%script{ :src => "./js/skillBoard.js" }
 		%script{ :src => "./js/menu.js" }
 		%script{ :src => "./js/profile.js" }
 		%script{ :src => "./js/achievements.js" }
@@ -26,6 +27,8 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
+
+		%title Профиль
 	%script{type: "text/template", id: 'user_rating_tpl'}
 		%li
 			%span {{ number }}. {{ name }}
@@ -53,14 +56,15 @@
 						%fieldset
 							%legend	Основная информация
 							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+							%input{:type => "text", :name => "country", :placeholder => "Страна"}
 							%input{:type => "text", :name => "city", :placeholder => "Город"}
 							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
 							%input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
-							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
+							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, о себе, так будет проще найти людей со схожими интересами."}
 						%fieldset
 							%legend	Регистрационные данные
 							%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-							%input{:type => "text", :name => "email", :placeholder => "E-mail"}
+							-# %input{:type => "text", :name => "email", :placeholder => "E-mail"}
 						%fieldset
 							%legend	сменить пароль
 							%input{:type => "password", :name => "old_password", :placeholder => "Старый пароль"}
@@ -147,102 +151,45 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
-				%a
-					%h3 Франшиза
-					%p Открыть Ложу
+				-# %a
+				-# 	%h3 Франшиза
+				-# 	%p Открыть Ложу
 
-				%button#go_login_from_menu_btn Круг избранных
+				-# %button#go_login_from_menu_btn Круг избранных
 		-# Color Overlay
 		#color_overlay.color_overlay
 
 		%section.dashboard{:id => 'main_content'}
 			%header#header
-				%img{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+				%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
 				%nav
 					%a#edit_profile_btn Редактировать профиль
 					%a#logout_btn Выйти
 					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 			%hr
 			%section.username
+				-# #face
 				%h1	Виталий Пихонт
-				%p#city_user <span>Санкт-Петербург</span>, Россия
+				%p#city_user
 				%p#hookmaster_description Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!
 			%section.progress_bar
 				%p
-					<span id='need_points'>4525</span> очков до <span id='next_level'></span> уровня
+					<span id='need_points'></span> очков до <span id='next_level'></span> уровня
 				.progress_bar_bg
 					.progress
 
 			%section.user_achievments
 				%header
 					%h4 Достижения
-					#dashboard_ach_btn.number_of 3/25
+					#dashboard_ach_btn.number_of
 				%section.wrapper_for_ach#achievements
-					%figure{:id => 'dashboard_open_ach_btn'}
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
+
 			%section.user_achievments
 				%header
 					%h4 Навыки
-					#dashboard_talents_btn.number_of 3/25
+					#dashboard_talents_btn.number_of
 				%section.wrapper_for_ach#skills
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
-					%figure
-						%img.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%figcapation
-							%h6 Маскировка
-							%p 21.09.15
+
 
 			%section.bottom-rating
 				%article#works
@@ -257,37 +204,6 @@
 								%th Дата
 								%th Заработано
 						%tbody
-							%tr
-								%td
-									%h6.color-limon Либерти
-								%td.td-date 23 июня 2015 20:30 - 23:00
-								%td 1360 рублей
-								%td
-									136 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
-							%tr
-								%td
-									%h6.color-blue Облака
-								%td.td-date 19 июня 2015 20:30 - 23:00
-								%td 900 рублей
-								%td 90 HP
 
 				%article
 					%h4 Бонусы

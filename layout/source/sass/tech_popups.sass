@@ -2,6 +2,7 @@
 //////////////////////////////////////////
 section.error_tooltip
     opacity: 0
+    top: 0px
 section.popup
     position: relative
     // left: 160px - Изначальное значение
@@ -17,11 +18,17 @@ section.popup
 
     z-index: 300
 
+    select
+        width: auto
+
     a
         font: normal normal 300 18px/28px Lora, sans-serif
         color: #EBB22F
         z-index: 250
         letter-spacing: 0
+
+    small
+        opacity: 0.4
 
 section.popup:after
     content: ''
@@ -208,7 +215,7 @@ div.wrapper_2
     overflow-y: auto
 #edit-profile-wrapper
     overflow-y: auto
-    // #edit-profile
+    #edit-profile
         display: none
 #all_talents
     #skill-view
@@ -315,5 +322,3 @@ div.wrapper_2
 
         img.cross_white_popup:hover
             transform: rotate(180deg)
-           
-            

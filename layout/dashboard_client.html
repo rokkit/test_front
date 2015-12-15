@@ -17,15 +17,16 @@
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
     <script src='./js/dashboard.js'></script>
-    <script src='./js/skilldata.js'></script>
     <script src='./js/skillview.js'></script>
     <script src='./js/skillgen.js'></script>
+    <script src='./js/skillBoard.js'></script>
     <script src='./js/openapi.js'></script>
     <script src='./js/data.js'></script>
     <script src='./js/nodes.js'></script>
     <script src='./js/menu.js'></script>
     <script src='./js/profile.js'></script>
     <script src='./js/achievements.js'></script>
+    <title>Профиль</title>
     <script src='./js/lib/snap.svg-min.js'></script>
     <script src='./js/lib/svgicons-config.js'></script>
     <script src='./js/lib/svgicons.js'></script>
@@ -35,15 +36,15 @@
       <td>
         <h6 style='color: {{ color }};'>{{ name }}</h6>
       </td>
-      <td class='td-date'>{{ visit_date }} {{ visit_time }} - {{ end_visit_time }}</td>
+      <td class='td-date'>{{ visit_date }} <br> {{ visit_time }} - {{ end_visit_time }}</td>
       <td>{{ client_count }}</td>
       <td>
-        <span class='color-orange cancel_reserv'>Отменить</span>
-        <div class='popover-reserv'>
-          <p>Отменить бронирование</p>
-          <div class='buttons'>
-            <span class='cancel_reserv_confirm'>Да</span>
-            <span class='cancel_reserv_decline'>Нет</span>
+        <div class='color-orange cancel_reserv pointer'>
+          Отменить
+          <div class='popover-reserv popover-reserv-close' data-opened='false'>
+            <p>Отменить бронирование</p>
+            <span class='cancel_reserv_confirm pointer'>Да</span>
+            <span class='cancel_reserv_decline pointer'>Нет</span>
           </div>
         </div>
       </td>
@@ -56,6 +57,57 @@
     </li>
   </script>
   <body id='html_body'>
+    <div class='wrapper center-center'>
+      <section class='error_tooltip' id='error_password'>
+        Данные введены неверно! Попробуйте ввести еще раз.
+      </section>
+      <section class='popup' id='invite_form'>
+        <header>
+          <h2>Назначить встречу</h2>
+          <p class='h2_subtitle'>
+            Мы ставим своей целью не только подавать лучшие кальяны,
+            <br>
+            но и  помогать людям находить новые полезные знакомства.
+          </p>
+        </header>
+        <form action='' method='get'>
+          <select name='lounge'>
+            <option>
+              Кальянная
+            </option>
+          </select>
+          <select id='visit_date_meet' name='visit_date' placeholder='Дата' type='text'>
+            <option selected='true' value='today'>Сегодня</option>
+            <option value='tomorrow'>Завтра</option>
+            <option value='date_choose'>Указать дату</option>
+          </select>
+          <select name='visit_time'>
+            <option data-time='1700' value='17:00'>17:00</option>
+            <option data-time='1730' value='17:30'>17:30</option>
+            <option data-time='1800' value='18:00'>18:00</option>
+            <option data-time='1830' value='18:30'>18:30</option>
+            <option data-time='1900' value='19:00'>19:00</option>
+            <option data-time='1930' value='19:30'>19:30</option>
+            <option data-time='2000' value='20:00'>20:00</option>
+            <option data-time='2030' value='20:30'>20:30</option>
+            <option data-time='2100' value='21:00'>21:00</option>
+            <option data-time='2130' value='21:30'>21:30</option>
+            <option data-time='2200' value='22:00'>22:00</option>
+            <option data-time='2230' value='22:30'>22:30</option>
+            <option data-time='2300' value='23:00'>23:00</option>
+          </select>
+          <button name='sumbit' type='sumbit'>Отправить приглашения</button>
+          <br>
+          <select name='invate-dropdown'>
+            <option>
+              Пригласить
+            </option>
+          </select>
+          <span class='select-cont'>
+          </span>
+        </form>
+      </section>
+    </div>
     <div class='wrapper center-center'>
       <section class='error_tooltip' id='error_password'>
         Данные введены неверно! Попробуйте ввести еще раз.
@@ -73,7 +125,7 @@
               Кальянная
             </option>
           </select>
-          <select name='client_count' style='width: 160px;'>
+          <select name='client_count'>
             <option value='2-3'>Количество гостей</option>
             <option value='2-3'>2-3</option>
             <option value='3-5'>3-5</option>
@@ -113,6 +165,33 @@
         <form action='' method='get'>
           <button name='sumbit' type='sumbit'>Отлично</button>
         </form>
+      </section>
+    </div>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='invate_succes_form'>
+        <header>
+          <h2>Приглашения отправлены</h2>
+          <p class='h2_subtitle'>
+            Если кто-то из приглашенных вами людей согласится на встречу,
+            <br> вы увидете уведомление в личном кабинете.
+          </p>
+        </header>
+        <form action='' method='get'>
+          <button name='sumbit' type='sumbit'>Отлично</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='invate_me'>
+        <header>
+          <h2>Вас приглашают на встречу</h2>
+          <p class='h2_subtitle'>
+            21 мая с 18-00 до 21-00 в Либерти
+            <br> Макс, Петя, Вася
+          </p>
+          <button class='cancel-btn' name='cancel' type='button'>Отказаться</button>
+          <button name='ok' type='button'>Согласиться</button>
+        </header>
       </section>
     </div>
     <div class='wrapper_2' id='all_ach_wrapper'>
@@ -201,11 +280,6 @@
           <h3 id='community_nav_btn'>Сообщество</h3>
           <p>Полезно быть своим</p>
         </a>
-        <a>
-          <h3>Франшиза</h3>
-          <p>Открыть Ложу</p>
-        </a>
-        <button id='go_login_from_menu_btn'>Круг избранных</button>
       </section>
     </div>
     <div class='wrapper_2' id='edit-profile-wrapper'>
@@ -224,6 +298,7 @@
             <fieldset>
               <legend>Основная информация</legend>
               <input name='name' placeholder='ФИО' type='text'>
+              <input name='country' placeholder='Страна' type='text'>
               <input name='city' placeholder='Город' type='text'>
               <input name='employe' placeholder='Рабочая должность' type='text'>
               <input name='work_company' placeholder='Компания работодатель' type='text'>
@@ -232,7 +307,6 @@
             <fieldset>
               <legend>Регистрационные данные</legend>
               <input name='phone' placeholder='Номер телефона' type='text'>
-              <input name='email' placeholder='E-mail' type='text'>
             </fieldset>
             <fieldset>
               <legend>сменить пароль</legend>
@@ -247,7 +321,7 @@
     <div class='color_overlay' id='color_overlay'></div>
     <section class='dashboard' id='main_content'>
       <header id='header'>
-        <img alt='Уникальные Кальянные' src='./images/logo.svg'>
+        <img alt='Уникальные Кальянные' class='pointer' src='./images/logo.svg'>
         <nav>
           <a id='edit_profile_btn'>Редактировать профиль</a>
           <a id='logout_btn'>Выйти</a>
@@ -257,12 +331,13 @@
       <hr>
       <section class='username'>
         <h1>Виталий Пихонт</h1>
-        <p id='city_user'><span>Санкт-Петербург</span>, Россия</p>
+        <p id='city_user'></p>
         <button class='button-dark' id='n_o_a'>Забронировать столик</button>
+        <button class='button-dark' id='inviteto'>Пригласить на встречу</button>
       </section>
       <section class='progress_bar'>
         <p>
-          <span id='need_points'>4525</span> очков до <span id='next_level'></span> уровня
+          <span id='need_points'></span> очков до <span id='next_level'></span> уровня
         </p>
         <div class='progress_bar_bg'>
           <div class='progress'></div>
@@ -271,46 +346,16 @@
       <section class='user_achievments'>
         <header>
           <h4>Достижения</h4>
-          <div class='number_of' id='dashboard_ach_btn'>3/25</div>
+          <div class='number_of' id='dashboard_ach_btn'></div>
         </header>
-        <section class='wrapper_for_ach' id='achievements'>
-          <figure id='dashboard_open_ach_btn'>
-            <img class='achievments_icon' src='./images/achievments/1.svg'>
-            <figcapation>
-              <h6>Маскировка</h6>
-              <p>21.09.15</p>
-            </figcapation>
-          </figure>
-          <figure>
-            <img class='achievments_icon' src='./images/achievments/1.svg'>
-            <figcapation>
-              <h6>Маскировка</h6>
-              <p>21.09.15</p>
-            </figcapation>
-          </figure>
-        </section>
+        <section class='wrapper_for_ach' id='achievements'></section>
       </section>
       <section class='user_achievments'>
         <header>
           <h4>Навыки</h4>
-          <div class='number_of' id='dashboard_talents_btn'>3/25</div>
+          <div class='number_of' id='dashboard_talents_btn'></div>
         </header>
-        <section class='wrapper_for_ach' id='skills'>
-          <figure>
-            <img class='achievments_icon' src='./images/achievments/1.svg'>
-            <figcapation>
-              <h6>Маскировка</h6>
-              <p>21.09.15</p>
-            </figcapation>
-          </figure>
-          <figure>
-            <img class='achievments_icon' src='./images/achievments/1.svg'>
-            <figcapation>
-              <h6>Маскировка</h6>
-              <p>21.09.15</p>
-            </figcapation>
-          </figure>
-        </section>
+        <section class='wrapper_for_ach' id='skills'></section>
       </section>
       <section class='bottom-rating'>
         <article id='reserv-list'>
@@ -325,29 +370,18 @@
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
-                <th>Количество</th>
+                <th>Гости</th>
                 <th>Статус</th>
               </tr>
             </thead>
-            <tbody id='reserve_table_body'>
-              <tr>
-                <td>
-                  <h6 class='color-limon'>Либерти</h6>
-                </td>
-                <td class='td-date'>23 июня 2015 20:30 - 23:00</td>
-                <td>5 человек</td>
-                <td>
-                  Скоро
-                  <br>
-                  <span class='color-orange'>Отменить</span>
-                </td>
-              </tr>
-            </tbody>
+            <tbody id='reserve_table_body'></tbody>
           </table>
         </article>
         <article id='visit-list'>
           <header>
-            <h4>Посещения</h4>
+            <h4>
+              Посещения
+            </h4>
             <div class='nodata'>
               нет данных
             </div>
@@ -360,45 +394,7 @@
                 <th>Опыт</th>
               </tr>
             </thead>
-            <tbody id='visit_table_body'>
-              <tr>
-                <td>
-                  <h6 class='color-limon'>Либерти</h6>
-                </td>
-                <td class='td-date'>23 июня 2015 20:30 - 23:00</td>
-                <td>
-                  136 HP
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>90 HP</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>90 HP</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>90 HP</td>
-              </tr>
-              <tr>
-                <td>
-                  <h6 class='color-blue'>Облака</h6>
-                </td>
-                <td class='td-date'>19 июня 2015 20:30 - 23:00</td>
-                <td>90 HP</td>
-              </tr>
-            </tbody>
+            <tbody id='visit_table_body'></tbody>
           </table>
         </article>
         <article>

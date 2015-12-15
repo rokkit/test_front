@@ -57,15 +57,18 @@ $(function(){
     document.location.href="/pages_lounges_oblaka.html"
   })
   $(document).on('click', '#academy_novosibirsk-card', function() {
-    document.location.href="/academy_novosibirsk.html"
+    document.location.href="/pages_lounges_academy.html"
   })
   $(document).on('click', '#unityhall-card', function() {
     document.location.href="/pages_lounges_unityhall.html"
   })
   $(document).on('click', '#reserv-card', function() {
-    document.location.href="/pages_lounges_reserv.html"
+    document.location.href="/pages_lounges_rezerv.html"
   })
   $(document).on('click', '#liberty-card', function() {
     document.location.href="/pages_lounges_liberty.html"
+  })
+  $(document).on('click', '#ak_bars-card', function() {
+    document.location.href="/pages_lounges_craft.html"
   })
 });

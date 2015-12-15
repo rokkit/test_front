@@ -1,8 +1,101 @@
 var fx = new FX(fxa.dashboard);
+var invateUsers = [];
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 _.templateSettings =  {
   interpolate :/\{\{(.+?)\}\}/g
 }
+
+$(function(){
+
+  function rndR(min, max) {
+    var rand = min + Math.random() * (max - min)
+    rand = Math.round(rand);
+    return rand;
+  }
+
+  var layoutWidth = $('#face').width();
+  var layoutHeight = $('#face').height();
+
+  var layout = d3.select('#face').append('svg')
+  .attr('width', layoutWidth)
+  .attr('height', layoutHeight);
+
+  layout.append("defs")
+      .append('pattern')
+      .attr("id", "face-img")
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', 200)
+      .attr('height', 200)
+      .attr('patternUnits', 'userSpaceOnUse')
+      .append("image")
+      .attr('x', 20)
+      .attr('y', 0)
+      .attr('width', 200)
+      .attr('height', 200)
+
+
+  layout.append('circle')
+  .attr('r', 70)
+  .attr('fill', 'transparent')
+  .attr('stroke', '#fff')
+  .attr('opacity', 0.4)
+  .attr('cx', layoutWidth/2)
+  .attr('cy', layoutHeight/2);
+
+  layout.append('circle')
+  .attr('r', 50)
+  .attr('stroke', '#EBB22F')
+  .attr('stroke-width', 2.5)
+  .attr('fill', 'transparent')
+  .attr('cx', layoutWidth/2)
+  .attr('cy', layoutHeight/2);
+
+  layout.append('circle')
+  .attr('r', 44)
+  // .attr('stroke', '#EBB22F')
+  // .attr('stroke-width', 2.5)
+  .attr('fill', 'url(#face-img)')
+  .attr('cx', layoutWidth/2)
+  .attr('cy', layoutHeight/2);
+
+  for (var i = 0; i < 360; i += 12) {
+    var r = rndR(68, 100);
+    layout.append('line')
+    .attr('stroke', '#EBB22F')
+    .attr('opacity', function(){
+      var res = 1;
+      if(r < 85){
+        res = 0.6;
+      }
+      if(r < 80){
+        res = 0.4;
+      }
+      if(r < 76){
+        res = 0.2;
+      }
+      return res;
+    })
+    .attr('stroke-width', '2.4')
+    .attr('x1', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + 50 * Math.cos(rad);
+    })
+    .attr('y1', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + 50 * Math.sin(rad);
+    })
+    .attr('x2', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + r * Math.cos(rad);
+    })
+    .attr('y2', function(d){
+      var rad = i * (Math.PI/180);
+      return 100 + r * Math.sin(rad);
+    });
+  }
+
+});
 
 $(function() {
   $('.popup_vertical_symbol').css('pointer-events', 'none');
@@ -21,14 +114,129 @@ $(function() {
   console.log('%c Created by CPDBBK', css1);
   window.hostUrl = 'http://176.112.194.149:81'
 
-  		$('section.username h1').text(currentUser.name);
-  		// $('#login_btn').text(currentUser.name);
-      if(currentUser.city) {
-        $('#city_user span').text(currentUser.city);
-      }
+	$('section.username h1').text(currentUser.name);
+	// $('#login_btn').text(currentUser.name);
+  if(currentUser.city) {
+    $('#city_user span').text(currentUser.city);
+  }
     //Загрузить начальные данные
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
+        if(json.meets.length > 0){
+          //fx.do(['background']);
+          var last = json.meets.length - 1;
+          json.meets.forEach(function(meet, i){
+            if(meet.status === 'wait' && last === i){
+              var date = moment(meet.visit_date).format('LL');
+              var timeStart = 'c ' + moment(meet.visit_date).format('H:mm');
+              var timeEnd = ' до ' + moment(meet.end_visit_date).format('H:mm');
+              var curLounge = meet.lounge.title;
+              var u = meet.owner.name+'(организатор)';
+              meet.users.forEach(function(user){
+                u = u + ', '+user.name;
+              });
+              var html = date +' '+timeStart + timeEnd + ' в '+curLounge+' <br> '+u;
+              $('#invate_me p').html(html);
+              $('#invate_me p').css('font-family', 'Open Sans Regular');
+              $('#invate_me p').css('font-size', '14px');
+              $('#invate_me button').data('value', meet.id);
+              fx.do(['invate_me', 'background']);
+            }
+          });
+        }
+
+        json.users.forEach(function(user){
+            $('select[name="invate-dropdown"]').append("<option value="+user.id+">"+ user.name +"</option>");
+        });
+
+        $('select[name="invate-dropdown"]').change(function(e){
+          var el = $('select[name="invate-dropdown"] option:selected');
+          var id = el.attr('value');
+          var closeBtn = $('<a href="#">');
+          closeBtn.addClass('close-btn');
+          closeBtn.data('value', id);
+          closeBtn.on('click', function(e){
+            var id = $(e.currentTarget).data('value');
+            invateUsers.forEach(function(v, i){
+              if(v === id){
+                  invateUsers.splice(i, 1);
+              }
+            });
+            $(e.currentTarget).parent().remove();
+          });
+          var itemSelected = $('<span>');
+          itemSelected.addClass('item-select');
+          itemSelected.text(el.text());
+          itemSelected.append(closeBtn);
+          $('#invite_form .select-cont').append(itemSelected);
+          invateUsers.push(id);
+        });
+
+        $('#invate_me button[name="cancel"]').on('click', function(e){
+          var id = $(e.currentTarget).data('value');
+          $.post(hostUrl + '/api/v1/meets/'+id+'/decline', {
+            auth_token: currentUser.auth_token
+          }, function(){
+            fx.back();
+          });
+        });
+
+        $('#invate_me button[name="ok"]').on('click', function(e){
+          var id = $(e.currentTarget).data('value');
+          $.post(hostUrl + '/api/v1/meets/'+id+'/accept', {
+            auth_token: currentUser.auth_token
+          }, function(){
+            fx.back();
+          });
+        });
+
+        $('#invite_form').submit(function(e){
+          e.preventDefault();
+          $('.wrong').removeClass('wrong');
+          if($('#invite_form select[name=visit_time]').val() == 'время') {
+            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+            $('#invite_form select[name="visit_time"]').addClass('wrong')
+            return
+          }
+          var visit_date = $('#invite_form #visit_date_meet').val()
+          if(visit_date == 'today') {
+            visit_date = moment().format('YYYY-MM-DD')
+
+          } else if(visit_date == 'tomorrow') {
+            visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
+          }
+          var visit_time = $('#invite_form select[name=visit_time]').val()
+          $.post(hostUrl + '/api/v1/reservations.json', {
+            auth_token: currentUser.auth_token,
+            lounge: $('#invite_form select[name=lounge]').val(),
+            table_id: $('#invite_form select[name=table]').val(),
+            client_count: $('#invite_form select[name=client_count]').val(),
+            duration: $('#invite_form select[name=duration]').val(),
+            visit_date: visit_date + ' ' + $('#invite_form select[name=visit_time]').val(),
+            meets: invateUsers
+          }, function(json) {
+            if (json.errors) {
+              if (json.errors.visit_date) {
+                TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+                $('#invite_form input[name="visit_date"]').addClass('wrong')
+                $('#invite_form select[name="visit_time"]').addClass('wrong')
+              }
+              if (json.errors.table) {
+                TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+                $('#invite_form input[name="lounge"]').addClass('wrong')
+              }
+            } else {
+              $('#visit_date_result').text(visit_date)
+              $('#visit_time_result').text(visit_time)
+              getReservations();
+              invateUsers = [];
+              TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+              fx.swap('invite', 'invate_succes_form');
+            }
+
+          });
+        });
+
         _.each(json.lounges, function(lounge) {
           //console.log(lounge)
           $('select[name="lounge"]').append("<option value="+lounge.id+">"+ lounge.title +"</option>")
@@ -38,7 +246,8 @@ $(function() {
             })
           $('select[name="table"]').append("</optgroup>")
         })
-        $('select[name="lounge"] option:last').attr("selected", "selected");
+        $('#invite_form select[name="lounge"] option:last').attr("selected", "selected");
+        $('#reserv_form select[name="lounge"] option:last').attr("selected", "selected");
 
         if(json.payments.length > 0){
           $('#visit-list .nodata').hide();
@@ -65,10 +274,27 @@ $(function() {
       getReservations();
 
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
-          var exp = parseInt(json.exp, 10)
-          var need_to_levelup = parseInt(json.need_to_levelup, 10)
-          $('#need_points').text(need_to_levelup)
-          $('#next_level').text(currentUser.level + 1)
+          var exp = parseInt(json.exp, 10);
+          var need_to_levelup = parseInt(json.need_to_levelup, 10);
+          $('#need_points').text(need_to_levelup);
+          $('#next_level').text(currentUser.level + 1);
+
+          if(json.country !== '' && json.city !== ''){
+              $('#city_user').append('<span>').text(json.city + ', '+json.country);
+          }else {
+            var a = $('<a>');
+            a.text('Укажите в редактирование профиля город и страну');
+            a.css('font-size', 'x-small');
+            a.css('opacity', 0.4);
+            a.on('click', function(){
+              $('#edit-profile').css('display', 'block');
+              fx.do(['background', 'editProfile'], bodyClick, function(){
+                $('#edit-profile').css('display', 'none');
+                $('body').off('click');
+              });
+            });
+            $('#city_user').append('<span>').append(a);
+          }
 
           var percentsExp = 0
           if(exp != 0) {
@@ -77,6 +303,10 @@ $(function() {
           $('.progress').css('width', percentsExp + '%' )
           window.currentUser = json
           localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
+          if (currentUser.role == 'hookmaster' && document.location.href.split('/')[3] == 'dashboard_client.html') {
+            document.location.href = '/dashboard_hmaster.html'
+          }
+
       })
 
     });
@@ -103,7 +333,7 @@ $(function() {
       $('#edit-profile').hide();
       $('body').off('click');
       $('#reserv_succes_form').css('right', '1600');
-
+      $('#invate_me').css('right', '1600');
     }
 
   	$('#n_o_a').click(function(e){
@@ -111,19 +341,22 @@ $(function() {
       fx.do(['reserv', 'background'], bodyClick, bodyClickOff);
   	});
 
+    $('#inviteto').click(function(e){
+      TweenLite.to('section.error_tooltip', 0, {opacity: 0});
+      fx.do(['invite', 'background'], bodyClick, bodyClickOff);
+  	});
+
     var currentTime = new Date()
     var times = $('select[name="visit_time"]').html()
     var time_options = $(times).filter(function(index) {
-      return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
+      return $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString());
     })
     $('select[name="visit_time"]').html(time_options)
-
-    $('#visit_date').on('change', function() {
+    $('select[name="visit_date"]').on('change', function() {
       var visit_date = $(this).val()
-      console.log(visit_date)
       if(visit_date == 'today') {
         var time_options = $(times).filter(function(index) {
-          return $(this).data('time') > (currentTime.getHours().toString()+currentTime.getMinutes().toString());
+          return $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString());
         })
         $('select[name="visit_time"]').html(time_options)
       } else if (visit_date == 'tomorrow') {
@@ -138,9 +371,9 @@ $(function() {
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       $('.wrong').removeClass('wrong');
-      if($('select[name=visit_time]').val() == 'время') {
+      if($('#reserv_form select[name=visit_time]').val() == 'время') {
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-        $('select[name="visit_time"]').addClass('wrong')
+        $('#reserv_form select[name="visit_time"]').addClass('wrong')
         return
       }
       var visit_date = $('#visit_date').val()
@@ -150,24 +383,24 @@ $(function() {
       } else if(visit_date == 'tomorrow') {
         visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
       }
-      var visit_time = $('select[name=visit_time]').val()
+      var visit_time = $('#reserv_form select[name=visit_time]').val()
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
-        lounge: $('select[name=lounge]').val(),
-        table_id: $('select[name=table]').val(),
-        client_count: $('select[name=client_count]').val(),
-        duration: $('select[name=duration]').val(),
-        visit_date: visit_date + ' ' + $('select[name=visit_time]').val()
+        lounge: $('#reserv_form select[name=lounge]').val(),
+        table_id: $('#reserv_form select[name=table]').val(),
+        client_count: $('#reserv_form select[name=client_count]').val(),
+        duration: $('#reserv_form select[name=duration]').val(),
+        visit_date: visit_date + ' ' + $('#reserv_form select[name=visit_time]').val()
       }, function(json) {
         if (json.errors) {
           if (json.errors.visit_date) {
             TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('input[name="visit_date"]').addClass('wrong')
-            $('select[name="visit_time"]').addClass('wrong')
+            $('#reserv_form input[name="visit_date"]').addClass('wrong')
+            $('#reserv_form select[name="visit_time"]').addClass('wrong')
           }
           if (json.errors.table) {
             TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('input[name="lounge"]').addClass('wrong')
+            $('#reserv_form input[name="lounge"]').addClass('wrong')
           }
         } else {
           $('#visit_date_result').text(visit_date)
@@ -177,12 +410,16 @@ $(function() {
           fx.swap('reserv', 'reserv_succes_form');
         }
 
-      })
+      });
 
     });
 
     $('#reserv_succes_form').submit(function(e){
-      //animateRevers();
+      fx.back();
+      e.preventDefault();
+    });
+
+    $('#invate_succes_form').submit(function(e){
       fx.back();
       e.preventDefault();
     });
@@ -229,9 +466,6 @@ function bodyClick(e){
   });
 }
 
-
-
-
 function getReservations() {
   moment.locale('ru')
   $.getJSON(hostUrl + '/api/v1/reservations.json', {auth_token: currentUser.auth_token}, function(json) {
@@ -275,10 +509,30 @@ function getReservations() {
   $(document).on('click', '.cancel_reserv_decline', function(e) {
     var $popover = $(this).closest('tr').find('.popover-reserv')
     $popover.hide()
-  })
+  });
+
   $(document).on('click', '.cancel_reserv', function(e) {
-    var $popover = $(this).closest('tr').find('.popover-reserv')
-    $popover.show()
-  })
+    console.log('Click cancel_reserv');
+    var _this     = this;
+    var $popover  = $(this).closest('tr').find('.popover-reserv');
+    $popover.toggleClass('popover-reserv-open popover-reserv-close');
+
+
+  });
+
+  $(document).on('click' , 'body' , function( e ){
+    console.log('Body click');
+    var $popover      = $('.popover-reserv');
+    var $popover_link = $('.cancel_reserv');
+
+    if ($(e.target).closest($popover).length || $(e.target).closest($popover_link).length && $popover.hasClass('popover-reserv-open') ){
+      return;
+    } else {
+      if( $popover.hasClass('popover-reserv-open') ){
+        $popover.removeClass('popover-reserv-open');
+        $popover.addClass('popover-reserv-close');
+      }
+    }
+  });
 
 }

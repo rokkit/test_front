@@ -18,6 +18,16 @@ var fxa = {
       options: {right:"0px", 'pointer-events':"auto"},
       back: {right:"-1260px", 'pointer-events':"auto"}
     },
+    invate_succes_form:{
+      element: '#invate_succes_form',
+      options: {right:'0px', 'pointer-events':'auto'},
+      back: {right: '-1260px', 'pointer-events':'auto'}
+    },
+    invate_me:{
+      element: '#invate_me',
+      options: {right:'0px', 'pointer-events':'auto'},
+      back: {right: '-1260px', 'pointer-events':'auto'}
+    },
     skillBoard:{
       element: '#all_talents',
       options: { top: '80px', 'pointer-events': 'auto' }
@@ -65,6 +75,14 @@ var fxa = {
     allAchiv: ['all_ach', 'all_ach_wrapper', 'all_ach_popup'],
     reserv:{
       element: '#reserv_form',
+      options: {
+        left:"160px",
+        'pointer-events':"auto",
+      },
+      back: {left:"1860px", 'pointer-events':"auto"}
+    },
+    invite:{
+      element: '#invite_form',
       options: {
         left:"160px",
         'pointer-events':"auto",
@@ -181,10 +199,10 @@ $(function(){
 $(function(){
 
   var hm_open_anim = new TimelineMax({paused:true});
-  
+
   hm_open_anim.from("#hookah_popups", 0.1, {autoAlpha:0});
   hm_open_anim.to("#hookah_popups", 0.1, {autoAlpha:1});
-  
+
   hm_open_anim.to("#hm_ilya_ponomarev", 1, {top:0, ease: Power4.easeOut});
   hm_open_anim.to("#html_body", 0.1, {overflow:"hidden"});
 
@@ -201,10 +219,10 @@ $(function(){
 $(function(){
 
   var hm_open_anim = new TimelineMax({paused:true});
-  
+
   hm_open_anim.from("#hookah_popups", 0.1, {autoAlpha:0});
   hm_open_anim.to("#hookah_popups", 0.1, {autoAlpha:1});
-  
+
   hm_open_anim.to("#hm_philipp_boicov", 1, {top:0, ease: Power4.easeOut});
   hm_open_anim.to("#html_body", 0.1, {overflow:"hidden"});
 
@@ -221,10 +239,10 @@ $(function(){
 $(function(){
 
   var hm_open_anim = new TimelineMax({paused:true});
-  
+
   hm_open_anim.from("#hookah_popups", 0.1, {autoAlpha:0});
   hm_open_anim.to("#hookah_popups", 0.1, {autoAlpha:1});
-  
+
   hm_open_anim.to("#hm_igor_konovalov", 1, {top:0, ease: Power4.easeOut});
   hm_open_anim.to("#html_body", 0.1, {overflow:"hidden"});
 

@@ -24,9 +24,7 @@
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/header.js" }
 		%script{ :src => "./js/menu.js" }
-
-		%title	Зал Единства
-
+		%title Крафт
 	%body#html_body
 
 		-# Регистрация
@@ -125,121 +123,109 @@
 				%hr
 				-# Контент
 				%header
-					%h1.style-unityhall Зал Единства
-					%p Miserere domine, stultus sum*
+					%h1.style-craft Крафт
+					%p Otium post negotium*
 				-# Адрес, телефон и время работы
 				%section.information_lib
 					%figure
 						%img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
-						%figcapation Казань, Бутлерова 21
+						%figcapation Нижний Новогород, Портовый пер., 2а
+
 					%figure
 						%img{ :src=>"./images/phone.svg" , :alt=>"Город" , :height=>"16px" }
-						%figcapation +7 (905) 377-18-50
+						%figcapation +7 (831) 414-37-13
 					%figure
 						%img{ :src=>"./images/clock.svg" , :alt=>"Город" , :height=>"16px" }
 						%figcapation
-							Пн.-Чт. 14:00-02:00
-							%br
-							Пт.-Сб. 14:00-04:00
-							Вс. 14:00-02:00
+							Каждый день с 15:00
 				-# Кнопка бронирования
 				%section.liberactions
-					%button#reserve_table_btn.style-unityhall Забронировать столик
+					%button#reserve_table_btn.style-craft Забронировать столик
 					-# 	 Связаться с нами
 
 				-# Подпись
 				%footer
-					%p *Ничто не истинно, Все дозволено
+					%p *Отдых после дела
 				-# Герб
-				%img#liberty_herb.layer{ :src=>"./images/blazons/unityhall.svg", :"data-depth"=>"0.40"}
+				%img#liberty_herb.layer{ :src=>"http://176.112.194.149:81/uploads/lounge/blazon/9/ak_bars.svg", :"data-depth"=>"0.40"}
 
-				%img.gerb_glow_2{ :src=>"images/unityhall/glow.png"}
+				%img.gerb_glow_2{ :src=>"images/craft/glow.png"}
 				-#%img.gerb_glow{ :src=>"./images/sun_glow.svg"}
 
 			-# Второй блок
 			%section#liberty_block2
 				.text-wrapper-liberty
-					%h4 "Зал Единства" - главный штаб Уникальных Кальянных в Казани.
-					%p
-						Место с особым дизайном и полноценной сценой, на которой происходят всевозможные события, от музыкальных мероприятий и спектаклей, до профессиональных презентаций
-						%br
-						Кальянная площадка, где стильный интерьер пересекается с высочайшим качеством сервиса и необычной подачей, будь то кальян, десерт или коктейль.
+					%h4 «Крафт» - самая душевная кальянная Нижнего Новгорода
+					%p Мы с радостью пообщаемся с каждым пришедшим к нам гостем, устроим поудобнее и послушаем истории о нем и его увлечениях.
 			%section#liberty_block3
 				%section.cd-hero
 					%ul.cd-hero-slider.autoplay
 						%li.selected
-							%img.img-slider{:src => "./images/unityhall/slider/1.jpg"}
+							%img.img-slider{:src => "https://pp.vk.me/c624530/v624530806/39b31/FhnlF3USzLQ.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/2.jpg"}
+							%img.img-slider{:src => "https://pp.vk.me/c624530/v624530806/370a5/moFienp1d20.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/3.jpg"}
+							%img.img-slider{:src => "https://pp.vk.me/c624124/v624124806/4ea26/5CpVF73VVGU.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/4.jpg"}
+							%img.img-slider{:src => "https://pp.vk.me/c627116/v627116880/4cfe6/CR3k1AMt5-o.jpg"}
 						%li
-							%img.img-slider{:src => "./images/unityhall/slider/5.jpg"}
+							%img.img-slider{:src => "https://pp.vk.me/c629306/v629306806/f393/pNXB711tf6A.jpg"}
 
 					.cd-slider-nav
 						%nav
 							%ul
 								%li.selected
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/1.jpg"}
+									%img.img-nav.pointer{:src => "https://pp.vk.me/c624530/v624530806/39b31/FhnlF3USzLQ.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/2.jpg"}
+									%img.img-nav.pointer{:src => "https://pp.vk.me/c624530/v624530806/370a5/moFienp1d20.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/3.jpg"}
+									%img.img-nav.pointer{:src => "https://pp.vk.me/c624124/v624124806/4ea26/5CpVF73VVGU.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/4.jpg"}
+									%img.img-nav.pointer{:src => "https://pp.vk.me/c627116/v627116880/4cfe6/CR3k1AMt5-o.jpg"}
 								%li
-									%img.img-nav.pointer{:src => "./images/unityhall/slider/5.jpg"}
+									%img.img-nav.pointer{:src => "https://pp.vk.me/c629306/v629306806/f393/pNXB711tf6A.jpg"}
 
 			%section#liberty_block4
 				%header
-					%h2.style-unityhall Кальянные мастера
-					%p Наша команда формировалась по принципу всестороннего развития коллектива. Каждое звено нашего братства поддерживает слабые и дополняет сильные стороны другого звена. Вместе это образует единый механизм, систему, способную выдержать высокий уровень сервиса и, при этом, каждый бармен, администратор или кальянный мастер является личностью и профессионалом, способным поддержать диалог в своей сфере интересов.
+					%h2.style-craft Кальянные мастера
+					%p Команда «Крафт», это постоянно эволюционирующий организм, который не боится экспериментов на всех уровнях. Наши методы приготовления кальянов обрели популярность и славятся даже за пределами города, а стиль обслуживания притягивает и удерживает множество интересных личностей
 				%br
-				%img{ :src=>"./images/unityhall/hms/belancheva.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/chernov.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/efrem.svg" 			, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/gabdulhakov.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/seifulin.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/sokolov.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/unityhall/hms/valeev.svg" 		, :alt=>"Кальянщик" , :height=>"396px" }
+				%img{ :src=>"./images/craft/hms/pronin.svg" , :alt=>"Кальянщик" , :height=>"396px" }
 
 			%section#liberty_block5
 				.map_overlay
 				.map_wrapper
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.3041163349435!2d49.12802931560311!3d55.78795698056282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead0e0f1bf763%3A0x15b9b07f38999c07!2z0YPQuy4g0JHRg9GC0LvQtdGA0L7QstCwLCAyMSwg0JrQsNC30LDQvdGMLCDQoNC10YHQvy4g0KLQsNGC0LDRgNGB0YLQsNC9LCA0MjAwMTI!5e0!3m2!1sru!2sru!4v1449576018940" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2211.948734213942!2d43.96125951595303!3d56.33071468071192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4151d5d3233de7e3%3A0xa1596505e6b3fbdd!2z0J_QvtGA0YLQvtCy0YvQuSDQv9C10YAuLCAyLCDQndC40LbQvdC40Lkg0J3QvtCy0LPQvtGA0L7QtCwg0J3QuNC20LXQs9C-0YDQvtC00YHQutCw0Y8g0L7QsdC7LiwgNjAzMDAy!5e0!3m2!1sru!2sru!4v1450106348613" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 				%section#map_wrapper
 					%header
-						%h3.style-unityhall Казань
-						%p Вахитовский район
+						%h3.style-craft Нижний Новогород
+						%p Канавинский район
 
-					%p Неподалеку от берега Волги в городе Казань расположилась Уникальная Кальянная “Зал Единства”.
+					%p Мы находимся недалеко от центра, поэтому до нас совсем не сложно добраться. И если Вы будете недалеко от нас, заходите и оцените все лично
 
-					%small Россия, Казань, Бутлерова 21
+					%small Россия, Нижний Новогород, Портовый пер., 2а
+
 
 			%section#liberty_block6
 				%header
-					%h2.style-unityhall Контакты
+					%h2.style-craft Контакты
 					%h5 По вопросам справки обращайтесь по телефону в рабочее время:
 
 				%h6 Адрес:
-				%p Казань, Бутлерова 21
+				%p Нижний Новогород, Портовый пер., 2а
+
 
 				%h6 Контактный номер:
-				%p +7 (905) 377-18-50
+				%p +7 (831) 414-37-13
 
 				%h6 Рабочие часы:
 				%p
-					Пн.-Чт. 14:00-02:00
-					<br>
-					Пт.-Сб. 14:00-04:00
-					Вс. 14:00-02:00
+					Каждый день с 15:00
 			%section#philosophie_block5
-				%h3 Miserere domine, stultus sum*
-				%h6 *Ничто не истинно, Все дозволено
+				%h3 Otium post negotium*
+				%h6 *Отдых после дела
 				%br
-				%button.button-dark.style-unityhall Зарегистрироваться
+				%button.button-dark.style-craft Зарегистрироваться
 
 				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
 				%img.sun_glow{ :src=>"./images/sun_glow.svg"}

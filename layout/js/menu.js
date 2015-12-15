@@ -1,3 +1,27 @@
+String.prototype.regexIndexOf = function(regex, startpos) {
+    var indexOf = this.substring(startpos || 0).search(regex);
+    return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
+}
+
+String.prototype.regexLastIndexOf = function(regex, startpos) {
+    regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
+    if(typeof (startpos) == "undefined") {
+        startpos = this.length;
+    } else if(startpos < 0) {
+        startpos = 0;
+    }
+    var stringToWorkWith = this.substring(0, startpos + 1);
+    var lastIndexOf = -1;
+    var nextStop = 0;
+    while((result = regex.exec(stringToWorkWith)) != null) {
+        lastIndexOf = result.index;
+        regex.lastIndex = ++nextStop;
+    }
+    return lastIndexOf;
+}
+_.templateSettings =  {
+  interpolate :/\{\{(.+?)\}\}/g
+}
 $(function() {
   //Клик на кнопку меню в хедере
   $('#menu_header_btn').on('click', function() {
@@ -42,4 +66,52 @@ function animateMenu() {
   var tw5 = TweenLite.to(html_body, 1, {overflow:"hidden"})
   var tw6 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
   window.tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5, tw6], 'sequence');
+}
+
+//Новости из группы ВК
+$(function() {
+  VK.init({
+    apiId: 5023577
+  })
+  var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
+  var newsTpl = _.template(newsHtml)
+  VK.Api.call('wall.get', {domain: 'libertyfamily', filter: 'owner'}, function(json) {
+    json = json.response
+    var news = _.filter(json, function(post) {
+      if (_.isObject(post)) {
+        return post.text.indexOf('#uhpspb') > -1 || post.text.regexIndexOf(/#uhp$/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
+      }
+    })
+
+    news = news.splice(0, 5)
+    $('#menu_left_part span').empty()
+    _.each(news, function(n) {
+
+        var end_of_string_index = 0;
+        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '')
+        if (newsText.indexOf('!') > -1) {
+          end_of_string_index = newsText.indexOf('!');
+        } else if (newsText.indexOf('?') > -1) {
+          end_of_string_index = newsText.indexOf('?');
+        } else if (newsText.indexOf('.') > -1) {
+          end_of_string_index = newsText.indexOf('.');
+        }
+        newsText = newsText.substring(0, end_of_string_index)
+        var vk_url = 'https://vk.com/libertyfamily?w=wall' + n.from_id + '_' + n.id;
+
+        var date = '12.05.2015'
+        var newsEl = newsTpl({text: newsText, date: date, time: '12:30', vk_url: vk_url})
+        $('#menu_left_part span').append(newsEl)
+    })
+
+  });
+  $(document).on('click', 'h5', function() {
+    document.location.href = $(this).data('url');
+  });
+});
+
+function strip(html){
+   var tmp = document.createElement("DIV");
+   tmp.innerHTML = html;
+   return tmp.textContent || tmp.innerText || "";
 }

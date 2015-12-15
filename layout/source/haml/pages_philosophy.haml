@@ -24,6 +24,8 @@
 		%script{ :src => "./js/header.js" }
 		%script{ :src => "./js/menu.js" }
 
+		%title Философия
+
 	%body#html_body{:data => {'page' => 'philosophy'}}
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}
@@ -98,11 +100,11 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
-				%a
-					%h3 Франшиза
-					%p Открыть Ложу
+				-# %a
+				-# 	%h3 Франшиза
+				-# 	%p Открыть Ложу
 
-				%button Круг избранных
+				-# %button Круг избранных
 
 		-# Color Overlay
 		#color_overlay.color_overlay

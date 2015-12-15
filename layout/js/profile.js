@@ -5,21 +5,29 @@ $(function() {
     fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
   });
   $('#edit_profile_btn').click(function(){
-    $('#edit-profile').show();
-    fx.do(['background', 'editProfile'], bodyClick, bodyClickOff);
+    $('#edit-profile').css('display', 'block');
+    fx.do(['background', 'editProfile'], bodyClick, function(){
+      $('#edit-profile').css('display', 'none');
+      $('body').off('click');
+    });
   });
 
   $('#edit-profile a').click(function(){
     fx.back();
   });
+  
   var $profile_wrapper = $('#edit-profile-wrapper')
   $profile_wrapper.find('input[name="name"]').val(currentUser.name)
+  $profile_wrapper.find('input[name="country"]').val(currentUser.country)
   $profile_wrapper.find('input[name="city"]').val(currentUser.city)
   $profile_wrapper.find('input[name="employe"]').val(currentUser.employe)
   $profile_wrapper.find('input[name="work_company"]').val(currentUser.work_company)
   $profile_wrapper.find('input[name="hobby"]').val(currentUser.hobby)
-  $profile_wrapper.find('input[name="phone"]').val('+'+currentUser.phone)
+  $profile_wrapper.find('input[name="phone"]').val(currentUser.phone)
   $profile_wrapper.find('input[name="email"]').val(currentUser.email)
+  if (currentUser.freezed) {
+    $profile_wrapper.find('button').hide()
+  }
 
   $('form.edit_profile_form').on('submit', function(e) {
     e.preventDefault()
@@ -48,16 +56,4 @@ $(function() {
         }
     });
   });
-})
-
-function bodyClick(e){
-  $('body').on('click', function(e) {
-    TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-    fx.back();
-  });
-}
-
-function bodyClickOff(){
-  $('body').off('click');
-  $('#reserv_succes_form').css('right', '1600');
-}
+});

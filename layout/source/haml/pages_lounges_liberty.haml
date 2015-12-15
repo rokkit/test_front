@@ -23,6 +23,7 @@
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/header.js" }
 		%script{ :src => "./js/menu.js" }
+		%title Либерти
 	%body#html_body
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}
@@ -97,11 +98,11 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
-				%a
-					%h3 Франшиза
-					%p Открыть Ложу
+				-# %a
+				-# 	%h3 Франшиза
+				-# 	%p Открыть Ложу
 
-				%button Круг избранных
+				-# %button Круг избранных
 
 		-# Color Overlay
 		#color_overlay.color_overlay
@@ -181,7 +182,7 @@
 									%img.img-nav.pointer{:src => "./images/slider/4.jpg"}
 								%li
 									%img.img-nav.pointer{:src => "./images/slider/5.jpg"}
-			
+
 			-# Блок 4
 			-# ///////////////////////////////////////////////////////////////////////
 
@@ -197,7 +198,7 @@
 			-# Попапы кальянщиков
 
 			.popup_overall_white#hookah_popups
-				
+
 				-# Илья Пономарев
 				%article.pow_wrapper#hm_ilya_ponomarev
 					%header
@@ -205,7 +206,7 @@
 						%p Проворный
 					%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
 					%section
-				
+
 				-# Филипп Бойцов
 				%article.pow_wrapper#hm_philipp_boicov
 					%header

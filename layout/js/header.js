@@ -122,6 +122,12 @@ $(function() {
     var phone = formatPhone($('#signup_form input[name="phone"]').val())
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
+    if (password.length < 5) {
+      $('.error_tooltip').text('Длина пароля должна быть не менее 5 символов')
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+      $('#signup_form input[name="password"]').addClass('wrong')
+      return
+    }
     if(!phone) {
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#signup_form input[name="phone"]').addClass('wrong')
@@ -155,14 +161,17 @@ $(function() {
         $('#signup_form input').removeClass('wrong')
         if(resp['errors']['name']) {
           TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+          $('#error_password').text('Вы не указали имя')
           $('#signup_form input[name="name"]').addClass('wrong')
         }
         if(resp['errors']['phone']) {
           TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+          $('#error_password').text('Данный номер телефона уже зарегистрирован в системе')
           $('#signup_form input[name="phone"]').addClass('wrong')
         }
         if(resp['errors']['password']) {
           TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+          $('#error_password').text('Укажите пароль')
           $('#signup_form input[name="password"]').addClass('wrong')
         }
       }
@@ -255,7 +264,7 @@ function doLogin(phone, password) {
 
 $(function(){
   $('#menu_right_part h3').each(function(i, v){
-    $(v).attr('class', 'text-color-white');
+    //$(v).attr('class', 'text-color-white');
   });
   $('#'+$('body').data('page')+'_nav_btn').attr('class', 'text-color-orange');
 
@@ -278,35 +287,7 @@ $(function() {
   TweenLite.to(html_body, 1, {opacity:1})
 })
 
-//Новости из группы ВК
-$(function() {
-  VK.init({
-    apiId: 5023577
-  })
-  VK.Api.call('wall.get', {domain: 'libertyfamily', filter: 'owner'}, function(json) {
-    json = json.response
-    var newsHtml = '<h5><%= text %></h5><p><%= date %> в <%= time %> от #unihuqhookahplaces</p>'
-    var newsTpl = _.template(newsHtml)
-    var news = _.filter(json, function(post) {
-      if (_.isObject(post)) {
-        return true//post.text.indexOf('#unihuqhookahplaces') > -1
-      }
-    })
-    news = news.splice(0, 5)
-    $('#menu_left_part span').empty()
-    _.each(news, function(n) {
-        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '').substr(0, 140)
-        var newsEl = newsTpl({text: newsText, date: '12.04.2015', time: '12:30'})
-        $('#menu_left_part span').append(newsEl)
-    })
-  });
-});
 
-function strip(html){
-   var tmp = document.createElement("DIV");
-   tmp.innerHTML = html;
-   return tmp.textContent || tmp.innerText || "";
-}
 // Конец
 function formatPhone(raw_number) {
   raw_number = raw_number.replace(/ /g, '').replace('+', '').replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
