@@ -39,12 +39,12 @@
 			%td.td-date {{ visit_date }} <br> {{ visit_time }} - {{ end_visit_time }}
 			%td {{ client_count }}
 			%td
-				%div.color-orange.cancel_reserv
+				%div.color-orange.cancel_reserv.pointer
 					Отменить
 					%div.popover-reserv.popover-reserv-close{ :data => { :opened => 'false' } }
 						%p Отменить бронирование
-						%span.cancel_reserv_confirm Да
-						%span.cancel_reserv_decline Нет
+						%span.cancel_reserv_confirm.pointer Да
+						%span.cancel_reserv_decline.pointer Нет
 	%script{type: "text/template", id: 'user_rating_tpl'}
 		%li
 			%span {{ number }}. {{ name }}
@@ -73,7 +73,7 @@
 					-# 	%option{:value => '2-3'} 2-3
 					-# 	%option{:value => '3-5'} 3-5
 
-					%select{:id => 'visit_date', :type => "text", :name => "visit_date", :placeholder => "Дата"}
+					%select{:id => 'visit_date_meet', :type => "text", :name => "visit_date", :placeholder => "Дата"}
 						%option{:value => 'today', :selected => 'true'} Сегодня
 						%option{:value => 'tomorrow'} Завтра
 						%option{:value => 'date_choose'} Указать дату

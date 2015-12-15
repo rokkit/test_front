@@ -142,8 +142,14 @@ var skillBoard = (function(element, data, role){
           );
         });
       }else{
-        var date = moment(d.used_at).format('YYYY-MM-DD');
-        $('#skill h4').text(date);
+        var date = moment(d.used_at).format('DD.MM.YYYY');
+        var cooldown_end_at = null;
+        var date_text = 'Вы использовали навык '+ date;
+        if(d.cooldown_end_at) {
+          cooldown_end_at = moment(d.cooldown_end_at).format('DD.MM.YYYY');
+          date_text += ', следующее использование возможно ' + cooldown_end_at;
+        }
+        $('#skill h4').text(date_text);
         $('#skill button').hide();
       }
 

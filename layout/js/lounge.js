@@ -45,8 +45,8 @@ if(typeof google !== 'undefined'){
         scrollwheel: false,
         navigationControl: false,
         mapTypeControl: false,
-        scaleControl: false,
-        draggable: false,
+        scaleControl: true,
+        draggable: true,
         mapTypeId:google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
       };
