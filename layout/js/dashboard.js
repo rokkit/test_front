@@ -1,4 +1,5 @@
 var fx = new FX(fxa.dashboard);
+var invateUsers = [];
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 _.templateSettings =  {
   interpolate :/\{\{(.+?)\}\}/g
@@ -121,6 +122,80 @@ $(function() {
     //Загрузить начальные данные
     $(function() {
       $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
+        json.users.forEach(function(user){
+            $('select[name="invate-dropdown"]').append("<option value="+user.id+">"+ user.name +"</option>");
+        });
+
+        $('select[name="invate-dropdown"]').change(function(e){
+          var el = $('select[name="invate-dropdown"] option:selected');
+          var id = el.attr('value');
+          var closeBtn = $('<a href="#">');
+          closeBtn.addClass('close-btn');
+          closeBtn.data('value', id);
+          closeBtn.on('click', function(e){
+            var id = $(e.currentTarget).data('value');
+            invateUsers.forEach(function(v, i){
+              if(v === id){
+                  invateUsers.splice(i, 1);
+              }
+            });
+            $(e.currentTarget).parent().remove();
+          });
+          var itemSelected = $('<span>');
+          itemSelected.addClass('item-select');
+          itemSelected.text(el.text());
+          itemSelected.append(closeBtn);
+          $('#invite_form .select-cont').append(itemSelected);
+          invateUsers.push(id);
+        });
+
+        $('#invite_form').submit(function(e){
+          e.preventDefault();
+          $('.wrong').removeClass('wrong');
+          if($('select[name=visit_time]').val() == 'время') {
+            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+            $('select[name="visit_time"]').addClass('wrong')
+            return
+          }
+          var visit_date = $('#visit_date').val()
+          if(visit_date == 'today') {
+            visit_date = moment().format('YYYY-MM-DD')
+
+          } else if(visit_date == 'tomorrow') {
+            visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
+          }
+          var visit_time = $('select[name=visit_time]').val()
+          $.post(hostUrl + '/api/v1/reservations.json', {
+            auth_token: currentUser.auth_token,
+            lounge: $('select[name=lounge]').val(),
+            table_id: $('select[name=table]').val(),
+            client_count: $('select[name=client_count]').val(),
+            duration: $('select[name=duration]').val(),
+            visit_date: visit_date + ' ' + $('select[name=visit_time]').val(),
+            meets: invateUsers
+          }, function(json) {
+            if (json.errors) {
+              if (json.errors.visit_date) {
+                TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+                $('input[name="visit_date"]').addClass('wrong')
+                $('select[name="visit_time"]').addClass('wrong')
+              }
+              if (json.errors.table) {
+                TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+                $('input[name="lounge"]').addClass('wrong')
+              }
+            } else {
+              $('#visit_date_result').text(visit_date)
+              $('#visit_time_result').text(visit_time)
+              getReservations();
+              invateUsers = [];
+              TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+              fx.swap('invite', 'invate_succes_form');
+            }
+
+          });
+        });
+
         _.each(json.lounges, function(lounge) {
           //console.log(lounge)
           $('select[name="lounge"]').append("<option value="+lounge.id+">"+ lounge.title +"</option>")
@@ -157,10 +232,27 @@ $(function() {
       getReservations();
 
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
-          var exp = parseInt(json.exp, 10)
-          var need_to_levelup = parseInt(json.need_to_levelup, 10)
-          $('#need_points').text(need_to_levelup)
-          $('#next_level').text(currentUser.level + 1)
+          var exp = parseInt(json.exp, 10);
+          var need_to_levelup = parseInt(json.need_to_levelup, 10);
+          $('#need_points').text(need_to_levelup);
+          $('#next_level').text(currentUser.level + 1);
+
+          if(json.country !== '' && json.city !== ''){
+              $('#city_user').append('<span>').text(json.city + ', '+json.country);
+          }else {
+            var a = $('<a>');
+            a.text('Укажите в редактирование профиля город и страну');
+            a.css('font-size', 'x-small');
+            a.css('opacity', 0.4);
+            a.on('click', function(){
+              $('#edit-profile').css('display', 'block');
+              fx.do(['background', 'editProfile'], bodyClick, function(){
+                $('#edit-profile').css('display', 'none');
+                $('body').off('click');
+              });
+            });
+            $('#city_user').append('<span>').append(a);
+          }
 
           var percentsExp = 0
           if(exp != 0) {
@@ -199,12 +291,16 @@ $(function() {
       $('#edit-profile').hide();
       $('body').off('click');
       $('#reserv_succes_form').css('right', '1600');
-
     }
 
   	$('#n_o_a').click(function(e){
       TweenLite.to('section.error_tooltip', 0, {opacity: 0});
       fx.do(['reserv', 'background'], bodyClick, bodyClickOff);
+  	});
+
+    $('#inviteto').click(function(e){
+      TweenLite.to('section.error_tooltip', 0, {opacity: 0});
+      fx.do(['invite', 'background'], bodyClick, bodyClickOff);
   	});
 
     var currentTime = new Date()
@@ -273,12 +369,16 @@ $(function() {
           fx.swap('reserv', 'reserv_succes_form');
         }
 
-      })
+      });
 
     });
 
     $('#reserv_succes_form').submit(function(e){
-      //animateRevers();
+      fx.back();
+      e.preventDefault();
+    });
+
+    $('#invate_succes_form').submit(function(e){
       fx.back();
       e.preventDefault();
     });
@@ -324,9 +424,6 @@ function bodyClick(e){
     fx.back();
   });
 }
-
-
-
 
 function getReservations() {
   moment.locale('ru')

@@ -111,14 +111,31 @@ $(function() {
   }
 
   $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
-      var exp = parseInt(json.exp, 10)
-      var need_to_levelup = parseInt(json.need_to_levelup, 10)
-      $('#need_points').text(need_to_levelup)
-      $('#next_level').text(currentUser.level + 1)
+      var exp = parseInt(json.exp, 10);
+      var need_to_levelup = parseInt(json.need_to_levelup, 10);
+      $('#need_points').text(need_to_levelup);
+      $('#next_level').text(currentUser.level + 1);
+      $('#hookmaster_description').text(json.hobby);
+      if(json.country !== '' && json.city !== ''){
+          $('#city_user').append('<span>').text(json.city + ', '+json.country);
+      }else {
+        var a = $('<a>');
+        a.text('Укажите в редактирование профиля город и страну');
+        a.css('font-size', 'x-small');
+        a.css('opacity', 0.4);
+        a.on('click', function(){
+          $('#edit-profile').css('display', 'block');
+          fx.do(['background', 'editProfile'], bodyClick, function(){
+            $('#edit-profile').css('display', 'none');
+            $('body').off('click');
+          });
+        });
+        $('#city_user').append('<span>').append(a);
+      }
 
-      var percentsExp = 0
+      var percentsExp = 0;
       if(exp != 0) {
-          percentsExp = parseInt(exp*100 / (need_to_levelup + exp))
+          percentsExp = parseInt(exp*100 / (need_to_levelup + exp));
       }
       $('.progress').css('width', percentsExp + '%' )
       window.currentUser = json
