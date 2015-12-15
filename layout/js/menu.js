@@ -77,7 +77,6 @@ $(function() {
   var newsTpl = _.template(newsHtml)
   VK.Api.call('wall.get', {domain: 'libertyfamily', filter: 'owner'}, function(json) {
     json = json.response
-    console.log(json)
     var news = _.filter(json, function(post) {
       if (_.isObject(post)) {
         return post.text.indexOf('#uhpspb') > -1 || post.text.regexIndexOf(/#uhp$/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
@@ -101,9 +100,7 @@ $(function() {
         var vk_url = 'https://vk.com/libertyfamily?w=wall' + n.from_id + '_' + n.id;
 
         var date = '12.05.2015'
-        console.log({text: newsText, date: date, time: '12:30', vk_url: vk_url})
         var newsEl = newsTpl({text: newsText, date: date, time: '12:30', vk_url: vk_url})
-        console.log(newsEl)
         $('#menu_left_part span').append(newsEl)
     })
 

@@ -329,9 +329,9 @@ $(function() {
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       $('.wrong').removeClass('wrong');
-      if($('select[name=visit_time]').val() == 'время') {
+      if($('#reserv_form select[name=visit_time]').val() == 'время') {
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-        $('select[name="visit_time"]').addClass('wrong')
+        $('#reserv_form select[name="visit_time"]').addClass('wrong')
         return
       }
       var visit_date = $('#visit_date').val()
@@ -341,24 +341,24 @@ $(function() {
       } else if(visit_date == 'tomorrow') {
         visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
       }
-      var visit_time = $('select[name=visit_time]').val()
+      var visit_time = $('#reserv_form select[name=visit_time]').val()
       $.post(hostUrl + '/api/v1/reservations.json', {
         auth_token: currentUser.auth_token,
-        lounge: $('select[name=lounge]').val(),
-        table_id: $('select[name=table]').val(),
-        client_count: $('select[name=client_count]').val(),
-        duration: $('select[name=duration]').val(),
-        visit_date: visit_date + ' ' + $('select[name=visit_time]').val()
+        lounge: $('#reserv_form select[name=lounge]').val(),
+        table_id: $('#reserv_form select[name=table]').val(),
+        client_count: $('#reserv_form select[name=client_count]').val(),
+        duration: $('#reserv_form select[name=duration]').val(),
+        visit_date: visit_date + ' ' + $('#reserv_form select[name=visit_time]').val()
       }, function(json) {
         if (json.errors) {
           if (json.errors.visit_date) {
             TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('input[name="visit_date"]').addClass('wrong')
-            $('select[name="visit_time"]').addClass('wrong')
+            $('#reserv_form input[name="visit_date"]').addClass('wrong')
+            $('#reserv_form select[name="visit_time"]').addClass('wrong')
           }
           if (json.errors.table) {
             TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('input[name="lounge"]').addClass('wrong')
+            $('#reserv_form input[name="lounge"]').addClass('wrong')
           }
         } else {
           $('#visit_date_result').text(visit_date)
