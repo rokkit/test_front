@@ -933,7 +933,7 @@ section.lounges article.lounge img {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   overflow: hidden;
-  z-index: 100;
+  z-index: 300;
 }
 #liberty_block5 .map_overlay {
   display: block;
@@ -953,7 +953,7 @@ section.lounges article.lounge img {
   padding: 48px;
   box-sizing: content-box;
   background: #282C34;
-  z-index: 150;
+  z-index: 300;
 }
 #liberty_block5 #map_wrapper header h3 {
   font-size: 26px;
