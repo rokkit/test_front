@@ -152,37 +152,37 @@ $(function() {
         $('#invite_form').submit(function(e){
           e.preventDefault();
           $('.wrong').removeClass('wrong');
-          if($('select[name=visit_time]').val() == 'время') {
+          if($('#invite_form select[name=visit_time]').val() == 'время') {
             TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('select[name="visit_time"]').addClass('wrong')
+            $('#invite_form select[name="visit_time"]').addClass('wrong')
             return
           }
-          var visit_date = $('#visit_date').val()
+          var visit_date = $('#invite_form #visit_date_meet').val()
           if(visit_date == 'today') {
             visit_date = moment().format('YYYY-MM-DD')
 
           } else if(visit_date == 'tomorrow') {
             visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
           }
-          var visit_time = $('select[name=visit_time]').val()
+          var visit_time = $('#invite_form select[name=visit_time]').val()
           $.post(hostUrl + '/api/v1/reservations.json', {
             auth_token: currentUser.auth_token,
-            lounge: $('select[name=lounge]').val(),
-            table_id: $('select[name=table]').val(),
-            client_count: $('select[name=client_count]').val(),
-            duration: $('select[name=duration]').val(),
-            visit_date: visit_date + ' ' + $('select[name=visit_time]').val(),
+            lounge: $('#invite_form select[name=lounge]').val(),
+            table_id: $('#invite_form select[name=table]').val(),
+            client_count: $('#invite_form select[name=client_count]').val(),
+            duration: $('#invite_form select[name=duration]').val(),
+            visit_date: visit_date + ' ' + $('#invite_form select[name=visit_time]').val(),
             meets: invateUsers
           }, function(json) {
             if (json.errors) {
               if (json.errors.visit_date) {
                 TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-                $('input[name="visit_date"]').addClass('wrong')
-                $('select[name="visit_time"]').addClass('wrong')
+                $('#invite_form input[name="visit_date"]').addClass('wrong')
+                $('#invite_form select[name="visit_time"]').addClass('wrong')
               }
               if (json.errors.table) {
                 TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-                $('input[name="lounge"]').addClass('wrong')
+                $('#invite_form input[name="lounge"]').addClass('wrong')
               }
             } else {
               $('#visit_date_result').text(visit_date)
@@ -205,7 +205,8 @@ $(function() {
             })
           $('select[name="table"]').append("</optgroup>")
         })
-        $('select[name="lounge"] option:last').attr("selected", "selected");
+        $('#invite_form select[name="lounge"] option:last').attr("selected", "selected");
+        $('#reserv_form select[name="lounge"] option:last').attr("selected", "selected");
 
         if(json.payments.length > 0){
           $('#visit-list .nodata').hide();
