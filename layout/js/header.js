@@ -1,6 +1,3 @@
-
-
-
 var fx = new FX(fxa.pages_index);
 
 $(function(){
@@ -28,6 +25,10 @@ $(function(){
     }
   });
 
+  $('#recover_btn').on('click', function(){
+    fx.swap('loginPopup', 'passPopup');
+  });
+
   //Клик на кнопку регистрация в хедере
  $('#signup_header_btn').on('click', function() {
 
@@ -40,6 +41,10 @@ $(function(){
 
  $('#login_form a').click(function(){
    fx.swap('loginPopup', 'signupPopup');
+ });
+
+ $('#pass_form a').click(function(){
+   fx.swap('passPopup', 'signupPopup');
  });
 
  $('#signup_form a').click(function(){
@@ -88,12 +93,6 @@ $(function() {
     animateSignup();
     animateBG();
     bodyClick();
-  });
-
-
-
-  $('#recover_btn').on('click', function() {
-    animateForm('recover_form')
   });
 
   //Клик на войти в форме регисрации
@@ -180,41 +179,6 @@ $(function() {
   $('input[name="phone"]').mask('+7 (000) 000-00-00')
 });
 
-// function bodyClick(){
-//   $('.popup').click(function(event){
-//     event.stopPropagation();
-//   });
-//
-//   $('body').on('click', function(e){
-//     if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
-//       //animationReverse();
-//     }
-//   });
-// }
-
-function animateForm(el) {
-  var form = document.getElementById(el)
-  var wrapper =document.getElementById('wrapper_login')
-  var tl = null;
-
-  var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
-    $('.popup').click(function(event){
-      event.stopPropagation();
-    });
-    $('body').on('click', function(e) {
-      tl.reverse()
-    });
-  }})
-  var tw2 = TweenLite.to('#color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to('body', 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
-
-  tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'sequence');
-}
-
-
-
 function successAuth(resp) {
   if(resp.role == 'user') {
     document.location.href = './dashboard_client.html'
@@ -222,7 +186,7 @@ function successAuth(resp) {
     document.location.href = './dashboard_hmaster.html'
   }
   TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-  localStorage.setItem('currentUser', JSON.stringify(resp))
+  localStorage.setItem('currentUser', JSON.stringify(resp));
 
 }
 

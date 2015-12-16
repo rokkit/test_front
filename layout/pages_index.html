@@ -67,6 +67,23 @@
           <input name='password' placeholder='Пароль' type='password'>
           <button name='sumbit' type='sumbit'>Войти</button>
         </form>
+        <a href='#forgot_pass' id='recover_btn'>Вы забыли пароль?</a>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_pass'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='pass_form'>
+        <header>
+          <h2>Восстановление пароля</h2>
+          <p class='h2_subtitle'>
+            Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <button name='ok' type='button'>Отправить</button>
+        </header>
       </section>
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>

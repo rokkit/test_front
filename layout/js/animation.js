@@ -150,6 +150,15 @@ var fxa = {
       element: '#login_form',
       options: { 'left': '190px' }
     },
+    pass:{
+      element: '#pass_form',
+      options: {'left': '190px'}
+    },
+    wrapper_pass:{
+      element: '#wrapper_pass',
+      options: {'pointer-events': 'auto'},
+      time: 0
+    },
     wrapper_login:{
       element: '#wrapper_login',
       options:{ 'pointer-events': 'auto' }
@@ -168,6 +177,7 @@ var fxa = {
     },
     signupPopup: ['signup', 'wrapper_signup'],
     loginPopup: ['login', 'wrapper_login'],
+    passPopup: ['pass', 'wrapper_pass'],
     background: ['main', 'overlay', 'body']
   }
 };

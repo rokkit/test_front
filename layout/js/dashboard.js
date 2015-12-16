@@ -6,7 +6,6 @@ _.templateSettings =  {
 }
 
 $(function(){
-
   function rndR(min, max) {
     var rand = min + Math.random() * (max - min)
     rand = Math.round(rand);
@@ -53,8 +52,6 @@ $(function(){
 
   layout.append('circle')
   .attr('r', 44)
-  // .attr('stroke', '#EBB22F')
-  // .attr('stroke-width', 2.5)
   .attr('fill', 'url(#face-img)')
   .attr('cx', layoutWidth/2)
   .attr('cy', layoutHeight/2);
@@ -368,8 +365,6 @@ $(function() {
       }
     });
 
-
-
     $('#reserv_form').submit(function(e){
       e.preventDefault();
       $('.wrong').removeClass('wrong');
@@ -522,8 +517,6 @@ function getReservations() {
     }
 
   });
-
-
 
   $(document).on('click' , 'body' , function( e ){
     console.log('Body click');
