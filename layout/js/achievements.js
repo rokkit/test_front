@@ -48,7 +48,7 @@ $(function() {
         state = 'Не получено'
       }
       var template = "<figure data-open="+open+" data-id="+this.id+" onclick='card("+this.id+")' data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
-      $('#all_ach .wrapper_for_ach').append(template)
+      $('#all_ach .wrapper_for_ach').append(template);
     })
     json = json.slice(0, 5)
 
