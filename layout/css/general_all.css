@@ -90,7 +90,7 @@ select {
   border: 0;
   color: white;
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 0 1px;
-  background: rgba(255, 255, 255, 0.01);
+  background: transparent;
   text-align: left;
   line-height: 24px;
   font-size: 14px;
@@ -98,6 +98,11 @@ select {
   -o-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
   -webkit-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
   transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+option {
+  background: #424756;
+  color: #fff;
 }
 
 input {
@@ -2220,6 +2225,7 @@ section.wrapper_for_ach figure:hover {
 
 .color_blue_ach {
   -webkit-filter: grayscale(100%);
+  opacity: 0.25;
 }
 
 section.edit_profile_list form.edit_profile_form header {

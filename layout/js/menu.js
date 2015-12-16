@@ -74,33 +74,44 @@ $(function() {
     apiId: 5023577
   })
   var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
-  var newsTpl = _.template(newsHtml)
-  VK.Api.call('wall.get', {domain: 'libertyfamily', filter: 'owner'}, function(json) {
+  var firstNewsHtml = '<h4 data-url="{{ vk_url }}">{{ text }}</h4><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
+  var newsTpl = _.template(newsHtml);
+  var firstNewsTpl = _.template(firstNewsHtml);
+  VK.Api.call('wall.get', {domain: 'uhpfamily', filter: 'owner'}, function(json) {
     json = json.response
     var news = _.filter(json, function(post) {
       if (_.isObject(post)) {
-        return post.text.indexOf('#uhpspb') > -1 || post.text.regexIndexOf(/#uhp$/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
+        return post.text.regexIndexOf(/\#uhp$/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
       }
     })
 
     news = news.splice(0, 5)
     $('#menu_left_part span').empty()
-    _.each(news, function(n) {
+    _.each(news, function(n, i) {
 
+        var dateMoment = moment.unix(n.date)
         var end_of_string_index = 0;
-        var newsText = strip(n.text).replace('<h5>', '').replace('</h5>', '')
-        if (newsText.indexOf('!') > -1) {
-          end_of_string_index = newsText.indexOf('!');
-        } else if (newsText.indexOf('?') > -1) {
-          end_of_string_index = newsText.indexOf('?');
-        } else if (newsText.indexOf('.') > -1) {
-          end_of_string_index = newsText.indexOf('.');
-        }
-        newsText = newsText.substring(0, end_of_string_index)
+
+        var newsText = n.text
+        var br = newsText.indexOf('<br>')
+        var mainHeader = newsText.substring(0, br)
+
+        newsText = newsText.slice(br + 4)
+        var secondHeader = newsText.slice(0, newsText.indexOf('<br>'))
+
+        newsText = mainHeader + ' ' + secondHeader
         var vk_url = 'https://vk.com/libertyfamily?w=wall' + n.from_id + '_' + n.id;
 
-        var date = '12.05.2015'
-        var newsEl = newsTpl({text: newsText, date: date, time: '12:30', vk_url: vk_url})
+        var date = dateMoment.format('LL')
+        var time = dateMoment.format('HH:mm')
+
+        var newsEl = null
+        if (i == 0) {
+          newsEl = firstNewsTpl({text: newsText, date: date, time: time, vk_url: vk_url})
+        } else {
+          newsEl = newsTpl({text: newsText, date: date, time: time, vk_url: vk_url})
+        }
+
         $('#menu_left_part span').append(newsEl)
     })
 
