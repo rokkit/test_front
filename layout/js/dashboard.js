@@ -410,7 +410,21 @@ $(function() {
           $('select[name="visit_time"]').html(times)
       } else if (visit_date == 'date_choose') {
           $(this).replaceWith('<input type=text name="visit_date" id="visit_date" placeholder="ГГГГ-ММ-ДД"/>')
-          $('#visit_date').mask('0000-00-00')
+          var picker = new Pikaday({
+            field: document.getElementById('visit_date'),
+            format: 'YYYY-MM-DD',
+            firstDay: 1,
+            minDate: new Date(),
+            i18n: {
+                previousMonth : 'Предыдущий Месяц',
+                nextMonth     : 'Следующий Месяц',
+                months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+                weekdaysShort : ['Вск','Пон','Вт','Ср','Чт','Пт','Сб']
+            }
+          });
+          picker.show()
+          // $('#visit_date').mask('0000-00-00')
           $('select[name="visit_time"]').html(times)
       }
     });

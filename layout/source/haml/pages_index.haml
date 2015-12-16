@@ -38,7 +38,7 @@
 						Мы отправили смс с кодом подтверждения на ваш номер. <br>
 						Подтверждая номер, вы вступаете в тайное общество.
 					%input{:type => "text", :name => "code", :placeholder => "Код подтверждения"}
-					%button{:type=>"button", :name=>"ok"} Подтвердить
+					%button.button-arrow{:type=>"button", :name=>"ok"} Подтвердить
 
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}
@@ -70,7 +70,7 @@
 				%form{:action => "", :method => "get"}
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button{:type=>"sumbit", :name=>"sumbit"} Войти
+					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Войти
 				%a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
 		-# Забыли пароль?
 		.wrapper.center-center{:id => 'wrapper_pass'}
@@ -83,7 +83,7 @@
 						Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
 						%a{:href =>"#registration"} зарегистрируйтесь.
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
-					%button{:type=>"button", :name=>"ok"} Отправить
+					%button.button-arrow{:type=>"button", :name=>"ok"} Отправить
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu
