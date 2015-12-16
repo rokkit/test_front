@@ -132,6 +132,11 @@ var fxa = {
         transform: 'scale(0.95, 0.95)'
       }
     },
+    code_form:{
+      element: '#code_form',
+      options: {right:'0px', 'pointer-events':'auto'},
+      back: {right:"-1260px", 'pointer-events':"auto"}
+    },
     overlay:{
       element: '.color_overlay',
       options: {
@@ -169,7 +174,8 @@ var fxa = {
     },
     signup:{
       element: '#signup_form',
-      options: { 'left': '120px' }
+      options: { 'left': '120px' },
+      back: {left:"1860px", 'pointer-events':"auto"}
     },
     wrapper_signup: {
       element: '#wrapper_signup',

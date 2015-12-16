@@ -99,7 +99,8 @@ function card(blazons, color, name, nameCity, el){
     	renderNode(svgCard, xml, 'corner3');
     	renderNode(svgCard, xml, 'corner4');
       var _cardId = '#' + cardId;
-    	d3.select(_cardId + ' #corner1').attr('x', 16).attr('y', 16);
+    	d3.select(_cardId + ' #corner1').attr('x', 16).attr('y', 5);
+    	d3.select(_cardId + ' #corner1').attr('width', '15%').attr('height', '15%');
     	d3.select(_cardId + ' #corner1 path').attr('fill', color);
     	d3.select(_cardId + ' #corner2').attr('x', w - 32 - 16).attr('y', 16);
     	d3.select(_cardId + ' #corner2 path').attr('fill', color).attr('transform', 'rotate(90 16 16)')

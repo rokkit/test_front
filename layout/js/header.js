@@ -14,6 +14,7 @@ function bodyClick(e){
 
 function bodyClickOff(){
   $('body').off('click');
+  $('#wrapper_signup').css('pointer-events', 'none');
 }
 
 $(function(){
@@ -33,7 +34,9 @@ $(function(){
  $('#signup_header_btn').on('click', function() {
 
    if (!currentUser) {
-     fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+     $('#wrapper_signup').css('pointer-events', 'auto');
+     fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+     //fx.do(['signup']);
    } else {
      document.location.href = '/tech_preloader.html?redirect=profile'
    }
@@ -56,8 +59,6 @@ $(function() {
   window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
 })
 
-
-
 $(function() {
   window.tl = null;
   window.hostUrl = 'http://176.112.194.149:81'
@@ -67,13 +68,6 @@ $(function() {
     svgIconConfig,
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
-
-
-
-  $('#btn1').on('click', function(){
-    $('body').click();
-    animateSignup();
-  });
 
   $('#philosophie_block5 .button-dark').on('click', function(){
     if (!currentUser) {
@@ -95,20 +89,19 @@ $(function() {
     bodyClick();
   });
 
-  //Клик на войти в форме регисрации
-  $('#login_in_signin_btn').on('click', function() {
-    animateForm('login_form')
-  });
-
-  //Клик на войти в форме восстановления пароля
-  $('#login_in_recover_btn').on('click', function() {
-    animateForm('login_form')
-  });
-
   //Создание сесии
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
     doLogin(formatPhone($('#login_form input[name="phone"]').val()), $('#login_form input[name="password"]').val())
+  });
+
+  $('#code_form button').on('click', function(){
+    var code = $('#code_form input[name="code"]').val();
+    $.post(hostUrl + '/api/v1/auth/registrations/confirm', {
+      code: code
+    }, function(resp){
+      successAuth(resp);
+    });
   });
 
   $('#header img').on('click', function() {
@@ -118,6 +111,7 @@ $(function() {
   //Регистрация
   $('#signup_form').on('submit', function(e) {
     e.preventDefault()
+
     var phone = formatPhone($('#signup_form input[name="phone"]').val())
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
@@ -155,7 +149,10 @@ $(function() {
       password: password
     }, function(resp) {
       if(!resp['errors']) {
-          doLogin(phone, password)
+        $('#wrapper_signup').css('pointer-events', 'none');
+        bodyClickOff();
+        fx.swap('signup', 'code_form');
+          //doLogin(phone, password)
       } else {
         $('#signup_form input').removeClass('wrong')
         if(resp['errors']['name']) {
