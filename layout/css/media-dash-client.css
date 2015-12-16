@@ -1,0 +1,41 @@
+@media only screen
+  and (max-device-height: 668px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .username h1{
+      text-align: center !important;
+      font-size: 160px !important;
+      margin-bottom: 70px !important;
+    }
+
+    .username button{
+      margin: 8px !important;
+      height: 110px !important;
+      width: 48% !important;
+      font-size: 28px !important;
+      text-align: center !important;
+    }
+
+    .progress_bar p{
+      font-size: 38px !important;
+    }
+
+    .user_achievments header h4{
+      font-size: 38px !important;
+      margin: 25 0 !important;
+    }
+
+    .user_achievments section.wrapper_for_ach figure{
+      width: 32% !important;
+    }
+
+    .user_achievments section.wrapper_for_ach figure img{
+      width: 220px !important;
+      height: 220px !important;
+    }
+
+    .user_achievments header .number_of{
+      font-size: 38px !important;
+      margin: 25 0 !important;
+    }
+}

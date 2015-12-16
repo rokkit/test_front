@@ -6,19 +6,45 @@
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
     .lounge{
-      width: 100% !important;
-      height: 95% !important;
-      margin-top: 70 !important;
+      width: 80% !important;
+      height: 75% !important;
+      margin: 30 95 !important;
     }
 
     .lounge img{
-      width: 85% !important;
-      margin: 160 70 !important;
+      width: 70% !important;
+      margin: 180 110 !important;
     }
 
     .section_1_bg{
       width: 100% !important;
-      height: 100% !important;
+      padding: 160 125 32 125 !important;
+      min-height: auto !important;
+    }
+
+    .section_1_bg header{
+      width: 100% !important;
+      margin-bottom: 20px !important;
+    }
+
+    .section_1_bg button{
+      width: 100% !important;
+      height: 100px !important;
+      text-align: center !important;
+      font-size: 40px !important;
+    }
+
+    .section_1_bg h1{
+      font-size: 75px !important;
+    }
+
+    .section_1_bg header p{
+      width: 100% !important;
+      font-size: 25px !important;
+    }
+
+    #header{
+      padding: 64 120 64 !important;
     }
 }
 
@@ -27,21 +53,64 @@
 /* Portrait */
 @media only screen
   and (min-device-height: 490px)
-  and (max-device-height: 568px)
+  and (max-device-height: 668px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
     .lounge{
-      width: 100% !important;
-      height: 75% !important;
-      margin: 150 50 !important;
+      width: 80% !important;
+      height: 1043px !important;
+      margin: 30 95 !important;
+      border-radius: 16px !important;
     }
+
     .lounge img{
-      width: 85% !important;
-      margin: 160 70 !important;
+      width: 70% !important;
+      margin: 130 110 !important;
     }
+
     .section_1_bg{
       width: 100% !important;
-      height: 100% !important;
+      padding: 160 125 32 125 !important;
+      min-height: auto !important;
+    }
+
+    .section_1_bg header{
+      width: 100% !important;
+      margin-bottom: 20px !important;
+    }
+
+    .section_1_bg button{
+      width: 100% !important;
+      height: 140px !important;
+      text-align: center !important;
+      font-size: 40px !important;
+    }
+
+    .section_1_bg h1{
+      font-size: 110px !important;
+      line-height: 120px !important;
+    }
+
+    .section_1_bg header p{
+      width: 100% !important;
+      font-size: 44px !important;
+      line-height: 60px !important;
+    }
+
+    #header{
+      padding: 64 120 64 !important;
+    }
+
+    #header img {
+      height: 73px !important;
+    }
+
+    #header nav{
+      margin-top: 20px !important;
+    }
+
+    #header nav a {
+      font-size: 30px !important;
     }
 }
 
