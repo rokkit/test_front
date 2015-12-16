@@ -212,27 +212,65 @@ $(function() {
             visit_date: visit_date + ' ' + $('#invite_form select[name=visit_time]').val(),
             meets: invateUsers
           }, function(json) {
-            if (json.errors) {
-              if (json.errors.visit_date) {
-                TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-                $('#invite_form input[name="visit_date"]').addClass('wrong')
-                $('#invite_form select[name="visit_time"]').addClass('wrong')
-              }
-              if (json.errors.table) {
-                TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-                $('#invite_form input[name="lounge"]').addClass('wrong')
-              }
-            } else {
-              $('#visit_date_result').text(visit_date)
-              $('#visit_time_result').text(visit_time)
-              getReservations();
-              invateUsers = [];
-              TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+            handleReservationResponse(json, function() {
               fx.swap('invite', 'invate_succes_form');
-            }
-
+            })
           });
         });
+        $('#reserv_form').submit(function(e){
+          e.preventDefault();
+          $('.wrong').removeClass('wrong');
+          if($('#reserv_form select[name=visit_time]').val() == 'время') {
+            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+            $('#reserv_form select[name="visit_time"]').addClass('wrong')
+            return
+          }
+          var visit_date = $('#visit_date').val()
+          if(visit_date == 'today') {
+            visit_date = moment().format('YYYY-MM-DD')
+
+          } else if(visit_date == 'tomorrow') {
+            visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
+          }
+          var visit_time = $('#reserv_form select[name=visit_time]').val()
+          $.post(hostUrl + '/api/v1/reservations.json', {
+            auth_token: currentUser.auth_token,
+            lounge: $('#reserv_form select[name=lounge]').val(),
+            table_id: $('#reserv_form select[name=table]').val(),
+            client_count: $('#reserv_form select[name=client_count]').val(),
+            duration: $('#reserv_form select[name=duration]').val(),
+            visit_date: visit_date + ' ' + $('#reserv_form select[name=visit_time]').val()
+          }, function(json) {
+            handleReservationResponse(json, function() {
+              fx.swap('reserv', 'reserv_succes_form');
+            })
+          });
+        });
+
+        function handleReservationResponse(json, callback) {
+          if (json.errors) {
+            if (json.errors.visit_date) {
+              $('.error_tooltip').text('Вы указали неверную дату бронирования')
+              TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+              $('#invite_form input[name="visit_date"]').addClass('wrong')
+              $('#invite_form select[name="visit_time"]').addClass('wrong')
+            }
+            if (json.errors.table) {
+              $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
+              TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+              $('#invite_form input[name="lounge"]').addClass('wrong')
+            }
+          } else {
+            var visit_date = moment(json.visit_date).format('YYYY-MM-DD')
+            var visit_time = moment(json.visit_date).format('HH:mm')
+            $('#visit_date_result').text(visit_date)
+            $('#visit_time_result').text(visit_time)
+            getReservations();
+            invateUsers = [];
+            TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+            callback()
+          }
+        }
 
         _.each(json.lounges, function(lounge) {
           //console.log(lounge)
@@ -266,7 +304,7 @@ $(function() {
       });
 
       $.getJSON(hostUrl + '/api/v1/users/rating.json', {role: currentUser.role, auth_token: currentUser.auth_token}, function(json) {
-        makeUserRating(json)
+        makeUserRating(json.users_month, json.users_all_time)
       })
       getReservations();
 
@@ -308,23 +346,35 @@ $(function() {
 
     });
 
-    function makeUserRating(users) {
-      users = _.sortBy(_.filter(users, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
+    function makeUserRating(users_month, users_all_time) {
+      users_month = _.sortBy(_.filter(users_month, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
       $('#section-per-month .leaders').empty()
       var user_rating_tpl = _.template($('#user_rating_tpl').html())
-      $.each(users, function(i) {
-
-        $('#section-per-month .leaders').append(user_rating_tpl({
+      $.each(users_month, function(i) {
+        if(i == users_month.length - 1) {
+          $('#section-per-month #rating_top').append('<div class="border-bottom-dashed"></div>')
+        }
+        $('#section-per-month #rating_top').append(user_rating_tpl({
           name: this.name,
-          number: i+1,
+          number: i + 1,
+          exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+        }))
+      })
+
+      users_all_time = _.sortBy(_.filter(users_all_time, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
+      $('#section-per-all-time .leaders').empty()
+      $.each(users_all_time, function(i) {
+        if(i == users_all_time.length - 1) {
+          $('#section-per-all-time .leaders').append('<div class="border-bottom-dashed"></div>')
+        }
+        $('#section-per-all-time .leaders').append(user_rating_tpl({
+          name: this.name,
+          number: i + 1,
           exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
         }))
       })
     }
 
-    // $('input[name="visit_date"]').on('click', function() {
-    //   $(this).val(moment().format('YYYY-MM-DD'))
-    // })
 
     function bodyClickOff(){
       $('#edit-profile').hide();
@@ -365,51 +415,7 @@ $(function() {
       }
     });
 
-    $('#reserv_form').submit(function(e){
-      e.preventDefault();
-      $('.wrong').removeClass('wrong');
-      if($('#reserv_form select[name=visit_time]').val() == 'время') {
-        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-        $('#reserv_form select[name="visit_time"]').addClass('wrong')
-        return
-      }
-      var visit_date = $('#visit_date').val()
-      if(visit_date == 'today') {
-        visit_date = moment().format('YYYY-MM-DD')
 
-      } else if(visit_date == 'tomorrow') {
-        visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
-      }
-      var visit_time = $('#reserv_form select[name=visit_time]').val()
-      $.post(hostUrl + '/api/v1/reservations.json', {
-        auth_token: currentUser.auth_token,
-        lounge: $('#reserv_form select[name=lounge]').val(),
-        table_id: $('#reserv_form select[name=table]').val(),
-        client_count: $('#reserv_form select[name=client_count]').val(),
-        duration: $('#reserv_form select[name=duration]').val(),
-        visit_date: visit_date + ' ' + $('#reserv_form select[name=visit_time]').val()
-      }, function(json) {
-        if (json.errors) {
-          if (json.errors.visit_date) {
-            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('#reserv_form input[name="visit_date"]').addClass('wrong')
-            $('#reserv_form select[name="visit_time"]').addClass('wrong')
-          }
-          if (json.errors.table) {
-            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('#reserv_form input[name="lounge"]').addClass('wrong')
-          }
-        } else {
-          $('#visit_date_result').text(visit_date)
-          $('#visit_time_result').text(visit_time)
-          getReservations();
-          TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-          fx.swap('reserv', 'reserv_succes_form');
-        }
-
-      });
-
-    });
 
     $('#reserv_succes_form').submit(function(e){
       fx.back();

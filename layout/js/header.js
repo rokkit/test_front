@@ -174,6 +174,16 @@ $(function() {
     });
   });
   $('input[name="phone"]').mask('+7 (000) 000-00-00')
+
+  //восстановление пароля
+  $('#pass_form button').click(function(e) {
+    console.log('pass')
+    e.preventDefault()
+    var phone = formatPhone($('#pass_form input[name="phone"]').val())
+    $.post(hostUrl + '/api/v1/auth/sessions/forgot.json', {phone: phone}, function() {
+      fx.swap('passPopup', 'loginPopup');
+    })
+  });
 });
 
 function successAuth(resp) {
