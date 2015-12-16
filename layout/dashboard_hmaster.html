@@ -82,7 +82,7 @@
     <div class='wrapper_2' id='all_ach_wrapper'>
       <section class='popup_vertical' id='all_ach'>
         <div class='popup_vertical_symbol'>
-          <img src='./images/achievments/symbol_ach.svg'>
+          <img class='item_image' src='./images/achievments/symbol_ach.svg'>
         </div>
         <header class='popup_vertical_header'>
           <a class='i_l'>Назад</a>
@@ -90,7 +90,7 @@
         </header>
         <section class='wrapper_for_ach'>
           <figure>
-            <img class='achievments_icon' src='./images/achievments/1.svg'>
+            <img class='item_image achievments_icon' src='./images/achievments/1.svg'>
             <ficapation>
               <h6>Маскировка</h6>
               <p>21.09.15</p>
@@ -102,7 +102,7 @@
     <div class='wrapper_2' id='all-skill'>
       <section class='popup_vertical' id='all_talents'>
         <div class='popup_vertical_symbol'>
-          <img src='./images/achievments/symbol_ach.svg'>
+          <img class='item_image' src='./images/achievments/symbol_ach.svg'>
         </div>
         <header class='popup_vertical_header'>
           <a class='i_l'>Назад</a>
@@ -113,7 +113,8 @@
     </div>
     <div class='wrapper_2 center-center'>
       <section class='popup_overall' id='achivka'>
-        <img alt='В альт отправляем название достижения' src='./images/achievments/1.svg'>
+        <img alt='Закрыть' class='closing_item pointer' src='./images/cross.svg'>
+        <img alt='В альт отправляем название достижения' class='item_image' src='./images/achievments/1.svg'>
         <h2 class='skill_header'></h2>
         <h4 class='skill_state'></h4>
         <p class='skill_description'></p>
@@ -121,11 +122,12 @@
     </div>
     <div class='wrapper_2 center-center'>
       <section class='popup_overall' id='skill'>
-        <img alt='В альт отправляем название достижения' src='./images/achievments/1.svg'>
+        <img alt='Закрыть' class='closing_item pointer' src='./images/cross.svg'>
+        <img alt='В альт отправляем название достижения' class='item_image' src='./images/achievments/1.svg'>
         <h2 class='skill_header'></h2>
         <h4 class='skill_state'></h4>
         <p class='skill_description'></p>
-        <button>Получить навык</button>
+        <button class='button-arrow'>Получить навык</button>
       </section>
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>
@@ -294,10 +296,10 @@
               <h6>За все время</h6>
             </label>
             <section id='section-per-month'>
-              <ul class='leaders'></ul>
+              <ul class='leaders' id='rating_top'></ul>
             </section>
             <section id='section-per-all-time'>
-              Секция за все время
+              <ul class='leaders'></ul>
             </section>
           </fieldset>
         </article>
