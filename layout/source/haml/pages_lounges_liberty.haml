@@ -9,6 +9,7 @@
 		%script{ :src => "./js/TweenLite.min.js" }
 		%script{ :src => "./js/TweenMax.min.js" }
 		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/slider_main.js" }
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/openapi.js" }
@@ -39,7 +40,7 @@
 					%input{:type => "text", :name => "phone", :placeholder => "Телефон +7XXXXXXX"}
 					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
+					%button.button-arrow#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
 			%section#error_password.error_tooltip
