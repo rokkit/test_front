@@ -1933,8 +1933,6 @@ section.lounges_block_5 .map_wrapper {
   left: 0;
   width: 100%;
   height: 100%;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
   overflow: hidden;
   z-index: 200;
 }
@@ -2696,8 +2694,6 @@ footer#true_footer {
   left: 0;
   width: 100%;
   height: 100%;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
   overflow: hidden;
   z-index: 300;
 }

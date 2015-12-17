@@ -16,17 +16,17 @@ header.pages_lounges_header
 .lounges_block_1
     +display-flex(flex)
     position: relative
-    
+
     width: 100%
     height: 100%
 
     +align-items(center)
-    
+
     overflow: hidden
 
     padding: 48px
-    
-    background: url("../images/places/places_bg_1_gradient.png"), url($lounge_block1_bg) 
+
+    background: url("../images/places/places_bg_1_gradient.png"), url($lounge_block1_bg)
     background-size: 100% 100%, cover
     background-repeat: no-repeat, no-repeat
 
@@ -54,18 +54,18 @@ header.pages_lounges_header
             figure
                 float: left
                 margin-right: 32px
-                
+
                 img
                     float: left
                     margin-right: 8px
-                
+
                 figcapation
                     float: left
                     font: normal normal 300 14px/18px Open Sans Regular
                     letter-spacing: 0
-        
+
         section.actions
-            
+
             button
                 border: 1px solid $lounge_color
 
@@ -82,14 +82,14 @@ header.pages_lounges_header
 
         height: 80%
         width: auto
-        
+
         top: 10%
         right: -12%
-            
+
         img.blazon
             height: 100%
 
-        .blazon_glow 
+        .blazon_glow
             display: block
             position: absolute
 
@@ -119,14 +119,14 @@ header.pages_lounges_header
 
             @include animation(sun_glow 16s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
 
-    
+
     footer
         display: block
         position: absolute
 
         left: 48px
         bottom: 48px
-        
+
         p
             font-family: Lora
             color: rgba(255,255,255,0.5)
@@ -195,9 +195,9 @@ header.pages_lounges_header
 
             li.selected
                 position: relative
-                
+
                 +transform(translateX(0))
-                
+
                 @include animation(movearound 5s infinite linear)
 
                 @include keyframes(movearound)
@@ -211,13 +211,13 @@ header.pages_lounges_header
 
             li
                 position: absolute
-               
+
                 top: 0
                 left: 0
-                
+
                 width: 100%
                 height: 100%
-               
+
                 +transform(translateX(100%))
 
                 img.img-slider
@@ -231,21 +231,21 @@ header.pages_lounges_header
             bottom: 0
 
             text-align: center
-            
+
             overflow: hidden
-            
+
             background-color: rgba(0,0,0,0.2)
-            
+
             nav
                 display: inline-block
                 position: relative
-                
+
                 width: 100%
                 height: 100%
 
                 ul
                     height: 100%
-                    
+
                     li.selected
                         top: 0%
 
@@ -266,7 +266,7 @@ header.pages_lounges_header
                         overflow: hidden
 
                         +transition(all, 200ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
-                       
+
                         img.img-nav
                             width: 100%
 
@@ -274,7 +274,7 @@ header.pages_lounges_header
 
                     li:hover
                         top: 0%
-                    
+
                     li:hover .img-nav
                         +transform(scale(1.2))
 
@@ -291,16 +291,16 @@ header.pages_lounges_header
 section.lounges_block_4
     display: block
     position: relative
-    
+
     width: 100%
     height: auto
-    
+
     text-align: center
 
     padding: 96px
-    
+
     overflow: hidden
-    
+
     background: url(../images/bg_glow.png)
     background-size: cover
 
@@ -309,7 +309,7 @@ section.lounges_block_4
     header
         display: inline-block
         width: 63%
-       
+
         h2
             font-size: 36px
             letter-spacing: 4px
@@ -323,7 +323,7 @@ section.lounges_block_4
             letter-spacing: 1px
 
             margin-bottom: 24px
-        
+
         p
             color: rgba(255,255,255,.5)
             margin-bottom: 48px
@@ -358,7 +358,7 @@ section.lounges_block_4
                 top: 0
                 left: 0
 
-                .glow_html 
+                .glow_html
                     display: block
                     position: absolute
 
@@ -407,7 +407,7 @@ section.lounges_block_4
                     color: white
                     font-size: 24px
                     line-height: 32px
-                    
+
                     margin-bottom: 4px
                 p
                     color: rgba(255,255,255,0.5)
@@ -443,7 +443,7 @@ section.lounges_block_4
 
                 left: 0
                 top: 0
-                
+
                 .hm_stroke_1
                     display: block
                     position: absolute
@@ -456,7 +456,7 @@ section.lounges_block_4
 
                     left: 8px
                     top: 8px
-                
+
                 .hm_stroke_2
                     display: block
                     position: absolute
@@ -479,7 +479,7 @@ section.lounges_block_4
 
                     left: 0
                     top: 0
-            
+
                     .hm_corner_img
                         display: block
                         position: absolute
@@ -550,14 +550,14 @@ section.lounges_block_4
 
         overflow: auto
 
-        padding: 96px    
+        padding: 96px
         text-align: center
 
         background: white
 
         header
             margin-bottom: 32px
-            
+
             h2
                 color: $lounge_color
                 font-size: 48px
@@ -573,7 +573,7 @@ section.lounges_block_4
             width: 50%
             text-align: left
             color: rgba(255,255,255,.4)
-            
+
             p
                 text-align: justify-content
                 margin-bottom: 18px
@@ -593,7 +593,7 @@ section.lounges_block_4
 
         img.cross_white_popup:hover
             +transform(rotate(180deg))
-        
+
         img.cross_white_popup:active
             +transform(rotate(180deg) scale(0.8))
 
@@ -638,7 +638,7 @@ section.lounges_block_5
             h3
                 font-size: 30px
                 letter-spacing: 4px
-                
+
                 color: $lounge_color
 
                 margin-bottom: 0px
@@ -646,7 +646,7 @@ section.lounges_block_5
             p
                 font-size: 14px
                 font-family: Lora
-                
+
                 color: white
 
                 margin-bottom: 32px
@@ -654,9 +654,9 @@ section.lounges_block_5
         p
             font-size: 12px
             line-height: 20px
-            
+
             color: rgba(255,255,255,0.5)
-            
+
             margin-bottom: 48px
 
         p:last-of-type
@@ -674,7 +674,7 @@ section.lounges_block_5
                 width: 12px
 
                 float: left
-            
+
             small
                 display: inline-block
                 position: relative
@@ -683,7 +683,7 @@ section.lounges_block_5
 
                 margin-left: 20px
                 margin-top: -14px
-                
+
                 color: white
                 font-size: 12px
                 line-height: 16px
@@ -697,10 +697,6 @@ section.lounges_block_5
 
         width: 100%
         height: 100%
-
-        filter: grayscale(100%)
-        -webkit-filter: grayscale(100%)
-
         overflow: hidden
 
         z-index: 200
@@ -723,12 +719,12 @@ section.lounges_block_5
 section.lounges_block_6
     display: block
     position: relative
-   
+
     width: 100%
     height: 100%
-   
+
     padding: 196px 0px 0px 96px
-   
+
     background: url(../images/bg_glow.png)
     background-size: cover
 
@@ -742,11 +738,11 @@ section.lounges_block_6
 
         h5
             margin-bottom: 48px
-   
+
     h6
 
         margin-bottom: 8px
-    
+
     p
         display: block
         color: rgba(255,255,255,.5)
@@ -789,10 +785,10 @@ section.lounges_block_7
     .wrapper_sun
         position: absolute
         display: block
-        
+
         height: 400px
         width: 400px
-        
+
         top: -200px
         left: calc(50% - 200px)
 
@@ -820,7 +816,7 @@ section.lounges_block_7
             100%
                 @include transform( rotate(360deg) )
 
-        .sun_glow 
+        .sun_glow
             display: block
             position: absolute
 
@@ -890,7 +886,7 @@ section.lounges_block_7
         button
             border: 1px solid $lounge_color
             background: none
-        
+
         button:hover
             background: $lounge_color
 
@@ -913,4 +909,3 @@ footer#true_footer
     text-transform: uppercase
 
     background: black
-
