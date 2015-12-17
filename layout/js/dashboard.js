@@ -293,7 +293,7 @@ $(function() {
 
             var visit_date = moment(payment.created_at).format('DD MMMM YYYY HH:mm')
             var el = '<tr data-id='+payment.id+'><td><h6 style="color:#6CB9DD;" >Либерти\
-            </h6></td><td class="td-date">'+visit_date+'</td><td>444</td></tr>';
+            </h6></td><td class="td-date">'+visit_date+'</td><td>'+payment.amount+'</td></tr>';
             $('#visit_table_body').append(el);
           });
         }else {
@@ -349,7 +349,7 @@ $(function() {
       $('#section-per-month .leaders').empty()
       var user_rating_tpl = _.template($('#user_rating_tpl').html())
       $.each(users_month, function(i) {
-        if(i == users_month.length - 1) {
+        if(users_month.length > 0 && i == users_month.length - 1) {
           $('#section-per-month #rating_top').append('<div class="border-bottom-dashed"></div>')
         }
         $('#section-per-month #rating_top').append(user_rating_tpl({
@@ -361,7 +361,7 @@ $(function() {
 
       $('#section-per-all-time .leaders').empty()
       $.each(users_all_time, function(i) {
-        if(i == users_all_time.length - 1) {
+        if(users_all_time.length > 0 && i == users_all_time.length - 1) {
           $('#section-per-all-time .leaders').append('<div class="border-bottom-dashed"></div>')
         }
         $('#section-per-all-time .leaders').append(user_rating_tpl({
