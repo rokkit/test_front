@@ -1,62 +1,27 @@
 function skillgen(data){
   var skills = data;
+  var layoutWidth = $('#skill-view').width();
+  var layoutHeight = $('#skill-view').height();
+  var dx = layoutWidth/6; //200;
+  var dy = layoutHeight/5 - 55; //75;
+  var margin = {
+    top: layoutHeight * 0.06,
+    left: 100
+  };
+
   var result = {
     nodes: [],
     links: [],
     skillCount: 0
   };
+
   result.skillCount = data.length;
   result.nodes = skills.map(function (v) {
-    var y = 230;
     v.fixed = true;
-
-    switch (v.cost) {
-      case 1:
-        v.x = 80;
-        break;
-      case 2:
-        v.x = 260;
-        break;
-      case 3:
-        v.x = 460;
-        break;
-      case 4:
-        v.x = 660;
-        break;
-      case 5:
-        v.x = 860;
-        break;
-      case 6:
-        v.x = 1060;
-        break;
-    }
-    switch (v.row) {
-      case 1:
-        v.y = y-170;
-        break;
-      case 2:
-        v.y = y-80;
-        break;
-      case 3:
-        v.y = y;
-        break;
-      case 4:
-        v.y = y+80;
-        break;
-      case 5:
-        v.y = y+170;
-        break;
-    }
-
+    v.x = v.cost * dx - dx + margin.left;
+    v.y = v.row * dy - dy + margin.top;
     return v;
   });
-
-  // result.links = skills.map(function(v){
-  //   if(!v.parent){
-  //
-  //   }
-  //   return {source:  }
-  // });
 
   skills.forEach(function(v){
     if(v.parents){
@@ -98,20 +63,4 @@ function skillgen(data){
   }
 
   return result;
-}
-
-
-
-function lin(items) {
-  items.forEach(function(v, i){
-
-  });
-}
-
-function foo(v){
-  if(!v.parents){
-    v.x = 1;
-    v.y = 2;
-    return v
-  }
 }

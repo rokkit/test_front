@@ -3,6 +3,7 @@ var skillBoard = (function(element, data, role){
 
   var layoutWidth = $(element).width();
   var layoutHeight = $(element).height();
+  var lineDx = layoutWidth/6;
 
   $('#dashboard_talents_btn').text((currentUser.skills.length+1)+'/'+data.skillCount);
 
@@ -15,6 +16,9 @@ var skillBoard = (function(element, data, role){
   var y = 230;
   var dx = 6;
   var x0 = 75;
+
+  var imgD = layoutWidth * 0.063;
+  var imgR = imgD / 2;
 
   var force = d3.layout.force()
   .size([layoutWidth, layoutHeight])
@@ -33,7 +37,7 @@ var skillBoard = (function(element, data, role){
 
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = (angle + 180) * (Math.PI/180);
-              return d.source.x + 40 * Math.cos(rad);
+              return d.source.x + imgR * Math.cos(rad);
             })
             .attr("y1", function(d) {
               var x = d.target.x - d.source.x;
@@ -41,7 +45,7 @@ var skillBoard = (function(element, data, role){
 
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = (angle+180) * (Math.PI/180);
-              return d.source.y + 40 * Math.sin(rad);
+              return d.source.y + imgR * Math.sin(rad);
             })
             .attr("x2", function(d) {
               var x = d.target.x - d.source.x;
@@ -49,7 +53,7 @@ var skillBoard = (function(element, data, role){
 
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = angle * (Math.PI/180);
-              return d.target.x + 40 * Math.cos(rad);
+              return d.target.x + imgR * Math.cos(rad);
             })
             .attr("y2", function(d) {
               var x = d.target.x - d.source.x;
@@ -57,7 +61,7 @@ var skillBoard = (function(element, data, role){
 
               var angle = Math.round( Math.atan( ( y ) / ( x ) ) * ( 180 / Math.PI ) );
               var rad = angle * (Math.PI/180);
-              return d.target.y + 40 * Math.sin(rad);
+              return d.target.y + imgR * Math.sin(rad);
             });
   }
 
@@ -185,6 +189,7 @@ var skillBoard = (function(element, data, role){
   .attr('type','matrix')
   .attr('values',"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0");
 
+
   node.append("image")
       .attr("xlink:href", function(v){
         return 'http://176.112.194.149:81'+v.image;
@@ -196,17 +201,17 @@ var skillBoard = (function(element, data, role){
           return '';
         }
       })
-      .attr("x", -40)
-      .attr("y", -40)
-      .attr("width", 80)
-      .attr("height", 80)
+      .attr("x", -imgR)
+      .attr("y", -imgR)
+      .attr("width", imgD)
+      .attr("height", imgD)
 
   var title = node.append('text')
   .text(function(e){
     return e.name;
   })
   .attr('fill', 'rgba(255,255,255,255)')
-  .attr('y', 60)
+  .attr('y', imgR + 18)
   .attr("text-anchor", "middle")
   .attr("font-size", 12)
   .attr('letter-spacing', 1)
@@ -225,7 +230,7 @@ var skillBoard = (function(element, data, role){
     }
   })
   .attr('fill', 'rgba(255,255,255,0.3)')
-  .attr('y', 75)
+  .attr('y', imgR + 36)
   .attr("text-anchor", "middle")
   .attr("font-size", 10)
   .attr('letter-spacing', 1)
@@ -235,17 +240,17 @@ var skillBoard = (function(element, data, role){
     layout.append('text')
     .text(i)
     .attr('fill', '#F2AE32')
-    .attr('x', 200 * i-90)
-    .attr('y', 500)
+    .attr('x', i * lineDx - lineDx + 180 - 40)
+    .attr('y', layoutHeight-220)
     .attr("font-size", 80)
     .attr('letter-spacing', 0)
     .attr("font-family", "Bebas Neue Book");
 
     layout.append('line')
-    .attr('x1', 200 * i-55)
-    .attr('y1', 10)
-    .attr('x2', 200 * i-55)
-    .attr('y2', 500)
+    .attr('x1', i * lineDx - lineDx + 180)
+    .attr('y1', 0)
+    .attr('x2', i * lineDx - lineDx + 180)
+    .attr('y2', layoutHeight - 220)
     .attr('opacity', 0.1)
     .attr('stroke', '#000')
     .attr('stroke-width', 2)
