@@ -102,21 +102,23 @@
 		-# Color Overlay
 		#color_overlay.color_overlay
 
+		-# Хидер
+		%header#header
+			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
+			%nav
+				%a{:id=>"login_header_btn"} Войти
+				%a{:id=>"signup_header_btn"} Зарегистрироваться
+				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
+
+		-# Main conent
 		%main{:id => 'main_content'}
+			
 			-# Первый блок
 			%section#community_block1
 				#viewport
 					#world
 				#viewport2
 					#world2
-				-# Хидер
-				%header#header
-					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-					%nav
-						%a{:id=>"login_header_btn"} Войти
-						%a{:id=>"signup_header_btn"} Зарегистрироваться
-						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
-					%hr
 				-# Контент
 				%img.image{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
 			%section#community_block2
@@ -140,7 +142,7 @@
 					%h4 Неповторимый опыт
 					%p Каждое заведение Уникальных Кальянных предлагает вам атмосферу клуба единомышленников. Заходите, общайтесь с другими гостями, участвуйте в еженедельных мероприятиях и вы поймете в чем заключается наша уникальность.
 			%section#community_block3
-				%h3 Со временем вы обретёте полезные навыки, дающие право на получение определенных бонусов
+				%h3 Со временем вы обретёте полезные навыки, дающие право на получение определенных бонусов!
 				%p Навыки разнообразны и позволяют получить целый ряд приятных преимуществ, начиная с дополнительных напитков при первом заказе за день и заканчивая возможностью отдыхать в заведении в нерабочие часы.
 				%br
 				%img{ :src=>"./images/game_skillset.svg" , :alt=>"Полезные бонусы"}

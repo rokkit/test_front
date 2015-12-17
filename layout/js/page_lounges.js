@@ -1,43 +1,4 @@
-// Изменение хидера при скроле
-//......................................................................//
-var cbpAnimatedHeader = (function() {
 
-  var docElem = document.documentElement,
-      header = document.getElementById("header"),
-      didScroll = false,
-      changeHeaderOn = 48;
-
-  function init() {
-    window.addEventListener( 'scroll', function( event ) {
-      if( !didScroll ) {
-        didScroll = true;
-        setTimeout( scrollPage, 0 );
-      }
-    }, false );
-  }
-
-  function scrollPage() {
-    
-    var sy = scrollY();
-    
-    if ( sy >= changeHeaderOn ) {
-      $('#header').css({"background": "rgba(0,0,0,0.75", "padding": "16px", "height": "auto"});
-    }
-    
-    else {
-      $('#header').css({"background": "none", "padding": "64px 48px 64px", "height": "40px"});
-    }
-    
-    didScroll = false;
-  }
-
-  function scrollY() {
-    return window.pageYOffset || docElem.scrollTop;
-  }
-
-  init();
-
-})();
 
 // Попапы кальянщиков: Резерв
 //......................................................................//

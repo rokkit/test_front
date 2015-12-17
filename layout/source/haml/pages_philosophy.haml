@@ -108,6 +108,14 @@
 
 		-# Color Overlay
 		#color_overlay.color_overlay
+		-# Хидер
+		%header#header
+			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
+			%nav
+				%a{:id=>"login_header_btn"} Войти
+				%a{:id=>"signup_header_btn"} Зарегистрироваться
+				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
+		-# Main conent
 		%main{:id => 'main_content'}
 			-# Первый блок
 			%section#philosophie_block1
@@ -115,14 +123,6 @@
 					#world
 				#viewport2
 					#world2
-				-# Хидер
-				%header#header
-					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-					%nav
-						%a{:id=>"login_header_btn"} Войти
-						%a{:id=>"signup_header_btn"} Зарегистрироваться
-						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
-					%hr
 				-# Контент
 				%img.image{ :src=>"./images/philosophie_h1.svg" , :alt=>"Оригинал один — остальное копии"}
 
