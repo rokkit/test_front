@@ -4043,15 +4043,25 @@ section.popup_overall {
   text-align: center;
 }
 section.popup_overall img.item_image {
-  width: 256px;
-  height: 256px;
+  width: 160px;
+  height: 160px;
   margin-bottom: 32px;
 }
+section.popup_overall h2 {
+  font-size: 30px;
+  margin-bottom: 0px;
+  line-height: 48px;
+}
 section.popup_overall h4 {
-  margin-bottom: 48px;
+  font-size: 16px;
+  margin-bottom: 32px;
 }
 section.popup_overall p {
+  display: block;
+  width: 40%;
+  margin-left: 30%;
   color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 48px;
 }
 section.popup_overall button {
   display: none;
