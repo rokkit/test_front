@@ -28,6 +28,17 @@
 		%title Философия
 
 	%body#html_body{:data => {'page' => 'philosophy'}}
+		-# code acept
+		.wrapper.h_v_center
+			%section.popup_middle{:id => 'code_form'}
+				%header
+					%h2 Подтверждение
+					%p.h2_subtitle
+						Мы отправили смс с кодом подтверждения на ваш номер. <br>
+						Подтверждая номер, вы вступаете в тайное общество.
+					%input{:type => "text", :name => "code", :placeholder => "Код подтверждения"}
+					%button.button-arrow{:type=>"button", :name=>"ok"} Подтвердить
+
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}
 			%section.popup{:id => 'signup_form'}
@@ -43,6 +54,7 @@
 					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
 					%button.button-arrow#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
+
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
 			%section#error_password.error_tooltip
@@ -57,11 +69,23 @@
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
 					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Войти
-				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+				%a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+		-# Забыли пароль?
+		.wrapper.center-center{:id => 'wrapper_pass'}
+			%section#error_password.error_tooltip
+				Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+			%section.popup{:id => 'pass_form'}
+				%header
+					%h2 Восстановление пароля
+					%p.h2_subtitle
+						Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
+						%a{:href =>"#registration"} зарегистрируйтесь.
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%button.button-arrow{:type=>"button", :name=>"ok"} Отправить
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu
-				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%img#uhp_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
 				%span
 					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
 					%p 24 июл в 14:44 от #unihuqhookahplaces
@@ -101,11 +125,8 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
-				-# %a
-				-# 	%h3 Франшиза
-				-# 	%p Открыть Ложу
 
-				-# %button Круг избранных
+				%button.button-arrow#go_login_from_menu_btn Круг избранных
 
 		-# Color Overlay
 		#color_overlay.color_overlay

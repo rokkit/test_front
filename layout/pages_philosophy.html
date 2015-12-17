@@ -27,6 +27,19 @@
     <title>Философия</title>
   </head>
   <body data-page='philosophy' id='html_body'>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='code_form'>
+        <header>
+          <h2>Подтверждение</h2>
+          <p class='h2_subtitle'>
+            Мы отправили смс с кодом подтверждения на ваш номер. <br>
+            Подтверждая номер, вы вступаете в тайное общество.
+          </p>
+          <input name='code' placeholder='Код подтверждения' type='text'>
+          <button class='button-arrow' name='ok' type='button'>Подтвердить</button>
+        </header>
+      </section>
+    </div>
     <div class='wrapper center-center' id='wrapper_signup'>
       <section class='popup' id='signup_form'>
         <header>
@@ -63,11 +76,28 @@
           <input name='password' placeholder='Пароль' type='password'>
           <button class='button-arrow' name='sumbit' type='sumbit'>Войти</button>
         </form>
+        <a href='#forgot_pass' id='recover_btn'>Вы забыли пароль?</a>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_pass'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='pass_form'>
+        <header>
+          <h2>Восстановление пароля</h2>
+          <p class='h2_subtitle'>
+            Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <button class='button-arrow' name='ok' type='button'>Отправить</button>
+        </header>
       </section>
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>
       <section class='left_menu' id='menu_left_part'>
-        <img alt='Unique Hookah Places' height='40px' src='./images/logo.svg'>
+        <img alt='Unique Hookah Places' class='pointer' height='40px' id='uhp_logo' src='./images/logo.svg'>
         <span>
           <h4>Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...</h4>
           <p>24 июл в 14:44 от #unihuqhookahplaces</p>
@@ -102,6 +132,7 @@
           <h3 id='community_nav_btn'>Сообщество</h3>
           <p>Полезно быть своим</p>
         </a>
+        <button class='button-arrow' id='go_login_from_menu_btn'>Круг избранных</button>
       </section>
     </div>
     <div class='color_overlay' id='color_overlay'></div>
@@ -130,7 +161,7 @@
         </blockquote>
         <div class='right_part_history'>
           <p>
-            Рождение идеи “Уникальных Кальянных” состоялось осенью 2012 года. Именно тогда основатель сети Игорь Коновалов решил раздвинуть рамки привычного и создать заведение в принципиально новом формате. Довольно быстро нашлись единомышленники и инвесторы, было снято и подготовлено помещение. Так 8 ноября 2012 года появилась первая кальянная “Либерти”.
+            Рождение идеи ���Уникальных Кальянных” состоялось осенью 2012 года. Именно тогда основатель сети Игорь Коновалов решил раздвинуть рамки привычного и создать заведение в принципиально новом формате. Довольно быстро нашлись единомышленники и инвесторы, было снято и подготовлено помещение. Так 8 ноября 2012 года появилась первая кальянная “Либерти”.
           </p>
           <button class='button-dark' id='open_history_btn'>Прочитать историю</button>
         </div>
@@ -199,7 +230,7 @@
           <img src='./images/philosophie_f_6.svg'>
           <figcapation>
             <h5>ИННОВАЦИИ</h5>
-            <p>Сосредоточившись исключительно на развитии существующего можно легко забыть об инновациях. Мы всегда буд��м радовать вас нововведениями, но их интеграция будет происходить без ущерба для комфорта и традиционных ценностей.</p>
+            <p>Сосредоточившись исключительно на развитии существующего можно легко забыть об инновациях. Мы всегда будем радовать вас нововведениями, но их интеграция будет происходить без ущерба для комфорта и традиционных ценностей.</p>
           </figcapation>
         </figure>
       </section>
