@@ -84,16 +84,17 @@ select {
   position: relative;
   height: 48px;
   width: 144px;
+  line-height: 24px;
   font-size: 14px;
   font-family: Open Sans Light;
+  text-align: left;
   padding: 0 16px 0 16px;
   border: 0;
+  border-radius: 0px;
   color: white;
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 0 1px;
   background: transparent;
-  text-align: left;
-  line-height: 24px;
-  font-size: 14px;
+  -webkit-appearance: none;
   -moz-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
   -o-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
   -webkit-transition: all, 500ms, cubic-bezier(0.19, 1, 0.22, 1);
@@ -2773,10 +2774,10 @@ section.bottom-rating {
   width: 100%;
   display: block;
   position: relative;
-  padding: 32px 48px;
+  padding: 0;
   font-family: sans-serif;
   display: inline-flex;
-  background: #292D34;
+  background: none;
 }
 section.bottom-rating h4 {
   letter-spacing: 3px;
@@ -2796,13 +2797,16 @@ section.bottom-rating article {
   font-size: 12px;
 }
 section.bottom-rating article th, section.bottom-rating article td.td-date {
-  text-align: center;
+  text-align: left;
 }
 section.bottom-rating article th {
   color: #565960;
 }
+section.bottom-rating article th.small_cell {
+  width: 10%;
+}
 section.bottom-rating article td {
-  text-align: center;
+  text-align: left;
   width: 25%;
   padding: 20px 0;
 }
@@ -2829,12 +2833,10 @@ section.bottom-rating article:last-child ul.leaders li {
 }
 section.bottom-rating article:last-child ul.leaders li span:first-child {
   padding-right: 0.33em;
-  background: #292D34;
 }
 section.bottom-rating article:last-child ul.leaders li span + span {
   float: right;
   padding-left: 0.33em;
-  background: #292D34;
 }
 section.bottom-rating article:last-child section {
   display: none;
@@ -2847,7 +2849,7 @@ section.bottom-rating article:last-child fieldset input {
   display: none;
 }
 section.bottom-rating article:last-child fieldset h6 {
-  margin-left: 8px;
+  margin-right: 8px;
   cursor: pointer;
 }
 section.bottom-rating article:last-child fieldset label {
@@ -2861,7 +2863,7 @@ section.bottom-rating article:last-child #rating-per-month:checked ~ #section-pe
   display: block;
 }
 section.bottom-rating .border-bottom-dashed {
-  border-bottom: 1px dashed #3C4047;
+  border-bottom: 0;
 }
 section.bottom-rating .color-blue {
   color: #64B6DC;
@@ -2897,9 +2899,8 @@ section.bottom-rating .color-no-active {
 }
 
 .nodata {
-  margin-left: 20px;
-  font-size: 16px;
-  opacity: 0.4;
+  font-size: 12px;
+  opacity: 0.25;
 }
 
 .close-btn:after {
@@ -2949,6 +2950,7 @@ section.dashboard {
   color: white;
   padding: 48px;
   padding-top: 196px;
+  padding-bottom: 128px;
 }
 section.dashboard section.username {
   margin-bottom: 48px;
@@ -2978,6 +2980,9 @@ section.dashboard section.username p a {
   color: rgba(255, 255, 255, 0.5);
   text-transform: none;
   letter-spacing: 0;
+}
+section.dashboard section.username button {
+  margin-right: 16px;
 }
 
 section.progress_bar {
@@ -3121,15 +3126,21 @@ label.myLabel input[type="file"] {
   margin-top: 5px;
   text-align: center;
   width: 200px;
-  background-color: #181B21;
+  background-color: rgba(33, 41, 50, 0.5);
   padding: 7px 10px;
   position: absolute;
   font-family: "Helvetica", sans-serif;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   left: 30%;
 }
 .popover-reserv p {
-  padding: 12px 0px;
+  padding: 12px;
+  font-size: 16px;
+  font-family: Bebas Neue Book;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  margin-bottom: 8px;
 }
 .popover-reserv:before {
   content: "";
@@ -3149,6 +3160,12 @@ label.myLabel input[type="file"] {
 }
 .popover-reserv .cancel_reserv_decline {
   margin-left: 32px;
+}
+.popover-reserv .cancel_reserv_confirm:hover {
+  color: #EBB22F;
+}
+.popover-reserv .cancel_reserv_decline:hover {
+  color: #EBB22F;
 }
 
 @-webkit-keyframes fade-in-reserv {
@@ -3866,6 +3883,7 @@ section.popup {
 }
 section.popup select {
   width: auto;
+  padding-right: 16px;
 }
 section.popup a {
   font: normal normal 300 18px/28px Lora, sans-serif;
