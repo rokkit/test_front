@@ -12,6 +12,7 @@
     <script src='./js/jquery.mask.min.js'></script>
     <script src='./js/slider_main.js'></script>
     <script src='./js/underscore-min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/openapi.js'></script>
     <script src='http://maps.googleapis.com/maps/api/js'></script>
     <script src='./js/lib/snap.svg-min.js'></script>
@@ -136,55 +137,57 @@
       </section>
     </div>
     <div class='color_overlay' id='color_overlay'></div>
+    <header class='pages_lounges_header' id='header'>
+      <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/rezerv/logo.svg'>
+      <nav>
+        <a id='login_header_btn'>Войти</a>
+        <a id='signup_header_btn'>Зарегистрироваться</a>
+        <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/rezerv/menu.svg'>
+      </nav>
+    </header>
     <main id='main_content'>
-      <section id='liberty_block1'>
-        <header id='header'>
-          <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
-          <nav>
-            <a id='login_header_btn'>Войти</a>
-            <a id='signup_header_btn'>Зарегистрироваться</a>
-            <div class='menu pointer' data-icon-name='hamburger' id='menu_header_btn'></div>
-          </nav>
-        </header>
-        <hr>
-        <header>
-          <h1 class='style-academy'>Академия</h1>
-          <p>Trahit sua quemque voluptas*</p>
-        </header>
-        <section class='information_lib'>
-          <figure>
-            <img alt='Город' height='16px' src='./images/location_gold.svg'>
-            <figcapation>Новосибирск, Ядринцевская, 18</figcapation>
-          </figure>
-          <figure>
-            <img alt='Город' height='16px' src='./images/phone.svg'>
-            <figcapation>+7 (999) 303-05-03</figcapation>
-          </figure>
-          <figure>
-            <img alt='Город' height='16px' src='./images/clock.svg'>
-            <figcapation>
-              Ежедневно с 16:00 и до последнего гостя
-            </figcapation>
-          </figure>
+      <section class='lounges_block_1'>
+        <section class='content'>
+          <header>
+            <h1>Академия</h1>
+            <p>Trahit sua quemque voluptas*</p>
+          </header>
+          <section class='information'>
+            <figure>
+              <img alt='Город' height='16px' src='./images/rezerv/location.svg'>
+              <figcapation>Новосибирск, Ядринцевская, 18</figcapation>
+            </figure>
+            <figure>
+              <img alt='Город' height='16px' src='./images/phone.svg'>
+              <figcapation>+7 (999) 303-05-03</figcapation>
+            </figure>
+            <figure>
+              <img alt='Город' height='16px' src='./images/clock.svg'>
+              <figcapation>
+                Ежедневно с 16:00 и до последнего гостя
+              </figcapation>
+            </figure>
+          </section>
+          <section class='actions'>
+            <button class='button-arrow btn_arrow' id='reserve_table_btn'>Забронировать столик</button>
+          </section>
         </section>
-        <section class='liberactions'>
-          <button class='button-arrow style-academy' id='reserve_table_btn'>Забронировать столик</button>
+        <section class='blazon'>
+          <img class='blazon' src='./images/blazons/academy.svg'>
+          <div class='blazon_glow'></div>
+          <div class='blazon_glow_2'></div>
         </section>
         <footer>
           <p>*Каждого влечет его страсть</p>
         </footer>
-        <img class='layer' data-depth='0.40' id='liberty_herb' src='./images/blazons/academy.svg'>
-        <img class='gerb_glow_2' src='images/academy/glow.png'>
       </section>
-      <section id='liberty_block2'>
+      <section class='lounges_block_2'>
         <div class='text-wrapper-liberty'>
-          <h4 class='style-academy'>"Академия" - место, где тебя слышат</h4>
-          <p>
-            Нам интересно не только сделать тебе кальян, а ещё и поделиться частицей себя, если позволишь - узнать тебя как человека, как профессионала своего дела. Ведь каждый человек в нашей жизни - это новые возможности. Не бойся быть открытым и искренним в "Академии".
-          </p>
+          <h4>"Академия" - место, где тебя слышат</h4>
+          <p>Нам интересно не только сделать тебе кальян, а ещё и поделиться частицей себя, если позволишь - узнать тебя как человека, как профессионала своего дела. Ведь каждый человек в нашей жизни - это новые возможности. Не бойся быть открытым и искренним в "Академии".</p>
         </div>
       </section>
-      <section id='liberty_block3'>
+      <section class='lounges_block_3'>
         <section class='cd-hero'>
           <ul class='cd-hero-slider autoplay'>
             <li class='selected'>
@@ -226,31 +229,86 @@
           </div>
         </section>
       </section>
-      <section id='liberty_block4'>
+      <section class='lounges_block_4'>
         <header>
-          <h2 class='style-academy'>Кальянные мастера</h2>
-          <p>
-            Чем больше свободы в профессии - тем больше каждый человек проецирует себя в неё. Кальянное ремесло - одна из таких профессий. По нашей команде это хорошо видно: кто-то допускает больше творчества и бешеных сочетаний вкуса, кто-то делает проверенные стабильные кальяны. Они одинаково качественны, и ты можешь открыть для себя что-то новое в разные дни работы "Академии".
-          </p>
+          <h2>Кальянные мастера</h2>
+          <p>Уникальная Кальянная «Академия»</p>
+          <p>Чем больше свободы в профессии - тем больше каждый человек проецирует себя в неё. Кальянное ремесло - одна из таких профессий. По нашей команде это хорошо видно: кто-то допускает больше творчества и бешеных сочетаний вкуса, кто-то делает проверенные стабильные кальяны. Они одинаково качественны, и ты можешь открыть для себя что-то новое в разные дни работы "Академии".</p>
         </header>
-        <br>
-        <img alt='Кальянщик' height='396px' src='./images/academy/hms/bojestvenni.svg'>
-        <img alt='Кальянщик' height='396px' src='./images/academy/hms/poleshuk.svg'>
-        <img alt='Кальянщик' height='396px' src='./images/academy/hms/ryabichenko.svg'>
+        <div class='wrapper_hm_cards'>
+          <figure class='pointer' id='btn_hm_1'>
+            <div class='wrapper_hm_photo'>
+              <div class='glow_html'></div>
+              <div class='hm_photo'>
+                <img src='./images/rezerv/hm_photo_placeholder.svg'>
+              </div>
+              <img class='hm_lights' src='./images/rezerv/hm_photo_lights.svg'>
+            </div>
+            <figcapation class='wrapper_hm_name'>
+              <h2>Божественный Евгений</h2>
+              <p>«Академия»</p>
+            </figcapation>
+            <button class='button_round'>Посмотреть</button>
+            <div class='wrapper_storke_corner'>
+              <div class='hm_stroke_1'></div>
+              <div class='hm_stroke_2'></div>
+            </div>
+          </figure>
+          <figure class='pointer' id='btn_hm_2'>
+            <div class='wrapper_hm_photo'>
+              <div class='glow_html'></div>
+              <div class='hm_photo'>
+                <img src='./images/rezerv/hm_photo_placeholder.svg'>
+              </div>
+              <img class='hm_lights' src='./images/rezerv/hm_photo_lights.svg'>
+            </div>
+            <figcapation class='wrapper_hm_name'>
+              <h2>Полещук Антон</h2>
+              <p>«Академия»</p>
+            </figcapation>
+            <button class='button_round'>Посмотреть</button>
+            <div class='wrapper_storke_corner'>
+              <div class='hm_stroke_1'></div>
+              <div class='hm_stroke_2'></div>
+            </div>
+          </figure>
+          <figure class='pointer' id='btn_hm_3'>
+            <div class='wrapper_hm_photo'>
+              <div class='glow_html'></div>
+              <div class='hm_photo'>
+                <img src='./images/rezerv/hm_photo_placeholder.svg'>
+              </div>
+              <img class='hm_lights' src='./images/rezerv/hm_photo_lights.svg'>
+            </div>
+            <figcapation class='wrapper_hm_name'>
+              <h2>Рябиченко Вольфганг</h2>
+              <p>«Академия»</p>
+            </figcapation>
+            <button class='button_round'>Посмотреть</button>
+            <div class='wrapper_storke_corner'>
+              <div class='hm_stroke_1'></div>
+              <div class='hm_stroke_2'></div>
+            </div>
+          </figure>
+        </div>
       </section>
-      <section id='liberty_block5'>
-        <div class='map_overlay'></div>
-        <div class='map_wrapper' data-map-lat='55.0330481' data-map-lng='82.9227613'></div>
+      <section class='lounges_block_5'>
         <section id='map_wrapper'>
           <header>
-            <h3 class='style-academy'>Новосибирск</h3>
+            <h3>Новосибирск</h3>
             <p>Центральный район</p>
           </header>
           <p>Академия находится напротив Центрального парка, в самом центре Новосибирска. Куда бы ты не направлялся на автомобиле - путь проходит совсем рядом с нами. Может быть, нам пора познакомиться?</p>
-          <small>Новосибирск, Ядринцевская, 18</small>
+          <p>
+            <img src='./images/rezerv/location.svg'>
+            <small>Новосибирск, Ядринцевская, 18</small>
+          </p>
         </section>
+        <div class='map_wrapper' data-map-lat='55.0330481' data-map-lng='82.9227613'>
+          <div class='map_overlay'></div>
+        </div>
       </section>
-      <section id='liberty_block6'>
+      <section class='lounges_block_6'>
         <header>
           <h2 class='style-academy'>Контакты</h2>
           <h5>По вопросам справки обращайтесь по телефону в рабочее время:</h5>
@@ -263,16 +321,24 @@
         <p>
           Ежедневно с 16:00 и до последнего гостя
         </p>
+        <h6>Социальные сети</h6>
+        <p>
+          <a ref='http://vk.com/club61931015'>Группа Вконтакте</a>
+        </p>
       </section>
-      <section id='philosophie_block5'>
-        <h3>Trahit sua quemque voluptas*</h3>
-        <h6>*Каждого влечет его страсть</h6>
-        <br>
-        <button class='button-dark style-academy'>Зарегистрироваться</button>
-        <img class='sun_glow_2' src='./images/sun_glow.png'>
-        <img class='sun_glow' src='./images/sun_glow.svg'>
-        <img class='sun_rotation' src='./images/sun_lines.svg'>
-        <img alt='Звезда' src='./images/sun.svg'>
+      <section class='lounges_block_7'>
+        <div class='wrapper_sun'>
+          <img alt='Звезда' class='sun' src='./images/rezerv/sun.svg'>
+          <img class='sun_rotation' src='./images/rezerv/sun_lines.svg'>
+          <div class='sun_glow'></div>
+          <div class='sun_glow_2'></div>
+        </div>
+        <div class='wrapper_sun_text'>
+          <h3>Trahit sua quemque voluptas*</h3>
+          <h6>*Каждого влечет его страсть</h6>
+          <br>
+          <button class='button-arrow btn_arrow'>Зарегистрироваться</button>
+        </div>
       </section>
     </main>
   </body>

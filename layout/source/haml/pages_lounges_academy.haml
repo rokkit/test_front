@@ -12,6 +12,7 @@
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/slider_main.js" }
 		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/openapi.js" }
 		%script{ :src => 'http://maps.googleapis.com/maps/api/js'}
 		%script{ :src => "./js/lib/snap.svg-min.js" }
@@ -133,55 +134,61 @@
 		-# Color Overlay
 		#color_overlay.color_overlay
 
+		-# Хидер
+		%header#header.pages_lounges_header
+			%img#menu_header_logo.pointer{ :src=>"./images/rezerv/logo.svg", :alt=>"Уникальные Кальянные"}
+			%nav
+				%a{:id=>"login_header_btn"} Войти
+				%a{:id=>"signup_header_btn"} Зарегистрироваться
+				%img#menu_header_btn.pointer{ :src=>"./images/rezerv/menu.svg", :alt=>"Меню"}
+
 		-# Основной контент
 		%main{:id => 'main_content'}
 			-# Первый блок
-			%section#liberty_block1
-				-# Хидер
-				%header#header
-					%img#menu_header_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-					%nav
-						%a{:id=>"login_header_btn"} Войти
-						%a{:id=>"signup_header_btn"} Зарегистрироваться
-						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
-				%hr
+			%section.lounges_block_1
 				-# Контент
-				%header
-					%h1.style-academy Академия
-					%p Trahit sua quemque voluptas*
-				-# Адрес, телефон и время работы
-				%section.information_lib
-					%figure
-						%img{ :src=>"./images/location_gold.svg" , :alt=>"Город" , :height=>"16px" }
-						%figcapation Новосибирск, Ядринцевская, 18
-					%figure
-						%img{ :src=>"./images/phone.svg" , :alt=>"Город" , :height=>"16px" }
-						%figcapation +7 (999) 303-05-03
-					%figure
-						%img{ :src=>"./images/clock.svg" , :alt=>"Город" , :height=>"16px" }
-						%figcapation
-							Ежедневно с 16:00 и до последнего гостя
-				-# Кнопка бронирования
-				%section.liberactions
-					%button.button-arrow#reserve_table_btn.style-academy Забронировать столик
-					-# 	 Связаться с нами
+				%section.content
+					%header
+						%h1 Академия
+						%p Trahit sua quemque voluptas*
+
+					%section.information
+						%figure
+							%img{ :src=>"./images/rezerv/location.svg", :alt=>"Город", :height=>"16px" }
+							%figcapation Новосибирск, Ядринцевская, 18
+						%figure
+							%img{ :src=>"./images/phone.svg" , :alt=>"Город" , :height=>"16px" }
+							%figcapation +7 (999) 303-05-03
+						%figure
+							%img{ :src=>"./images/clock.svg" , :alt=>"Город" , :height=>"16px" }
+							%figcapation
+								Ежедневно с 16:00 и до последнего гостя
+
+					-# Кнопка бронирования
+					%section.actions
+						%button.button-arrow.btn_arrow#reserve_table_btn Забронировать столик
+						-# 	 Связаться с нами
+
+				-# Герб
+				%section.blazon
+					-# Герб
+					%img.blazon{ :src=>"./images/blazons/academy.svg"}
+					-# Свечение
+					.blazon_glow
+					.blazon_glow_2
 
 				-# Подпись
 				%footer
 					%p *Каждого влечет его страсть
-				-# Герб
-				%img#liberty_herb.layer{ :src=>"./images/blazons/academy.svg", :"data-depth"=>"0.40"}
 
-				%img.gerb_glow_2{ :src=>"images/academy/glow.png"}
-				-#%img.gerb_glow{ :src=>"./images/sun_glow.svg"}
-
-			-# Второй блок
-			%section#liberty_block2
+			-# 2. Описание
+			%section.lounges_block_2
 				.text-wrapper-liberty
-					%h4.style-academy "Академия" - место, где тебя слышат
-					%p
-						Нам интересно не только сделать тебе кальян, а ещё и поделиться частицей себя, если позволишь - узнать тебя как человека, как профессионала своего дела. Ведь каждый человек в нашей жизни - это новые возможности. Не бойся быть открытым и искренним в "Академии".
-			%section#liberty_block3
+					%h4 "Академия" - место, где тебя слышат
+					%p Нам интересно не только сделать тебе кальян, а ещё и поделиться частицей себя, если позволишь - узнать тебя как человека, как профессионала своего дела. Ведь каждый человек в нашей жизни - это новые возможности. Не бойся быть открытым и искренним в "Академии".
+
+			-# 3. Слайдер
+			%section.lounges_block_3
 				%section.cd-hero
 					%ul.cd-hero-slider.autoplay
 						%li.selected
@@ -209,29 +216,96 @@
 								%li
 									%img.img-nav.pointer{:src => "./images/academy/slider/5.jpg"}
 
-			%section#liberty_block4
-				%header
-					%h2.style-academy Кальянные мастера
-					%p
-						Чем больше свободы в профессии - тем больше каждый человек проецирует себя в неё. Кальянное ремесло - одна из таких профессий. По нашей команде это хорошо видно: кто-то допускает больше творчества и бешеных сочетаний вкуса, кто-то делает проверенные стабильные кальяны. Они одинаково качественны, и ты можешь открыть для себя что-то новое в разные дни работы "Академии".
-				%br
-				%img{ :src=>"./images/academy/hms/bojestvenni.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/academy/hms/poleshuk.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
-				%img{ :src=>"./images/academy/hms/ryabichenko.svg" 	, :alt=>"Кальянщик" , :height=>"396px" }
+			-# 4. Кальянщики
+			%section.lounges_block_4
 
-			%section#liberty_block5
-				.map_overlay
-				.map_wrapper{:data => {'map' => {'lat' => '55.0330481', 'lng' => '82.9227613'}}}
+				%header
+					%h2 Кальянные мастера
+					%p Уникальная Кальянная «Академия»
+					%p Чем больше свободы в профессии - тем больше каждый человек проецирует себя в неё. Кальянное ремесло - одна из таких профессий. По нашей команде это хорошо видно: кто-то допускает больше творчества и бешеных сочетаний вкуса, кто-то делает проверенные стабильные кальяны. Они одинаково качественны, и ты можешь открыть для себя что-то новое в разные дни работы "Академии".
+
+				.wrapper_hm_cards
+					-# Божественный Евгений
+					%figure#btn_hm_1.pointer
+						.wrapper_hm_photo
+							.glow_html
+							.hm_photo
+								%img{:src => "./images/rezerv/hm_photo_placeholder.svg"}
+							%img.hm_lights{:src => "./images/rezerv/hm_photo_lights.svg"}
+						%figcapation.wrapper_hm_name
+							%h2 Божественный Евгений
+							%p «Академия»
+						%button.button_round Посмотреть
+						.wrapper_storke_corner
+							.hm_stroke_1
+							.hm_stroke_2
+							-# .hm_corner_wrapper
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+
+					-# Полещук Антон
+					%figure#btn_hm_2.pointer
+						.wrapper_hm_photo
+							.glow_html
+							.hm_photo
+								%img{:src => "./images/rezerv/hm_photo_placeholder.svg"}
+							%img.hm_lights{:src => "./images/rezerv/hm_photo_lights.svg"}
+						%figcapation.wrapper_hm_name
+							%h2 Полещук Антон
+							%p «Академия»
+						%button.button_round Посмотреть
+						.wrapper_storke_corner
+							.hm_stroke_1
+							.hm_stroke_2
+							-# .hm_corner_wrapper
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+
+					-# Рябиченко Вольфганг
+					%figure#btn_hm_3.pointer
+						.wrapper_hm_photo
+							.glow_html
+							.hm_photo
+								%img{:src => "./images/rezerv/hm_photo_placeholder.svg"}
+							%img.hm_lights{:src => "./images/rezerv/hm_photo_lights.svg"}
+						%figcapation.wrapper_hm_name
+							%h2 Рябиченко Вольфганг
+							%p «Академия»
+						%button.button_round Посмотреть
+						.wrapper_storke_corner
+							.hm_stroke_1
+							.hm_stroke_2
+							-# .hm_corner_wrapper
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+
+			-# 5. Карта
+			%section.lounges_block_5
+
+				-# Текстовый блок
 				%section#map_wrapper
 					%header
-						%h3.style-academy Новосибирск
+						%h3 Новосибирск
 						%p Центральный район
 
 					%p Академия находится напротив Центрального парка, в самом центре Новосибирска. Куда бы ты не направлялся на автомобиле - путь проходит совсем рядом с нами. Может быть, нам пора познакомиться?
 
-					%small Новосибирск, Ядринцевская, 18
+					%p
+						%img{:src => "./images/rezerv/location.svg"}
+						%small Новосибирск, Ядринцевская, 18
 
-			%section#liberty_block6
+				-# Карта
+				.map_wrapper{:data => {'map' => {'lat' => '55.0330481', 'lng' => '82.9227613'}}}
+					.map_overlay
+
+			-# 6. Контакты
+			%section.lounges_block_6
 				%header
 					%h2.style-academy Контакты
 					%h5 По вопросам справки обращайтесь по телефону в рабочее время:
@@ -246,13 +320,23 @@
 				%p
 					Ежедневно с 16:00 и до последнего гостя
 
-			%section#philosophie_block5
-				%h3 Trahit sua quemque voluptas*
-				%h6 *Каждого влечет его страсть
-				%br
-				%button.button-dark.style-academy Зарегистрироваться
+				%h6 Социальные сети
+				%p
+					%a{:ref=>"http://vk.com/club61931015"} Группа Вконтакте
 
-				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
-				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
-				%img.sun_rotation{ :src=>"./images/sun_lines.svg"}
-				%img{ :src=>"./images/sun.svg" , :alt=>"Звезда"}
+			-# 7. Присоединятесь!
+			%section.lounges_block_7
+				.wrapper_sun
+					%img.sun{ :src=>"./images/rezerv/sun.svg" , :alt=>"Звезда"}
+					%img.sun_rotation{ :src=>"./images/rezerv/sun_lines.svg"}
+
+					.sun_glow
+					.sun_glow_2
+
+				.wrapper_sun_text
+					%h3 Trahit sua quemque voluptas*
+					%h6 *Каждого влечет его страсть
+					%br
+					%button.button-arrow.btn_arrow Зарегистрироваться
+			-# %footer#true_footer
+			-# 	© 2015 Уникальные Кальянные. Все права защищены. Сделано с любовью в CPD&BBK.
