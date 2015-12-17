@@ -5,7 +5,7 @@ var skillBoard = (function(element, data, role){
   var layoutHeight = $(element).height();
   var lineDx = layoutWidth/6;
 
-  $('#dashboard_talents_btn').text((currentUser.skills.length+1)+'/'+data.skillCount);
+  $('#dashboard_talents_btn').text((currentUser.skills.length)+'/'+data.skillCount);
 
   d3.select(element).selectAll('*').remove();
   var layout = d3.select(element)
@@ -122,14 +122,43 @@ var skillBoard = (function(element, data, role){
                 function(json) {
                   $('#skill button').text('Использовать');
                   $('#skill .item_image').removeClass('color_blue_ach');
-                  d.can_take = false
-                  d.has = true
+                  $('#skill .skill_state').text('НАВЫК ИЗУЧЕН')
                   var arr = skillgen(json);
                   skillBoard('#skill-view', arr, role);
 
                   $('#skills figure[data-id='+d.id+'] img').removeClass('color_blue_ach')
                   $('#skills figure[data-id='+d.id+'] p').text('Изучен')
                   $('#skills figure[data-id='+d.id+']').attr('data-has', true)
+                  // $('#dashboard_talents_btn').text((currentUser.skills.length)+'/'+data.skillCount);
+
+                  $('#skill button').off()
+                  $('#skill button').on('click', function(){
+                    $.post(
+                      'http://176.112.194.149:81/api/v1/skills/'+d.id+'/use.json',
+                      {auth_token: currentUser.auth_token},
+                      function(usedSkill){
+                        $.getJSON(
+                          'http://176.112.194.149:81/api/v1/skills.json',
+                          {auth_token: currentUser.auth_token, role: role},
+                          function(json) {
+                            $('#skill button').off('click');
+                            var arr = skillgen(json);
+                            skillBoard('#skill-view', arr, role);
+
+                            var date = moment(usedSkill.used_at).format('DD.MM.YYYY');
+                            var cooldown_end_at = null;
+                            var date_text = 'Вы использовали навык '+ date;
+                            if(usedSkill.cooldown_end_at) {
+                              cooldown_end_at = moment(usedSkill.cooldown_end_at).format('DD.MM.YYYY');
+                              date_text += ', следующее использование возможно ' + cooldown_end_at;
+                            }
+
+                            $('#skill h4').text(date_text);
+                            $('#skill button').hide();
+                        });
+                      }
+                    );
+                  });
               });
             }
           );
