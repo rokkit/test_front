@@ -26,6 +26,7 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
+		%script{ :src => "./js/page_lounges.js" }
 	%body#html_body{:data => {'page' => 'lounges'}}
 		-# code acept
 		.wrapper.h_v_center
@@ -132,19 +133,22 @@
 		-# Color Overlay
 		#color_overlay.color_overlay
 
+		-# Хидер
+		%header#header
+			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
+			%nav
+				%a{:id=>"login_header_btn"} Войти
+				%a{:id=>"signup_header_btn"} Зарегистрироваться
+				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
+
 		-# Main conent
 		%main{:id => 'main_content'}
+			-# Блок первый
 			%section.section_1_bg
-				%header#header
-					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-					%nav
-						%a{:id=>"login_header_btn"} Войти
-						%a{:id=>"signup_header_btn"} Зарегистрироваться
-						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
 				%header
 					%h1 Посетите наши уникальные заведения
 					%p.h2_subtitle Заведения нашей сети - первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому клиенту.
-					%button#liberty_btn Открыть
+					%button.btn_arrow#liberty_btn Открыть
 				%section.instruments
 					-#%a.magnifying Искать по названию
 					-#%a.changeview Карта
