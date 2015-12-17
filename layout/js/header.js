@@ -32,15 +32,23 @@ $(function(){
 
   //Клик на кнопку регистрация в хедере
  $('#signup_header_btn').on('click', function() {
-
    if (!currentUser) {
      $('#wrapper_signup').css('pointer-events', 'auto');
      fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
-     //fx.do(['signup']);
    } else {
      document.location.href = '/tech_preloader.html?redirect=profile'
    }
  });
+
+ //Клик на кнопку регистрация внизу страницы
+$('.lounges_block_7 .btn_arrow').on('click', function() {
+  if (!currentUser) {
+    $('#wrapper_signup').css('pointer-events', 'auto');
+    fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+  } else {
+    document.location.href = '/tech_preloader.html?redirect=profile'
+  }
+});
 
  $('#login_form a').click(function(){
    fx.swap('loginPopup', 'signupPopup');

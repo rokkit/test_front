@@ -105,6 +105,12 @@ $(function() {
     document.location.href = '/pages_index.html'
   });
 
+  $('#logout_btn').click(function() {
+    localStorage.removeItem('currentUser')
+    window.currentUser = null
+    document.location.href = '/pages_index.html'
+  });
+
   $('section.username h1').text(currentUser.name);
   if(currentUser.city) {
     $('#city_user span').text(currentUser.city);
