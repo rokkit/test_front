@@ -1,4 +1,3 @@
-
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
 	%head
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
@@ -28,7 +27,6 @@
 		%script{ :src => "./js/lib/snap.svg-min.js" }
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
-		%title Уникальные Кальянные
 	%body#html_body{:data => {'page' => 'lounges'}}
 		-# code acept
 		.wrapper.h_v_center
@@ -55,9 +53,8 @@
 					%input{:type => "text", :name => "phone", :placeholder => "Телефон +7XXXXXXX"}
 					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
-					%button.button-arrow#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
-				%p
-					<small>* Пожалуйста, указывайте ваше настоящее Имя и Фамилию, так как при первом посещении любого из заведений будет производится проверка паспорта. </small>
+					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
+
 		-# Логин
 		.wrapper.center-center{:id => 'wrapper_login'}
 			%section#error_password.error_tooltip
@@ -128,11 +125,11 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
-				-# %a
-				-# 	%h3 Франшиза
-				-# 	%p Открыть Ложу
+				%a
+					%h3 Франшиза
+					%p Открыть Ложу
 
-				-# %button#go_login_from_menu_btn Круг избранных
+				%button#go_login_from_menu_btn Круг избранных
 
 		-# Color Overlay
 		#color_overlay.color_overlay
