@@ -4,7 +4,7 @@ var skillBoard = (function(element, data, role){
   var layoutWidth = $(element).width();
   var layoutHeight = $(element).height();
 
-  $('#dashboard_talents_btn').text((currentUser.skills.length+1)+'/'+data.skillCount);
+  $('#dashboard_talents_btn').text((currentUser.skills.length)+'/'+data.skillCount);
 
   d3.select(element).selectAll('*').remove();
   var layout = d3.select(element)
@@ -125,6 +125,7 @@ var skillBoard = (function(element, data, role){
                   $('#skills figure[data-id='+d.id+'] img').removeClass('color_blue_ach')
                   $('#skills figure[data-id='+d.id+'] p').text('Изучен')
                   $('#skills figure[data-id='+d.id+']').attr('data-has', true)
+                  // $('#dashboard_talents_btn').text((currentUser.skills.length)+'/'+data.skillCount);
 
                   $('#skill button').off()
                   $('#skill button').on('click', function(){
