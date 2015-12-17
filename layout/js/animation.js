@@ -132,6 +132,11 @@ var fxa = {
         transform: 'scale(0.95, 0.95)'
       }
     },
+    code_form:{
+      element: '#code_form',
+      options: {right:'0px', 'pointer-events':'auto'},
+      back: {right:"-1260px", 'pointer-events':"auto"}
+    },
     overlay:{
       element: '.color_overlay',
       options: {
@@ -150,6 +155,15 @@ var fxa = {
       element: '#login_form',
       options: { 'left': '190px' }
     },
+    pass:{
+      element: '#pass_form',
+      options: {'left': '190px'}
+    },
+    wrapper_pass:{
+      element: '#wrapper_pass',
+      options: {'pointer-events': 'auto'},
+      time: 0
+    },
     wrapper_login:{
       element: '#wrapper_login',
       options:{ 'pointer-events': 'auto' }
@@ -160,7 +174,8 @@ var fxa = {
     },
     signup:{
       element: '#signup_form',
-      options: { 'left': '120px' }
+      options: { 'left': '120px' },
+      back: {left:"1860px", 'pointer-events':"auto"}
     },
     wrapper_signup: {
       element: '#wrapper_signup',
@@ -168,6 +183,7 @@ var fxa = {
     },
     signupPopup: ['signup', 'wrapper_signup'],
     loginPopup: ['login', 'wrapper_login'],
+    passPopup: ['pass', 'wrapper_pass'],
     background: ['main', 'overlay', 'body']
   }
 };

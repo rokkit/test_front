@@ -2,6 +2,7 @@
 	%head
 		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/media.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
 		%script{ :src => "./js/jquery-2.1.4.min.js" }
 		%script{ :src => "./js/jquery.gsap.min.js" }
@@ -26,6 +27,16 @@
 		%script{ :src => "./js/lib/svgicons-config.js" }
 		%script{ :src => "./js/lib/svgicons.js" }
 	%body#html_body{:data => {'page' => 'lounges'}}
+		-# code acept
+		.wrapper.h_v_center
+			%section.popup_middle{:id => 'code_form'}
+				%header
+					%h2 Подтверждение
+					%p.h2_subtitle
+						Мы отправили смс с кодом подтверждения на ваш номер. <br>
+						Подтверждая номер, вы вступаете в тайное общество.
+					%input{:type => "text", :name => "code", :placeholder => "Код подтверждения"}
+					%button{:type=>"button", :name=>"ok"} Подтвердить
 
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}
@@ -56,7 +67,19 @@
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
 					%button{:type=>"sumbit", :name=>"sumbit"} Войти
-				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+				%a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+		-# Забыли пароль?
+		.wrapper.center-center{:id => 'wrapper_pass'}
+			%section#error_password.error_tooltip
+				Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+			%section.popup{:id => 'pass_form'}
+				%header
+					%h2 Восстановление пароля
+					%p.h2_subtitle
+						Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
+						%a{:href =>"#registration"} зарегистрируйтесь.
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%button{:type=>"button", :name=>"ok"} Отправить
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu

@@ -70,12 +70,29 @@ function card(blazons, color, name, nameCity, el){
     .attr('text-align', 'center')
 		.attr("font-family", "Bebas Neue");
 
+
 		var titleWidth = title.node().getBoundingClientRect().width;
 		var titleHeight = title.node().getBoundingClientRect().height;
 		var titleX = w/2 - titleWidth/2;
 		var titleY = blazonHeight + blazonY + 1;
   		title.attr('x', titleX);
   		title.attr('y', titleY);
+
+      if(screen.height < 490){
+        title.attr('font-size', 74);
+        titleWidth = title.node().getBoundingClientRect().width;
+        titleX = w/2 - titleWidth/2;
+        title.attr('x', titleX);
+    		title.attr('y', titleY-120);
+      }
+
+      if(screen.height > 490 && screen.height < 668){
+        title.attr('font-size', 74);
+        titleWidth = title.node().getBoundingClientRect().width;
+        titleX = w/2 - titleWidth/2;
+        title.attr('x', titleX);
+    		title.attr('y', titleY-120);
+      }
 
   		var titleCity = svgCard.append('text')
   		.text(nameCity)
@@ -89,6 +106,22 @@ function card(blazons, color, name, nameCity, el){
 		var titleCityY = titleY + titleHeight;
   		titleCity.attr('x', titleCityX);
   		titleCity.attr('y', titleCityY);
+
+      if(screen.height < 490){
+        titleCity.attr('font-size', 34);
+        titleCityWidth = titleCity.node().getBoundingClientRect().width;
+        titleCityX = w/2 - titleCityWidth/2;
+        titleCity.attr('x', titleCityX);
+    		titleCity.attr('y', titleCityY - 90);
+      }
+
+      if(screen.height > 490 && screen.height < 668){
+        titleCity.attr('font-size', 34);
+        titleCityWidth = titleCity.node().getBoundingClientRect().width;
+        titleCityX = w/2 - titleCityWidth/2;
+        titleCity.attr('x', titleCityX);
+    		titleCity.attr('y', titleCityY - 90);
+      }
 	});
 
 	d3.xml("../images/venzel-corner.svg", "image/svg+xml", function(error, xml){
@@ -98,8 +131,10 @@ function card(blazons, color, name, nameCity, el){
     	renderNode(svgCard, xml, 'corner2');
     	renderNode(svgCard, xml, 'corner3');
     	renderNode(svgCard, xml, 'corner4');
+
       var _cardId = '#' + cardId;
     	d3.select(_cardId + ' #corner1').attr('x', 16).attr('y', 16);
+
     	d3.select(_cardId + ' #corner1 path').attr('fill', color);
     	d3.select(_cardId + ' #corner2').attr('x', w - 32 - 16).attr('y', 16);
     	d3.select(_cardId + ' #corner2 path').attr('fill', color).attr('transform', 'rotate(90 16 16)')
@@ -107,6 +142,24 @@ function card(blazons, color, name, nameCity, el){
     	d3.select(_cardId + ' #corner3 path').attr('fill', color).attr('transform', 'rotate(180 16 16)')
     	d3.select(_cardId + ' #corner4').attr('x', 16).attr('y', h - 32 - 16);
     	d3.select(_cardId + ' #corner4 path').attr('fill', color).attr('transform', 'rotate(-90 16 16)')
+      if(screen.height < 490){
+        d3.select(_cardId + ' #corner1').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner2').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner2').attr('x', w - 32 - 16-68).attr('y', 16);
+        d3.select(_cardId + ' #corner3').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner3').attr('x', w - 32 - 16-68).attr('y', h - 32 - 16-68);
+        d3.select(_cardId + ' #corner4').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner4').attr('x', 16).attr('y', h - 32 - 16-68);
+      }
+      if(screen.height > 490 && screen.height < 668){
+        d3.select(_cardId + ' #corner1').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner2').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner2').attr('x', w - 32 - 16-68).attr('y', 16);
+        d3.select(_cardId + ' #corner3').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner3').attr('x', w - 32 - 16-68).attr('y', h - 32 - 16-68);
+        d3.select(_cardId + ' #corner4').attr('width', 100).attr('height', 100);
+        d3.select(_cardId + ' #corner4').attr('x', 16).attr('y', h - 32 - 16-68);
+      }
 	});
   return svgCard;
 }

@@ -15,7 +15,7 @@ $(function() {
   $('#edit-profile a').click(function(){
     fx.back();
   });
-  
+
   var $profile_wrapper = $('#edit-profile-wrapper')
   $profile_wrapper.find('input[name="name"]').val(currentUser.name)
   $profile_wrapper.find('input[name="country"]').val(currentUser.country)
@@ -46,7 +46,12 @@ $(function() {
           $('section.username h1').text(currentUser.name)
           $('#login_btn').text(currentUser.name)
           if(currentUser.city) {
-            $('#city_user span').text(currentUser.city)
+            $('#city_user span').text(currentUser.city + ', ' + currentUser.country)
+            $('#city_user a').hide()
+
+          } else {
+            $('#city_user span').text('')
+            $('#city_user a').show()
           }
           fx.back();
         },

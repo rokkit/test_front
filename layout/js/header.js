@@ -14,6 +14,7 @@ function bodyClick(e){
 
 function bodyClickOff(){
   $('body').off('click');
+  $('#wrapper_signup').css('pointer-events', 'none');
 }
 
 $(function(){
@@ -21,22 +22,32 @@ $(function(){
     if (!currentUser) {
       fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
     } else {
-      document.location.href = '/dashboard_client.html'
+      document.location.href = '/tech_preloader.html?redirect=profile'
     }
+  });
+
+  $('#recover_btn').on('click', function(){
+    fx.swap('loginPopup', 'passPopup');
   });
 
   //Клик на кнопку регистрация в хедере
  $('#signup_header_btn').on('click', function() {
 
    if (!currentUser) {
-     fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+     $('#wrapper_signup').css('pointer-events', 'auto');
+     fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+     //fx.do(['signup']);
    } else {
-     document.location.href = '/dashboard_client.html'
+     document.location.href = '/tech_preloader.html?redirect=profile'
    }
  });
 
  $('#login_form a').click(function(){
    fx.swap('loginPopup', 'signupPopup');
+ });
+
+ $('#pass_form a').click(function(){
+   fx.swap('passPopup', 'signupPopup');
  });
 
  $('#signup_form a').click(function(){
@@ -48,8 +59,6 @@ $(function() {
   window.currentUser = JSON.parse(localStorage.getItem('currentUser'))
 })
 
-
-
 $(function() {
   window.tl = null;
   window.hostUrl = 'http://176.112.194.149:81'
@@ -59,13 +68,6 @@ $(function() {
     svgIconConfig,
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
-
-
-
-  $('#btn1').on('click', function(){
-    $('body').click();
-    animateSignup();
-  });
 
   $('#philosophie_block5 .button-dark').on('click', function(){
     if (!currentUser) {
@@ -87,7 +89,6 @@ $(function() {
     bodyClick();
   });
 
-
   $('#recover_btn').on('click', function() {
     animateForm('recover_form')
   });
@@ -102,7 +103,8 @@ $(function() {
     animateForm('login_form')
   });
 
-  //Создание сесии
+
+//Создание сесии
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
     doLogin(formatPhone($('#login_form input[name="phone"]').val()), $('#login_form input[name="password"]').val())
@@ -113,9 +115,19 @@ $(function() {
     document.location.href = '/pages_index.html'
   });
 
+  $('#code_form button').on('click', function(){
+    var code = $('#code_form input[name="code"]').val();
+    $.post(hostUrl + '/api/v1/auth/registrations/confirm', {
+      code: code
+    }, function(resp){
+      successAuth(resp);
+    });
+  });
+
   //Регистрация
   $('#signup_form').on('submit', function(e) {
     e.preventDefault()
+
     var phone = formatPhone($('#signup_form input[name="phone"]').val())
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
@@ -153,7 +165,10 @@ $(function() {
       password: password
     }, function(resp) {
       if(!resp['errors']) {
-          doLogin(phone, password)
+        $('#wrapper_signup').css('pointer-events', 'none');
+        bodyClickOff();
+        fx.swap('signup', 'code_form');
+          //doLogin(phone, password)
       } else {
         $('#signup_form input').removeClass('wrong')
         if(resp['errors']['name']) {
@@ -175,42 +190,17 @@ $(function() {
     });
   });
   $('input[name="phone"]').mask('+7 (000) 000-00-00')
+
+  //восстановление пароля
+  $('#pass_form button').click(function(e) {
+    console.log('pass')
+    e.preventDefault()
+    var phone = formatPhone($('#pass_form input[name="phone"]').val())
+    $.post(hostUrl + '/api/v1/auth/sessions/forgot.json', {phone: phone}, function() {
+      fx.swap('passPopup', 'loginPopup');
+    })
+  });
 });
-
-// function bodyClick(){
-//   $('.popup').click(function(event){
-//     event.stopPropagation();
-//   });
-//
-//   $('body').on('click', function(e){
-//     if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A'){
-//       //animationReverse();
-//     }
-//   });
-// }
-
-function animateForm(el) {
-  var form = document.getElementById(el)
-  var wrapper =document.getElementById('wrapper_login')
-  var tl = null;
-
-  var tw1 = TweenLite.to(form, 1, {left:"160px", onComplete: function() {
-    $('.popup').click(function(event){
-      event.stopPropagation();
-    });
-    $('body').on('click', function(e) {
-      tl.reverse()
-    });
-  }})
-  var tw2 = TweenLite.to('#color_overlay', 1, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
-  var tw3 = TweenLite.to('#main_content', 1, {filter:"blur(5px)", "-webkit-filter":"blur(4px)", transform:"scale(0.95, 0.95)"})
-  var tw4 = TweenLite.to('body', 1, {overflow:"hidden"})
-  var tw5 = TweenLite.to(wrapper, 1, {'pointer-events':"auto"})
-
-  tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5], 'sequence');
-}
-
-
 
 function successAuth(resp) {
   if(resp.role == 'user') {
@@ -219,7 +209,7 @@ function successAuth(resp) {
     document.location.href = './dashboard_hmaster.html'
   }
   TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-  localStorage.setItem('currentUser', JSON.stringify(resp))
+  localStorage.setItem('currentUser', JSON.stringify(resp));
 
 }
 
@@ -298,4 +288,3 @@ $(function() {
     document.location.href = '/pages_index.html'
   });
 });
-

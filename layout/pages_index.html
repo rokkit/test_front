@@ -2,6 +2,7 @@
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'>
     <link href='./css/reset.css' rel='stylesheet'>
+    <link href='./css/media.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
     <script src='./js/jquery-2.1.4.min.js'></script>
     <script src='./js/jquery.gsap.min.js'></script>
@@ -27,6 +28,19 @@
     <script src='./js/lib/svgicons.js'></script>
   </head>
   <body data-page='lounges' id='html_body'>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='code_form'>
+        <header>
+          <h2>Подтверждение</h2>
+          <p class='h2_subtitle'>
+            Мы отправили смс с кодом подтверждения на ваш номер. <br>
+            Подтверждая номер, вы вступаете в тайное общество.
+          </p>
+          <input name='code' placeholder='Код подтверждения' type='text'>
+          <button name='ok' type='button'>Подтвердить</button>
+        </header>
+      </section>
+    </div>
     <div class='wrapper center-center' id='wrapper_signup'>
       <section class='popup' id='signup_form'>
         <header>
@@ -63,6 +77,23 @@
           <input name='password' placeholder='Пароль' type='password'>
           <button name='sumbit' type='sumbit'>Войти</button>
         </form>
+        <a href='#forgot_pass' id='recover_btn'>Вы забыли пароль?</a>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_pass'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='pass_form'>
+        <header>
+          <h2>Восстановление пароля</h2>
+          <p class='h2_subtitle'>
+            Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <button name='ok' type='button'>Отправить</button>
+        </header>
       </section>
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>
