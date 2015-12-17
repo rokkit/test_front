@@ -29,6 +29,8 @@
 		%script{ :src => "./js/menu.js" }
 		%script{ :src => "./js/profile.js" }
 		%script{ :src => "./js/achievements.js" }
+		%script{ :src => "./js/header.js" }
+
 		%title Профиль
 
 		-# Habmurger
@@ -307,14 +309,14 @@
 		-# Color Overlay
 		#color_overlay.color_overlay
 
+		%header#header
+			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
+			%nav
+				%a#edit_profile_btn Редактировать профиль
+				%a#logout_btn Выйти
+				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
+
 		%section.dashboard{:id => 'main_content'}
-			%header#header
-				%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-				%nav
-					%a#edit_profile_btn Редактировать профиль
-					%a#logout_btn Выйти
-					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
-			%hr
 			%section.username
 				-# #face
 				%h1	Виталий Пихонт
