@@ -1977,7 +1977,11 @@ section.lounges_block_6 p {
 section.lounges_block_6 p a {
   color: rgba(255, 255, 255, 0.5);
   font-size: 14px;
+  font-family: Open Sans Regular;
   line-height: 18px;
+}
+section.lounges_block_6 p a:hover {
+  color: #7DBE6D;
 }
 
 section.lounges_block_7 {
