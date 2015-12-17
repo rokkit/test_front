@@ -930,8 +930,6 @@ section.lounges article.lounge img {
   left: 0;
   width: 100%;
   height: 100%;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
   overflow: hidden;
   z-index: 300;
 }

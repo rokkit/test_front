@@ -6,6 +6,39 @@ $(function(){
   });
 });
 
+$(function(){
+  if(typeof google !== 'undefined' && $('#liberty_block5 .map_wrapper').length > 0){
+    (function(){
+      var lat = $('#liberty_block5 .map_wrapper').data('map-lat');
+      var lng = $('#liberty_block5 .map_wrapper').data('map-lng');
+      var mapProp = {
+          center:new google.maps.LatLng(lat, lng),
+          zoom:15,
+          scrollwheel: false,
+          navigationControl: false,
+          mapTypeControl: false,
+          scaleControl: true,
+          draggable: true,
+          mapTypeId:google.maps.MapTypeId.ROADMAP,
+          disableDefaultUI: true,
+          styles: [
+            {"stylers":[{"hue":"#ff1a00"},{"invert_lightness":true},{"saturation":-100},{"lightness":33},{"gamma":0.5}]},
+            {"featureType":"water","elementType":"geometry","stylers":[{"color":"#2D333C"}]}
+          ]
+        };
+
+        var map = new google.maps.Map($('#liberty_block5 .map_wrapper')[0], mapProp);
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map
+        });
+
+
+    })();
+  }
+});
+
 function bodyClick(e){
   $('body').on('click', function(e) {
     fx.back();
