@@ -1,6 +1,3 @@
-
-
-
 var fx = new FX(fxa.pages_index);
 
 $(function(){
@@ -91,7 +88,6 @@ $(function() {
   });
 
 
-
   $('#recover_btn').on('click', function() {
     animateForm('recover_form')
   });
@@ -112,7 +108,8 @@ $(function() {
     doLogin(formatPhone($('#login_form input[name="phone"]').val()), $('#login_form input[name="password"]').val())
   });
 
-  $('#header img').on('click', function() {
+  //Ссылка в логотипе
+  $('#menu_header_logo').on('click', function() {
     document.location.href = '/pages_index.html'
   });
 

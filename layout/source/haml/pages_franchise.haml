@@ -1,0 +1,176 @@
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+	%head
+		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/clouds.css" }
+		%script{ :src => "./js/jquery-2.1.4.min.js" }
+		%script{ :src => "./js/jquery.gsap.min.js" }
+		%script{ :src => "./js/TweenLite.min.js" }
+		%script{ :src => "./js/TweenMax.min.js" }
+		%script{ :src => "./js/jquery.mask.min.js" }
+		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/openapi.js" }
+		%script{ :src => "./js/lib/d3.js" }
+		%script{ :src => "./js/data.js" }
+		%script{ :src => "./js/nodes.js" }
+
+		%script{ :src => "./js/lib/snap.svg-min.js" }
+		%script{ :src => "./js/lib/svgicons-config.js" }
+		%script{ :src => "./js/lib/svgicons.js" }
+		%script{ :src => "./js/animation.js" }
+		%script{ :src => "./js/fx.js" }
+		%script{ :src => "./js/header.js" }
+		%script{ :src => "./js/community.js" }
+		%script{ :src => "./js/menu.js" }
+		%title Сообщество
+	%body#html_body{:data => {'page' => 'community'}}
+		-# Логин
+		.wrapper.center-center{:id => 'wrapper_login'}
+			%section.popup{:id => 'login_form'}
+				%header
+					%h2 Войти
+					%p.h2_subtitle
+						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
+						%a{:href =>"#registration"} зарегистрируйтесь.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button{:type=>"sumbit", :name=>"sumbit"} Войти
+				-# %a#recover_btn{:href =>"#forgot_pass"} Вы забыли пароль?
+
+		-# Регистрация
+		.wrapper.center-center{:id => 'wrapper_signup'}
+			%section.popup{:id => 'signup_form'}
+				%header
+					%h2 Регистрация
+					%p.h2_subtitle Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.
+				%form{:action => "", :method => "get"}
+					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
+					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
+					%button#open_liberty_btn{:type=>"sumbit", :name=>"sumbit"} Войти
+		-# Меню
+		.wrapper.center-center{:id => 'wrapper_menu'}
+			%section#menu_left_part.left_menu
+				%img{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+				%span
+					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+					%h5 Она задала нам неожиданный вопрос
+					%p 24 июл в 14:44 от #unihuqhookahplaces
+
+				%footer
+					%p Copyright © 2015 Уникальные Кальянные
+					%p
+						Создано в
+						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+			-# Left bar
+			%section#menu_right_part.right_menu
+				%img#closing{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+
+				-# %a
+				-# 	%h3#main_nav_btn Главная страница
+				-# 	%p Основная информация
+				%a
+					%h3#lounges_nav_btn Ложи
+					%p Уникальные заведения
+
+				%a
+					%h3#philosophy_nav_btn Философия
+					%p Наши ценности
+
+				%a
+					%h3#community_nav_btn Сообщество
+					%p Полезно быть своим
+				-# %a
+				-# 	%h3 Франшиза
+				-# 	%p Открыть Ложу
+
+				-# %button Войти
+
+		-# Color Overlay
+		#color_overlay.color_overlay
+
+		%main{:id => 'main_content'}
+			-# Первый блок
+			%section#community_block1
+				#viewport
+					#world
+				#viewport2
+					#world2
+				-# Хидер
+				%header#header
+					%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+					%nav
+						%a{:id=>"login_header_btn"} Войти
+						%a{:id=>"signup_header_btn"} Зарегистрироваться
+						#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
+					%hr
+				-# Контент
+				%img.image{ :src=>"./images/community_h1.svg" , :alt=>"Полезно быть своим"}
+			%section#community_block2
+				%h2
+					Самая лучшая сеть
+					%br
+					кальянных и только для вас
+				%br
+				%h3 Мы ценим профессионализм во всех его проявлениях. Данное требование предъявляется ко всем заведениям и сотрудникам сети. Кроме того, Уникальные Кальянные всегда особенно рады принимать у себя профессионалов своего дела
+				%br
+				%section.game_feature
+					%img{ :src=>"./images/game_feature_1.svg" , :alt=>"Общество равных"}
+					%h4 Общество равных
+					%p Уже много лет мы собираем вокруг себя близких по духу людей и это значит, что в стенах Уникальных Кальянных наши гости всегда смогут найти собеседника достойного уровня, завязать полезные знакомства и найти нужные контакты.
+				%section.game_feature
+					%img{ :src=>"./images/game_feature_2.svg" , :alt=>"Программа лояльности"}
+					%h4 Программа лояльности
+					%p Лояльность и доверие - для нас это не пустой звук, с древних времен эти понятия считались высшими ценностями в жизни. Записи о каждом вашем визите бережно хранятся в наших архивах и когда придёт срок, каждый будет вознаграждён.
+				%section.game_feature
+					%img{ :src=>"./images/game_feature_3.svg" , :alt=>"Неповторимый опыт"}
+					%h4 Неповторимый опыт
+					%p Каждое заведение Уникальных Кальянных предлагает вам атмосферу клуба единомышленников. Заходите, общайтесь с другими гостями, участвуйте в еженедельных мероприятиях и вы поймете в чем заключается наша уникальность.
+			%section#community_block3
+				%h3 Со временем вы обретёте полезные навыки, дающие право на получение определенных бонусов
+				%p Навыки разнообразны и позволяют получить целый ряд приятных преимуществ, начиная с дополнительных напитков при первом заказе за день и заканчивая возможностью отдыхать в заведении в нерабочие часы.
+				%br
+				%img{ :src=>"./images/game_skillset.svg" , :alt=>"Полезные бонусы"}
+				%video#dust{ :controls=>"false", :src=>"../video/vid.mp4", :autobuffer=>"true", :autoplay=>"true", :loop=>"true"}
+				#cb3grad
+				#cb3grad2
+				%video#dust#cb3smoke{ :controls=>"false", :src=>"../video/vid2.mp4", :autobuffer=>"true", :autoplay=>"true", :loop=>"true"}
+			-# %section#community_block4
+			-# 	%h2 Назначить встречу
+			-# 	%br
+			-# 	%p Наши заведения посещают люди с разными интересами, компетенциями и статусом. Если вы хотите познакомиться и пообщаться с кем-нибудь из них, вы можете пригласить их на встречу в Уникальных Кальянных.
+			%section#community_block5
+				#viewport-left
+				#viewport-right
+				#communication_is_important
+					.round
+						%img{ :src=>"./images/messages.svg" , :alt=>"Коммуникация"}
+					%br
+					%h3 Общение — это важно
+					%br
+					%p Мы общаемся с окружающими нас людьми каждый день, но в жизни современного человека общение это нечто большее чем просто обмен информацией.
+					%br
+					%p Именно от общения зависит наше положение в обществе, наши цели и настроение, поэтому круг общения играет важную роль
+					%br
+					%p Войдите в сообщество Уникальных Кальянных и вы сможете общаться с лучшими людьми вашего города.
+					%br
+					%br
+					%button.button-dark Перейти к философии
+					-# %img#block_5_bg{ :src=>"./images/community/block_5_bg.svg"}
+
+			%section#community_block6
+		%script{ :src => "./js/clouds.js" }
+		%script{ :src => "./js/clouds2.js" }

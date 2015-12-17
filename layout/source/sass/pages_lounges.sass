@@ -1,2 +1,912 @@
-.style-oblaka
-	color : #92CAE4 
+// 0. Переменные и прочее
+// ...................................................................... //
+
+$lounge_color: #7DBE6D
+$lounge_color_rgb: rgba(122,195,108,0.1)
+
+$lounge_block1_bg: "../images/rezerv/pages_lounges_block1_bg.jpg"
+
+// 1. Интро
+// ...................................................................... //
+#header
+    nav
+        a:hover
+            color: $lounge_color
+
+.lounges_block_1
+    +display-flex(flex)
+    position: relative
+    
+    width: 100%
+    height: 100%
+
+    +align-items(center)
+    
+    overflow: hidden
+
+    padding: 48px
+    
+    background: url("../images/places/places_bg_1_gradient.png"), url($lounge_block1_bg) 
+    background-size: 100% 100%, cover
+    background-repeat: no-repeat, no-repeat
+
+    z-index: 150
+
+    section.content
+        header
+            h1
+                color: $lounge_color
+                margin-bottom: 20px
+                font-size: 60px
+            p
+                font-family: Bebas Neue Book
+                font-size: 28px
+                letter-spacing: 4px
+                margin-bottom: 64px
+
+        section.information
+            display: block
+            position: relative
+            width: 100%
+            height: 64px
+            margin-bottom: 32px
+
+            figure
+                float: left
+                margin-right: 32px
+                
+                img
+                    float: left
+                    margin-right: 8px
+                
+                figcapation
+                    float: left
+                    font: normal normal 300 14px/18px Open Sans Regular
+                    letter-spacing: 0
+        
+        section.actions
+            
+            button
+                border: 1px solid $lounge_color
+
+                background: none
+
+                margin-right: 16px
+
+            button:hover
+                background: $lounge_color
+
+    section.blazon
+        display: block
+        position: absolute
+
+        height: 80%
+        width: auto
+        
+        top: 10%
+        right: -12%
+            
+        img.blazon
+            height: 100%
+
+        .blazon_glow 
+            display: block
+            position: absolute
+
+            top: calc(50% - 512px)
+            left: calc(50% - 512px)
+
+            width: 1024px
+            height: 1024px
+
+            +background-image(radial-gradient(512px 512px, $lounge_color, rgba(255,255,255,0)))
+            +opacity(0.2)
+
+            @include animation(sun_glow 16s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
+
+        .blazon_glow_2
+            display: block
+            position: absolute
+
+            top: calc(50% - 256px)
+            left: calc(50% - 256px)
+
+            width: 512px
+            height: 512px
+
+            +background-image(radial-gradient(200px 200px, $lounge_color, rgba(255,255,255,0)))
+            +opacity(0.15)
+
+            @include animation(sun_glow 16s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
+
+    
+    footer
+        display: block
+        position: absolute
+
+        left: 48px
+        bottom: 48px
+        
+        p
+            font-family: Lora
+            color: rgba(255,255,255,0.5)
+
+
+
+// 2. Описание заведения
+// ...................................................................... //
+
+.lounges_block_2
+    display: block
+    position: relative
+    width: 100%
+    height: auto
+    overflow: hidden
+
+    text-align: center
+
+    padding: 96px
+
+    background: url(../images/bg_glow.png)
+    background-size: cover
+
+    z-index: 150
+
+    .text-wrapper-liberty
+        display: inline-block
+        position: relative
+        width: 70%
+
+        h4
+            margin-bottom: 24px
+        p
+            font-family: Open Sans Regular
+            font-size: 14px
+            line-height: 18px
+            color: rgba(255,255,255,.5)
+
+
+
+
+// 3. Слайдер
+// ...................................................................... //
+
+.lounges_block_3
+    display: block
+    position: relative
+    height: 100%
+    width: 100%
+
+    overflow: hidden
+
+    z-index: 150
+
+    section.cd-hero
+        position: relative
+
+        height: 100%
+
+        ul.cd-hero-slider
+            position: relative
+
+            height: 100%
+
+            overflow: hidden
+
+            li.selected
+                position: relative
+                
+                +transform(translateX(0))
+                
+                @include animation(movearound 5s infinite linear)
+
+                @include keyframes(movearound)
+                    0%
+                        @include transform(scale(1))
+                    100%
+                        @include transform(scale(1.2))
+
+            li.move-left
+                +transform(translateX(100%))
+
+            li
+                position: absolute
+               
+                top: 0
+                left: 0
+                
+                width: 100%
+                height: 100%
+               
+                +transform(translateX(100%))
+
+                img.img-slider
+
+        .cd-slider-nav
+            position: absolute
+
+            width: 100%
+            height: 80px
+
+            bottom: 0
+
+            text-align: center
+            
+            overflow: hidden
+            
+            background-color: rgba(0,0,0,0.2)
+            
+            nav
+                display: inline-block
+                position: relative
+                
+                width: 100%
+                height: 100%
+
+                ul
+                    height: 100%
+                    
+                    li.selected
+                        top: 0%
+
+                    li.selected:hover .img-nav
+                        +transform(scale(1.2))
+
+                    li
+                        display: inline-block
+                        position: relative
+
+                        width: 20%
+                        top: 75%
+
+                        background: $lounge_color
+
+                        float: left
+
+                        overflow: hidden
+
+                        +transition(all, 200ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+                       
+                        img.img-nav
+                            width: 100%
+
+                            +transition(all, 200ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+                    li:hover
+                        top: 0%
+                    
+                    li:hover .img-nav
+                        +transform(scale(1.2))
+
+                    li:active .img-nav
+                        +transform(scale(1))
+                        +opacity(0.2)
+
+
+
+
+// 4. Кальянщики
+// ...................................................................... //
+
+section.lounges_block_4
+    display: block
+    position: relative
+    
+    width: 100%
+    height: auto
+    
+    text-align: center
+
+    padding: 96px
+    
+    overflow: hidden
+    
+    background: url(../images/bg_glow.png)
+    background-size: cover
+
+    z-index: 150
+
+    header
+        display: inline-block
+        width: 63%
+       
+        h2
+            font-size: 36px
+            letter-spacing: 4px
+            line-height: 48px
+            color: $lounge_color
+
+        p:first-of-type
+            color: white
+            font-family: Lora Regular
+            font-size: 16px
+            letter-spacing: 1px
+
+            margin-bottom: 24px
+        
+        p
+            color: rgba(255,255,255,.5)
+            margin-bottom: 48px
+
+    .wrapper_hm_cards
+        display: block
+        position: relative
+
+        width: 100%
+        height: auto
+
+        figure
+            display: inline-block
+            position: relative
+
+            width: 296px
+            height: 480px
+
+            margin: 16px
+
+            +background-image(linear-gradient(#353941, #282C34))
+
+            +transition(all, 250ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+            .wrapper_hm_photo
+                display: block
+                position: absolute
+
+                width: 296px
+                height: 296px
+
+                top: 0
+                left: 0
+
+                .glow_html 
+                    display: block
+                    position: absolute
+
+                    top: calc(50% - 148px)
+                    left: calc(50% - 148px)
+
+                    width: 296px
+                    height: 296px
+
+                    +background-image(radial-gradient(136px 136px, $lounge_color, rgba(255,255,255,0)))
+                    +opacity(0.20)
+
+                    @include animation(sun_glow 16s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
+
+                .hm_photo
+                    display: block
+                    position: absolute
+
+                    width: 64px
+                    height: 64px
+
+                    top: calc(50% - 32px)
+                    left: calc(50% - 32px)
+
+                    border-radius: 32px
+
+                .hm_lights
+                    display: block
+                    position: absolute
+
+                    width: 296px
+                    height: 296px
+
+                    top: calc(50% - 148px)
+                    left: calc(50% - 148px)
+
+                    @include animation(sun_rotation 8s linear 0s infinite normal)
+
+            .wrapper_hm_name
+                display: block
+                position: relative
+
+                margin-top: 280px
+
+                h2
+                    color: white
+                    font-size: 24px
+                    line-height: 32px
+                    
+                    margin-bottom: 4px
+                p
+                    color: rgba(255,255,255,0.5)
+                    font-family: Lora Regular
+                    font-size: 14px
+                    letter-spacing: 1px
+
+                    margin-bottom: 32px
+
+            .button_round
+                display: inline-block
+                position: relative
+
+                height: 40px
+                width: 160px
+
+                border-radius: 24px
+
+                border: 1px solid $lounge_color
+                background: none
+
+                color: $lounge_color
+                text-align: center
+                font-family: Open Sans Regular
+                font-size: 12px
+
+            .wrapper_storke_corner
+                display: block
+                position: absolute
+
+                width: 100%
+                height: 100%
+
+                left: 0
+                top: 0
+                
+                .hm_stroke_1
+                    display: block
+                    position: absolute
+
+                    width: calc(100% - 16px)
+                    height: calc(100% - 16px)
+
+                    border: 2px solid $lounge_color
+                    +opacity(.4)
+
+                    left: 8px
+                    top: 8px
+                
+                .hm_stroke_2
+                    display: block
+                    position: absolute
+
+                    width: calc(100% - 24px)
+                    height: calc(100% - 24px)
+
+                    border: 2px solid $lounge_color
+                    +opacity(.2)
+
+                    left: 12px
+                    top: 12px
+
+                .hm_corner_wrapper
+                    display: block
+                    position: absolute
+
+                    width: 100%
+                    height: 100%
+
+                    left: 0
+                    top: 0
+            
+                    .hm_corner_img
+                        display: block
+                        position: absolute
+
+                        width: 32px
+                        height: 32px
+
+                    img:nth-child(1)
+                        left: 24px
+                        top: 24px
+
+                    img:nth-child(2)
+                        right: 24px
+                        top: 24px
+
+                        +transform(rotate(90deg))
+
+                    img:nth-child(3)
+                        left: 24px
+                        bottom: 24px
+
+                        +transform(rotate(270deg))
+
+                    img:nth-child(4)
+                        right: 24px
+                        bottom: 24px
+
+                        +transform(rotate(180deg))
+
+        figure:hover
+            transform: perspective(1200px) rotate3d(10,0,0,-15deg)
+            box-shadow: 0 0 160px $lounge_color_rgb
+
+        figure:hover .button_round
+            background: $lounge_color
+
+            color: white
+
+// 4,5. Попап кальянщика
+// ...................................................................... //
+#wrapper_hm_popup
+    display: block
+    position: fixed
+
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+    width: 100%
+    height: 100%
+
+    pointer-events: none
+
+    background: none
+
+    z-index: 300
+
+    section.hm_popup
+        display: block
+        position: absolute
+
+        left: 0
+        top: 100%
+
+        width: 100%
+        height: 100%
+
+        overflow: auto
+
+        padding: 96px    
+        text-align: center
+
+        background: white
+
+        header
+            margin-bottom: 32px
+            
+            h2
+                color: $lounge_color
+                font-size: 48px
+
+            p
+                font-family: Lora
+                font-size: 18px
+                letter-spacing: 50%
+                color: black
+
+        section
+            display: inline-block
+            width: 50%
+            text-align: left
+            color: rgba(255,255,255,.4)
+            
+            p
+                text-align: justify-content
+                margin-bottom: 18px
+                color: rgba(0,0,0,0.6)
+
+        img.cross_white_popup
+            display: block
+            position: absolute
+
+            top: 48px
+            right: 48px
+
+            width: 16px
+            height: 16px
+
+            +transition(all, 250ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+        img.cross_white_popup:hover
+            +transform(rotate(180deg))
+        
+        img.cross_white_popup:active
+            +transform(rotate(180deg) scale(0.8))
+
+// 5. Карта
+// ...................................................................... //
+
+section.lounges_block_5
+    +display-flex(flex)
+    position: relative
+
+    width: 100%
+    min-height: 100%
+
+    +justify-content(flex-end)
+    +align-items(center)
+
+    padding: 48px
+
+    overflow: hidden
+
+    background: black
+
+    z-index: 150
+
+    #map_wrapper
+        display: inline-block
+        position: relative
+
+        width: 18%
+        height: auto
+
+        text-align: left
+
+        padding: 48px
+        box-sizing: content-box
+
+        background: #282C34
+
+        z-index: 300
+
+        header
+            h3
+                font-size: 30px
+                letter-spacing: 4px
+                
+                color: $lounge_color
+
+                margin-bottom: 0px
+
+            p
+                font-size: 14px
+                font-family: Lora
+                
+                color: white
+
+                margin-bottom: 32px
+
+        p
+            font-size: 12px
+            line-height: 20px
+            
+            color: rgba(255,255,255,0.5)
+            
+            margin-bottom: 48px
+
+        p:last-of-type
+            display: block
+            position: relative
+
+            width: 100%
+            height: auto
+
+            img
+                display: inline-block
+                position: relative
+
+                height: 12px
+                width: 12px
+
+                float: left
+            
+            small
+                display: inline-block
+                position: relative
+
+                float: left
+
+                margin-left: 20px
+                margin-top: -14px
+                
+                color: white
+                font-size: 12px
+                line-height: 16px
+
+    .map_wrapper
+        display: block
+        position: absolute
+
+        top: 0
+        left: 0
+
+        width: 100%
+        height: 100%
+
+        filter: grayscale(100%)
+        -webkit-filter: grayscale(100%)
+
+        overflow: hidden
+
+        z-index: 200
+
+        .map_overlay
+            display: block
+            position: absolute
+
+            top: 0
+            left: 0
+
+            width: 100%
+            height: 100%
+
+            z-index: 150
+
+// 6. Контакты
+// ...................................................................... //
+
+section.lounges_block_6
+    display: block
+    position: relative
+   
+    width: 100%
+    height: 100%
+   
+    padding: 196px 0px 0px 96px
+   
+    background: url(../images/bg_glow.png)
+    background-size: cover
+
+    header
+
+        h2
+            font-size: 48px
+            font-family: Bebas Neue
+            letter-spacing: 4px
+            color: $lounge_color
+
+        h5
+            margin-bottom: 48px
+   
+    h6
+
+        margin-bottom: 8px
+    
+    p
+        display: block
+        color: rgba(255,255,255,.5)
+
+        margin-bottom: 24px
+
+        font-size: 14px
+        line-height: 18px
+
+        a
+            color: rgba(255,255,255,.5)
+            font-size: 14px
+            line-height: 18px
+
+
+// 7. Зарегистрироваться
+// ...................................................................... //
+section.lounges_block_7
+    +display-flex(flex)
+    position: relative
+
+    width: 100%
+    height: auto
+
+    +align-items(center)
+    +justify-content(center)
+
+    padding: 120px
+
+    overflow: hidden
+
+    background: url('../images/bg_glow.jpg')
+
+    z-index: 150
+
+    .wrapper_sun
+        position: absolute
+        display: block
+        
+        height: 400px
+        width: 400px
+        
+        top: -200px
+        left: calc(50% - 200px)
+
+        img.sun
+            display: block
+            position: absolute
+
+            height: 100%
+            width: 100%
+
+        img.sun_rotation
+            position: absolute
+
+            top: 0
+            left: 0
+
+            height: 400px
+            width: 400px
+
+            @include animation(sun_rotation 8s linear 0s infinite normal)
+
+        @include keyframes(sun_rotation)
+            0%
+                @include transform( rotate(0) )
+            100%
+                @include transform( rotate(360deg) )
+
+        .sun_glow 
+            display: block
+            position: absolute
+
+            top: calc(50% - 512px)
+            left: calc(50% - 512px)
+
+            width: 1024px
+            height: 1024px
+
+            +background-image(radial-gradient(512px 512px, $lounge_color, rgba(255,255,255,0)))
+            +opacity(0.10)
+
+            @include animation(sun_glow 16s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
+
+        .sun_glow_2
+            display: block
+            position: absolute
+
+            top: calc(50% - 256px)
+            left: calc(50% - 256px)
+
+            width: 512px
+            height: 512px
+
+            +background-image(radial-gradient(200px 200px, $lounge_color, rgba(255,255,255,0)))
+            +opacity(0.20)
+
+            @include animation(sun_glow 16s cubic-bezier(0.42,0,0.58,1) 0s infinite normal)
+
+        @include keyframes(sun_glow)
+            0%
+                @include transform( scale(1) )
+            20%
+                @include transform( scale(1.2) )
+            40%
+                @include transform( scale(1.1) )
+            60%
+                @include transform( scale(0.9) )
+            80%
+                @include transform( scale(1.1) )
+            100%
+                @include transform( scale(1) )
+
+    .wrapper_sun_text
+        display: block
+        position: relative
+
+        text-align: center
+
+        z-index: 300
+
+        h3
+            font-size: 40px
+            margin-bottom: 8px
+
+        h6
+            position: relative
+
+            color: rgba(255,255,255,0.5)
+
+            font-family: Lora
+            font-size: 14px
+            letter-spacing: 0
+
+            margin-bottom: 48px
+
+        button
+            border: 1px solid $lounge_color
+            background: none
+        
+        button:hover
+            background: $lounge_color
+
+// 8. Футер
+// ...................................................................... //
+footer#true_footer
+    display: block
+    position: relative
+
+    width: 100%
+    height: auto
+
+    padding: 64px
+
+    text-align: center
+    color: white
+    font-family: Bebas Neue Book
+    font-size: 15px
+    letter-spacing: 2px
+    text-transform: uppercase
+
+    background: black
+
