@@ -7,10 +7,10 @@ $(function(){
 });
 
 $(function(){
-  if(typeof google !== 'undefined' && $('#liberty_block5 .map_wrapper').length > 0){
+  if(typeof google !== 'undefined' && $('.lounges_block_5 .map_wrapper').length > 0){
     (function(){
-      var lat = $('#liberty_block5 .map_wrapper').data('map-lat');
-      var lng = $('#liberty_block5 .map_wrapper').data('map-lng');
+      var lat = $('.lounges_block_5 .map_wrapper').data('map-lat');
+      var lng = $('.lounges_block_5 .map_wrapper').data('map-lng');
       var mapProp = {
           center:new google.maps.LatLng(lat, lng),
           zoom:15,
@@ -27,7 +27,7 @@ $(function(){
           ]
         };
 
-        var map = new google.maps.Map($('#liberty_block5 .map_wrapper')[0], mapProp);
+        var map = new google.maps.Map($('.lounges_block_5 .map_wrapper')[0], mapProp);
 
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(lat, lng),
@@ -122,10 +122,30 @@ $(function() {
     bodyClick();
   });
 
-  //Создание сесии
+  $('#recover_btn').on('click', function() {
+    animateForm('recover_form')
+  });
+
+  //Клик на войти в форме регисрации
+  $('#login_in_signin_btn').on('click', function() {
+    animateForm('login_form')
+  });
+
+  //Клик на войти в форме восстановления пароля
+  $('#login_in_recover_btn').on('click', function() {
+    animateForm('login_form')
+  });
+
+
+//Создание сесии
   $('#login_form').on('submit', function(e) {
     e.preventDefault()
     doLogin(formatPhone($('#login_form input[name="phone"]').val()), $('#login_form input[name="password"]').val())
+  });
+
+  //Ссылка в логотипе
+  $('#menu_header_logo').on('click', function() {
+    document.location.href = '/pages_index.html'
   });
 
   $('#code_form button').on('click', function(){
@@ -135,10 +155,6 @@ $(function() {
     }, function(resp){
       successAuth(resp);
     });
-  });
-
-  $('#header img').on('click', function() {
-    document.location.href = '/pages_index.html'
   });
 
   //Регистрация

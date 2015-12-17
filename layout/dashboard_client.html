@@ -4,6 +4,7 @@
     <link href='./css/reset.css' rel='stylesheet'>
     <link href='./css/media-dash-client.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
+    <link href='./css/pikaday.css' rel='stylesheet'>
     <script src='./js/jquery-2.1.4.min.js'></script>
     <script src='./js/jquery.gsap.min.js'></script>
     <script src='./js/TweenLite.min.js'></script>
@@ -15,6 +16,7 @@
     <script src='./js/lib/svgicons.js'></script>
     <script src='./js/underscore-min.js'></script>
     <script src='./js/moment-with-locales.js'></script>
+    <script src='./js/lib/pikaday.js'></script>
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
     <script src='./js/dashboard.js'></script>
@@ -97,7 +99,7 @@
             <option data-time='2230' value='22:30'>22:30</option>
             <option data-time='2300' value='23:00'>23:00</option>
           </select>
-          <button name='sumbit' type='sumbit'>Отправить приглашения</button>
+          <button class='button-arrow' name='sumbit' type='sumbit'>Отправить приглашения</button>
           <br>
           <select name='invate-dropdown'>
             <option>
@@ -151,7 +153,7 @@
             <option data-time='2230' value='22:30'>22:30</option>
             <option data-time='2300' value='23:00'>23:00</option>
           </select>
-          <button name='sumbit' type='sumbit'>Забронировать</button>
+          <button class='button-arrow' name='sumbit' type='sumbit'>Забронировать</button>
         </form>
       </section>
     </div>
@@ -164,21 +166,21 @@
           </p>
         </header>
         <form action='' method='get'>
-          <button name='sumbit' type='sumbit'>Отлично</button>
+          <button class='button-arrow' name='sumbit' type='sumbit'>Отлично</button>
         </form>
       </section>
     </div>
     <div class='wrapper h_v_center'>
       <section class='popup_middle' id='invate_succes_form'>
         <header>
-          <h2>Приглашения отправлены</h2>
+          <h2>Приглаше��ия отправлены</h2>
           <p class='h2_subtitle'>
-            Если кто-то из приглашенных вами людей согласи��ся на встречу,
+            Если кто-то из приглашенных вами людей согласится на встречу,
             <br> вы увидете уведомление в личном кабинете.
           </p>
         </header>
         <form action='' method='get'>
-          <button name='sumbit' type='sumbit'>Отлично</button>
+          <button class='button-arrow' name='sumbit' type='sumbit'>Отлично</button>
         </form>
       </section>
     </div>
@@ -191,7 +193,7 @@
             <br> Макс, Петя, Вася
           </p>
           <button class='cancel-btn' name='cancel' type='button'>Отказаться</button>
-          <button name='ok' type='button'>Согласиться</button>
+          <button class='button-arrow' name='ok' type='button'>Согласиться</button>
         </header>
       </section>
     </div>
@@ -243,7 +245,7 @@
         <h2 class='skill_header'></h2>
         <h4 class='skill_state'></h4>
         <p class='skill_description'></p>
-        <button>Получить навык</button>
+        <button class='button-arrow'>Получить навык</button>
       </section>
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>
@@ -316,7 +318,7 @@
               <input name='old_password' placeholder='Старый пароль' type='password'>
               <input name='new_password' placeholder='Новый пароль' type='password'>
             </fieldset>
-            <button name='sumbit' type='sumbit'>Сохранить</button>
+            <button class='button-arrow' name='sumbit' type='sumbit'>Сохранить</button>
           </form>
         </section>
       </section>

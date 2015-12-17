@@ -332,10 +332,8 @@ $(function() {
           }
 
           var percentsExp = 0
-          if(exp != 0) {
-              percentsExp = parseInt(exp*100 / (need_to_levelup + exp))
-          }
-          $('.progress').css('width', percentsExp + '%' )
+
+          $('.progress').css('width', json.percents_exp + '%' )
           window.currentUser = json
           localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
           if (currentUser.role == 'hookmaster' && document.location.href.split('/')[3] == 'dashboard_client.html') {
@@ -347,7 +345,7 @@ $(function() {
     });
 
     function makeUserRating(users_month, users_all_time) {
-      users_month = _.sortBy(_.filter(users_month, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
+      console.log(users_month, users_all_time)
       $('#section-per-month .leaders').empty()
       var user_rating_tpl = _.template($('#user_rating_tpl').html())
       $.each(users_month, function(i) {
@@ -361,7 +359,6 @@ $(function() {
         }))
       })
 
-      users_all_time = _.sortBy(_.filter(users_all_time, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
       $('#section-per-all-time .leaders').empty()
       $.each(users_all_time, function(i) {
         if(i == users_all_time.length - 1) {
@@ -410,7 +407,21 @@ $(function() {
           $('select[name="visit_time"]').html(times)
       } else if (visit_date == 'date_choose') {
           $(this).replaceWith('<input type=text name="visit_date" id="visit_date" placeholder="ГГГГ-ММ-ДД"/>')
-          $('#visit_date').mask('0000-00-00')
+          var picker = new Pikaday({
+            field: document.getElementById('visit_date'),
+            format: 'YYYY-MM-DD',
+            firstDay: 1,
+            minDate: new Date(),
+            i18n: {
+                previousMonth : 'Предыдущий Месяц',
+                nextMonth     : 'Следующий Месяц',
+                months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+                weekdaysShort : ['Вск','Пон','Вт','Ср','Чт','Пт','Сб']
+            }
+          });
+          picker.show()
+          // $('#visit_date').mask('0000-00-00')
           $('select[name="visit_time"]').html(times)
       }
     });

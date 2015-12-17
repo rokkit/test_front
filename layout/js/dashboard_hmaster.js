@@ -146,7 +146,7 @@ $(function() {
   })
 
   $.getJSON(hostUrl + '/api/v1/users/rating.json', {role: currentUser.role, auth_token: currentUser.auth_token}, function(json) {
-    makeUserRating(json)
+    makeUserRating(json.users_month, json.users_all_time)
   })
   // $.getJSON(hostUrl + '/api/v1/works.json', {auth_token: currentUser.auth_token}, function(json) {
   //   makeHookmasterWorks(json)
@@ -157,15 +157,30 @@ $(function() {
   })
 })
 
-function makeUserRating(users) {
-  users = _.sortBy(_.filter(users, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
+function makeUserRating(users_month, users_all_time) {
+  users_month = _.sortBy(_.filter(users_month, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
   $('#section-per-month .leaders').empty()
   var user_rating_tpl = _.template($('#user_rating_tpl').html())
-  $.each(users, function(i) {
-
-    $('#section-per-month .leaders').append(user_rating_tpl({
+  $.each(users_month, function(i) {
+    if(i == users_month.length - 1) {
+      $('#section-per-month #rating_top').append('<div class="border-bottom-dashed"></div>')
+    }
+    $('#section-per-month #rating_top').append(user_rating_tpl({
       name: this.name,
-      number: i+1,
+      number: i + 1,
+      exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    }))
+  })
+
+  users_all_time = _.sortBy(_.filter(users_all_time, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
+  $('#section-per-all-time .leaders').empty()
+  $.each(users_all_time, function(i) {
+    if(i == users_all_time.length - 1) {
+      $('#section-per-all-time .leaders').append('<div class="border-bottom-dashed"></div>')
+    }
+    $('#section-per-all-time .leaders').append(user_rating_tpl({
+      name: this.name,
+      number: i + 1,
       exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     }))
   })
