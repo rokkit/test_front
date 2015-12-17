@@ -99,8 +99,6 @@ var skillBoard = (function(element, data, role){
     if(!d.has){
       if(d.can_take){
         bodyClickOff()
-        $('#skill .item_image').addClass('color_blue_ach');
-
         $('#skill h4').text('Этот навык доступен для изучения');
         $('#skill button').show();
         $('#skill button').text('Изучить');
@@ -121,7 +119,6 @@ var skillBoard = (function(element, data, role){
                 {auth_token: currentUser.auth_token, role: role},
                 function(json) {
                   $('#skill button').text('Использовать');
-                  $('#skill .item_image').removeClass('color_blue_ach');
                   $('#skill .skill_state').text('Навык изучен')
                   var arr = skillgen(json);
                   skillBoard('#skill-view', arr, role);
@@ -167,11 +164,9 @@ var skillBoard = (function(element, data, role){
 
       }else{
         $('#skill h4').text('Этот навык не изучен');
-        $('#skill .item_image').addClass('color_blue_ach');
         $('#skill button').hide();
       }
     }else{
-      $('#skill .item_image').removeClass('color_blue_ach');
       if(d.used_at === null){
         $('#skill h4').text('У вас уже есть этот навык');
         $('#skill button').show();

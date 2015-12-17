@@ -21,7 +21,6 @@ function bodyClickOff(){
 function card(id){
     var achiv = $(this)
     var el = $('#all_ach figure[data-id='+id+']')
-    console.log(el.attr('data-open'))
     $('#achivka h2').text(el.find('h6').text())
     $('#achivka p').text(el.attr('data-description'))
     $('#achivka img').attr('src', (el.find('img').attr('src')))
@@ -33,34 +32,70 @@ function card(id){
     fx.do(['achiv', 'allAchivBG']);
 }
 
+function drawAchievementDetail(name, description, image, open) {
+  $('#achivka .skill_header').text(name)
+  $('#achivka .skill_description').text(description)
+  $('#achivka .item_image').attr('src', image)
+  if(open) {
+    $('#achivka .skill_state').text('Получено')
+  } else {
+    $('#achivka .skill_state').text('Не получено')
+  }
+
+
+}
+
 $(function() {
+
   $.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token, role: currentUser.role}, function(json) {
     $('#achievements').empty()
     $('#all_ach .wrapper_for_ach').empty()
     $('#dashboard_ach_btn').text(currentUser.achievements.length+'/'+json.length)
     var user_achivs = _.map(currentUser.achievements, function(a) { return a.id });
+
+    var achievementsNotViewed = []
     $.each(json, function(i) {
-      var open = _.contains(user_achivs, this.id)
+      // var open = _.contains(user_achivs, this.id)
       var klass = ''
       var state = 'Получено'
-      if(!open) {
+      if(!this.open) {
         klass = 'color_blue_ach'
         state = 'Не получено'
+
+
+      } else {
+        //показать модалку ачивки если еще не видел ее до этого
+        if(!this.viewed) {
+          achievementsNotViewed.push(this)
+        }
       }
-      var template = "<figure data-open="+open+" data-id="+this.id+" onclick='card("+this.id+")' data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
+      var template = "<figure data-open="+this.open+" data-id="+this.id+" onclick='card("+this.id+")' data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template);
+
+
+
     })
+    //показать модалку ачивки если еще не видел ее до этого
+    if (achievementsNotViewed.length > 0) {
+      var achiv = achievementsNotViewed[0]
+      setTimeout(function() {
+        drawAchievementDetail(achiv.name, achiv.description, hostUrl + achiv.image, achiv.open)
+        fx.do(['achiv', 'background'], bodyClick, bodyClickOff);
+        $.post(hostUrl + '/api/v1/achievements/'+achiv.id+'/viewed.json', {auth_token: currentUser.auth_token}, function() {
+
+        })
+      }, 2000);
+    }
     json = json.slice(0, 5)
 
       $.each(json, function(i) {
-        var open = _.contains(user_achivs, this.id)
         var klass = ''
         var state = 'Получено'
-        if(!open) {
+        if(!this.open) {
           klass = 'color_blue_ach'
           state = 'Не получено'
         }
-        var template = "<figure data-open="+open+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
+        var template = "<figure data-open="+this.open+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
         $('#achievements').append(template)
       })
     })
@@ -101,15 +136,11 @@ $(function() {
   // Открытие достижения
   $(document).on('click', '#achievements figure',function() {
     var achiv = $(this)
-    $('#achivka .skill_header').text(achiv.find('h6').text())
-    $('#achivka .skill_description').text(achiv.attr('data-description'))
-    $('#achivka .item_image').attr('src', (achiv.find('img').attr('src')))
-    if(achiv.data('open')) {
-      $('#achivka .skill_state').text('Получено')
-    } else {
-      $('#achivka .skill_state').text('Не получено')
-    }
-
+    drawAchievementDetail( achiv.find('h6').text(),
+                           achiv.attr('data-description'),
+                           achiv.find('img').attr('src'),
+                           achiv.data('open')
+                          )
     fx.do(['achiv', 'background'], bodyClick, bodyClickOff);
   });
   // Открытие навыка
@@ -118,12 +149,9 @@ $(function() {
     $('#skill .skill_header').text(skill.find('h6').text());
     $('#skill .skill_description').text(skill.attr('data-description'));
     $('#skill .item_image').attr('src', (skill.find('img').attr('src')));
-    console.log(skill)
     if(skill.data('has')) {
-      $('#skill .item_image').removeClass('color_blue_ach')
       $('#skill .skill_state').text('Изучен')
     } else {
-      $('#skill .item_image').addClass('color_blue_ach')
       $('#skill .skill_state').text('Не изучен')
     }
     fx.do(['skill', 'background'], bodyClick, bodyClickOff);
