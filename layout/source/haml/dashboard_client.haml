@@ -29,7 +29,6 @@
 		%script{ :src => "./js/menu.js" }
 		%script{ :src => "./js/profile.js" }
 		%script{ :src => "./js/achievements.js" }
-		%script{ :src => "./js/header.js" }
 
 		%title Профиль
 
@@ -345,22 +344,21 @@
 					%header
 						%h4 Брони
 					.nodata
-						нет данных
+						Вы еще не оставили ни одного бронирования
 					%table
 						%thead
 							%tr
 								%th Кальянная
 								%th Дата
-								%th Гости
+								%th.small_cell Гости
 								%th Статус
 						%tbody#reserve_table_body
 				%article#visit-list
 					%header
 						%h4
 							Посещения
-
 						.nodata
-							нет данных
+							Вы еще ни разу не посетили «Уникальные Кальянные»
 					%table
 						%thead
 							%tr

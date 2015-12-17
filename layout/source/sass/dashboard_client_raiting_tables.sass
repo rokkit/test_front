@@ -5,10 +5,10 @@ section.bottom-rating
 	width 		: 100%
 	display 	: block
 	position 	: relative
-	padding 	: 32px 48px
+	padding 	: 0
 	font-family	: sans-serif
 	display 	: inline-flex
-	background 	: $background-color
+	background 	: none
 
 	h4
 		letter-spacing	: 3px
@@ -20,6 +20,7 @@ section.bottom-rating
 		color 			: #fff
 		font-family		: Bebas Neue Book
 
+
 	h6
 		font-weight 	: 600
 
@@ -28,12 +29,14 @@ section.bottom-rating
 		font-size 		: 12px
 
 		th , td.td-date
-			text-align 	: center
+			text-align 	: left
 
 		th
 			color 	: #565960
+		th.small_cell
+			width: 10%
 		td
-			text-align: center
+			text-align: left
 			width 	: 25%
 			padding : 20px 0
 			span
@@ -62,12 +65,10 @@ section.bottom-rating
 
 				span:first-child
 					padding-right 	: 0.33em
-					background 		: $background-color
 
 				span + span
 					float 			: right
 					padding-left 	: 0.33em
-					background 		: $background-color
 
 		section
 			display : none
@@ -81,7 +82,7 @@ section.bottom-rating
 				display : none
 
 			h6
-				margin-left	: 8px
+				margin-right: 8px
 				cursor 		: pointer
 
 		fieldset label
@@ -95,7 +96,7 @@ section.bottom-rating
 			display : block
 
 	.border-bottom-dashed
-		border-bottom : 1px dashed #3C4047
+		border-bottom : 0
 
 
 	.color-blue

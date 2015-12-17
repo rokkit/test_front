@@ -16,9 +16,8 @@
     background-image: url(../images/cross.svg)
 
 .nodata
-    margin-left: 20px
-    font-size: 16px
-    opacity: 0.4
+    font-size: 12px
+    opacity: 0.25
 
 .close-btn:after
     content: '×'
@@ -67,6 +66,7 @@ section.dashboard
 
     padding: 48px
     padding-top: 196px
+    padding-bottom: 128px
 
     section.username
         margin-bottom: 48px
@@ -95,6 +95,8 @@ section.dashboard
                 color: rgba(255,255,255,0.5)
                 text-transform: none
                 letter-spacing: 0
+        button
+            margin-right: 16px
 
 // Прогерсс бар
 section.progress_bar
@@ -243,15 +245,22 @@ $color-popover : #3E4248
     margin-top          : 5px
     text-align          : center
     width               : 200px
-    background-color    : #181B21
+    background-color    : rgba(33,41,50,0.5)
     padding             : 7px 10px
     position            : absolute
     font-family         : 'Helvetica',sans-serif
-    box-shadow          : 0 0 5px rgba(0,0,0,0.4)
     left                : 30%
 
     p
-        padding: 12px 0px
+        padding: 12px
+        font-size: 16px
+        font-family: Bebas Neue Book
+        letter-spacing: 2px
+        text-transform: uppercase
+
+        width: 100%
+        border-bottom: 1px solid rgba(255,255,255,0.07)
+        margin-bottom: 8px
 
     &:before
         content         : ''
@@ -270,6 +279,13 @@ $color-popover : #3E4248
         font-size: 16px
     .cancel_reserv_decline
         margin-left     : 32px
+
+    .cancel_reserv_confirm:hover
+        color: #EBB22F    
+    
+    .cancel_reserv_decline:hover
+        color: #EBB22F
+
 
 @-webkit-keyframes fade-in-reserv
     from
