@@ -2,18 +2,17 @@
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'>
     <link href='./css/reset.css' rel='stylesheet'>
+    <link href='./css/slider_style.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
-    <link href='./css/pages_lounges_liberty.css' rel='stylesheet'>
     <script src='./js/jquery-2.1.4.min.js'></script>
     <script src='./js/jquery.gsap.min.js'></script>
     <script src='./js/TweenLite.min.js'></script>
     <script src='./js/TweenMax.min.js'></script>
     <script src='./js/jquery.mask.min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/slider_main.js'></script>
     <script src='./js/underscore-min.js'></script>
-    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/openapi.js'></script>
-    <script src='./js/moment-with-locales.js'></script>
     <script src='http://maps.googleapis.com/maps/api/js'></script>
     <script src='./js/lib/snap.svg-min.js'></script>
     <script src='./js/lib/svgicons-config.js'></script>
@@ -25,7 +24,6 @@
     <script src='./js/fx.js'></script>
     <script src='./js/header.js'></script>
     <script src='./js/menu.js'></script>
-    <script src='./js/page_lounges.js'></script>
     <title>Либерти</title>
   </head>
   <body id='html_body'>
@@ -137,212 +135,147 @@
         <button class='button-arrow' id='go_login_from_menu_btn'>Круг избранных</button>
       </section>
     </div>
-    <div id='wrapper_hm_popup'>
-      <section class='hm_popup' id='popup_hm_1'>
-        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
-        <header>
-          <h2>Илья Пономарев</h2>
-          <p>«Либерти»</p>
-        </header>
-        <section>
-          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
-        </section>
-      </section>
-      <section class='hm_popup' id='popup_hm_2'>
-        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
-        <header>
-          <h2>Филипп Бойцов</h2>
-          <p>«Либерти»</p>
-        </header>
-        <section>
-          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
-        </section>
-      </section>
-      <section class='hm_popup' id='popup_hm_3'>
-        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
-        <header>
-          <h2>Игорь Коновалов</h2>
-          <p>«Либерти»</p>
-        </header>
-        <section>
-          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
-        </section>
-      </section>
-    </div>
     <div class='color_overlay' id='color_overlay'></div>
-    <header class='pages_lounges_header' id='header'>
-      <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/liberty/logo.svg'>
-      <nav>
-        <a id='login_header_btn'>Войти</a>
-        <a id='signup_header_btn'>Зарегистрироваться</a>
-        <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/liberty/menu.svg'>
-      </nav>
-    </header>
     <main id='main_content'>
-      <section class='lounges_block_1'>
-        <section class='content'>
-          <header>
-            <h1>Либерти</h1>
-            <p>Sed et ceteri codices originale sit unum*</p>
-          </header>
-          <section class='information'>
-            <figure>
-              <img alt='Город' height='16px' src='./images/liberty/location.svg'>
-              <figcapation>Санкт-Петербург,<br>улица Маяковского 27</figcapation>
-            </figure>
-            <figure>
-              <img alt='Город' height='16px' src='./images/liberty/phone.svg'>
-              <figcapation>+7 (812) 777-38-08</figcapation>
-            </figure>
-            <figure>
-              <img alt='Город' height='16px' src='./images/liberty/clock.svg'>
-              <figcapation>
-                Пн - Пт: с 17:00 до последнего гостя
-                <br>
-                Сб - Вс: с 16:00 до последнего гостя
-              </figcapation>
-            </figure>
-          </section>
-          <section class='actions'>
-            <button class='button-arrow btn_arrow' id='reserve_table_btn'>Забронировать столик</button>
-          </section>
+      <section id='liberty_block1'>
+        <header id='header'>
+          <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
+          <nav>
+            <a id='login_header_btn'>Войти</a>
+            <a id='signup_header_btn'>Зарегистрироваться</a>
+            <div class='menu pointer' data-icon-name='hamburger' id='menu_header_btn'></div>
+          </nav>
+        </header>
+        <hr>
+        <header>
+          <h1>Либерти</h1>
+          <p>Sed et ceteri codices originale sit unum*</p>
+        </header>
+        <section class='information_lib'>
+          <figure>
+            <img alt='Город' height='16px' src='./images/location_gold.svg'>
+            <figcapation>Санкт-Петербург,<br>улица Маяковского 27</figcapation>
+          </figure>
+          <figure>
+            <img alt='Город' height='16px' src='./images/phone.svg'>
+            <figcapation>+7 (812) 777-38-08</figcapation>
+          </figure>
+          <figure>
+            <img alt='Город' height='16px' src='./images/clock.svg'>
+            <figcapation>
+              Пн. - Пт.: с 17:00 до последнего гостя
+              <br>
+              Сб. - Вс.: с 16:00 до последнего гостя
+            </figcapation>
+          </figure>
         </section>
-        <section class='blazon'>
-          <img class='blazon' src='./images/liberty/blazon.svg'>
-          <div class='blazon_glow'></div>
-          <div class='blazon_glow_2'></div>
+        <section class='liberactions'>
+          <button class='button-arrow' id='reserve_table_btn'>Забронировать столик</button>
         </section>
         <footer>
-          <p>*Оригинал один - остальное копии.</p>
+          <p>*Оригинал один - остальное копии</p>
         </footer>
+        <img class='layer' data-depth='0.40' id='liberty_herb' src='./images/gerb_final.svg'>
+        <img class='gerb_glow_2' src='./images/gerb_glow.png'>
+        <img class='gerb_glow' src='./images/sun_glow.svg'>
       </section>
-      <section class='lounges_block_2'>
+      <section id='liberty_block2'>
         <div class='text-wrapper-liberty'>
           <h4>Первая в мире территория для курения со свободной оплатой и уникальным подходом к каждому гостю</h4>
           <p>Почему же Вам стоит выбрать именно эту кальянную Петербурга? Всех привлекает наша особенная атмосфера. Мы начинали как место только "для своих". С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.</p>
         </div>
       </section>
-      <section class='lounges_block_3'>
+      <section id='liberty_block3'>
         <section class='cd-hero'>
           <ul class='cd-hero-slider autoplay'>
             <li class='selected'>
-              <img class='img-slider' src='./images/liberty/slider/1.jpg'>
+              <img class='img-slider' src='./images/slider/1.jpg'>
             </li>
             <li>
-              <img class='img-slider' src='./images/liberty/slider/2.jpg'>
+              <img class='img-slider' src='./images/slider/2.jpg'>
             </li>
             <li>
-              <img class='img-slider' src='./images/liberty/slider/3.jpg'>
+              <img class='img-slider' src='./images/slider/3.jpg'>
             </li>
             <li>
-              <img class='img-slider' src='./images/liberty/slider/4.jpg'>
+              <img class='img-slider' src='./images/slider/4.jpg'>
             </li>
             <li>
-              <img class='img-slider' src='./images/liberty/slider/5.jpg'>
+              <img class='img-slider' src='./images/slider/5.jpg'>
             </li>
           </ul>
           <div class='cd-slider-nav'>
             <nav>
               <ul>
                 <li class='selected'>
-                  <img class='img-nav pointer' src='./images/liberty/slider/1.jpg'>
+                  <img class='img-nav pointer' src='./images/slider/1.jpg'>
                 </li>
                 <li>
-                  <img class='img-nav pointer' src='./images/liberty/slider/2.jpg'>
+                  <img class='img-nav pointer' src='./images/slider/2.jpg'>
                 </li>
                 <li>
-                  <img class='img-nav pointer' src='./images/liberty/slider/3.jpg'>
+                  <img class='img-nav pointer' src='./images/slider/3.jpg'>
                 </li>
                 <li>
-                  <img class='img-nav pointer' src='./images/liberty/slider/4.jpg'>
+                  <img class='img-nav pointer' src='./images/slider/4.jpg'>
                 </li>
                 <li>
-                  <img class='img-nav pointer' src='./images/liberty/slider/5.jpg'>
+                  <img class='img-nav pointer' src='./images/slider/5.jpg'>
                 </li>
               </ul>
             </nav>
           </div>
         </section>
       </section>
-      <section class='lounges_block_4'>
+      <section id='liberty_block4'>
         <header>
           <h2>Кальянные мастера</h2>
-          <p>Уникальная Кальянная «Резерв»</p>
-          <p>В Уникальных Кальянных работают только профессионалы своего дела. Наши кальянные мастера подходят к смешиванию табака и созданию вкуса как к тонкому искусству. Вы всегда сможете положиться на них в вопросах качества.альным подходом к уже обыденным вещам.</p>
+          <p>В Уникальных Кальянных работают только профессионалы своего дела. Наши кальянные мастера подходят к смешиванию табака и созданию вкуса как к тонкому искусству. Вы всегда сможете положиться на них в вопросах качества.</p>
         </header>
-        <div class='wrapper_hm_cards'>
-          <figure class='pointer' id='btn_hm_1'>
-            <div class='wrapper_hm_photo'>
-              <div class='glow_html'></div>
-              <div class='hm_photo'>
-                <img src='./images/liberty/hm_photo_placeholder.svg'>
-              </div>
-              <img class='hm_lights' src='./images/liberty/hm_photo_lights.svg'>
-            </div>
-            <figcapation class='wrapper_hm_name'>
-              <h2>Илья Пономарев</h2>
-              <p>«Либерти»</p>
-            </figcapation>
-            <button class='button_round'>Посмотреть</button>
-            <div class='wrapper_storke_corner'>
-              <div class='hm_stroke_1'></div>
-              <div class='hm_stroke_2'></div>
-            </div>
-          </figure>
-          <figure class='pointer' id='btn_hm_2'>
-            <div class='wrapper_hm_photo'>
-              <div class='glow_html'></div>
-              <div class='hm_photo'>
-                <img src='./images/liberty/hm_photo_placeholder.svg'>
-              </div>
-              <img class='hm_lights' src='./images/liberty/hm_photo_lights.svg'>
-            </div>
-            <figcapation class='wrapper_hm_name'>
-              <h2>Филипп Бойцов</h2>
-              <p>«Либерти»</p>
-            </figcapation>
-            <button class='button_round'>Посмотреть</button>
-            <div class='wrapper_storke_corner'>
-              <div class='hm_stroke_1'></div>
-              <div class='hm_stroke_2'></div>
-            </div>
-          </figure>
-          <figure class='pointer' id='btn_hm_3'>
-            <div class='wrapper_hm_photo'>
-              <div class='glow_html'></div>
-              <div class='hm_photo'>
-                <img src='./images/liberty/hm_photo_placeholder.svg'>
-              </div>
-              <img class='hm_lights' src='./images/liberty/hm_photo_lights.svg'>
-            </div>
-            <figcapation class='wrapper_hm_name'>
-              <h2>Игорь Коновалов</h2>
-              <p>«Либерти»</p>
-            </figcapation>
-            <button class='button_round'>Посмотреть</button>
-            <div class='wrapper_storke_corner'>
-              <div class='hm_stroke_1'></div>
-              <div class='hm_stroke_2'></div>
-            </div>
-          </figure>
-        </div>
+        <br>
+        <img alt='Кальянщик' class='pointer' height='396px' id='open_hm_ilya_ponomarev' src='./images/hm/hm_1.png'>
+        <img alt='Кальянщик' class='pointer' height='396px' id='open_hm_philipp_boicov' src='./images/hm/hm_2.png'>
+        <img alt='Кальянщик' class='pointer' height='396px' id='open_hm_igor_konovalov' src='./images/hm/hm_3.png'>
       </section>
-      <section class='lounges_block_5'>
+      <div class='popup_overall_white' id='hookah_popups'>
+        <article class='pow_wrapper' id='hm_ilya_ponomarev'>
+          <header>
+            <h2>Илья Пономарев</h2>
+            <p>Проворный</p>
+          </header>
+          <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
+          <section></section>
+        </article>
+        <article class='pow_wrapper' id='hm_philipp_boicov'>
+          <header>
+            <h2>Филипп Бойцов</h2>
+            <p>Проворный</p>
+          </header>
+          <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
+          <section></section>
+        </article>
+        <article class='pow_wrapper' id='hm_igor_konovalov'>
+          <header>
+            <h2>Игорь Коновалов</h2>
+            <p>Проворный</p>
+          </header>
+          <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
+          <section></section>
+        </article>
+      </div>
+      <section id='liberty_block5'>
+        <div class='map_overlay'></div>
+        <div class='map_wrapper' data-map-lat='59.9404797' data-map-lng='30.3540543'></div>
         <section id='map_wrapper'>
           <header>
             <h3>Санкт-Петербург</h3>
             <p>Центральный район</p>
           </header>
           <p>Уникальная Кальянная “Либерти” расположена в историческом центре Санкт-Петербурга, практически в самом сердце города.</p>
-          <p>
-            <img src='./images/liberty/location.svg'>
-            <small>Россия, Санкт-Петербург, улица Маяковского 27</small>
-          </p>
+          <small>Россия, Санкт-Петербург, улица Маяковского 27</small>
         </section>
-        <div class='map_overlay'></div>
-        <div class='map_wrapper' data-map-lat='59.9404797' data-map-lng='30.3540543'></div>
       </section>
-      <section class='lounges_block_6'>
+      <section id='liberty_block6'>
         <header>
           <h2>Контакты</h2>
           <h5>По вопросам справки обращайтесь по телефону в рабочее время:</h5>
@@ -353,28 +286,20 @@
         <p>+7 (812) 777-38-08</p>
         <h6>Рабочие часы:</h6>
         <p>
-          Пн - Пт: с 17:00 до последнего гостя
+          Понедельник - Пятница .................... с 17:00 и до последнего гостя
           <br>
-          Сб - Вс: с 16:00 до последнего гостя
-        </p>
-        <h6>Социальные сети</h6>
-        <p>
-          <a ref='http://vk.com/libertyfamily'>Группа Вконтакте</a>
+          Cуббота - Воскресенье ...................... с 16:00 и до последнего гостя
         </p>
       </section>
-      <section class='lounges_block_7'>
-        <div class='wrapper_sun'>
-          <img alt='Звезда' class='sun' src='./images/liberty/sun.svg'>
-          <img class='sun_rotation' src='./images/liberty/sun_lines.svg'>
-          <div class='sun_glow'></div>
-          <div class='sun_glow_2'></div>
-        </div>
-        <div class='wrapper_sun_text'>
-          <h3>Omnis qui quaerit invenit*</h3>
-          <h6>*Всякий ищущий находит</h6>
-          <br>
-          <button class='button-arrow btn_arrow'>Зарегистрироваться</button>
-        </div>
+      <section id='philosophie_block5'>
+        <h3>Omnis qui quaerit invenit</h3>
+        <h6>*Всякий ищущий находит</h6>
+        <br>
+        <button class='button-dark'>Зарегистрироваться</button>
+        <img class='sun_glow_2' src='./images/sun_glow.png'>
+        <img class='sun_glow' src='./images/sun_glow.svg'>
+        <img class='sun_rotation' src='./images/sun_lines.svg'>
+        <img alt='Звезда' src='./images/sun.svg'>
       </section>
     </main>
   </body>

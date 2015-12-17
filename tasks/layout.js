@@ -19,7 +19,7 @@ gulp.task('layout:connect', function() {
 });
 
 gulp.task('layout:sass', function() {
-  gulp.src('./layout/source/sass/general_all.sass')
+  gulp.src(['./layout/source/sass/general_all.sass','./layout/source/sass/pages_lounges_liberty.sass'])
     .pipe($.compass({
       css: './layout/css',
       sass: './layout/source/sass',
