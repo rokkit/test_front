@@ -29,6 +29,7 @@
 		%script{ :src => "./js/menu.js" }
 		%script{ :src => "./js/profile.js" }
 		%script{ :src => "./js/achievements.js" }
+
 		%title Профиль
 
 		-# Habmurger
@@ -307,14 +308,14 @@
 		-# Color Overlay
 		#color_overlay.color_overlay
 
+		%header#header
+			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
+			%nav
+				%a#edit_profile_btn Редактировать профиль
+				%a#logout_btn Выйти
+				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
+
 		%section.dashboard{:id => 'main_content'}
-			%header#header
-				%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
-				%nav
-					%a#edit_profile_btn Редактировать профиль
-					%a#logout_btn Выйти
-					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
-			%hr
 			%section.username
 				-# #face
 				%h1	Виталий Пихонт
@@ -343,22 +344,21 @@
 					%header
 						%h4 Брони
 					.nodata
-						нет данных
+						Вы еще не оставили ни одного бронирования
 					%table
 						%thead
 							%tr
 								%th Кальянная
 								%th Дата
-								%th Гости
+								%th.small_cell Гости
 								%th Статус
 						%tbody#reserve_table_body
 				%article#visit-list
 					%header
 						%h4
 							Посещения
-
 						.nodata
-							нет данных
+							Вы еще ни разу не посетили «Уникальные Кальянные»
 					%table
 						%thead
 							%tr

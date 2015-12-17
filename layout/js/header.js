@@ -65,15 +65,23 @@ $(function(){
 
   //Клик на кнопку регистрация в хедере
  $('#signup_header_btn').on('click', function() {
-
    if (!currentUser) {
      $('#wrapper_signup').css('pointer-events', 'auto');
      fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
-     //fx.do(['signup']);
    } else {
      document.location.href = '/tech_preloader.html?redirect=profile'
    }
  });
+
+ //Клик на кнопку регистрация внизу страницы
+$('.lounges_block_7 .btn_arrow').on('click', function() {
+  if (!currentUser) {
+    $('#wrapper_signup').css('pointer-events', 'auto');
+    fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+  } else {
+    document.location.href = '/tech_preloader.html?redirect=profile'
+  }
+});
 
  $('#login_form a').click(function(){
    fx.swap('loginPopup', 'signupPopup');
@@ -321,44 +329,3 @@ $(function() {
     document.location.href = '/pages_index.html'
   });
 });
-
-// Изменение хидера при скроле
-//......................................................................//
-var cbpAnimatedHeader = (function() {
-
-  var docElem = document.documentElement,
-      header = document.getElementById("header"),
-      didScroll = false,
-      changeHeaderOn = 48;
-
-  function init() {
-    window.addEventListener( 'scroll', function( event ) {
-      if( !didScroll ) {
-        didScroll = true;
-        setTimeout( scrollPage, 0 );
-      }
-    }, false );
-  }
-
-  function scrollPage() {
-    
-    var sy = scrollY();
-    
-    if ( sy >= changeHeaderOn ) {
-      $('#header').css({"background": "rgba(0,0,0,0.75", "padding": "16px", "height": "auto"});
-    }
-    
-    else {
-      $('#header').css({"background": "none", "padding": "64px 48px 64px", "height": "40px"});
-    }
-    
-    didScroll = false;
-  }
-
-  function scrollY() {
-    return window.pageYOffset || docElem.scrollTop;
-  }
-
-  init();
-
-})();

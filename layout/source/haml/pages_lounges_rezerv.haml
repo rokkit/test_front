@@ -11,6 +11,7 @@
 		%script{ :src => "./js/jquery.mask.min.js" }
 		%script{ :src => "./js/slider_main.js" }
 		%script{ :src => "./js/underscore-min.js" }
+		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => "./js/openapi.js" }
 		%script{ :src => "./js/moment-with-locales.js" }
 		%script{ :src => 'http://maps.googleapis.com/maps/api/js'}
@@ -147,13 +148,6 @@
 
 		-# Основной контент
 		%main{:id => 'main_content'}
-			-# Хидер
-			%header#header
-				%img#menu_header_logo.pointer{ :src=>"./images/rezerv/logo.svg", :alt=>"Уникальные Кальянные"}
-				%nav
-					%a{:id=>"login_header_btn"} Войти
-					%a{:id=>"signup_header_btn"} Зарегистрироваться
-					%img#menu_header_btn.pointer{ :src=>"./images/rezerv/menu.svg", :alt=>"Меню"}
 			-# Первый блок
 			%section.lounges_block_1
 				-# Контент

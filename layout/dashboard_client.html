@@ -324,16 +324,15 @@
       </section>
     </div>
     <div class='color_overlay' id='color_overlay'></div>
+    <header id='header'>
+      <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
+      <nav>
+        <a id='edit_profile_btn'>Редактировать профиль</a>
+        <a id='logout_btn'>Выйти</a>
+        <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/menu.svg'>
+      </nav>
+    </header>
     <section class='dashboard' id='main_content'>
-      <header id='header'>
-        <img alt='Уникальные Кальянные' class='pointer' src='./images/logo.svg'>
-        <nav>
-          <a id='edit_profile_btn'>Редактировать профиль</a>
-          <a id='logout_btn'>Выйти</a>
-          <div class='menu pointer' data-icon-name='hamburger' id='menu_header_btn'></div>
-        </nav>
-      </header>
-      <hr>
       <section class='username'>
         <h1>Виталий Пихонт</h1>
         <p id='city_user'></p>
@@ -368,14 +367,14 @@
             <h4>Брони</h4>
           </header>
           <div class='nodata'>
-            нет данных
+            Вы еще не оставили ни одного бронирования
           </div>
           <table>
             <thead>
               <tr>
                 <th>Кальянная</th>
                 <th>Дата</th>
-                <th>Гости</th>
+                <th class='small_cell'>Гости</th>
                 <th>Статус</th>
               </tr>
             </thead>
@@ -388,7 +387,7 @@
               Посещения
             </h4>
             <div class='nodata'>
-              нет данных
+              Вы еще ни разу не посетили «Уникальные Кальянные»
             </div>
           </header>
           <table>
