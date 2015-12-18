@@ -1,4 +1,4 @@
-
+window.hostUrl = 'http://176.112.194.149:81';
 
 /*
  * Replace all SVG images with inline SVG
@@ -37,33 +37,52 @@
 //       }, 'xml');
 //   });
 // });
-if(typeof google !== 'undefined'){
-  (function(){
-    var mapProp = {
-        center:new google.maps.LatLng(59.940477, 30.356243),
-        zoom:15,
-        scrollwheel: false,
-        navigationControl: false,
-        mapTypeControl: false,
-        scaleControl: true,
-        draggable: true,
-        mapTypeId:google.maps.MapTypeId.ROADMAP,
-        disableDefaultUI: true
-      };
+// if(typeof google !== 'undefined'){
+//   (function(){
+//     var mapProp = {
+//         center:new google.maps.LatLng(59.940477, 30.356243),
+//         zoom:15,
+//         scrollwheel: false,
+//         navigationControl: false,
+//         mapTypeControl: false,
+//         scaleControl: true,
+//         draggable: true,
+//         mapTypeId:google.maps.MapTypeId.ROADMAP,
+//         disableDefaultUI: true
+//       };
+//
+//       var stylez = [{
+//           featureType: "all",
+//           elementType: "all",
+//           stylers: [{ saturation: -100 }]
+//         }];
+//
+//       var marker = new google.maps.Marker({
+//           position: new google.maps.LatLng(59.940477,30.356243)
+//           //animation:google.maps.Animation.BOUNCE
+//       });
+//
+//       var map = new google.maps.Map(document.getElementById("liberty_block5"),mapProp);
+//       marker.setMap(map);
+//       map.setOptions({styles: stylez});
+//   })();
+// }
 
-      var stylez = [{
-          featureType: "all",
-          elementType: "all",
-          stylers: [{ saturation: -100 }]
-        }];
-
-      var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(59.940477,30.356243)
-          //animation:google.maps.Animation.BOUNCE
-      });
-
-      var map = new google.maps.Map(document.getElementById("liberty_block5"),mapProp);
-      marker.setMap(map);
-      map.setOptions({styles: stylez});
-  })();
+//template rendering
+_.templateSettings =  {
+  interpolate :/\{\{(.+?)\}\}/g
 }
+$(function() {
+  var template = _.template($('#page_tpl').html())
+
+  var loungeId = window.location.search.substring(1).split('=')[1];
+  $.getJSON(hostUrl + '/api/v1/lounges/'+loungeId+'.json', {},function(json) {
+    $('title').text(json.title)
+    $('body').html(template(json))
+    headerView()
+    menuView()
+    //preloader
+    var html_body = document.getElementById("main_content")
+    TweenLite.to(html_body, 1, {opacity:1})
+  });
+});

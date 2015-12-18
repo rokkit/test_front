@@ -1,0 +1,380 @@
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='content-type'>
+    <link href='./css/reset.css' rel='stylesheet'>
+    <link href='./css/general_all.css' rel='stylesheet'>
+    <script src='./js/jquery-2.1.4.min.js'></script>
+    <script src='./js/jquery.gsap.min.js'></script>
+    <script src='./js/TweenLite.min.js'></script>
+    <script src='./js/TweenMax.min.js'></script>
+    <script src='./js/jquery.mask.min.js'></script>
+    <script src='./js/slider_main.js'></script>
+    <script src='./js/underscore-min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
+    <script src='./js/openapi.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
+    <script src='http://maps.googleapis.com/maps/api/js'></script>
+    <script src='./js/lib/snap.svg-min.js'></script>
+    <script src='./js/lib/svgicons-config.js'></script>
+    <script src='./js/lib/svgicons.js'></script>
+    <script src='./js/lib/d3.js'></script>
+    <script src='./js/animation.js'></script>
+    <script src='./js/fx.js'></script>
+    <script src='./js/header_view.js'></script>
+    <script src='./js/menu_view.js'></script>
+    <script src='./js/lounge.js'></script>
+    <title></title>
+  </head>
+  <body id='html_body'></body>
+  <script id='page_tpl' type='text/template'>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='code_form'>
+        <header>
+          <h2>Подтверждение</h2>
+          <p class='h2_subtitle'>
+            Мы отправили смс с кодом подтверждения на ваш номер. <br>
+            Подтверждая номер, вы вступаете в тайное общество.
+          </p>
+          <input name='code' placeholder='Код подтверждения' type='text'>
+          <button class='button-arrow' name='ok' type='button'>Подтвердить</button>
+        </header>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_signup'>
+      <section class='popup' id='signup_form'>
+        <header>
+          <h2>Регистрация</h2>
+          <p class='h2_subtitle'>
+            Регистрация нового пользователя. Если у вас уже есть аккаунт —
+            <a href='#login'>войдите.</a>
+          </p>
+        </header>
+        <form action='' autocomplete='off' method='get'>
+          <input style='display:none'>
+          <input style='display:none' type='password'>
+          <input name='phone' placeholder='Телефон +7XXXXXXX' type='text'>
+          <input name='name' placeholder='ФИО' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button class='button-arrow' id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_login'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='login_form'>
+        <header>
+          <h2>Войти</h2>
+          <p class='h2_subtitle'>
+            Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+        </header>
+        <form action='' method='get'>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button class='button-arrow' name='sumbit' type='sumbit'>Войти</button>
+        </form>
+        <a href='#forgot_pass' id='recover_btn'>Вы забыли пароль?</a>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_pass'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='pass_form'>
+        <header>
+          <h2>Восстановление пароля</h2>
+          <p class='h2_subtitle'>
+            Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <button class='button-arrow' name='ok' type='button'>Отправить</button>
+        </header>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_menu'>
+      <section class='left_menu' id='menu_left_part'>
+        <img alt='Unique Hookah Places' class='pointer' height='40px' id='uhp_logo' src='./images/logo.svg'>
+        <span>
+          <h4>Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...</h4>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <h5>Она задала нам неожиданный вопрос</h5>
+          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+        </span>
+        <footer>
+          <p>Copyright © 2015 Уникальные Кальянные</p>
+          <p>
+            Создано в
+            <img alt='CPD&amp;BBK' height='24px' src='./images/cpdbbk.svg'>
+          </p>
+        </footer>
+      </section>
+      <section class='right_menu' id='menu_right_part'>
+        <img alt='Закрыть' class='pointer' id='closing' src='./images/cross.svg'>
+        <a>
+          <h3 id='lounges_nav_btn'>Ложи</h3>
+          <p>Уникальные заведения</p>
+        </a>
+        <a>
+          <h3 id='philosophy_nav_btn'>Философия</h3>
+          <p>Наши ценности</p>
+        </a>
+        <a>
+          <h3 id='community_nav_btn'>Сообщество</h3>
+          <p>Полезно быть своим</p>
+        </a>
+        <button class='button-arrow' id='go_login_from_menu_btn'>Круг избранных</button>
+      </section>
+    </div>
+    <div id='wrapper_hm_popup'>
+      <section class='hm_popup' id='popup_hm_1'>
+        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
+        <header>
+          <h2>Булатов Денис</h2>
+          <p>«Резерв»</p>
+        </header>
+        <section>
+          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
+        </section>
+      </section>
+      <section class='hm_popup' id='popup_hm_2'>
+        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
+        <header>
+          <h2>Тыренко Антон</h2>
+          <p>«Резерв»</p>
+        </header>
+        <section>
+          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень ��нтересно.</p>
+        </section>
+      </section>
+      <section class='hm_popup' id='popup_hm_3'>
+        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
+        <header>
+          <h2>Новиков Никита</h2>
+          <p>«Резерв»</p>
+        </header>
+        <section>
+          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
+        </section>
+      </section>
+    </div>
+    <div class='color_overlay' id='color_overlay'></div>
+    <header class='pages_lounges_header' id='header'>
+      <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/{{ slug }}/logo.svg'>
+      <nav>
+        <a id='login_header_btn'>Войти</a>
+        <a id='signup_header_btn'>Зарегистрироваться</a>
+        <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/{{ slug }}/menu.svg'>
+      </nav>
+    </header>
+    <main id='main_content'>
+      <section class='lounges_block_1'>
+        <section class='content'>
+          <header>
+            <h1>{{ title }}</h1>
+            <p>{{ slogan }}*</p>
+          </header>
+          <section class='information'>
+            <figure>
+              <img alt='Город' height='16px' src='./images/{{ slug }}/location.svg'>
+              <figcapation>{{ city }}, {{ address }}</figcapation>
+            </figure>
+            <figure>
+              <img alt='Город' height='16px' src='./images/{{ slug }}/phone.svg'>
+              <figcapation>{{ phone }}</figcapation>
+            </figure>
+            <figure>
+              <img alt='Город' height='16px' src='./images/{{ slug }}/clock.svg'>
+              <figcapation>
+                Пн - Чт и Вс: 14:00 - 03:00
+                <br>
+                Пт - Сб: 14:00 - 05:00
+              </figcapation>
+            </figure>
+          </section>
+          <section class='actions'>
+            <button class='button-arrow btn_arrow' id='reserve_table_btn'>Забронировать столик</button>
+          </section>
+        </section>
+        <section class='blazon'>
+          <img class='blazon' src='./images/{{ slug }}/blazon.svg'>
+          <div class='blazon_glow'></div>
+          <div class='blazon_glow_2'></div>
+        </section>
+        <footer>
+          <p>*{{ slogan_ru }}</p>
+        </footer>
+      </section>
+      <section class='lounges_block_2'>
+        <div class='text-wrapper-liberty'>
+          <h4>{{ description_header }}</h4>
+          <p>{{ description_text }}</p>
+        </div>
+      </section>
+      <section class='lounges_block_3'>
+        <section class='cd-hero'>
+          <ul class='cd-hero-slider autoplay'>
+            <li class='selected'>
+              <img class='img-slider' src='./images/rezerv/slider/1.jpg'>
+            </li>
+            <li>
+              <img class='img-slider' src='./images/rezerv/slider/2.jpg'>
+            </li>
+            <li>
+              <img class='img-slider' src='./images/rezerv/slider/3.jpg'>
+            </li>
+            <li>
+              <img class='img-slider' src='./images/rezerv/slider/4.jpg'>
+            </li>
+            <li>
+              <img class='img-slider' src='./images/rezerv/slider/5.jpg'>
+            </li>
+          </ul>
+          <div class='cd-slider-nav'>
+            <nav>
+              <ul>
+                <li class='selected'>
+                  <img class='img-nav pointer' src='./images/rezerv/slider/1.jpg'>
+                </li>
+                <li>
+                  <img class='img-nav pointer' src='./images/rezerv/slider/2.jpg'>
+                </li>
+                <li>
+                  <img class='img-nav pointer' src='./images/rezerv/slider/3.jpg'>
+                </li>
+                <li>
+                  <img class='img-nav pointer' src='./images/rezerv/slider/4.jpg'>
+                </li>
+                <li>
+                  <img class='img-nav pointer' src='./images/rezerv/slider/5.jpg'>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </section>
+      <section class='lounges_block_4'>
+        <header>
+          <h2>Кальянные мастера</h2>
+          <p>Уникальная Кальянная «{{ title }}»</p>
+          <p>{{ hookmasters_description }}</p>
+        </header>
+        <div class='wrapper_hm_cards'>
+          <figure class='pointer' id='btn_hm_1'>
+            <div class='wrapper_hm_photo'>
+              <div class='glow_html'></div>
+              <div class='hm_photo'>
+                <img src='./images/{{ slug }}/hm_photo_placeholder.svg'>
+              </div>
+              <img class='hm_lights' src='./images/{{ slug }}/hm_photo_lights.svg'>
+            </div>
+            <figcapation class='wrapper_hm_name'>
+              <h2>Булатов Денис</h2>
+              <p>«Резерв»</p>
+            </figcapation>
+            <button class='button_round'>Посмотреть</button>
+            <div class='wrapper_storke_corner'>
+              <div class='hm_stroke_1'></div>
+              <div class='hm_stroke_2'></div>
+            </div>
+          </figure>
+          <figure class='pointer' id='btn_hm_2'>
+            <div class='wrapper_hm_photo'>
+              <div class='glow_html'></div>
+              <div class='hm_photo'>
+                <img src='./images/rezerv/hm_photo_placeholder.svg'>
+              </div>
+              <img class='hm_lights' src='./images/rezerv/hm_photo_lights.svg'>
+            </div>
+            <figcapation class='wrapper_hm_name'>
+              <h2>Тыренко Антон</h2>
+              <p>«Резерв»</p>
+            </figcapation>
+            <button class='button_round'>Посмотреть</button>
+            <div class='wrapper_storke_corner'>
+              <div class='hm_stroke_1'></div>
+              <div class='hm_stroke_2'></div>
+            </div>
+          </figure>
+          <figure class='pointer' id='btn_hm_3'>
+            <div class='wrapper_hm_photo'>
+              <div class='glow_html'></div>
+              <div class='hm_photo'>
+                <img src='./images/rezerv/hm_photo_placeholder.svg'>
+              </div>
+              <img class='hm_lights' src='./images/rezerv/hm_photo_lights.svg'>
+            </div>
+            <figcapation class='wrapper_hm_name'>
+              <h2>Новиков Никита</h2>
+              <p>«Резерв»</p>
+            </figcapation>
+            <button class='button_round'>Посмотреть</button>
+            <div class='wrapper_storke_corner'>
+              <div class='hm_stroke_1'></div>
+              <div class='hm_stroke_2'></div>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class='lounges_block_5'>
+        <section id='map_wrapper'>
+          <header>
+            <h3>{{ city }}</h3>
+            <p>{{ map_district }}</p>
+          </header>
+          <p>{{ map_description }}</p>
+          <p>
+            <img src='./images/rezerv/location.svg'>
+            <small>{{ city }}, {{ address }}</small>
+          </p>
+        </section>
+        <div class='map_wrapper' data-map-lat='57.1502699' data-map-lng='65.5854143'>
+          <div class='map_overlay'></div>
+        </div>
+      </section>
+      <section class='lounges_block_6'>
+        <header>
+          <h2>Контакты</h2>
+          <h5>По вопросам справки обращайтесь по телефону в рабочее время:</h5>
+        </header>
+        <h6>Адрес:</h6>
+        <p>{{ city }}, {{ address }}</p>
+        <h6>Контактный номер:</h6>
+        <p>{{ phone }}</p>
+        <h6>Рабочие часы:</h6>
+        <p>
+          Пн - Чт и Вс: 14:00 - 03:00
+          <br>
+          Пт - Сб: 14:0 - 05:00
+        </p>
+        <h6>Социальные сети</h6>
+        <p>
+          <a ref='http://vk.com/club61931015'>Группа Вконтакте</a>
+        </p>
+      </section>
+      <section class='lounges_block_7'>
+        <div class='wrapper_sun'>
+          <img alt='Звезда' class='sun' src='./images/rezerv/sun.svg'>
+          <img class='sun_rotation' src='./images/rezerv/sun_lines.svg'>
+          <div class='sun_glow'></div>
+          <div class='sun_glow_2'></div>
+        </div>
+        <div class='wrapper_sun_text'>
+          <h3>Нomо ornat locum, nоn locus hominem*</h3>
+          <h6>*Не место красит человека, а человек – место.</h6>
+          <br>
+          <button class='button-arrow btn_arrow'>Зарегистрироваться</button>
+        </div>
+      </section>
+    </main>
+  </script>
+</html>

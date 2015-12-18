@@ -1,5 +1,6 @@
 var fx = new FX(fxa.dashboard);
 var invateUsers = [];
+
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 _.templateSettings =  {
   interpolate :/\{\{(.+?)\}\}/g
@@ -118,7 +119,7 @@ $(function() {
   }
     //Загрузить начальные данные
     $(function() {
-      $.getJSON(hostUrl + '/api/v1/reservations/load_data.json', {auth_token: currentUser.auth_token}, function(json) {
+      $.getJSON(hostUrl + '/api/v1/users/'+currentUser.id+'/load_client_data.json', {auth_token: currentUser.auth_token}, function(json) {
         if(json.meets.length > 0){
           //fx.do(['background']);
           var last = json.meets.length - 1;

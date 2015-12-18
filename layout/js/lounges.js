@@ -47,28 +47,32 @@ $(function(){
 
     $.each(json, function() {
       if(this.title != 'Либерти' && this.title != 'Зал Единства' && this.title != 'Облака' && this.title != 'Крафт' && this.title != 'Академия') {
-        ui.card.render(this.blazon, this.color, this.title, this.city, '.lounges');
+        ui.card.render(this.blazon, this.color, this.title, this.city, '.lounges', this.id);
       }
     })
 
   });
 
-  $(document).on('click', '#oblaka-card', function() {
-    document.location.href="/pages_lounges_oblaka.html"
+  $(document).on('click', '.lounge', function() {
+    document.location.href="/pages_lounges_template.html?id=" + $(this).data('id')
   })
-  $(document).on('click', '#academy_novosibirsk-card', function() {
-    document.location.href="/pages_lounges_academy.html"
-  })
-  $(document).on('click', '#unityhall-card', function() {
-    document.location.href="/pages_lounges_unityhall.html"
-  })
-  $(document).on('click', '#reserv-card', function() {
-    document.location.href="/pages_lounges_rezerv.html"
-  })
-  $(document).on('click', '#liberty-card', function() {
-    document.location.href="/pages_lounges_liberty.html"
-  })
-  $(document).on('click', '#ak_bars-card', function() {
-    document.location.href="/pages_lounges_craft.html"
-  })
+
+  // $(document).on('click', '#oblaka-card', function() {
+  //   document.location.href="/pages_lounges_oblaka.html"
+  // })
+  // $(document).on('click', '#academy_novosibirsk-card', function() {
+  //   document.location.href="/pages_lounges_academy.html"
+  // })
+  // $(document).on('click', '#unityhall-card', function() {
+  //   document.location.href="/pages_lounges_unityhall.html"
+  // })
+  // $(document).on('click', '#reserv-card', function() {
+  //   document.location.href="/pages_lounges_template.html"
+  // })
+  // $(document).on('click', '#liberty-card', function() {
+  //   document.location.href="/pages_lounges_liberty.html"
+  // })
+  // $(document).on('click', '#ak_bars-card', function() {
+  //   document.location.href="/pages_lounges_craft.html"
+  // })
 });
