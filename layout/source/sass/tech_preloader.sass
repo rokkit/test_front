@@ -12,24 +12,34 @@
     +justify-content(center)
     
     .prealoader_wth_text
+        display: block
+        height: auto
+        width: 100%
+        text-align: center
+        
         .prealoader_comb
-            display: block
+            display: inline-block
             position: relative
             height: 256px
             width: 256px
             margin-bottom: 16px
             
-            img#preloader_eye
-                height: 256px
+            #preloader_eye
+                display: block
                 position: absolute
+                left: 0
+                top: 0
+                height: 256px
                 z-index: 300
 
-            img#preloader_back
-                height: 256px
+            #preloader_back
+                display: block
                 position: absolute
+                left: 0
+                top: 0
+                height: 256px
                 z-index: 299
         .prealoder_text
-            text-align: center
             h3
                 font-size: 24px
                 margin-bottom: 16px

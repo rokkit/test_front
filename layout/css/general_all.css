@@ -3097,25 +3097,34 @@ section.right_menu a:hover {
   -webkit-justify-content: center;
   justify-content: center;
 }
-#preloader_wrapper .prealoader_wth_text .prealoader_comb {
+#preloader_wrapper .prealoader_wth_text {
   display: block;
+  height: auto;
+  width: 100%;
+  text-align: center;
+}
+#preloader_wrapper .prealoader_wth_text .prealoader_comb {
+  display: inline-block;
   position: relative;
   height: 256px;
   width: 256px;
   margin-bottom: 16px;
 }
-#preloader_wrapper .prealoader_wth_text .prealoader_comb img#preloader_eye {
-  height: 256px;
+#preloader_wrapper .prealoader_wth_text .prealoader_comb #preloader_eye {
+  display: block;
   position: absolute;
+  left: 0;
+  top: 0;
+  height: 256px;
   z-index: 300;
 }
-#preloader_wrapper .prealoader_wth_text .prealoader_comb img#preloader_back {
-  height: 256px;
+#preloader_wrapper .prealoader_wth_text .prealoader_comb #preloader_back {
+  display: block;
   position: absolute;
+  left: 0;
+  top: 0;
+  height: 256px;
   z-index: 299;
-}
-#preloader_wrapper .prealoader_wth_text .prealoder_text {
-  text-align: center;
 }
 #preloader_wrapper .prealoader_wth_text .prealoder_text h3 {
   font-size: 24px;
@@ -3168,14 +3177,14 @@ section.right_menu a:hover {
   position: absolute;
   width: 100%;
   padding: 32px;
-  background: rgba(255, 60, 30, 0.75);
-  z-index: 400;
+  background: #ff3c1e;
   text-align: center;
   line-height: 1.5;
   color: white;
   font-family: Bebas Neue Book;
   font-size: 18px;
   letter-spacing: 2px;
+  z-index: 400;
 }
 
 section#page_404 {
@@ -3791,14 +3800,14 @@ div.wrapper_2 {
   position: absolute;
   width: 100%;
   padding: 32px;
-  background: rgba(255, 60, 30, 0.75);
-  z-index: 400;
+  background: #ff3c1e;
   text-align: center;
   line-height: 1.5;
   color: white;
   font-family: Bebas Neue Book;
   font-size: 18px;
   letter-spacing: 2px;
+  z-index: 400;
 }
 
 section#page_404 {

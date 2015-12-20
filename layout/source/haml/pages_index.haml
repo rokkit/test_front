@@ -1,9 +1,10 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
 	%head
-		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }
+		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=utf-8" }   
 		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/media.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%link{ :rel=>"shortcut icon" , :href=>"./images/favicon.png" , :type=>"image/pngs" }
 		%script{ :src => "./js/jquery-2.1.4.min.js" }
 		%script{ :src => "./js/jquery.gsap.min.js" }
 		%script{ :src => "./js/TweenLite.min.js" }
@@ -46,7 +47,7 @@
 				%header
 					%h2 Регистрация
 					%p.h2_subtitle
-						Регистрация нового пользователя. Если у вас уже есть аккаунт —
+						Пожалуйста, указывайте ваше настоящее имя и фамилию, так как при первом посещении любого из заведений<br>будет производится проверка паспорта. Если у вас уже есть аккаунт —
 						%a{:href =>"#login"} войдите.
 				%form{:action => "", :method => "get", :autocomplete => "off"}
 					%input{:style => "display:none"}
@@ -66,7 +67,7 @@
 					%p.h2_subtitle
 						Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
 						%a{:href =>"#registration"} зарегистрируйтесь.
-				%form{:action => "", :method => "get"}
+				%form{:action => "", :method => "get", :autocomplete => "off"}
 					%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
 					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Войти
