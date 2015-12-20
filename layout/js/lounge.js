@@ -80,7 +80,17 @@ $(function() {
   $.getJSON(hostUrl + '/api/v1/lounges/'+loungeId+'.json', {},function(json) {
     $('title').text(json.title)
     var css = '.lounges_block_1 section.content section.actions button:hover { background: '+json.color+'; }'
-    +  ' section.lounges_block_7 .wrapper_sun_text button:hover { background: '+json.color+'; }'
+    +  ' section.lounges_block_7 .wrapper_sun_text button:hover { background: '+json.color+'; }' + ' ' +
+    ' .lounges_block_1 section.blazon .blazon_glow_2 { \
+      background-image: -moz-radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 255, 0)); \
+      background-image: -webkit-radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 255, 0)); \
+      background-image: radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 255, 0)); \
+ } ' + ' ' +
+  '.lounges_block_1 section.blazon .blazon_glow { \
+  background-image: -moz-radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0)); \
+  background-image: -webkit-radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0)); \
+  background-image: radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0));}'
+
     head = document.head || document.getElementsByTagName('head')[0];
     style = document.createElement('style');
 
