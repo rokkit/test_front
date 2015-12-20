@@ -23,11 +23,28 @@ $(function() {
   $profile_wrapper.find('input[name="employe"]').val(currentUser.employe)
   $profile_wrapper.find('input[name="work_company"]').val(currentUser.work_company)
   $profile_wrapper.find('input[name="hobby"]').val(currentUser.hobby)
-  $profile_wrapper.find('input[name="phone"]').val(currentUser.phone)
-  $profile_wrapper.find('input[name="email"]').val(currentUser.email)
+  $profile_wrapper.find('input[name="phone"]').val('+'+currentUser.phone)
+  $profile_wrapper.find('input[name="birthdate"]').val(currentUser.birthdate)
   if (currentUser.freezed) {
-    $profile_wrapper.find('button').hide()
+    $profile_wrapper.find('input[name="name"]').attr('disabled', 'disabled')
   }
+
+  var picker = new Pikaday({
+    field: $profile_wrapper.find('input[name="birthdate"]')[0],
+    format: 'YYYY-MM-DD',
+    firstDay: 1,
+    minDate: moment().subtract(40, 'years').toDate(),
+    maxDate: moment().subtract(18, 'years').toDate(),
+    defaultDate: moment().subtract(18, 'years').toDate(),
+    i18n: {
+        previousMonth : 'Предыдущий Месяц',
+        nextMonth     : 'Следующий Месяц',
+        months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+        weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+        weekdaysShort : ['Вск','Пон','Вт','Ср','Чт','Пт','Сб']
+    }
+  });
+  $profile_wrapper.find('input[name="phone"]').mask('+7 (000) 000-00-00')
 
   $('form.edit_profile_form').on('submit', function(e) {
     e.preventDefault()

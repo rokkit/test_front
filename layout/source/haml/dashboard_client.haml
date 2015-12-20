@@ -292,12 +292,13 @@
 							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 							%input{:type => "text", :name => "country", :placeholder => "Страна"}
 							%input{:type => "text", :name => "city", :placeholder => "Город"}
+							%input{:type => "text", :name => "birthdate", :placeholder => "Дата рождения"}
 							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
 							%input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
 							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
 						%fieldset
 							%legend	Регистрационные данные
-							%input{:type => "text", :name => "phone", :placeholder => "Номер телефона"}
+							%input{:type => "text", :name => "phone", :placeholder => "Номер телефона", disabled: 'disabled'}
 							-# %input{:type => "text", :name => "email", :placeholder => "E-mail"}
 						%fieldset
 							%legend	сменить пароль

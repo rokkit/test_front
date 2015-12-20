@@ -95,7 +95,7 @@ $(function() {
     $('body').html(template(json))
 
     _.each(json.hookmasters, function(hmaster) {
-      $('.wrapper_hm_cards').append(hmasterTemplate({lounge_slug: json.slug, name: hmaster.name, lounge: json.name}))
+      $('.wrapper_hm_cards').append(hmasterTemplate({lounge_slug: json.slug, name: hmaster.name, lounge: json.title}))
     })
 
 
