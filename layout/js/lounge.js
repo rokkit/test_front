@@ -74,13 +74,34 @@ _.templateSettings =  {
 }
 $(function() {
   var template = _.template($('#page_tpl').html())
+  var hmasterTemplate = _.template($('#hmaster_tpl').html())
 
   var loungeId = window.location.search.substring(1).split('=')[1];
   $.getJSON(hostUrl + '/api/v1/lounges/'+loungeId+'.json', {},function(json) {
     $('title').text(json.title)
+    var css = '.lounges_block_1 section.content section.actions button:hover { background: '+json.color+'; }'
+    +  ' section.lounges_block_7 .wrapper_sun_text button:hover { background: '+json.color+'; }'
+    head = document.head || document.getElementsByTagName('head')[0];
+    style = document.createElement('style');
+
+    style.type = 'text/css';
+    if (style.styleSheet){
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+    head.appendChild(style);
+
     $('body').html(template(json))
+
+    _.each(json.hookmasters, function(hmaster) {
+      $('.wrapper_hm_cards').append(hmasterTemplate({lounge_slug: json.slug, name: hmaster.name, lounge: json.name}))
+    })
+
+
     headerView()
     menuView()
+    mapView(json.lat, json.lng)
     //preloader
     var html_body = document.getElementById("main_content")
     TweenLite.to(html_body, 1, {opacity:1})

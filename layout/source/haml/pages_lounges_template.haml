@@ -24,11 +24,32 @@
 		%script{ :src => "./js/fx.js" }
 		%script{ :src => "./js/header_view.js" }
 		%script{ :src => "./js/menu_view.js" }
+		%script{ :src => "./js/map_view.js" }
 		-# %script{ :src => "./js/page_lounges.js" }
 
 		%script{ :src => "./js/lounge.js" }
 		%title
+		%style#hovers_inline
 	%body#html_body
+	%script{type: "text/template", id: 'hmaster_tpl'}
+		%figure.pointer
+			.wrapper_hm_photo
+				.glow_html
+				.hm_photo
+					%img{:src => "./images/{{ lounge_slug }}/hm_photo_placeholder.svg"}
+				%img.hm_lights{:src => "./images/{{ lounge_slug }}/hm_photo_lights.svg"}
+			%figcapation.wrapper_hm_name
+				%h2 {{ name }}
+				%p «{{ lounge }}»
+			%button.button_round Посмотреть
+			.wrapper_storke_corner
+				.hm_stroke_1
+				.hm_stroke_2
+				-# .hm_corner_wrapper
+				-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+				-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+				-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
+				-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
 	%script{type: "text/template", id: 'page_tpl'}
 		-# code acept
 		.wrapper.h_v_center
@@ -178,7 +199,7 @@
 				-# Контент
 				%section.content
 					%header
-						%h1 {{ title }}
+						%h1{style: 'color: {{ color }};'} {{ title }}
 						%p {{ slogan }}*
 
 					-# Адрес, телефон и время работы
@@ -198,7 +219,7 @@
 
 					-# Кнопка бронирования
 					%section.actions
-						%button.button-arrow.btn_arrow#reserve_table_btn Забронировать столик
+						%button.button-arrow.btn_arrow#reserve_table_btn{style: 'border: 1px solid {{ color }}'} Забронировать столик
 						-# 	 Связаться с нами
 
 				-# Герб
@@ -251,70 +272,11 @@
 			%section.lounges_block_4
 
 				%header
-					%h2 Кальянные мастера
+					%h2{style: 'color: {{ color }};'} Кальянные мастера
 					%p Уникальная Кальянная «{{ title }}»
 					%p {{ hookmasters_description }}
 
 				.wrapper_hm_cards
-					-# Булатов Денис
-					%figure#btn_hm_1.pointer
-						.wrapper_hm_photo
-							.glow_html
-							.hm_photo
-								%img{:src => "./images/{{ slug }}/hm_photo_placeholder.svg"}
-							%img.hm_lights{:src => "./images/{{ slug }}/hm_photo_lights.svg"}
-						%figcapation.wrapper_hm_name
-							%h2 Булатов Денис
-							%p «Резерв»
-						%button.button_round Посмотреть
-						.wrapper_storke_corner
-							.hm_stroke_1
-							.hm_stroke_2
-							-# .hm_corner_wrapper
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-
-					-# Тыренко Антон
-					%figure#btn_hm_2.pointer
-						.wrapper_hm_photo
-							.glow_html
-							.hm_photo
-								%img{:src => "./images/rezerv/hm_photo_placeholder.svg"}
-							%img.hm_lights{:src => "./images/rezerv/hm_photo_lights.svg"}
-						%figcapation.wrapper_hm_name
-							%h2 Тыренко Антон
-							%p «Резерв»
-						%button.button_round Посмотреть
-						.wrapper_storke_corner
-							.hm_stroke_1
-							.hm_stroke_2
-							-# .hm_corner_wrapper
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-
-					-# Новиков Никита
-					%figure#btn_hm_3.pointer
-						.wrapper_hm_photo
-							.glow_html
-							.hm_photo
-								%img{:src => "./images/rezerv/hm_photo_placeholder.svg"}
-							%img.hm_lights{:src => "./images/rezerv/hm_photo_lights.svg"}
-						%figcapation.wrapper_hm_name
-							%h2 Новиков Никита
-							%p «Резерв»
-						%button.button_round Посмотреть
-						.wrapper_storke_corner
-							.hm_stroke_1
-							.hm_stroke_2
-							-# .hm_corner_wrapper
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
-							-# 	%img.hm_corner_img{:src => "./images/rezerv/hm_corner.svg"}
 
 			-# 5. Карта
 			%section.lounges_block_5
@@ -322,7 +284,7 @@
 				-# Текстовый блок
 				%section#map_wrapper
 					%header
-						%h3 {{ city }}
+						%h3{style: 'color: {{ color }};'} {{ city }}
 						%p {{ map_district }}
 
 					%p {{ map_description }}
@@ -338,7 +300,7 @@
 			-# 6. Контакты
 			%section.lounges_block_6
 				%header
-					%h2 Контакты
+					%h2{style: 'color: {{ color }};'} Контакты
 					%h5 По вопросам справки обращайтесь по телефону в рабочее время:
 
 				%h6 Адрес:
@@ -370,6 +332,6 @@
 					%h3 Нomо ornat locum, nоn locus hominem*
 					%h6 *Не место красит человека, а человек – место.
 					%br
-					%button.button-arrow.btn_arrow Зарегистрироваться
+					%button.button-arrow.btn_arrow{style: 'border: 1px solid {{ color }}'} Зарегистрироваться
 			-# %footer#true_footer
 			-# 	© 2015 Уникальные Кальянные. Все права защищены. Сделано с любовью в CPD&BBK.
