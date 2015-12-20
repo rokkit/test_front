@@ -1,5 +1,18 @@
 window.hostUrl = 'http://176.112.194.149:81';
+function hexToRgb(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
 
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
 /*
  * Replace all SVG images with inline SVG
  */
@@ -78,7 +91,9 @@ $(function() {
   var hmasterInfoTemplate = _.template($('#hmaster_popup_tpl').html())
 
   var loungeId = window.location.search.substring(1).split('=')[1];
+
   $.getJSON(hostUrl + '/api/v1/lounges/'+loungeId+'.json', {},function(json) {
+    var rgbColor = hexToRgb(json.color)
     $('title').text(json.title)
     var css = '.lounges_block_1 section.content section.actions button:hover { background: '+json.color+'; }'
     +  ' section.lounges_block_7 .wrapper_sun_text button:hover { background: '+json.color+'; }' + ' ' +
@@ -90,7 +105,22 @@ $(function() {
   '.lounges_block_1 section.blazon .blazon_glow { \
   background-image: -moz-radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0)); \
   background-image: -webkit-radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0)); \
-  background-image: radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0));}'
+  background-image: radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0));}' + ' ' +
+  'section.lounges_block_4 .wrapper_hm_cards figure .wrapper_storke_corner .hm_stroke_1 { border: 2px solid '+json.color+';} \
+   section.lounges_block_4 .wrapper_hm_cards figure .wrapper_storke_corner .hm_stroke_2 { border: 2px solid '+json.color+'; } \
+   section.lounges_block_4 .wrapper_hm_cards figure .button_round { border: 1px solid '+json.color+'; color: '+json.color+'; } \
+   section.lounges_block_4 .wrapper_hm_cards figure:hover .button_round { background: '+json.color+'; color: white; } \
+   section.lounges_block_4 .wrapper_hm_cards figure .wrapper_hm_photo .glow_html { \
+     background-image: -moz-radial-gradient(136px 136px, '+json.color+', rgba(255, 255, 255, 0)); \
+     background-image: -webkit-radial-gradient(136px 136px, '+json.color+', rgba(255, 255, 255, 0)); \
+     background-image: radial-gradient(136px 136px, '+json.color+', rgba(255, 255, 255, 0)); } \
+     section.lounges_block_4 .wrapper_hm_cards figure:hover { box-shadow: 0 0 160px rgba('+rgbColor.r+', '+rgbColor.g+', '+rgbColor.b+', 0.1); } \
+     section.lounges_block_7 .wrapper_sun .sun_glow { background-image: -moz-radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0)); \
+     background-image: -webkit-radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0)); \
+    background-image: radial-gradient(512px 512px, '+json.color+', rgba(255, 255, 255, 0));} \
+    section.lounges_block_7 .wrapper_sun .sun_glow_2 { background-image: -moz-radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 255, 0)); \
+background-image: -webkit-radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 255, 0)); \
+background-image: radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 255, 0));}'
 
     head = document.head || document.getElementsByTagName('head')[0];
     style = document.createElement('style');
