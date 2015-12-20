@@ -98,10 +98,17 @@ $(function() {
       $('.wrapper_hm_cards').append(hmasterTemplate({lounge_slug: json.slug, name: hmaster.name, lounge: json.title}))
     })
 
+    _.each(json.photos, function(photo) {
+      $('.cd-slider-nav ul').append('<li><img class="img-nav pointer" src="'+ hostUrl + photo.image +'"></li>')
+      $('.cd-hero-slider').append('<li><img class="img-slider" src="'+ hostUrl + photo.image +'"></li>')
+    })
+    $('.cd-slider-nav ul li:first').addClass('selected')
+
 
     headerView()
     menuView()
     mapView(json.lat, json.lng)
+    sliderMainView()
     //preloader
     var html_body = document.getElementById("main_content")
     TweenLite.to(html_body, 1, {opacity:1})
