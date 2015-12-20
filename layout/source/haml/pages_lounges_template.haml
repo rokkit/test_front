@@ -39,7 +39,7 @@
 				%h2 {{ name }}
 				%p «{{ lounge }}»
 			%section
-				{{ description }}
+				%p {{ description }}
 	%script{type: "text/template", id: 'hmaster_tpl'}
 		%figure.pointer{data: {id: '{{ id }}'}}
 			.wrapper_hm_photo
@@ -279,7 +279,7 @@
 
 				%h6 Социальные сети
 				%p
-					%a{:ref=>"http://vk.com/club61931015"} Группа Вконтакте
+					%a{:href=>"{{ vk_link }}"} Группа Вконтакте
 
 			-# 7. Присоединятесь!
 			%section.lounges_block_7

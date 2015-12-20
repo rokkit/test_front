@@ -137,7 +137,7 @@ background-image: radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 25
 
     _.each(json.hookmasters, function(hmaster) {
       $('.wrapper_hm_cards').append(hmasterTemplate({id: hmaster.id, lounge_slug: json.slug, name: hmaster.name, lounge: json.title}))
-      $('#wrapper_hm_popup').append(hmasterInfoTemplate({id: hmaster.id, name: hmaster.name, lounge: json.title, description: json.description}))
+      $('#wrapper_hm_popup').append(hmasterInfoTemplate({id: hmaster.id, name: hmaster.name, lounge: json.title, description: hmaster.description}))
     })
 
     $('.wrapper_hm_cards figure').each(function() {
