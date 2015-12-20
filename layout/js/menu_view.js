@@ -118,7 +118,7 @@ $(function() {
     })
 
   });
-  $(document).on('click', 'h5', function() {
+  $(document).on('click', '#menu_left_part h5', function() {
     document.location.href = $(this).data('url');
   });
 });

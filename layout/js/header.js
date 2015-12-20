@@ -261,6 +261,11 @@ function doLogin(phone, password) {
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#login_form input[name="password"]').addClass('wrong')
       }
+      if(resp['errors']['confirmed_at']) {
+        $('#wrapper_signup').css('pointer-events', 'none');
+        bodyClickOff();
+        fx.swap('loginPopup', 'code_form');
+      }
     }
   });
 }
@@ -311,4 +316,3 @@ $(function() {
     document.location.href = 'http://176.112.194.149:81/admin'
   });
 });
-

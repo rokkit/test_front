@@ -264,6 +264,11 @@ function doLogin(phone, password) {
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#login_form input[name="password"]').addClass('wrong')
       }
+      if(resp['errors']['confirmed_at']) {
+        $('#wrapper_signup').css('pointer-events', 'none');
+        bodyClickOff();
+        fx.swap('loginPopup', 'code_form');
+      }
     }
   });
 }
@@ -284,6 +289,13 @@ $(function(){
 $(function() {
   $('#uhp_logo').on('click', function() {
     document.location.href = '/pages_index.html'
+  });
+});
+
+//Ссылка в меню
+$(function() {
+  $('#go_login_from_menu_btn').on('click', function() {
+    document.location.href = 'http://176.112.194.149:81/admin'
   });
 });
 
