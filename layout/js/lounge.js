@@ -75,6 +75,7 @@ _.templateSettings =  {
 $(function() {
   var template = _.template($('#page_tpl').html())
   var hmasterTemplate = _.template($('#hmaster_tpl').html())
+  var hmasterInfoTemplate = _.template($('#hmaster_popup_tpl').html())
 
   var loungeId = window.location.search.substring(1).split('=')[1];
   $.getJSON(hostUrl + '/api/v1/lounges/'+loungeId+'.json', {},function(json) {
@@ -105,8 +106,30 @@ $(function() {
     $('body').html(template(json))
 
     _.each(json.hookmasters, function(hmaster) {
-      $('.wrapper_hm_cards').append(hmasterTemplate({lounge_slug: json.slug, name: hmaster.name, lounge: json.title}))
+      $('.wrapper_hm_cards').append(hmasterTemplate({id: hmaster.id, lounge_slug: json.slug, name: hmaster.name, lounge: json.title}))
+      $('#wrapper_hm_popup').append(hmasterInfoTemplate({id: hmaster.id, name: hmaster.name, lounge: json.title, description: json.description}))
     })
+
+    $('.wrapper_hm_cards figure').each(function() {
+      console.log('d')
+      var hmasterId = $(this).data('id')
+      var hm_popup = new TimelineMax({paused:true});
+      hm_popup.to("#html_body", 0.1, {overflow:"hidden"});
+      hm_popup.to("#popup_hm_"+hmasterId, 0.9, {top:0, ease: Power4.easeOut});
+      hm_popup.to("#wrapper_hm_popup", 0.1, {'pointer-events':'auto'});
+
+      $(this).click(function() {
+        console.log('play')
+        hm_popup.play();
+      });
+
+      $("#popup_hm_"+hmasterId).find(".cross_white_popup").click(function() {
+        console.log('d')
+        hm_popup.reverse();
+      });
+    });
+
+
 
     _.each(json.photos, function(photo) {
       $('.cd-slider-nav ul').append('<li><img class="img-nav pointer" src="'+ hostUrl + photo.image +'"></li>')

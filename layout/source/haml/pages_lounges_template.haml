@@ -32,8 +32,16 @@
 		%title
 		%style#hovers_inline
 	%body#html_body
+	%script{type: "text/template", id: 'hmaster_popup_tpl'}
+		%section.hm_popup{id: 'popup_hm_{{ id }}'}
+			%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
+			%header
+				%h2 {{ name }}
+				%p «{{ lounge }}»
+			%section
+				{{ description }}
 	%script{type: "text/template", id: 'hmaster_tpl'}
-		%figure.pointer
+		%figure.pointer{data: {id: '{{ id }}'}}
 			.wrapper_hm_photo
 				.glow_html
 				.hm_photo
@@ -154,32 +162,7 @@
 		-# Попапы кальянщиков
 		#wrapper_hm_popup
 			-# Карточка 1
-			%section.hm_popup#popup_hm_1
-				%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
 
-				%header
-					%h2 Булатов Денис
-					%p «Резерв»
-				%section
-					%p Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.
-			-# Карточка 2
-			%section.hm_popup#popup_hm_2
-				%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
-
-				%header
-					%h2 Тыренко Антон
-					%p «Резерв»
-				%section
-					%p Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.
-			-# Карточка 3
-			%section.hm_popup#popup_hm_3
-				%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
-
-				%header
-					%h2 Новиков Никита
-					%p «Резерв»
-				%section
-					%p Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.
 
 
 		-# Color Overlay
