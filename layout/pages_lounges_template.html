@@ -23,13 +23,26 @@
     <script src='./js/header_view.js'></script>
     <script src='./js/menu_view.js'></script>
     <script src='./js/map_view.js'></script>
+    <script src='./js/slider_main_view.js'></script>
     <script src='./js/lounge.js'></script>
     <title></title>
     <style id='hovers_inline'></style>
   </head>
   <body id='html_body'></body>
+  <script id='hmaster_popup_tpl' type='text/template'>
+    <section class='hm_popup' id='popup_hm_{{ id }}'>
+      <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
+      <header>
+        <h2>{{ name }}</h2>
+        <p>«{{ lounge }}»</p>
+      </header>
+      <section>
+        {{ description }}
+      </section>
+    </section>
+  </script>
   <script id='hmaster_tpl' type='text/template'>
-    <figure class='pointer'>
+    <figure class='pointer' data-id='{{ id }}'>
       <div class='wrapper_hm_photo'>
         <div class='glow_html'></div>
         <div class='hm_photo'>
@@ -158,36 +171,6 @@
       </section>
     </div>
     <div id='wrapper_hm_popup'>
-      <section class='hm_popup' id='popup_hm_1'>
-        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
-        <header>
-          <h2>Булатов Денис</h2>
-          <p>«Резерв»</p>
-        </header>
-        <section>
-          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, м��неры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
-        </section>
-      </section>
-      <section class='hm_popup' id='popup_hm_2'>
-        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
-        <header>
-          <h2>Тыренко Антон</h2>
-          <p>«Резерв»</p>
-        </header>
-        <section>
-          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
-        </section>
-      </section>
-      <section class='hm_popup' id='popup_hm_3'>
-        <img class='cross_white_popup pointer' src='./images/cross_black.svg'>
-        <header>
-          <h2>Новиков Никита</h2>
-          <p>«Резерв»</p>
-        </header>
-        <section>
-          <p>Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.</p>
-        </section>
-      </section>
     </div>
     <div class='color_overlay' id='color_overlay'></div>
     <header class='pages_lounges_header' id='header'>
@@ -217,9 +200,7 @@
             <figure>
               <img alt='Город' height='16px' src='./images/{{ slug }}/clock.svg'>
               <figcapation>
-                Пн - Чт и Вс: 14:00 - 03:00
-                <br>
-                Пт - Сб: 14:00 - 05:00
+                {{ work_hours }}
               </figcapation>
             </figure>
           </section>
@@ -244,42 +225,10 @@
       </section>
       <section class='lounges_block_3'>
         <section class='cd-hero'>
-          <ul class='cd-hero-slider autoplay'>
-            <li class='selected'>
-              <img class='img-slider' src='./images/rezerv/slider/1.jpg'>
-            </li>
-            <li>
-              <img class='img-slider' src='./images/rezerv/slider/2.jpg'>
-            </li>
-            <li>
-              <img class='img-slider' src='./images/rezerv/slider/3.jpg'>
-            </li>
-            <li>
-              <img class='img-slider' src='./images/rezerv/slider/4.jpg'>
-            </li>
-            <li>
-              <img class='img-slider' src='./images/rezerv/slider/5.jpg'>
-            </li>
-          </ul>
+          <ul class='cd-hero-slider autoplay'></ul>
           <div class='cd-slider-nav'>
             <nav>
-              <ul>
-                <li class='selected'>
-                  <img class='img-nav pointer' src='./images/rezerv/slider/1.jpg'>
-                </li>
-                <li>
-                  <img class='img-nav pointer' src='./images/rezerv/slider/2.jpg'>
-                </li>
-                <li>
-                  <img class='img-nav pointer' src='./images/rezerv/slider/3.jpg'>
-                </li>
-                <li>
-                  <img class='img-nav pointer' src='./images/rezerv/slider/4.jpg'>
-                </li>
-                <li>
-                  <img class='img-nav pointer' src='./images/rezerv/slider/5.jpg'>
-                </li>
-              </ul>
+              <ul></ul>
             </nav>
           </div>
         </section>

@@ -25,14 +25,23 @@
 		%script{ :src => "./js/header_view.js" }
 		%script{ :src => "./js/menu_view.js" }
 		%script{ :src => "./js/map_view.js" }
+		%script{ :src => "./js/slider_main_view.js" }
 		-# %script{ :src => "./js/page_lounges.js" }
 
 		%script{ :src => "./js/lounge.js" }
 		%title
 		%style#hovers_inline
 	%body#html_body
+	%script{type: "text/template", id: 'hmaster_popup_tpl'}
+		%section.hm_popup{id: 'popup_hm_{{ id }}'}
+			%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
+			%header
+				%h2 {{ name }}
+				%p «{{ lounge }}»
+			%section
+				{{ description }}
 	%script{type: "text/template", id: 'hmaster_tpl'}
-		%figure.pointer
+		%figure.pointer{data: {id: '{{ id }}'}}
 			.wrapper_hm_photo
 				.glow_html
 				.hm_photo
@@ -153,32 +162,7 @@
 		-# Попапы кальянщиков
 		#wrapper_hm_popup
 			-# Карточка 1
-			%section.hm_popup#popup_hm_1
-				%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
 
-				%header
-					%h2 Булатов Денис
-					%p «Резерв»
-				%section
-					%p Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.
-			-# Карточка 2
-			%section.hm_popup#popup_hm_2
-				%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
-
-				%header
-					%h2 Тыренко Антон
-					%p «Резерв»
-				%section
-					%p Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.
-			-# Карточка 3
-			%section.hm_popup#popup_hm_3
-				%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
-
-				%header
-					%h2 Новиков Никита
-					%p «Резерв»
-				%section
-					%p Сдержан. Обладает тонким чувством стиля во всем: подача, манеры, внешний вид. В этом человеке всегда присутствуют 2 личности, и за этим симбиозом следить очень интересно.
 
 
 		-# Color Overlay
@@ -213,9 +197,7 @@
 						%figure
 							%img{ :src=>"./images/{{ slug }}/clock.svg", :alt=>"Город", :height=>"16px" }
 							%figcapation
-								Пн - Чт и Вс: 14:00 - 03:00
-								%br
-								Пт - Сб: 14:00 - 05:00
+								{{ work_hours }}
 
 					-# Кнопка бронирования
 					%section.actions
@@ -244,30 +226,10 @@
 			%section.lounges_block_3
 				%section.cd-hero
 					%ul.cd-hero-slider.autoplay
-						%li.selected
-							%img.img-slider{:src => "./images/rezerv/slider/1.jpg"}
-						%li
-							%img.img-slider{:src => "./images/rezerv/slider/2.jpg"}
-						%li
-							%img.img-slider{:src => "./images/rezerv/slider/3.jpg"}
-						%li
-							%img.img-slider{:src => "./images/rezerv/slider/4.jpg"}
-						%li
-							%img.img-slider{:src => "./images/rezerv/slider/5.jpg"}
 
 					.cd-slider-nav
 						%nav
 							%ul
-								%li.selected
-									%img.img-nav.pointer{:src => "./images/rezerv/slider/1.jpg"}
-								%li
-									%img.img-nav.pointer{:src => "./images/rezerv/slider/2.jpg"}
-								%li
-									%img.img-nav.pointer{:src => "./images/rezerv/slider/3.jpg"}
-								%li
-									%img.img-nav.pointer{:src => "./images/rezerv/slider/4.jpg"}
-								%li
-									%img.img-nav.pointer{:src => "./images/rezerv/slider/5.jpg"}
 			-# 4. Кальянщики
 			%section.lounges_block_4
 
