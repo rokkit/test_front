@@ -46,9 +46,7 @@ $(function(){
   $.getJSON(hostUrl + '/api/v1/lounges.json', {}, function(json) {
 
     $.each(json, function() {
-      if(this.title != 'Либерти') {
         ui.card.render(this.blazon, this.color, this.title, this.city, '.lounges', this.id);
-      }
     })
 
   });
