@@ -45,6 +45,16 @@
       <td>{{ amount }}р.</td>
     </tr>
   </script>
+  <script id='bonuses_item_tpl' type='text/template'>
+    <figure>
+      <img src='{{ image }}'>
+      <span class='popover'>
+        {{ name }}
+        <br>
+        {{ description }}
+      </span>
+    </figure>
+  </script>
   <body id='html_body'>
     <div class='wrapper_2' id='edit-profile-wrapper'>
       <section class='popup_horizontal' id='edit-profile'>
@@ -229,7 +239,7 @@
         </article>
         <article>
           <h4>Бонусы</h4>
-          <aside>
+          <aside id='bonuses_list'>
             <figure>
               <img src='./images/achievments/1.svg'>
               <span class='popover'>

@@ -42,6 +42,13 @@
 				%h6.color-blue {{ lounge }}
 			%td.td-date {{ work_at }} - {{ end_work_at }}
 			%td {{ amount }}р.
+	%script{type: "text/template", id: 'bonuses_item_tpl'}
+		%figure
+			%img{:src=>"{{ image }}"}
+			%span.popover
+				{{ name }}
+				%br
+				{{ description }}
 	%body#html_body
 		.wrapper_2#edit-profile-wrapper
 			-# Form
@@ -210,7 +217,7 @@
 
 				%article
 					%h4 Бонусы
-					%aside
+					%aside#bonuses_list
 						%figure
 							%img{:src=>"./images/achievments/1.svg"}
 							%span.popover

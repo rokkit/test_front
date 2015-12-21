@@ -167,8 +167,17 @@ $(function() {
 
   $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '/load_hookmaster_data.json', {auth_token: currentUser.auth_token}, function(json) {
     makeHookmasterWorks(json.works)
+    makeHookmasterBonuses(json.bonuses)
   })
 })
+
+function makeHookmasterBonuses(bonuses) {
+  var bonusesItemTpl = _.template($('#bonuses_item_tpl').html())
+  $('#bonuses_list').empty()
+  _.each(bonuses, function(bonus) {
+    $('#bonuses_list').append(bonusesItemTpl(bonus))
+  });
+}
 
 function makeUserRating(users_month, users_all_time) {
   users_month = _.sortBy(_.filter(users_month, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()
