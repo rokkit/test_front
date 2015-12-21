@@ -136,14 +136,18 @@ background-image: radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 25
     $('body').html(template(json))
 
     _.each(json.hookmasters, function(hmaster) {
-      var name = hmaster.name.split(' ')
+      var name = hmaster.name
+      if(hmaster.name.split(' ').length > 2) {
+        var name = hmaster.name.split(' ')
+        name.pop()
+        name = name.join(' ')
+      }
       name.pop()
       $('.wrapper_hm_cards').append(hmasterTemplate({id: hmaster.id, lounge_slug: json.slug, name: name.join(' '), lounge: json.title}))
       $('#wrapper_hm_popup').append(hmasterInfoTemplate({id: hmaster.id, name: hmaster.name, lounge: json.title, description: hmaster.description}))
     })
 
     $('.wrapper_hm_cards figure').each(function() {
-      console.log('d')
       var hmasterId = $(this).data('id')
       var hm_popup = new TimelineMax({paused:true});
       hm_popup.to("#html_body", 0.1, {overflow:"hidden"});
