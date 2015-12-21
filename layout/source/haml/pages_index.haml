@@ -155,23 +155,29 @@
 					%p.h2_subtitle Заведения нашей сети - первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому клиенту.
 			-# Карточки кальянных
 			%section.lounges
-				-#%article.lounge
-					-#.frontside
-						-#%img{ :src=>"./images/blazons/reserv.svg"}
-						-#%h4 «Резерв»
-						-#%small Тюмень
-				-#%article.lounge
-					-#.frontside
-						-#%img{ :src=>"./images/blazons/oblaka.svg"}
-						-#%h4 «Облака»
-						-#%small Воронеж
-				-#%article.lounge
-					-#.frontside
-						-#%img{ :src=>"./images/blazons/unityhall.svg"}
-						-#%h4 «Unity Hall»
-						-#%small Казань
-				-#%article.lounge
-					-#.frontside
-						-#%img{ :src=>"./images/blazons/academy.svg"}
-						-#%h4 «Академия»
-						-#%small Новосибирск
+				%article.lounge
+					.wrapper_corners
+						%img{ :src=>"./images/rezerv/corner.svg"}
+						%img{ :src=>"./images/rezerv/corner.svg"}
+						%img{ :src=>"./images/rezerv/corner.svg"}
+						%img{ :src=>"./images/rezerv/corner.svg"}
+					.wrapper_herb
+						%img{ :src=>"./images/rezerv/reserv.svg"}
+					.wrapper_text
+						%h4 «Резерв»
+						%p Тюмень
+				%article.lounge
+					.frontside
+						%img{ :src=>"./images/blazons/oblaka.svg"}
+						%h4 «Облака»
+						%small Воронеж
+				%article.lounge
+					.frontside
+						%img{ :src=>"./images/blazons/unityhall.svg"}
+						%h4 «Unity Hall»
+						%small Казань
+				%article.lounge
+					.frontside
+						%img{ :src=>"./images/blazons/academy.svg"}
+						%h4 «Академия»
+						%small Новосибирск
