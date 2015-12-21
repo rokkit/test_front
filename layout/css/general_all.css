@@ -465,7 +465,7 @@ button:hover {
 
 .section_1_bg {
   display: relative;
-  min-height: 60%;
+  min-height: 40%;
   background: url("../images/places/page_index_overlay.png"), url("../images/places/page_index_bg.jpg");
   background-size: 100% 100%, 100% 100%;
   padding: 160px 48px 32px 48px;
@@ -516,15 +516,6 @@ button:hover {
   background: url(../images/location.svg);
 }
 
-hr {
-  height: 1px;
-  width: 100%;
-  margin: 0;
-  background: white;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
-  opacity: 0.2;
-}
-
 section.lounges {
   position: relative;
   width: 100%;
@@ -555,10 +546,19 @@ section.lounges article.lounge:first-of-type {
 }
 section.lounges article.lounge:first-of-type img {
   position: absolute;
-  width: 320px;
+  width: 340px;
   margin: 0;
   margin-top: 48px;
-  left: calc(50% - 160px);
+  left: calc(50% - 170px);
+}
+section.lounges article.lounge:first-of-type:after {
+  position: absolute;
+  content: "";
+  top: -48px;
+  left: calc(50% - 200px);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(rgba(251, 177, 59, 0.4) 0%, rgba(241, 91, 36, 0) 40%);
 }
 section.lounges article.lounge {
   position: relative;
@@ -1528,6 +1528,10 @@ header.pages_lounges_header nav a:hover {
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
 }
+.lounges_block_3 section.cd-hero ul.cd-hero-slider li img.img-slider {
+  width: auto;
+  height: 100%;
+}
 .lounges_block_3 section.cd-hero .cd-slider-nav {
   position: absolute;
   width: 100%;
@@ -2387,12 +2391,14 @@ section.bottom-rating article:last-child ul.leaders {
 }
 section.bottom-rating article:last-child ul.leaders li:before {
   width: 0;
+  margin-top: 8px;
   float: left;
   white-space: nowrap;
-  content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . ";
+  content: "______________________________________________" "______________________________________________ " "______________________________________________ ";
+  opacity: 0.1;
 }
 section.bottom-rating article:last-child ul.leaders li {
-  padding: 20px 0;
+  padding: 8px 0;
 }
 section.bottom-rating article:last-child ul.leaders li span:first-child {
   padding-right: 0.33em;
