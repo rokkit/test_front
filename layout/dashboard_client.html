@@ -65,81 +65,30 @@
       <section class='error_tooltip' id='error_password'>
         Данные введены неверно! Попробуйте ввести еще раз.
       </section>
-      <section class='popup' id='invite_form'>
-        <header>
-          <h2>Назначить встречу</h2>
-          <p class='h2_subtitle'>
-            Мы ставим своей целью не только подавать лучшие кальяны,
-            <br>
-            но и  помогать людям находить новые полезные знакомства.
-          </p>
-        </header>
-        <form action='' method='get'>
-          <select name='lounge'>
-            <option>
-              Кальянная
-            </option>
-          </select>
-          <select id='visit_date_meet' name='visit_date' placeholder='Дата' type='text'>
-            <option selected='true' value='today'>Сегодня</option>
-            <option value='tomorrow'>Завтра</option>
-            <option value='date_choose'>Указать дату</option>
-          </select>
-          <select name='visit_time'>
-            <option data-time='1700' value='17:00'>17:00</option>
-            <option data-time='1730' value='17:30'>17:30</option>
-            <option data-time='1800' value='18:00'>18:00</option>
-            <option data-time='1830' value='18:30'>18:30</option>
-            <option data-time='1900' value='19:00'>19:00</option>
-            <option data-time='1930' value='19:30'>19:30</option>
-            <option data-time='2000' value='20:00'>20:00</option>
-            <option data-time='2030' value='20:30'>20:30</option>
-            <option data-time='2100' value='21:00'>21:00</option>
-            <option data-time='2130' value='21:30'>21:30</option>
-            <option data-time='2200' value='22:00'>22:00</option>
-            <option data-time='2230' value='22:30'>22:30</option>
-            <option data-time='2300' value='23:00'>23:00</option>
-          </select>
-          <button class='button-arrow' name='sumbit' type='sumbit'>Отправить приглашения</button>
-          <br>
-          <select name='invate-dropdown'>
-            <option>
-              Пригласить
-            </option>
-          </select>
-          <span class='select-cont'>
-          </span>
-        </form>
-      </section>
-    </div>
-    <div class='wrapper center-center'>
-      <section class='error_tooltip' id='error_password'>
-        Данные введены неверно! Попробуйте ввести еще раз.
-      </section>
       <section class='popup' id='reserv_form'>
         <header>
           <h2>Забронировать столик</h2>
           <p class='h2_subtitle'>
-            Выберите время для желаемого бронирования
+            Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества. Подробнее о правилах организации встреч, вы можете прочитать на странице FAQ.
           </p>
         </header>
         <form action='' method='get'>
           <select name='lounge'>
-            <option>
-              Кальянная
-            </option>
+            <option disabled='true' hidden='true' selected='selected' value=''>Ложа</option>
           </select>
           <select name='client_count'>
-            <option value='4'>Количество гостей</option>
+            <option disabled='true' hidden='true' selected='selected' value=''>Количество гостей</option>
             <option value='4'>1-4</option>
             <option value='6'>5-6</option>
           </select>
-          <select id='visit_date' name='visit_date' placeholder='Дата' type='text'>
-            <option selected='true' value='today'>Сегодня</option>
+          <select id='visit_date' name='visit_date' type='text'>
+            <option class='placeholder' disabled='true' hidden='true' selected='selected' value=''>Дата бронирования</option>
+            <option value='today'>Сегодня</option>
             <option value='tomorrow'>Завтра</option>
-            <option value='date_choose'>Указать дату</option>
+            <option value='date_choose'>Указать конкретную дату</option>
           </select>
           <select name='visit_time'>
+            <option disabled='true' hidden='selected' selected='true' value=''>Время бронирования</option>
             <option data-time='1700' value='17:00'>17:00</option>
             <option data-time='1730' value='17:30'>17:30</option>
             <option data-time='1800' value='18:00'>18:00</option>
@@ -154,6 +103,37 @@
             <option data-time='2230' value='22:30'>22:30</option>
             <option data-time='2300' value='23:00'>23:00</option>
           </select>
+          <hr>
+          <h3>Пригласить на встречу</h3>
+          <p>Добавляя участников встречи, вы приглашете их посетить "Уникальные Кальянные" вместе с вами. Полученный опыт распределяется между всеми участниками встречи.</p>
+          <select class='add_users_select' id='invite_users' name='invite_users' type='text'>
+            <option disabled='true' hidden='true' selected='true' value=''>Добавить участников</option>
+          </select>
+          <div class='invited_user'>
+            Сергей Голубев
+            <div class='cross_delete pointer'>
+              <img src='./images/cross.svg'>
+            </div>
+          </div>
+          <div class='invited_user'>
+            Сергей Голубев
+            <div class='cross_delete pointer'>
+              <img src='./images/cross.svg'>
+            </div>
+          </div>
+          <div class='invited_user'>
+            Сергей Голубев
+            <div class='cross_delete pointer'>
+              <img src='./images/cross.svg'>
+            </div>
+          </div>
+          <div class='invited_user'>
+            Сергей Голубев
+            <div class='cross_delete pointer'>
+              <img src='./images/cross.svg'>
+            </div>
+          </div>
+          <hr>
           <button class='button-arrow' name='sumbit' type='sumbit'>Забронировать</button>
         </form>
       </section>
