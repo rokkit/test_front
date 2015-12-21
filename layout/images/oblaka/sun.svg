@@ -1,16 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-383 145 512 512"> 
   <style>
-<<<<<<< HEAD
-    .st0{fill:#C14253;}
+    .st0{fill:#64B6DC;}
     .st1{
       fill:none;
-      stroke:#C14253;
-=======
-    .st0{fill:#ECB72E;}
-    .st1{
-      fill:none;
-      stroke:#ECB72E;
->>>>>>> c281a6906300d1a0f18ad6f53341c688c4b3e97f
+      stroke:#64B6DC;
       stroke-width:2;
       stroke-linecap:round;
       stroke-linejoin:round;

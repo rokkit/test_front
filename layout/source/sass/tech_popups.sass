@@ -5,7 +5,7 @@ section.error_tooltip
     top: 0px
 section.popup
     position: relative
-    right: -160px
+    left: calc(100% + 160px)
 
     height: auto
     width: calc(100% - 160px)
@@ -19,12 +19,12 @@ section.popup
 
     select
         color: white
-        
+
         min-width: 200px
         width: auto
-        
+
         padding-right: 16px
-        
+
         margin-bottom: 16px
 
         background-color: transparent
@@ -35,7 +35,7 @@ section.popup
 
         option
             color: gray
-        
+
         option:checked
             color: red
 
@@ -51,10 +51,10 @@ section.popup
 
     .invited_user
         display: inline-block
-        
+
         height: 48px
         width: auto
-        
+
         font-size: 14px
         line-height: 48px
 
@@ -93,7 +93,7 @@ section.popup
 
         .cross_delete:active
             +transform(rotate(180deg) scale(0.8))
-        
+
         .cross_delete:hover img
             +transform(rotate(180deg))
 

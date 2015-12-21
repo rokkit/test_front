@@ -161,7 +161,7 @@ var fxa = {
     },
     pass:{
       element: '#pass_form',
-      options: {'left': '190px'}
+      options: {'left': '160px'}
     },
     wrapper_pass:{
       element: '#wrapper_pass',
