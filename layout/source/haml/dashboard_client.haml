@@ -68,8 +68,8 @@
 				%header
 					%h2 Забронировать столик
 					%p.h2_subtitle
-						Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества. Подробнее о правилах организации встреч, вы можете прочитать на странице FAQ.
-				%form{:action => "", :method => "get"}
+						Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества
+				%form{:action => "", :method => "get"
 					%select{:name=>"lounge"}
 						%option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Ложа
 					%select{:id => 'client_count_input', :name=>'client_count'}

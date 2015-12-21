@@ -162,23 +162,42 @@
 
 		-# Main conent
 		%main{:id => 'main_content'}
-			-# Блок первый
+			-# Блок первыйs
 			%section.section_1_bg
+				.wrapper_evil_sun
+					%img{ :src=>"./images/evil_sun.svg"}
 				%header
-					%h1 Посетите наши уникальные заведения
-					%p.h2_subtitle Заведения нашей сети - первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому клиенту.
+					%h1 Посетите наши<br>уникальные заведения
+					.wrapper_venzel
+						%img{ :src=>"./images/venzel_1.svg"}
+					%p.h2_subtitle Заведения нашей сети - первая в мире территория для<br>курения со свободной оплатой и индивидуальным<br>подходом к каждому клиенту.
+				
+					
 			-# Карточки кальянных
 			%section.lounges
-				%article.lounge
-					.wrapper_corners_card
-						.lounge_card_border_1
-							.lounge_card_border_2
-								%img{ :src=> "./images/liberty/corner.svg"}
-								%img{ :src=>"./images/liberty/corner.svg"}
-								%img{ :src=>"./images/liberty/corner.svg"}
-								%img{ :src=>"./images/liberty/corner.svg"}
-					.wrapper_herb_card
-						%img{ :src=>"./images/liberty/blazon.svg"}
-					.wrapper_text_card
-						%h4 «Либерти»
-						%p Санкт-Петербург
+				.wrapper_lounges
+					%article.lounge
+						.wrapper_corners_card
+							.lounge_card_border_1
+								.lounge_card_border_2
+									%img{ :src=> "./images/liberty/corner.svg"}
+									%img{ :src=>"./images/liberty/corner.svg"}
+									%img{ :src=>"./images/liberty/corner.svg"}
+									%img{ :src=>"./images/liberty/corner.svg"}
+						.wrapper_herb_card
+							%img{ :src=>"./images/liberty/blazon.svg"}
+						.wrapper_text_card
+							%h4 «Либерти»
+							%p Санкт-Петербург
+			%section#philosophie_block5
+				%h3 Omnis qui quaerit invenit
+				%h6 *Всякий ищущий находит
+				%br
+				%button.button-dark Зарегистрироваться
+
+				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
+				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
+				%img.sun_rotation{ :src=>"./images/sun_lines.svg"}
+				%img{ :src=>"./images/sun.svg" , :alt=>"Звезда"}
+			%video.video_on_bg{ :autoplay => "autoplay", :loop => "loop", :muted => "muted"}
+				%source{ :src=>"http://beta.mattgrossdesign.com/sites/default/files/wood%20autumn-HD.mp4", :type => "video/mp4"}

@@ -18,7 +18,7 @@ $(function(){
     var loungeCardTpl = _.template($('#lounge_card_tpl').html())
     _.each(json, function(l) {
       if(l.title != 'Либерти') {
-        $('section.lounges').append(loungeCardTpl({
+        $('.wrapper_lounges').append(loungeCardTpl({
           id: l.id,
           title: l.title,
           slug: l.slug,
