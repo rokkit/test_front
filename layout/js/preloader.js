@@ -1,4 +1,5 @@
 // PRELOADER
+var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 $(function() {
   var prealoader_wrapper = document.getElementById("preloader_wrapper")
   var prealoader_eye = document.getElementById("preloader_eye")
@@ -8,7 +9,12 @@ $(function() {
 
   if (window.location.search.substring(1) == 'redirect=profile') {
     TweenLite.to(prealoader_wrapper, 1, { top:"-100%", opacity:0, delay:4, ease: Power4.easeOut, onComplete: function() {
-      document.location.href = '/dashboard_client.html'
+      if (currentUser.role == 'hookmaster') {
+        document.location.href = '/dashboard_hmaster.html'
+      } else {
+        document.location.href = '/dashboard_client.html'
+      }
+
     }})
   } else {
     TweenLite.to(prealoader_wrapper, 1, { top:"-100%", opacity:0, delay:4, ease: Power4.easeOut, onComplete: function() {

@@ -9,7 +9,10 @@ ui.card = (function () {
 
 function card(blazons, color, name, nameCity, el, id){
     var img = blazons;
+    var imgUrl = blazons;
+    console.log(img)
     blazons = blazons.split('/')[blazons.split('/').length - 1].split('.')[0]
+
     var path = '../images/blazons/' + blazons +'.svg';
     var cardId = blazons + '-card';
     var card = d3.select(el).append('article').attr('class', 'lounge pointer').attr('data-id', id)
@@ -46,12 +49,9 @@ function card(blazons, color, name, nameCity, el, id){
   	.style('stroke', color)
     .style('stroke-opacity', 0.30)
   	.style('stroke-width', 0.8);
-
+    console.log(path)
   	d3.xml(path, "image/svg+xml", function(error, xml){
 		if (error) throw error;
-		//var importedNode = document.importNode(xml.documentElement, true);
-    	//svgCard.node().appendChild(importedNode).setAttribute('id', blazons);
-    	//renderNode(svgCard, xml, blazons);
       var blazonWidth = w - 80;
     	var blazonHeight = h - 80;
     	var blazonX = w/2 - blazonWidth/2;
@@ -62,13 +62,13 @@ function card(blazons, color, name, nameCity, el, id){
     	.attr('y', blazonY)
     	.attr('width', blazonWidth)
     	.attr('height', blazonHeight);
-
 		var title = svgCard.append('text')
 		.text('"' + name + '"')
 		.attr("font-size", 24)
 		.attr('letter-spacing', 4)
     .attr('text-align', 'center')
 		.attr("font-family", "Bebas Neue");
+
 
 
 		var titleWidth = title.node().getBoundingClientRect().width;

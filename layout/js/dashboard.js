@@ -104,7 +104,7 @@ $(function() {
     svgIconConfig,
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
-  $('#header img').click(function() {
+  $('#menu_header_logo').click(function() {
     document.location.href = '/pages_index.html'
   });
 // console.log("%c Created by CPDBBK", css);
@@ -121,7 +121,6 @@ $(function() {
     $(function() {
       $.getJSON(hostUrl + '/api/v1/users/'+currentUser.id+'/load_client_data.json', {auth_token: currentUser.auth_token}, function(json) {
         if(json.meets.length > 0){
-          //fx.do(['background']);
           var last = json.meets.length - 1;
           json.meets.forEach(function(meet, i){
             if(meet.status === 'wait' && last === i){

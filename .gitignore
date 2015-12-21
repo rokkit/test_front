@@ -4,3 +4,4 @@
 /client
 /build
 *.sublime-project
+.DS_Store
