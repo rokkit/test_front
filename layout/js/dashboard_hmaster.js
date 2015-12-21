@@ -101,7 +101,7 @@ $(function() {
     svgIconConfig,
     { easing : mina.easein, evtoggle : 'mouseover', size : { w : 34, h : 34 } }
   );
-  $('#header img').click(function() {
+  $('#menu_header_logo').click(function() {
     document.location.href = '/pages_index.html'
   });
 
@@ -111,7 +111,15 @@ $(function() {
     document.location.href = '/pages_index.html'
   });
 
-  $('section.username h1').text(currentUser.name);
+  var name = currentUser.name
+  if(currentUser.name.split(' ').length > 2) {
+    var name = currentUser.name.split(' ')
+    name.pop()
+    name = name.join(' ')
+  }
+
+
+  $('section.username h1').text(name);
   if(currentUser.city) {
     $('#city_user span').text(currentUser.city);
   }
@@ -127,7 +135,6 @@ $(function() {
       }else {
         var a = $('<a>');
         a.text('Укажите в редактирование профиля город и страну');
-        a.css('font-size', 'x-small');
         a.css('opacity', 0.4);
         a.on('click', function(){
           $('#edit-profile').css('display', 'block');

@@ -4,6 +4,7 @@
 		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/skill.css" }
 		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+		%link{ :rel=>"stylesheet" , :href=>"./css/pikaday.css" }
 		%link{ :rel=>"shortcut icon" , :href=>"./images/favicon.png" , :type=>"image/pngs" }
 		%script{ :src => "./js/jquery-2.1.4.min.js" }
 		%script{ :src => "./js/jquery.gsap.min.js" }
@@ -13,6 +14,7 @@
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/openapi.js" }
 		%script{ :src => "./js/moment-with-locales.js" }
+		%script{ :src => "./js/lib/pikaday.js" }
 		%script{ :src => "./js/lib/d3.js" }
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
@@ -59,8 +61,6 @@
 							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 							%input{:type => "text", :name => "country", :placeholder => "Страна"}
 							%input{:type => "text", :name => "city", :placeholder => "Город"}
-							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
-							%input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
 							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, о себе, так будет проще найти людей со схожими интересами."}
 						%fieldset
 							%legend	Регистрационные данные
@@ -164,11 +164,11 @@
 
 		%section.dashboard{:id => 'main_content'}
 			%header#header
-				%img.pointer{ :src=>"./images/logo.svg" , :alt=>"Уникальные Кальянные"}
+				%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
 				%nav
 					%a#edit_profile_btn Редактировать профиль
 					%a#logout_btn Выйти
-					#menu_header_btn.menu.pointer{:data => {'icon-name' => 'hamburger'}}
+					%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
 			%hr
 			%section.username
 				-# #face

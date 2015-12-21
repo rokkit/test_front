@@ -4,6 +4,7 @@
     <link href='./css/reset.css' rel='stylesheet'>
     <link href='./css/skill.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
+    <link href='./css/pikaday.css' rel='stylesheet'>
     <link href='./images/favicon.png' rel='shortcut icon' type='image/pngs'>
     <script src='./js/jquery-2.1.4.min.js'></script>
     <script src='./js/jquery.gsap.min.js'></script>
@@ -13,6 +14,7 @@
     <script src='./js/underscore-min.js'></script>
     <script src='./js/openapi.js'></script>
     <script src='./js/moment-with-locales.js'></script>
+    <script src='./js/lib/pikaday.js'></script>
     <script src='./js/lib/d3.js'></script>
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
@@ -62,8 +64,6 @@
               <input name='name' placeholder='ФИО' type='text'>
               <input name='country' placeholder='Страна' type='text'>
               <input name='city' placeholder='Город' type='text'>
-              <input name='employe' placeholder='Рабочая должность' type='text'>
-              <input name='work_company' placeholder='Компания работодатель' type='text'>
               <input class='large' name='hobby' placeholder='Напишите о ваших увлечениях, о себе, так будет проще найти людей со схожими интересами.' type='text'>
             </fieldset>
             <fieldset>
@@ -173,11 +173,11 @@
     <div class='color_overlay' id='color_overlay'></div>
     <section class='dashboard' id='main_content'>
       <header id='header'>
-        <img alt='Уникальные Кальянные' class='pointer' src='./images/logo.svg'>
+        <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
         <nav>
           <a id='edit_profile_btn'>Редактировать профиль</a>
           <a id='logout_btn'>Выйти</a>
-          <div class='menu pointer' data-icon-name='hamburger' id='menu_header_btn'></div>
+          <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/menu.svg'>
         </nav>
       </header>
       <hr>
