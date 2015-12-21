@@ -8,43 +8,69 @@ section.left_menu
     left: -67%
     // left: 0 - Оригинальная позиция
 
-    img
-        margin-bottom: 64px
-        cursor: pointer
-    h4
-        margin-bottom: 8px
-    p:first-of-type
-        margin-bottom: 48px
-    h5
-        font-family: Lora
-        letter-spacing: 0
-        margin-bottom: 4px
-    p
-        font: 12px
-        font-family: Open Sans Regular
-        color: rgba(255,255,255,.5)
-        margin-bottom: 24px
-        a
-            font: 12px
-            font-family: Open Sans Regular
-            color: rgba(255,255,255,.5)
-            letter-spacing: 0
+    .wrapper_left_menu
+        +display-flex(flex)
 
+        width: 100%
+        height: 100%
 
-    footer
-        margin-top: 64px
-        line-height: 24px
-        text-align: left
-        p
-            float: right
-            margin-bottom: 40px
-        p:first-of-type
-            float: left
-            margin-bottom: 40px
-        img
-            margin-bottom: -8px
-            margin-left: 4px
+        +justify-content(space-between)
+        +flex-direction(column)
 
+        header
+            display: block
+            position: relative
+
+            width: 100%
+            height: 40px
+            margin-bottom: 64px
+
+        span
+            display: block
+            position: relative
+
+            height: auto
+            width: 100%
+
+            margin-bottom: 64px
+
+            h4
+                margin-bottom: 8px
+            p:first-of-type
+                margin-bottom: 48px
+            h5
+                font-family: Lora
+                letter-spacing: 0
+                margin-bottom: 4px
+            p
+                font: 12px
+                font-family: Open Sans Regular
+                color: rgba(255,255,255,.5)
+                margin-bottom: 24px
+                a
+                    font: 12px
+                    font-family: Open Sans Regular
+                    color: rgba(255,255,255,.5)
+                    letter-spacing: 0
+
+        footer
+            +display-flex(flex)
+            +justify-content(space-between)
+            position: relative
+
+            height: 24px
+            width: 100%
+
+            line-height: 24px
+            text-align: left
+
+            p
+                display: inline-block
+                width: 50%
+            p:nth-child(1)
+                text-align: left
+            p:nth-child(2)
+                text-align: righth
 
 section.right_menu
     position: relative
