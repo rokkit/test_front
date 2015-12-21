@@ -32,6 +32,20 @@
 		%script{ :src => "./js/page_lounges.js" }
 		%title Уникальные Кальянные
 	%body#html_body{:data => {'page' => 'lounges'}}
+		%script{type: "text/template", id: 'lounge_card_tpl'}
+			%article.lounge{data: {id: '{{ id }}'}}
+				.wrapper_corners_card
+					.lounge_card_border_1{style: 'border: 2px solid rgba({{ color_rgb.r }}, {{ color_rgb.g }}, {{ color_rgb.b }}, 0.4);'}
+						.lounge_card_border_2{style: 'border: 2px solid rgba({{ color_rgb.r }}, {{ color_rgb.g }}, {{ color_rgb.b }}, 0.2);'}
+							%img{ :src=>"./images/{{ slug }}/corner.svg"}
+							%img{ :src=>"./images/{{ slug }}/corner.svg"}
+							%img{ :src=>"./images/{{ slug }}/corner.svg"}
+							%img{ :src=>"./images/{{ slug }}/corner.svg"}
+				.wrapper_herb_card
+					%img{ :src=>"{{ image }}"}
+				.wrapper_text_card
+					%h4 «{{ title }}»
+					%p {{ city }}
 		-# code acept
 		.wrapper.h_v_center
 			%section.popup_middle{:id => 'code_form'}
@@ -168,16 +182,3 @@
 					.wrapper_text_card
 						%h4 «Либерти»
 						%p Санкт-Петербург
-				%article.lounge
-					.wrapper_corners_card
-						.lounge_card_border_1
-							.lounge_card_border_2
-								%img{ :src=>"./images/rezerv/corner.svg"}
-								%img{ :src=>"./images/rezerv/corner.svg"}
-								%img{ :src=>"./images/rezerv/corner.svg"}
-								%img{ :src=>"./images/rezerv/corner.svg"}
-					.wrapper_herb_card
-						%img{ :src=>"./images/rezerv/blazon.svg"}
-					.wrapper_text_card
-						%h4 «Резерв»
-						%p Тюмень

@@ -1,76 +1,39 @@
-// var fx = new FX(fxa.pages_index);
-//
-// $(function(){
-//   $('.popup').click(function(e){
-//     e.stopPropagation();
-//   });
-// });
-//
-// function bodyClick(e){
-//   $('body').on('click', function(e) {
-//     fx.back();
-//   });
-// }
-//
-// function bodyClickOff(){
-//   $('body').off('click');
-// }
-//
-// $(function(){
-//   $('#login_header_btn').on('click', function() {
-//     if (!currentUser) {
-//       fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
-//     } else {
-//       document.location.href = '/dashboard_client.html'
-//     }
-//   });
-//
-//   //Клик на кнопку регистрация в хедере
-//  $('#signup_header_btn').on('click', function() {
-//    fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
-//  });
-//
-//  $('#login_form a').click(function(){
-//    fx.swap('loginPopup', 'signupPopup');
-//  });
-//
-//  $('#signup_form a').click(function(){
-//    fx.swap('signupPopup', 'loginPopup');
-//  });
-// });
+function hexToRgb(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
 
-//Клик на кнопку Войти в хедере
-
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
 $(function(){
   window.hostUrl = 'http://176.112.194.149:81'
   $.getJSON(hostUrl + '/api/v1/lounges.json', {}, function(json) {
-
-    $.each(json, function() {
-        ui.card.render(this.blazon, this.color, this.title, this.city, '.lounges', this.id);
+    var loungeCardTpl = _.template($('#lounge_card_tpl').html())
+    _.each(json, function(l) {
+      if(l.title != 'Либерти') {
+        $('section.lounges').append(loungeCardTpl({
+          id: l.id,
+          title: l.title,
+          slug: l.slug,
+          city: l.city,
+          image: l.blazon,
+          color: l.color,
+          color_rgb: hexToRgb(l.color)
+        }));
+      } else {
+        $('section.lounges .lounge:first').data('id', l.id)
+      }
     })
-
   });
 
   $(document).on('click', '.lounge', function() {
     document.location.href="/pages_lounges_template.html?id=" + $(this).data('id')
   })
-
-  // $(document).on('click', '#oblaka-card', function() {
-  //   document.location.href="/pages_lounges_oblaka.html"
-  // })
-  // $(document).on('click', '#academy_novosibirsk-card', function() {
-  //   document.location.href="/pages_lounges_academy.html"
-  // })
-  // $(document).on('click', '#unityhall-card', function() {
-  //   document.location.href="/pages_lounges_unityhall.html"
-  // })
-  // $(document).on('click', '#reserv-card', function() {
-  //   document.location.href="/pages_lounges_template.html"
-  // })
-  // $(document).on('click', '#liberty-card', function() {
-  //   document.location.href="/pages_lounges_liberty.html"
-  // })
-  // $(document).on('click', '#ak_bars-card', function() {
-  //   document.location.href="/pages_lounges_craft.html"
-  // })
 });
