@@ -501,17 +501,21 @@ function handleReservationResponse(json, callback) {
       if (json.errors.visit_date == 'reserved') {
         $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-        $('#invite_form input[name="lounge"]').addClass('wrong')
+        $('#reserv_form input[name="lounge"]').addClass('wrong')
       }
       $('.error_tooltip').text('Вы указали неверную дату бронирования')
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-      $('#invite_form input[name="visit_date"]').addClass('wrong')
-      $('#invite_form select[name="visit_time"]').addClass('wrong')
+      $('#reserv_form input[name="visit_date"]').addClass('wrong')
+      $('#reserv_form select[name="visit_time"]').addClass('wrong')
     }
     if (json.errors.table) {
       $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-      $('#invite_form input[name="lounge"]').addClass('wrong')
+      $('#reserv_form input[name="lounge"]').addClass('wrong')
+    }
+    if (json.errors.user) {
+      $('.error_tooltip').text('Бронирование в Уникальных Кальянных возможно только с 18 лет')
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
     }
   } else {
     var visit_date = moment(json.visit_date).format('DD.MM.YYYY')
