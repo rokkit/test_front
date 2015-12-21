@@ -45,6 +45,16 @@
       <td>{{ amount }}р.</td>
     </tr>
   </script>
+  <script id='bonuses_item_tpl' type='text/template'>
+    <figure class='bonus_item' data-description='{{ description }}' data-has='{{ has }}' data-id='{{ id }}' data-name='{{ name }}'>
+      <img class='{{ has_class }}' src='{{ image }}'>
+      <span class='popover'>
+        {{ name }}
+        <br>
+        {{ description }}
+      </span>
+    </figure>
+  </script>
   <body id='html_body'>
     <div class='wrapper_2' id='edit-profile-wrapper'>
       <section class='popup_horizontal' id='edit-profile'>
@@ -129,6 +139,15 @@
         <h4 class='skill_state'></h4>
         <p class='skill_description'></p>
         <button class='button-arrow'>Получить навык</button>
+      </section>
+    </div>
+    <div class='wrapper_2 center-center'>
+      <section class='popup_overall' id='bonus_detail'>
+        <img alt='Закрыть' class='closing_item pointer' src='./images/cross.svg'>
+        <img alt='В альт отправляем название достижения' class='item_image' src='./images/achievments/1.svg'>
+        <h2 class='skill_header'></h2>
+        <h4 class='skill_state'></h4>
+        <p class='skill_description'></p>
       </section>
     </div>
     <div class='wrapper center-center' id='wrapper_menu'>
@@ -229,59 +248,9 @@
         </article>
         <article>
           <h4>Бонусы</h4>
-          <aside>
-            <figure>
-              <img src='./images/achievments/1.svg'>
-              <span class='popover'>
-                Трудоголик
-                <br>
-                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-              </span>
-            </figure>
-            <figure>
-              <img src='./images/achievments/1.svg'>
-              <span class='popover'>
-                Трудоголик
-                <br>
-                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-              </span>
-            </figure>
-            <figure>
-              <img src='./images/achievments/1.svg'>
-              <span class='popover'>
-                Трудоголик
-                <br>
-                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-              </span>
-            </figure>
-          </aside>
+          <aside id='bonuses_list'></aside>
           <h4>Штрафы</h4>
-          <aside>
-            <figure>
-              <img src='./images/achievments/1.svg'>
-              <span class='popover'>
-                Трудоголик
-                <br>
-                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-              </span>
-            </figure>
-            <figure>
-              <img src='./images/achievments/1.svg'>
-              <span class='popover'>
-                Трудоголик
-                <br>
-                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-              </span>
-            </figure>
-            <figure>
-              <img src='./images/achievments/1.svg'>
-              <span class='popover'>
-                Трудоголик
-                <br>
-                отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-              </span>
-            </figure>
-          </aside>
+          <aside id='penalties_list'></aside>
         </article>
         <article>
           <header>

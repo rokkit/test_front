@@ -3003,6 +3003,11 @@ section.bottom-rating .popover:before {
     margin-top: 10px;
   }
 }
+.bonus_item img {
+  width: 79px;
+  height: 79px;
+}
+
 section.left_menu {
   display: inline-block;
   position: relative;

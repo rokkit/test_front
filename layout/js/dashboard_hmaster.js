@@ -167,8 +167,54 @@ $(function() {
 
   $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '/load_hookmaster_data.json', {auth_token: currentUser.auth_token}, function(json) {
     makeHookmasterWorks(json.works)
+    makeHookmasterBonuses(json.bonuses)
+    makeHookmasterPenalties(json.penalties)
   })
 })
+
+
+function drawBonusDetail(name, description, image, open) {
+  console.log(name)
+  $('#bonus_detail .skill_header').text(name)
+  $('#bonus_detail .skill_description').text(description)
+  $('#bonus_detail .item_image').attr('src', image)
+}
+
+function makeHookmasterBonuses(bonuses) {
+  var bonusesItemTpl = _.template($('#bonuses_item_tpl').html())
+  $('#bonuses_list').empty()
+  bonuses = bonuses.slice(0,3)
+  _.each(bonuses, function(bonus) {
+    if (!bonus.has) {
+      bonus.has_class = 'color_blue_ach'
+    } else {
+      bonus.has_class = ''
+    }
+    $('#bonuses_list').append(bonusesItemTpl(bonus))
+  });
+  $('#bonuses_list figure').on('click', function() {
+    drawBonusDetail($(this).data('name'), $(this).data('description'), $(this).data('image'), $(this).data('has'))
+    fx.do(['bonus_detail', 'background'], bodyClick, bodyClickOff);
+  })
+}
+function makeHookmasterPenalties(penalties) {
+  var bonusesItemTpl = _.template($('#bonuses_item_tpl').html())
+  $('#penalties_list').empty()
+  penalties = penalties.slice(0,3)
+  _.each(penalties, function(penalty) {
+    if (!penalty.has) {
+      penalty.has_class = 'color_blue_ach'
+    } else {
+      penalty.has_class = ''
+    }
+
+    $('#penalties_list').append(bonusesItemTpl(penalty))
+  });
+  $('#penalties_list figure').on('click', function() {
+    drawBonusDetail($(this).data('name'), $(this).data('description'), $(this).data('image'), $(this).data('has'))
+    fx.do(['bonus_detail', 'background'], bodyClick, bodyClickOff);
+  })
+}
 
 function makeUserRating(users_month, users_all_time) {
   users_month = _.sortBy(_.filter(users_month, function(u) { return u.exp > 0 }), function(u) { u.exp }).reverse()

@@ -42,6 +42,13 @@
 				%h6.color-blue {{ lounge }}
 			%td.td-date {{ work_at }} - {{ end_work_at }}
 			%td {{ amount }}р.
+	%script{type: "text/template", id: 'bonuses_item_tpl'}
+		%figure{class: 'bonus_item', data: {id: '{{ id }}', name: '{{ name }}', description: '{{ description }}', has: '{{ has }}'}}
+			%img{:src=>"{{ image }}", class: '{{ has_class }}'}
+			%span.popover
+				{{ name }}
+				%br
+				{{ description }}
 	%body#html_body
 		.wrapper_2#edit-profile-wrapper
 			-# Form
@@ -111,6 +118,14 @@
 				%h4.skill_state
 				%p.skill_description
 				%button.button-arrow Получить навык
+		-# Бонус и штраф
+		.wrapper_2.center-center
+			%section.popup_overall{:id => 'bonus_detail'}
+				%img.closing_item.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+				%img.item_image{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
+				%h2.skill_header
+				%h4.skill_state
+				%p.skill_description
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu
@@ -210,46 +225,9 @@
 
 				%article
 					%h4 Бонусы
-					%aside
-						%figure
-							%img{:src=>"./images/achievments/1.svg"}
-							%span.popover
-								Трудоголик
-								%br
-								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-						%figure
-							%img{:src=>"./images/achievments/1.svg"}
-							%span.popover
-								Трудоголик
-								%br
-								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-						%figure
-							%img{:src=>"./images/achievments/1.svg"}
-							%span.popover
-								Трудоголик
-								%br
-								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-
+					%aside#bonuses_list
 					%h4 Штрафы
-					%aside
-						%figure
-							%img{:src=>"./images/achievments/1.svg"}
-							%span.popover
-								Трудоголик
-								%br
-								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-						%figure
-							%img{:src=>"./images/achievments/1.svg"}
-							%span.popover
-								Трудоголик
-								%br
-								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
-						%figure
-							%img{:src=>"./images/achievments/1.svg"}
-							%span.popover
-								Трудоголик
-								%br
-								отработал большее количество смен, чем остальные в твоём городе в течении 1-го месяца
+					%aside#penalties_list
 
 
 				%article

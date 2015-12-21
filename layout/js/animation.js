@@ -116,6 +116,10 @@ var fxa = {
       element: '#achivka',
       options: {top:"0"}
     },
+    bonus_detail:{
+      element: '#bonus_detail',
+      options: {top:"0"}
+    },
     skill:{
       element: '#skill',
       options: {top:'0', 'pointer-events': 'auto'}
@@ -290,17 +294,17 @@ var cbpAnimatedHeader = (function() {
   }
 
   function scrollPage() {
-    
+
     var sy = scrollY();
-    
+
     if ( sy >= changeHeaderOn ) {
       $('#header').css({"background": "rgba(0,0,0,0.75", "padding": "16px", "height": "auto"});
     }
-    
+
     else {
       $('#header').css({"background": "none", "padding": "64px 48px 64px", "height": "40px"});
     }
-    
+
     didScroll = false;
   }
 
