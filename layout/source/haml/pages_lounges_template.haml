@@ -37,7 +37,7 @@
 		%section.hm_popup{id: 'popup_hm_{{ id }}'}
 			%img.cross_white_popup.pointer{ :src=>"./images/cross_black.svg" }
 			%header
-				%h2 {{ name }}
+				%h2{style: 'color: {{ color }};'} {{ name }}
 				%p «{{ lounge }}»
 			%section
 				%p {{ description }}
