@@ -32,6 +32,27 @@
     <title>Уникальные Кальянные</title>
   </head>
   <body data-page='lounges' id='html_body'>
+    <script id='lounge_card_tpl' type='text/template'>
+      <article class='lounge' data-id='{{ id }}'>
+        <div class='wrapper_corners_card'>
+          <div class='lounge_card_border_1' style='border: 2px solid rgba({{ color_rgb.r }}, {{ color_rgb.g }}, {{ color_rgb.b }}, 0.4);'>
+            <div class='lounge_card_border_2' style='border: 2px solid rgba({{ color_rgb.r }}, {{ color_rgb.g }}, {{ color_rgb.b }}, 0.2);'>
+              <img src='./images/{{ slug }}/corner.svg'>
+              <img src='./images/{{ slug }}/corner.svg'>
+              <img src='./images/{{ slug }}/corner.svg'>
+              <img src='./images/{{ slug }}/corner.svg'>
+            </div>
+          </div>
+        </div>
+        <div class='wrapper_herb_card'>
+          <img src='{{ image }}'>
+        </div>
+        <div class='wrapper_text_card'>
+          <h4>«{{ title }}»</h4>
+          <p>{{ city }}</p>
+        </div>
+      </article>
+    </script>
     <div class='wrapper h_v_center'>
       <section class='popup_middle' id='code_form'>
         <header>
@@ -175,25 +196,6 @@
           <div class='wrapper_text_card'>
             <h4>«Либерти»</h4>
             <p>Санкт-Петербург</p>
-          </div>
-        </article>
-        <article class='lounge'>
-          <div class='wrapper_corners_card'>
-            <div class='lounge_card_border_1'>
-              <div class='lounge_card_border_2'>
-                <img src='./images/rezerv/corner.svg'>
-                <img src='./images/rezerv/corner.svg'>
-                <img src='./images/rezerv/corner.svg'>
-                <img src='./images/rezerv/corner.svg'>
-              </div>
-            </div>
-          </div>
-          <div class='wrapper_herb_card'>
-            <img src='./images/rezerv/blazon.svg'>
-          </div>
-          <div class='wrapper_text_card'>
-            <h4>«Резерв»</h4>
-            <p>Тюмень</p>
           </div>
         </article>
       </section>
