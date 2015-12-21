@@ -478,6 +478,18 @@ body, main {
   z-index: -100;
 }
 
+.wrapper_gradient_black {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0), #000000);
+}
+
 .section_1_bg {
   display: block;
   position: relative;
@@ -485,6 +497,7 @@ body, main {
   height: 75%;
   text-align: center;
   padding: 256px 48px 32px 48px;
+  z-index: 150;
 }
 .section_1_bg header {
   display: inline-block;
@@ -546,6 +559,7 @@ section.lounges {
   height: auto;
   padding: 48px;
   margin-bottom: 48px;
+  z-index: 150;
 }
 section.lounges .wrapper_lounges {
   display: block;
@@ -907,6 +921,7 @@ section.lounges .wrapper_lounges article.lounge .wrapper_text_card p {
   padding: 128px;
   overflow: hidden;
   background: url("../images/bg_glow.jpg");
+  z-index: 150;
 }
 #philosophie_block5 img {
   position: absolute;

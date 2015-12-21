@@ -14,6 +14,17 @@ body, main
     height: auto
     z-index: -100
 
+.wrapper_gradient_black
+    position: fixed
+    right: 0
+    bottom: 0
+    min-width: 100%
+    min-height: 100%
+    width: auto
+    height: auto
+    z-index: 0
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1))
+
 .section_1_bg
     display: block
     position: relative
@@ -23,6 +34,9 @@ body, main
     text-align: center
 
     padding: 256px 48px 32px 48px
+
+    z-index: 150
+
 
     header
         display: inline-block
@@ -92,6 +106,8 @@ section.lounges
     padding: 48px
 
     margin-bottom: 48px
+
+    z-index: 150
 
     .wrapper_lounges
         display: block
