@@ -208,7 +208,7 @@
 				-# Герб
 				%section.blazon
 					-# Герб
-					%img.blazon{ :src=>"./images/{{ slug }}/blazon.svg"}
+					%img.blazon{ :src=>"{{ blazon }}"}
 					-# Свечение
 					.blazon_glow
 					.blazon_glow_2
@@ -253,7 +253,7 @@
 					%p {{ map_description }}
 
 					%p
-						%img{:src => "./images/rezerv/location.svg"}
+						%img{:src => "./images/{{ slug }}/location.svg"}
 						%small {{ city }}, {{ address }}
 
 				-# Карта
@@ -283,8 +283,8 @@
 			-# 7. Присоединятесь!
 			%section.lounges_block_7
 				.wrapper_sun
-					%img.sun{ :src=>"./images/rezerv/sun.svg" , :alt=>"Звезда"}
-					%img.sun_rotation{ :src=>"./images/rezerv/sun_lines.svg"}
+					%img.sun{ :src=>"./images/{{ slug }}/sun.svg" , :alt=>"Звезда"}
+					%img.sun_rotation{ :src=>"./images/{{ slug }}/sun_lines.svg"}
 
 					.sun_glow
 					.sun_glow_2

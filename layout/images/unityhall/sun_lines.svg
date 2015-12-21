@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-383 145 512 512">
+  <style>
+    .st3{
+      fill:none;
+      stroke:#da6f50;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-miterlimit:10;
+    }
+
+    .st0{filter:url(#Adobe_OpacityMaskFilter);}
+    .st1{fill:#FFFFFF;}
+    .st2{mask:url(#XMLID_54_);}
+    
+  </style>
+
+  <g class="st2 st3">
+    <path d="M41.5 516.6l-337-231.2"/>
+    <path d="M-10 227.2l-234 347.6"/>
+    <path d="M-294.9 422.8l335.8-43.6"/>
+    <path d="M-283.7 341.4L29.7 460.6"/>
+    <path d="M-15 525.8l-224-249.6"/>
+    <path d="M-1.4 284.3l-251.2 233.4"/>
+    <path d="M-190.7 560.2l127.4-318.4"/>
+    <path d="M-367.4 486.4l480.8-170.8"/>
+    <path d="M-120.1 656l-13.8-510"/>
+    <path d="M-362.7 364.2l471.4 73.6"/>
+    <path d="M-7.8 607.7l-238.4-413.4"/>
+    <path d="M-327.5 523.5l401-245"/>
+    <path d="M-169.1 632.1l84.2-462.2"/>
+    <path d="M-86.9 565.5l-80.2-329"/>
+  </g>
+
+  <defs>
+    <filter id="Adobe_OpacityMaskFilter" width="482.8" height="512" x="-368.4" y="145" filterUnits="userSpaceOnUse">
+      <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
+      <feFlood result="back" flood-color="#fff" flood-opacity="1"/>
+      <feBlend in="source" in2="back"/>
+    </filter>
+  </defs>
+    
+  <mask id="XMLID_54_" width="482.8" height="512" x="-368.4" y="145" maskUnits="userSpaceOnUse">
+    <g class="st0">
+      <ellipse cx="-127" cy="400.9" transform="rotate(-145.548 -127.022 400.938)" class="st1" rx="74.6" ry="74.5"/>
+    </g>
+  </mask>
+
+</svg>
