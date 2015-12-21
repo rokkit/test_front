@@ -2824,6 +2824,10 @@ label.myLabel input[type="file"] {
   cursor: pointer;
 }
 
+#invite_users {
+  width: 270px;
+}
+
 section.wrapper_for_ach {
   position: relative;
   width: 100%;

@@ -54,6 +54,11 @@
 		%li
 			%span {{ number }}. {{ name }}
 			%span {{ exp }}
+	%script{type: "text/template", id: 'invited_user_tpl'}
+		.invited_user{data: {id: '{{ id }}'}}
+			{{ name }}
+			.cross_delete.pointer
+				%img{ :src=>"./images/cross.svg" }
 	%body#html_body
 		-# Form
 		.wrapper.center-center
@@ -63,11 +68,11 @@
 				%header
 					%h2 Забронировать столик
 					%p.h2_subtitle
-						Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества. Подробнее о правилах организации встреч, вы можете прочитать на странице FAQ. 
+						Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества. Подробнее о правилах организации встреч, вы можете прочитать на странице FAQ.
 				%form{:action => "", :method => "get"}
 					%select{:name=>"lounge"}
 						%option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Ложа
-					%select{:name=>'client_count'}
+					%select{:id => 'client_count_input', :name=>'client_count'}
 						%option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Количество гостей
 						%option{:value => '4'} 1-4
 						%option{:value => '6'} 5-6
@@ -100,22 +105,7 @@
 
 					%select.add_users_select{:id => 'invite_users', :type => "text", :name => "invite_users"}
 						%option{:value => '', :disabled => 'true', :selected => "true", :hidden => "true" } Добавить участников
-					.invited_user
-						Сергей Голубев
-						.cross_delete.pointer
-							%img{ :src=>"./images/cross.svg" }
-					.invited_user
-						Сергей Голубев
-						.cross_delete.pointer
-							%img{ :src=>"./images/cross.svg" }
-					.invited_user
-						Сергей Голубев
-						.cross_delete.pointer
-							%img{ :src=>"./images/cross.svg" }
-					.invited_user
-						Сергей Голубев
-						.cross_delete.pointer
-							%img{ :src=>"./images/cross.svg" }
+					%span#invited_users_container
 					%hr
 
 					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Забронировать
