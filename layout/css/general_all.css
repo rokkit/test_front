@@ -538,6 +538,28 @@ section.lounges {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+section.lounges article.lounge:first-of-type {
+  position: relative;
+  color: black;
+  text-align: center;
+  width: 268px;
+  height: 423px;
+  margin: 16px;
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background: linear-gradient(#1b1d22, #30333a);
+}
+section.lounges article.lounge:first-of-type img {
+  position: absolute;
+  width: 320px;
+  margin: 0;
+  margin-top: 48px;
+  left: calc(50% - 160px);
+}
 section.lounges article.lounge {
   position: relative;
   color: black;

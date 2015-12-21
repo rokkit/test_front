@@ -70,6 +70,26 @@ section.lounges
     +flex-wrap(wrap)
     $url_0: url(../images/venzel-corner.svg)
 
+    article.lounge:first-of-type
+        position: relative
+        color : black
+        text-align : center
+        width: 268px
+        height: 423px
+        margin: 16px
+        display: inline-block
+        position : relative
+        overflow:  visible
+        +border-radius(8px)
+        background: linear-gradient(#1B1D22, #30333A)
+
+        img
+            position: absolute
+            width: 320px
+            margin: 0
+            margin-top: 48px
+            left: calc(50% - 160px)
+
     article.lounge
         position: relative
         color : black
@@ -82,53 +102,8 @@ section.lounges
         position : relative
         overflow: hidden
         +border-radius(8px)
-        //background: $url_0 left 16px top 16px no-repeat, $url_0 right 16px top 16px no-repeat, $url_0 left 16px bottom 16px no-repeat, $url_0 right 16px bottom 16px no-repeat, linear-gradient(white, #E0E8EE)
         background: linear-gradient(white, #E0E8EE)
         img
             position: absolute
             width: 200px
             margin: 48px 35px 35px 35px
-
-
-        // .frontside
-        //     padding: 40px
-        //     z-index: 50
-        //     +border-radius(8px)
-        //     overflow: hidden
-
-        //     img
-        //         margin-bottom: 48px
-        //         width : 100%
-
-        //     h4
-        //         margin-bottom: 8px
-        //         font-family: Bebas Neue
-        //         font-size: 24px
-        //         letter-spacing: 4px
-
-        //     small
-        //         font-family : Lora
-        //         font-size   : 12px
-        //         color       : rgba(0,0,0,0.5)
-
-        // .frontside:before
-        //     content: ''
-        //     display: block
-        //     position: absolute
-        //     top: 8px
-        //     left: 8px
-        //     width: calc(100% - 16px)
-        //     height: calc(100% - 16px)
-        //     //box-shadow: inset rgba(122, 195, 108, .5) 0 0 0 2px
-        //     border-radius: 4px
-
-        // .frontside:after
-        //     content: ''
-        //     display: block
-        //     position: absolute
-        //     top: 12px
-        //     left: 12px
-        //     width: calc(100% - 24px)
-        //     height: calc(100% - 24px)
-        //     //box-shadow: inset rgba(122, 195, 108, .25) 0 0 0 1px
-        //     border-radius: 2px
