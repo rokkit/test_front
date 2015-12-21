@@ -1,5 +1,5 @@
 var fx = new FX(fxa.dashboard);
-var invateUsers = [];
+var inviteUsers = {};
 
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 _.templateSettings =  {
@@ -143,31 +143,38 @@ $(function() {
         }
 
         json.users.forEach(function(user){
-            $('select[name="invate-dropdown"]').append("<option value="+user.id+">"+ user.name +"</option>");
+            $('#invite_users').append("<option value="+user.id+">"+ user.name +"</option>");
         });
 
-        $('select[name="invate-dropdown"]').change(function(e){
-          var el = $('select[name="invate-dropdown"] option:selected');
-          var id = el.attr('value');
-          var closeBtn = $('<a href="#">');
-          closeBtn.addClass('close-btn');
-          closeBtn.data('value', id);
-          closeBtn.on('click', function(e){
-            var id = $(e.currentTarget).data('value');
-            invateUsers.forEach(function(v, i){
-              if(v === id){
-                  invateUsers.splice(i, 1);
-              }
-            });
-            $(e.currentTarget).parent().remove();
-          });
-          var itemSelected = $('<span>');
-          itemSelected.addClass('item-select');
-          itemSelected.text(el.text());
-          itemSelected.append(closeBtn);
-          $('#invite_form .select-cont').append(itemSelected);
-          invateUsers.push(id);
+        var invitedUserTpl = _.template($('#invited_user_tpl').html())
+
+        var maxInviteCount = 6
+        $('#invite_users').change(function(e){
+
+          if (_.keys(inviteUsers).length >= maxInviteCount) {
+            return false
+          } else {
+            var el = $('#invite_users option:selected');
+            var id = el.attr('value');
+            if (!inviteUsers[id]) {
+              $('#invited_users_container').append(invitedUserTpl({id: id, name: el.text()}));
+              $('.cross_delete').click(function() {
+                var id = $(this).parent('.invited_user').data('id');
+                delete inviteUsers[id]
+                $(this).parent('.invited_user').remove()
+                if(_.keys(inviteUsers).length == 0) {
+                  $('#client_count_input').attr('disabled', false)
+                  $('#client_count_input option:first').attr('hidden', true).attr('selected', false)
+                }
+              })
+              inviteUsers[id] = true;
+              $('#client_count_input').attr('disabled', true)
+              $('#client_count_input option:first').attr('hidden', false).attr('selected', true)
+            }
+          }
+
         });
+
 
         $('#invate_me button[name="cancel"]').on('click', function(e){
           var id = $(e.currentTarget).data('value');
@@ -187,36 +194,6 @@ $(function() {
           });
         });
 
-        $('#invite_form').submit(function(e){
-          e.preventDefault();
-          $('.wrong').removeClass('wrong');
-          if($('#invite_form select[name=visit_time]').val() == 'время') {
-            TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-            $('#invite_form select[name="visit_time"]').addClass('wrong')
-            return
-          }
-          var visit_date = $('#invite_form #visit_date_meet').val()
-          if(visit_date == 'today') {
-            visit_date = moment().format('YYYY-MM-DD')
-
-          } else if(visit_date == 'tomorrow') {
-            visit_date = moment().add(1, 'days').format('YYYY-MM-DD')
-          }
-          var visit_time = $('#invite_form select[name=visit_time]').val()
-          $.post(hostUrl + '/api/v1/reservations.json', {
-            auth_token: currentUser.auth_token,
-            lounge: $('#invite_form select[name=lounge]').val(),
-            table_id: $('#invite_form select[name=table]').val(),
-            client_count: $('#invite_form select[name=client_count]').val(),
-            duration: $('#invite_form select[name=duration]').val(),
-            visit_date: visit_date + ' ' + $('#invite_form select[name=visit_time]').val(),
-            meets: invateUsers
-          }, function(json) {
-            handleReservationResponse(json, function() {
-              fx.swap('invite', 'invate_succes_form');
-            })
-          });
-        });
         $('#reserv_form').submit(function(e){
           e.preventDefault();
           $('.wrong').removeClass('wrong');
@@ -239,7 +216,8 @@ $(function() {
             table_id: $('#reserv_form select[name=table]').val(),
             client_count: $('#reserv_form select[name=client_count]').val(),
             duration: $('#reserv_form select[name=duration]').val(),
-            visit_date: visit_date + ' ' + $('#reserv_form select[name=visit_time]').val()
+            visit_date: visit_date + ' ' + $('#reserv_form select[name=visit_time]').val(),
+            meets: _.keys(inviteUsers)
           }, function(json) {
             handleReservationResponse(json, function() {
               fx.swap('reserv', 'reserv_succes_form');
@@ -266,7 +244,7 @@ $(function() {
             $('#visit_date_result').text(visit_date)
             $('#visit_time_result').text(visit_time)
             getReservations();
-            invateUsers = [];
+            inviteUsers = {};
             TweenLite.to('section.error_tooltip', 1, {opacity: 0});
             callback()
           }
@@ -319,7 +297,6 @@ $(function() {
           }else {
             var a = $('<a>');
             a.text('Укажите в редактирование профиля город и страну');
-            a.css('font-size', 'x-small');
             a.css('opacity', 0.4);
             a.on('click', function(){
               $('#edit-profile').css('display', 'block');

@@ -60,6 +60,14 @@
       <span>{{ exp }}</span>
     </li>
   </script>
+  <script id='invited_user_tpl' type='text/template'>
+    <div class='invited_user' data-id='{{ id }}'>
+      {{ name }}
+      <div class='cross_delete pointer'>
+        <img src='./images/cross.svg'>
+      </div>
+    </div>
+  </script>
   <body id='html_body'>
     <div class='wrapper center-center'>
       <section class='error_tooltip' id='error_password'>
@@ -76,7 +84,7 @@
           <select name='lounge'>
             <option disabled='true' hidden='true' selected='selected' value=''>Ложа</option>
           </select>
-          <select name='client_count'>
+          <select id='client_count_input' name='client_count'>
             <option disabled='true' hidden='true' selected='selected' value=''>Количество гостей</option>
             <option value='4'>1-4</option>
             <option value='6'>5-6</option>
@@ -109,30 +117,7 @@
           <select class='add_users_select' id='invite_users' name='invite_users' type='text'>
             <option disabled='true' hidden='true' selected='true' value=''>Добавить участников</option>
           </select>
-          <div class='invited_user'>
-            Сергей Голубев
-            <div class='cross_delete pointer'>
-              <img src='./images/cross.svg'>
-            </div>
-          </div>
-          <div class='invited_user'>
-            Сергей Голубев
-            <div class='cross_delete pointer'>
-              <img src='./images/cross.svg'>
-            </div>
-          </div>
-          <div class='invited_user'>
-            Сергей Голубев
-            <div class='cross_delete pointer'>
-              <img src='./images/cross.svg'>
-            </div>
-          </div>
-          <div class='invited_user'>
-            Сергей Голубев
-            <div class='cross_delete pointer'>
-              <img src='./images/cross.svg'>
-            </div>
-          </div>
+          <span id='invited_users_container'></span>
           <hr>
           <button class='button-arrow' name='sumbit' type='sumbit'>Забронировать</button>
         </form>
