@@ -3106,49 +3106,73 @@ section.left_menu {
   z-index: 200;
   left: -67%;
 }
-section.left_menu img {
-  margin-bottom: 64px;
-  cursor: pointer;
+section.left_menu .wrapper_left_menu {
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
-section.left_menu h4 {
+section.left_menu .wrapper_left_menu header {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 64px;
+}
+section.left_menu .wrapper_left_menu span {
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  margin-bottom: 64px;
+}
+section.left_menu .wrapper_left_menu span h4 {
   margin-bottom: 8px;
 }
-section.left_menu p:first-of-type {
+section.left_menu .wrapper_left_menu span p:first-of-type {
   margin-bottom: 48px;
 }
-section.left_menu h5 {
+section.left_menu .wrapper_left_menu span h5 {
   font-family: Lora;
   letter-spacing: 0;
   margin-bottom: 4px;
 }
-section.left_menu p {
+section.left_menu .wrapper_left_menu span p {
   font: 12px;
   font-family: Open Sans Regular;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 24px;
 }
-section.left_menu p a {
+section.left_menu .wrapper_left_menu span p a {
   font: 12px;
   font-family: Open Sans Regular;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0;
 }
-section.left_menu footer {
-  margin-top: 64px;
+section.left_menu .wrapper_left_menu footer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  position: relative;
+  height: 24px;
+  width: 100%;
   line-height: 24px;
   text-align: left;
 }
-section.left_menu footer p {
-  float: right;
-  margin-bottom: 40px;
+section.left_menu .wrapper_left_menu footer p {
+  display: inline-block;
+  width: 50%;
 }
-section.left_menu footer p:first-of-type {
-  float: left;
-  margin-bottom: 40px;
+section.left_menu .wrapper_left_menu footer p:nth-child(1) {
+  text-align: left;
 }
-section.left_menu footer img {
-  margin-bottom: -8px;
-  margin-left: 4px;
+section.left_menu .wrapper_left_menu footer p:nth-child(2) {
+  text-align: righth;
 }
 
 section.right_menu {
