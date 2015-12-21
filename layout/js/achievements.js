@@ -41,8 +41,6 @@ function drawAchievementDetail(name, description, image, open) {
   } else {
     $('#achivka .skill_state').text('Не получено')
   }
-
-
 }
 
 $(function() {

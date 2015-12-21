@@ -3450,7 +3450,7 @@ section.error_tooltip {
 
 section.popup {
   position: relative;
-  right: -160px;
+  left: calc(100% + 160px);
   height: auto;
   width: calc(100% - 160px);
   padding: 80px;
