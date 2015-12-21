@@ -3,8 +3,13 @@
 <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
 <style type="text/css">
+<<<<<<< HEAD
 	.st0{opacity:0.5;fill:#C14253;enable-background:new    ;}
 	.st1{opacity:5.000000e-02;fill:#89C37C;enable-background:new    ;}
+=======
+	.st0{opacity:0.5;fill:#ECB72E;enable-background:new    ;}
+	.st1{opacity:5.000000e-02;fill:#ECB72E;enable-background:new    ;}
+>>>>>>> c281a6906300d1a0f18ad6f53341c688c4b3e97f
 </style>
 <g id="_x3F_">
 	<path id="_x3F__1_" class="st0" d="M38.2,25c0,6.7-5.5,8-5.5,13.3c0,0,0,0,0,0.1c0,0.8-0.6,1.4-1.4,1.4l0,0c-0.8,0-1.4-0.6-1.4-1.3

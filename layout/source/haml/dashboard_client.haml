@@ -55,59 +55,6 @@
 			%span {{ number }}. {{ name }}
 			%span {{ exp }}
 	%body#html_body
-		-# Form invite
-		.wrapper.center-center
-			%section#error_password.error_tooltip
-				Данные введены неверно! Попробуйте ввести еще раз.
-			%section.popup{:id => 'invite_form'}
-				%header
-					%h2 Назначить встречу
-					%p.h2_subtitle
-						Мы ставим своей целью не только подавать лучшие кальяны,
-						<br>
-						но и  помогать людям находить новые полезные знакомства.
-				%form{:action => "", :method => "get"}
-					%select{:name=>"lounge"}
-						%option
-							Кальянная
-					-# %select{:name=>"table"}
-					-# 	%option
-					-# 		Столик
-					-# %select{:name=>'client_count'}
-					-# 	%option{:value => '2-3'} Количество гостей
-					-# 	%option{:value => '2-3'} 2-3
-					-# 	%option{:value => '3-5'} 3-5
-
-					%select{:id => 'visit_date_meet', :type => "text", :name => "visit_date", :placeholder => "Дата"}
-						%option{:value => 'today', :selected => 'true'} Сегодня
-						%option{:value => 'tomorrow'} Завтра
-						%option{:value => 'date_choose'} Указать дату
-					%select{:name=>'visit_time'}
-						%option{:value => '17:00', :'data-time' => '1700'} 17:00
-						%option{:value => '17:30', :'data-time' => '1730'} 17:30
-						%option{:value => '18:00', :'data-time' => '1800'} 18:00
-						%option{:value => '18:30', :'data-time' => '1830'} 18:30
-						%option{:value => '19:00', :'data-time' => '1900'} 19:00
-						%option{:value => '19:30', :'data-time' => '1930'} 19:30
-						%option{:value => '20:00', :'data-time' => '2000'} 20:00
-						%option{:value => '20:30', :'data-time' => '2030'} 20:30
-						%option{:value => '21:00', :'data-time' => '2100'} 21:00
-						%option{:value => '21:30', :'data-time' => '2130'} 21:30
-						%option{:value => '22:00', :'data-time' => '2200'} 22:00
-						%option{:value => '22:30', :'data-time' => '2230'} 22:30
-						%option{:value => '23:00', :'data-time' => '2300'} 23:00
-
-					-#%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
-					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Отправить приглашения
-					%br
-					%select{:name=>'invate-dropdown'}
-						%option
-							Пригласить
-					%span.select-cont
-						-# <span class='item-select'>Maxim <a href='#' class='close-btn'></a></span>
-						-# <span class='item-select'>Pety <a href='#' class='close-btn'></a></span>
-						-# <span class='item-select'>Vasya <a href='#' class='close-btn'></a></span>
-						-# <span class='item-select'>Ivan <a href='#' class='close-btn'></a></span>
 		-# Form
 		.wrapper.center-center
 			%section#error_password.error_tooltip
@@ -116,24 +63,23 @@
 				%header
 					%h2 Забронировать столик
 					%p.h2_subtitle
-						Выберите время для желаемого бронирования
+						Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества. Подробнее о правилах организации встреч, вы можете прочитать на странице FAQ. 
 				%form{:action => "", :method => "get"}
 					%select{:name=>"lounge"}
-						%option
-							Кальянная
-					-# %select{:name=>"table"}
-					-# 	%option
-					-# 		Столик
+						%option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Ложа
 					%select{:name=>'client_count'}
-						%option{:value => '4'} Количество гостей
+						%option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Количество гостей
 						%option{:value => '4'} 1-4
 						%option{:value => '6'} 5-6
 
-					%select{:id => 'visit_date', :type => "text", :name => "visit_date", :placeholder => "Дата"}
-						%option{:value => 'today', :selected => 'true'} Сегодня
+					%select{:id => 'visit_date', :type => "text", :name => "visit_date"}
+						%option.placeholder{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Дата бронирования
+						%option{:value => 'today'} Сегодня
 						%option{:value => 'tomorrow'} Завтра
-						%option{:value => 'date_choose'} Указать дату
+						%option{:value => 'date_choose'} Указать конкретную дату
+
 					%select{:name=>'visit_time'}
+						%option{:value => '', :disabled => 'true', :selected => "true", :hidden => "selected" } Время бронирования
 						%option{:value => '17:00', :'data-time' => '1700'} 17:00
 						%option{:value => '17:30', :'data-time' => '1730'} 17:30
 						%option{:value => '18:00', :'data-time' => '1800'} 18:00
@@ -148,9 +94,32 @@
 						%option{:value => '22:30', :'data-time' => '2230'} 22:30
 						%option{:value => '23:00', :'data-time' => '2300'} 23:00
 
+					%hr
+					%h3 Пригласить на встречу
+					%p Добавляя участников встречи, вы приглашете их посетить "Уникальные Кальянные" вместе с вами. Полученный опыт распределяется между всеми участниками встречи.
 
-					-#%input{:type => "text", :name => "visit_time", :placeholder => "Время"}
+					%select.add_users_select{:id => 'invite_users', :type => "text", :name => "invite_users"}
+						%option{:value => '', :disabled => 'true', :selected => "true", :hidden => "true" } Добавить участников
+					.invited_user
+						Сергей Голубев
+						.cross_delete.pointer
+							%img{ :src=>"./images/cross.svg" }
+					.invited_user
+						Сергей Голубев
+						.cross_delete.pointer
+							%img{ :src=>"./images/cross.svg" }
+					.invited_user
+						Сергей Голубев
+						.cross_delete.pointer
+							%img{ :src=>"./images/cross.svg" }
+					.invited_user
+						Сергей Голубев
+						.cross_delete.pointer
+							%img{ :src=>"./images/cross.svg" }
+					%hr
+
 					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Забронировать
+
 		-# Form
 		.wrapper.h_v_center
 			%section.popup_middle{:id => 'reserv_succes_form'}
@@ -323,7 +292,7 @@
 				%h1	Виталий Пихонт
 				%p#city_user
 				%button.button-dark#n_o_a Забронировать столик
-				
+
 			%section.progress_bar
 				%p
 					<span id='need_points'></span> очков до <span id='next_level'></span> уровня

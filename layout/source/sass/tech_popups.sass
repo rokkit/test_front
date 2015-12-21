@@ -5,11 +5,10 @@ section.error_tooltip
     top: 0px
 section.popup
     position: relative
-    // left: 160px - Изначальное значение
-    left: calc(100% + 160px)
+    right: -160px
 
     height: auto
-    width: 100%
+    width: calc(100% - 160px)
 
     padding: 80px
 
@@ -19,9 +18,96 @@ section.popup
     z-index: 300
 
     select
+        color: white
+        
+        min-width: 200px
         width: auto
+        
         padding-right: 16px
+        
+        margin-bottom: 16px
 
+        background-color: transparent
+        background-image: url(../images/arrow_down.svg)
+        background-position: calc(100% - 16px) 50%
+        background-repeat: no-repeat
+        background-size: 8px 8px
+
+        option
+            color: gray
+        
+        option:checked
+            color: red
+
+    select:hover
+        border: 1px solid #EBB22F
+
+    h3
+        font-size: 24px
+
+    p
+        margin-bottom: 24px
+        color: rgba(255,255,255,.5)
+
+    .invited_user
+        display: inline-block
+        
+        height: 48px
+        width: auto
+        
+        font-size: 14px
+        line-height: 48px
+
+        margin-right: 16px
+        margin-bottom: 16px
+
+        .cross_delete
+            position: relative
+            display: inline-block
+
+            width: 18px
+            height: 18px
+
+            +border-radius(9px)
+            background: none
+            border: 2px solid rgba(255,255,255,0.1)
+
+            margin-left: 4px
+            top: 4px
+
+            user-select: none
+
+            img
+                position: absolute
+                left: calc(50% - 4px)
+                top: calc(50% - 4px)
+                width: 8px
+                height: 8px
+                +opacity(0.9)
+                user-select: none
+                +transition(all, 500ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+        .cross_delete:hover
+            background: rgba(255,60,10,0.65)
+            +transition(all, 500ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
+
+        .cross_delete:active
+            +transform(rotate(180deg) scale(0.8))
+        
+        .cross_delete:hover img
+            +transform(rotate(180deg))
+
+
+        .cross_delete:active img
+            +transform(rotate(180deg) scale(0.8))
+
+    button
+        width: 240px
+
+
+    hr
+        margin-bottom: 24px
+        +opacity(0.1)
     a
         font: normal normal 300 18px/28px Lora, sans-serif
         color: #EBB22F
