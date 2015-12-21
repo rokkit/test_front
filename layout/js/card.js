@@ -10,7 +10,7 @@ ui.card = (function () {
 function card(blazons, color, name, nameCity, el, id){
     var img = blazons;
     var imgUrl = blazons;
-    console.log(img)
+    // console.log(img)
     blazons = blazons.split('/')[blazons.split('/').length - 1].split('.')[0]
 
     var path = '../images/blazons/' + blazons +'.svg';
@@ -49,7 +49,6 @@ function card(blazons, color, name, nameCity, el, id){
   	.style('stroke', color)
     .style('stroke-opacity', 0.30)
   	.style('stroke-width', 0.8);
-    console.log(path)
   	d3.xml(path, "image/svg+xml", function(error, xml){
 		if (error) throw error;
       var blazonWidth = w - 80;
