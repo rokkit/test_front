@@ -362,6 +362,7 @@ $(function() {
             format: 'DD.MM.YYYY',
             firstDay: 1,
             minDate: new Date(),
+            maxDate: moment().add(2, 'months').toDate(),
             i18n: {
                 previousMonth : 'Предыдущий Месяц',
                 nextMonth     : 'Следующий Месяц',
@@ -497,6 +498,11 @@ function getReservations() {
 function handleReservationResponse(json, callback) {
   if (json.errors) {
     if (json.errors.visit_date) {
+      if (json.errors.visit_date == 'reserved') {
+        $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+        $('#invite_form input[name="lounge"]').addClass('wrong')
+      }
       $('.error_tooltip').text('Вы указали неверную дату бронирования')
       TweenLite.to('section.error_tooltip', 1, {opacity: 1});
       $('#invite_form input[name="visit_date"]').addClass('wrong')

@@ -4,6 +4,9 @@ String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
     return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
 }
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 String.prototype.regexLastIndexOf = function(regex, startpos) {
     regex = (regex.global) ? regex : new RegExp(regex.source, "g" + (regex.ignoreCase ? "i" : "") + (regex.multiLine ? "m" : ""));
@@ -94,7 +97,8 @@ $(function() {
         var dateMoment = moment.unix(n.date)
         var end_of_string_index = 0;
 
-        var newsText = n.text
+        var newsText = n.text.toLowerCase()
+        newsText = capitalizeFirstLetter(newsText)
         var br = newsText.indexOf('<br>')
         var mainHeader = newsText.substring(0, br)
 

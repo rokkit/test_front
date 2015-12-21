@@ -30,7 +30,8 @@ function skillgen(data){
         var source = getIndex(v.id);
         var target = getIndex(v.parents[i]);
         var parent = getSkillById(v.parents[i]);
-        if(v.can_take && parent.can_take){
+        console.log(v)
+        if(parent.has && v.has){
           lineColor = true;
         }else{
           lineColor = false;

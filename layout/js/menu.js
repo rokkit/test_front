@@ -69,6 +69,10 @@ function animateMenu() {
   window.tl = new TimelineLite().add([tw1,tw2,tw3, tw4, tw5, tw6], 'sequence');
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 //Новости из группы ВК
 $(function() {
   VK.init({
@@ -93,7 +97,8 @@ $(function() {
         var dateMoment = moment.unix(n.date)
         var end_of_string_index = 0;
 
-        var newsText = n.text
+        var newsText = n.text.toLowerCase()
+        newsText = capitalizeFirstLetter(newsText)
         var br = newsText.indexOf('<br>')
         var mainHeader = newsText.substring(0, br)
 
