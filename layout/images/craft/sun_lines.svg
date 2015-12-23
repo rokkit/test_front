@@ -2,11 +2,7 @@
   <style>
     .st3{
       fill:none;
-<<<<<<< HEAD
       stroke:#C14253;
-=======
-      stroke:#ECB72E;
->>>>>>> c281a6906300d1a0f18ad6f53341c688c4b3e97f
       stroke-width:2;
       stroke-linecap:round;
       stroke-linejoin:round;
