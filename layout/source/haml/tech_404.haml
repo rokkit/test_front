@@ -85,29 +85,29 @@
 		-# Меню
 		.wrapper.center-center{:id => 'wrapper_menu'}
 			%section#menu_left_part.left_menu
-				%img#uhp_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
-				%span
-					%h4 Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...
-					%p 24 июл в 14:44 от #unihuqhookahplaces
+				.wrapper_left_menu
+					%header
+						%img#uhp_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
 
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
+					%span
+						%h4 Первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю...
+						%p 24 июл в 14:44 от #unihuqhookahplaces
 
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
+						%h5 Она задала нам неожиданный вопрос
+						%p 24 июл в 14:44 от #unihuqhookahplaces
 
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
+						%h5 Она задала нам неожиданный вопрос
+						%p 24 июл в 14:44 от #unihuqhookahplaces
 
-					%h5 Она задала нам неожиданный вопрос
-					%p 24 июл в 14:44 от #unihuqhookahplaces
+						%h5 Она задала нам неожиданный вопрос
+						%p 24 июл в 14:44 от #unihuqhookahplaces
 
+						%h5 Она задала нам неожиданный вопрос
+						%p 24 июл в 14:44 от #unihuqhookahplaces
 
-				%footer
-					%p Copyright © 2015 Уникальные Кальянные
-					%p
-						Создано в
-						%img{ :src=>"./images/cpdbbk.svg" , :alt=>"CPD&BBK" , :height=>"24px"}
+					%footer
+						%p Copyright © 2015 Уникальные Кальянные
+						%p C любовью от CPD&BBK
 			-# Left bar
 			%section#menu_right_part.right_menu
 				%img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
@@ -125,6 +125,9 @@
 				%a
 					%h3#community_nav_btn Сообщество
 					%p Полезно быть своим
+				-# %a
+				-# 	%h3 Франшиза
+				-# 	%p Открыть Ложу]
 
 				%button.button-arrow#go_login_from_menu_btn Круг избранных
 
@@ -149,7 +152,3 @@
 					%h1 Извините, мы не можем найти эту страницу!
 					%h2 Попробуйте вернуться на главну страницу,<br>откуда вы точно не собъетесь с пути.
 				%button.button-dark#button_404{:href=>"/pages_index.html"} Вернуться на главную
-
-
-
-
