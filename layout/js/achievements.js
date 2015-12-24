@@ -53,14 +53,11 @@ $(function() {
 
     var achievementsNotViewed = []
     $.each(json, function(i) {
-      // var open = _.contains(user_achivs, this.id)
       var klass = ''
       var state = 'Получено'
       if(!this.open) {
         klass = 'color_blue_ach'
         state = 'Не получено'
-
-
       } else {
         //показать модалку ачивки если еще не видел ее до этого
         if(!this.viewed) {
@@ -69,9 +66,6 @@ $(function() {
       }
       var template = "<figure data-open="+this.open+" data-id="+this.id+" onclick='card("+this.id+")' data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
       $('#all_ach .wrapper_for_ach').append(template);
-
-
-
     })
     //показать модалку ачивки если еще не видел ее до этого
     if (achievementsNotViewed.length > 0) {
@@ -97,6 +91,8 @@ $(function() {
         $('#achievements').append(template)
       })
     })
+
+
 
     $.getJSON(window.hostUrl + '/api/v1/skills.json', {auth_token: currentUser.auth_token, role: currentUser.role}, function(json) {
       $('#skills').empty()
@@ -169,3 +165,43 @@ $(function() {
   });
 
 })
+
+
+window.waitForUserChoose = false;
+setInterval(function() {
+  console.log(window.waitForUserChoose)
+  if (!window.waitForUserChoose) {
+    getNewAchivs()
+  }
+
+}, 4000);
+
+function getNewAchivs() {
+  $.getJSON(window.hostUrl + '/api/v1/achievements.json', {auth_token: currentUser.auth_token, role: currentUser.role}, function(json) {
+    var achievementsNotViewed = []
+    $.each(json, function(i) {
+      if(this.open && !this.viewed) {
+        //показать модалку ачивки если еще не видел ее до этого
+        achievementsNotViewed.push(this)
+      }
+    })
+    //показать модалку ачивки если еще не видел ее до этого
+    if (achievementsNotViewed.length > 0) {
+      window.waitForUserChoose = true
+      var achiv = achievementsNotViewed[0]
+        drawAchievementDetail(achiv.name, achiv.description, hostUrl + achiv.image, achiv.open)
+        fx.do(['achiv', 'background'], function (){
+          $('body').on('click', function(e) {
+            $.post(hostUrl + '/api/v1/achievements/'+achiv.id+'/viewed.json', {auth_token: currentUser.auth_token}, function() {
+                window.waitForUserChoose = false
+            })
+            fx.back();
+          });
+        }, bodyClickOff);
+
+        var achivEl = $('#achievements figure[data-id='+achiv.id+']')
+        achivEl.data('open', true)
+        achivEl.find('img.achievments_icon').removeClass('color_blue_ach').prependTo('#achievements')
+    }
+  });
+}

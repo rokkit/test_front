@@ -163,7 +163,7 @@ var skillBoard = (function(element, data, role){
         });
 
       }else{
-        $('#skill h4').text('Этот навык не изучен');
+        $('#skill h4').text('Не изучен');
         $('#skill button').hide();
       }
     }else{

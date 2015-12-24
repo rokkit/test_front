@@ -265,7 +265,7 @@ $(function() {
           var exp = parseInt(json.exp, 10);
           var need_to_levelup = parseInt(json.need_to_levelup, 10);
           $('#need_points').text(need_to_levelup);
-          $('#next_level').text(currentUser.level + 1);
+          $('#next_level').text(json.level + 1);
 
           if(json.country !== '' && json.city !== ''){
               $('#city_user').append('<span>').text(json.city + ', '+json.country);
