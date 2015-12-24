@@ -83,6 +83,7 @@ $(function() {
   var newsTpl = _.template(newsHtml);
   var firstNewsTpl = _.template(firstNewsHtml);
   VK.Api.call('wall.get', {domain: 'uhpfamily', filter: 'owner'}, function(json) {
+    console.log(json)
     json = json.response
     var news = _.filter(json, function(post) {
       if (_.isObject(post)) {

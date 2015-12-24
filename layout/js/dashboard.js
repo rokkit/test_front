@@ -265,7 +265,7 @@ $(function() {
           var exp = parseInt(json.exp, 10);
           var need_to_levelup = parseInt(json.need_to_levelup, 10);
           $('#need_points').text(need_to_levelup);
-          $('#next_level').text(currentUser.level + 1);
+          $('#next_level').text(json.level + 1);
 
           if(json.country !== '' && json.city !== ''){
               $('#city_user').append('<span>').text(json.city + ', '+json.country);
@@ -462,6 +462,8 @@ function getReservations() {
           var visit_date = visit_date_obj.format('DD.MM.YYYY')
           var visit_time = visit_date_obj.format('HH:mm')
           var end_visit_time = moment(reserv.end_visit_date).format('HH:mm')
+          var statuses = {'wait': 'Отменить', 'approve': 'Подтверждено'}
+          var status = statuses[reserv.status]
           var reserv_el = reserv_tpl({
             id: reserv.id,
             color: reserv.lounge.color,
@@ -469,7 +471,8 @@ function getReservations() {
             visit_date: visit_date,
             visit_time: visit_time,
             end_visit_time: end_visit_time,
-            client_count: reserv.client_count
+            client_count: reserv.client_count,
+            status: status
           });
           $('#reserve_table_body').append(reserv_el);
         });

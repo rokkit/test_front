@@ -36,7 +36,7 @@ $(function(){
  $('#signup_header_btn').on('click', function() {
    if (!currentUser) {
      $('#wrapper_signup').css('pointer-events', 'auto');
-     fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+     fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
    } else {
      document.location.href = '/tech_preloader.html?redirect=profile'
    }
@@ -46,7 +46,7 @@ $(function(){
 $('.lounges_block_7 .btn_arrow').on('click', function() {
   if (!currentUser) {
     $('#wrapper_signup').css('pointer-events', 'auto');
-    fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+    fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
   } else {
     document.location.href = '/tech_preloader.html?redirect=profile'
   }
@@ -90,7 +90,7 @@ $(function() {
   $('#reg_block5').on('click', function(){
     if (!currentUser) {
       $('#wrapper_signup').css('pointer-events', 'auto');
-      fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+      fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
     } else {
       document.location.href = '/tech_preloader.html?redirect=profile'
     }
@@ -99,7 +99,7 @@ $(function() {
   $('#reserve_table_btn').on('click', function() {
     if (!currentUser) {
       $('#wrapper_signup').css('pointer-events', 'auto');
-      fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
+      fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
     } else {
       document.location.href = '/tech_preloader.html?redirect=profile'
     }
@@ -183,7 +183,7 @@ $(function() {
       if(!resp['errors']) {
         $('#wrapper_signup').css('pointer-events', 'none');
         bodyClickOff();
-        fx.swap('signup', 'code_form');
+        fx.swap('signupPopup', 'code_form');
           //doLogin(phone, password)
       } else {
         $('#signup_form input').removeClass('wrong')

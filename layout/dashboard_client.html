@@ -44,7 +44,7 @@
       <td>{{ client_count }}</td>
       <td>
         <div class='color-orange cancel_reserv pointer'>
-          Отменить
+          {{ status }}
           <div class='popover-reserv popover-reserv-close' data-opened='false'>
             <p>Отменить бронирование</p>
             <span class='cancel_reserv_confirm pointer'>Да</span>
@@ -303,7 +303,7 @@
     </header>
     <section class='dashboard' id='main_content'>
       <section class='username'>
-        <h1>Виталий Пихонт</h1>
+        <h1></h1>
         <p id='city_user'></p>
         <button class='button-dark' id='n_o_a'>Забронировать столик</button>
       </section>
