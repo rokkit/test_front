@@ -541,8 +541,10 @@ function handleReservationResponse(json, callback) {
 function fillSkillPointsInfo(skill_point) {
   if (skill_point == 0) {
     $('#all_talents h5').text('У вас нет очков навыков')
+    $('.number_of_skillpoints').text('У вас нет очков навыков')
   } else {
     $('#all_talents h5').text('Осталось очков навыков: ' + skill_point)
+    $('.number_of_skillpoints').text('Осталось очков навыков: ' + skill_point)
   }
 
 }

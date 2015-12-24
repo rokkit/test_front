@@ -115,6 +115,8 @@ var skillBoard = (function(element, data, role){
             'http://176.112.194.149:81/api/v1/skills/'+d.id+'/take.json',
             {auth_token: currentUser.auth_token},
             function(){
+              currentUser.skill_point -= d.cost
+              fillSkillPointsInfo(currentUser.skill_point)
               $.getJSON(
                 'http://176.112.194.149:81/api/v1/skills.json',
                 {auth_token: currentUser.auth_token, role: role},

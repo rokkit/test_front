@@ -107,7 +107,7 @@ $(function() {
             klass = 'color_blue_ach'
             state = 'Не изучен'
           }
-          var template = "<figure data-name='"+this.name+"' data-used_at="+this.used_at+" data-cooldown_end_at='"+this.cooldown_end_at+"' data-can_take="+this.can_take+" data-has="+this.has+" data-id="+this.id+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
+          var template = "<figure data-cost="+this.cost+" data-name='"+this.name+"' data-used_at="+this.used_at+" data-cooldown_end_at='"+this.cooldown_end_at+"' data-can_take="+this.can_take+" data-has="+this.has+" data-id="+this.id+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
           $('#skills').append(template)
         })
     })
@@ -173,6 +173,8 @@ $(function() {
             'http://176.112.194.149:81/api/v1/skills/'+d.id+'/take.json',
             {auth_token: currentUser.auth_token},
             function(){
+              currentUser.skill_point -= d.cost
+              fillSkillPointsInfo(currentUser.skill_point)
               $.getJSON(
                 'http://176.112.194.149:81/api/v1/skills.json',
                 {auth_token: currentUser.auth_token, role: currentUser.role},
