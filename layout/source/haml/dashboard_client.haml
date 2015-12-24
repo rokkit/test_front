@@ -161,7 +161,7 @@
 					%img.item_image{:src=>"./images/achievments/symbol_ach.svg"}
 				%header.popup_vertical_header
 					%a.i_l Назад
-					%h5 Навыки
+					%h5 У вас 0 очков навыков
 				#skill-view
 				-#%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
 		-# Достижение
@@ -280,8 +280,11 @@
 		%section.dashboard{:id => 'main_content'}
 			%section.username
 				-# #face
-				%h1
-				%p#city_user
+				.name_and_level
+					%h1
+					.user_level_block 14
+				.edit_profile_city
+					%p#city_user
 				%button.button-dark#n_o_a Забронировать столик
 
 			%section.progress_bar
@@ -299,6 +302,7 @@
 				%header
 					%h4 Навыки
 					#dashboard_talents_btn.number_of
+					.number_of_skillpoints У вас 0 очков навыков
 				%section.wrapper_for_ach#skills
 
 			%section.bottom-rating
