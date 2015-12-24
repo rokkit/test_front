@@ -159,16 +159,18 @@ $(function() {
           $('#visit-list .nodata').show();
         }
 
-        var inviteUsers = _.sortBy(json.users, function(u) { u.name })
-        json.users.forEach(function(user){
+        var users_for_invite = _.sortBy(json.users, function(u) { u.name })
+        users_for_invite.forEach(function(user){
             $('#invite_users').append("<option value="+user.id+">"+ user.name +"</option>");
         });
         var invitedUserTpl = _.template($('#invited_user_tpl').html())
         var maxInviteCount = 6
         $('#invite_users').change(function(e){
+          console.log('dd', maxInviteCount, _.keys(inviteUsers).length, inviteUsers)
           if (_.keys(inviteUsers).length >= maxInviteCount) {
             return false
           } else {
+
             var el = $('#invite_users option:selected');
             var id = el.attr('value');
             if (!inviteUsers[id]) {
