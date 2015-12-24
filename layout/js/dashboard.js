@@ -264,11 +264,14 @@ $(function() {
       })
       getReservations();
 
+
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
           var exp = parseInt(json.exp, 10);
           var need_to_levelup = parseInt(json.need_to_levelup, 10);
           $('#need_points').text(need_to_levelup);
           $('#next_level').text(json.level + 1);
+          $('.user_level_block').text(json.level)
+          fillSkillPointsInfo(json.skill_point)
 
           if(json.country !== '' && json.city !== ''){
               $('#city_user').append('<span>').text(json.city + ', '+json.country);
@@ -533,4 +536,13 @@ function handleReservationResponse(json, callback) {
     TweenLite.to('section.error_tooltip', 1, {opacity: 0});
     callback()
   }
+}
+
+function fillSkillPointsInfo(skill_point) {
+  if (skill_point == 0) {
+    $('#all_talents h5').text('У вас нет очков навыков')
+  } else {
+    $('#all_talents h5').text('Осталось очков навыков: ' + skill_point)
+  }
+
 }

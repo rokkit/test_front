@@ -46,9 +46,9 @@ $(function() {
   });
   $profile_wrapper.find('input[name="phone"]').mask('+7 (000) 000-00-00')
 
-  $('form.edit_profile_form').on('submit', function(e) {
+  $('form.edit_profile_form button:last').on('click', function(e) {
     e.preventDefault()
-    var formData = new FormData(this);
+    var formData = new FormData($('form.edit_profile_form')[0]);
     formData.append('auth_token', currentUser.auth_token);
     $.ajax({
         type:'PUT',
