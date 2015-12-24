@@ -159,6 +159,7 @@ $(function() {
           $('#visit-list .nodata').show();
         }
 
+        var inviteUsers = _.sortBy(json.users, function(u) { u.name })
         json.users.forEach(function(user){
             $('#invite_users').append("<option value="+user.id+">"+ user.name +"</option>");
         });
