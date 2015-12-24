@@ -125,6 +125,7 @@ section.popup:after
     width: 320px
     height: 320px
     background-image: url(../images/key.svg)
+    pointer-events: none
 
 section.popup:before
     content: ''
@@ -135,6 +136,7 @@ section.popup:before
     height: calc(100% - 32px)
     box-shadow: inset rgba(255, 255, 255, .1) 0 0 2px
     z-index: -1
+    pointer-events: none
 
 // Вертикальный попап на всю ширину
 //////////////////////////////////////////
@@ -177,6 +179,7 @@ section.popup_vertical
         margin-top: 64px
         background: rgba(255,255,255,0.1)
         z-index: 200
+        pointer-events: none
 
     .popup_vertical_symbol:after
         content: ''
@@ -187,6 +190,7 @@ section.popup_vertical
         margin-top: 64px
         background: rgba(255,255,255,0.1)
         z-index: 200
+        pointer-events: none
 
     .popup_vertical_header
         h5
@@ -223,6 +227,7 @@ section.popup_horizontal:before
     height: calc(100% - 32px)
     box-shadow: inset rgba(255, 255, 255, .1) 0 0 2px
     z-index: -1
+    pointer-events: none
 
 //
 // Центральный попап
@@ -249,6 +254,7 @@ section.popup_middle:before
     width: calc(100% - 32px)
     height: calc(100% - 32px)
     box-shadow: inset rgba(255, 255, 255, .1) 0 0 2px
+    pointer-events: none
 
 //
 // Перекрывающий все попап
