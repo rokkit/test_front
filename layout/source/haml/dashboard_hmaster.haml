@@ -65,6 +65,9 @@
 							%h3 Хорошо заполненный профиль способствует увеличению полезных знакомств
 						%fieldset
 							%legend	Основная информация
+							%label.myLabel
+								%input{:required => "", :type => "file", name: "avatar"}
+								%span Фото
 							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 							%input{:type => "text", :name => "country", :placeholder => "Страна"}
 							%input{:type => "text", :name => "city", :placeholder => "Город"}
