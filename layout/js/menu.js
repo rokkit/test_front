@@ -26,6 +26,9 @@ _.templateSettings =  {
 $(function() {
   //Клик на кнопку меню в хедере
   $('#menu_header_btn').on('click', function() {
+
+   getVkNews()
+
    animateMenu()
   });
   //Переходы по страницам меню
@@ -75,14 +78,32 @@ function capitalizeFirstLetter(string) {
 
 //Новости из группы ВК
 $(function() {
+
   VK.init({
     apiId: 5023577
   })
+  $('.wrapper_left_menu span').hide()
+  getVkNews()
+  $(document).on('click', 'h5', function() {
+    document.location.href = $(this).data('url');
+  });
+});
+
+function strip(html){
+   var tmp = document.createElement("DIV");
+   tmp.innerHTML = html;
+   return tmp.textContent || tmp.innerText || "";
+}
+
+function getVkNews() {
+  console.log('getVkNews')
+  $('.wrapper_left_menu span').hide()
   var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
   var firstNewsHtml = '<h4 data-url="{{ vk_url }}">{{ text }}</h4><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
   var newsTpl = _.template(newsHtml);
   var firstNewsTpl = _.template(firstNewsHtml);
-  VK.Api.call('wall.get', {domain: 'uhpfamily', filter: 'owner'}, function(json) {
+  VK.Api.call('wall.get', {owner_id: '-44475553', domain: 'uhpfamily', filter: 'owner'}, function(json) {
+
     console.log(json)
     json = json.response
     var news = _.filter(json, function(post) {
@@ -121,15 +142,7 @@ $(function() {
 
         $('#menu_left_part span').append(newsEl)
     })
+    $('.wrapper_left_menu span').show()
 
   });
-  $(document).on('click', 'h5', function() {
-    document.location.href = $(this).data('url');
-  });
-});
-
-function strip(html){
-   var tmp = document.createElement("DIV");
-   tmp.innerHTML = html;
-   return tmp.textContent || tmp.innerText || "";
 }

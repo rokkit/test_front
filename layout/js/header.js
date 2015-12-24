@@ -37,6 +37,7 @@ $(function(){
    if (!currentUser) {
      $('#wrapper_signup').css('pointer-events', 'auto');
      fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+     fx.swap('signupPopup', 'code_form');
    } else {
      document.location.href = '/tech_preloader.html?redirect=profile'
    }
