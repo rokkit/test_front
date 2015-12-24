@@ -1669,8 +1669,16 @@ header.pages_lounges_header nav a:hover {
   transform: translateX(100%);
 }
 .lounges_block_3 section.cd-hero ul.cd-hero-slider li img.img-slider {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
   width: auto;
-  height: 100%;
+  max-width: 100%;
 }
 .lounges_block_3 section.cd-hero .cd-slider-nav {
   position: absolute;
@@ -2661,26 +2669,53 @@ section.dashboard {
   padding-bottom: 128px;
 }
 section.dashboard section.username {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
   margin-bottom: 48px;
 }
-section.dashboard section.username #face {
-  width: 200px;
-  height: 200px;
-  float: left;
-  margin-right: 20px;
+section.dashboard section.username .name_and_level {
+  display: block;
+  position: relative;
+  height: 80px;
+  width: 100%;
+  line-height: 48px;
 }
-section.dashboard section.username h1 {
+section.dashboard section.username .name_and_level h1 {
+  display: block;
+  position: relative;
   cursor: pointer;
-  margin-bottom: 16px;
   letter-spacing: 6px;
   color: #EBB22F;
+  line-height: 48px;
+  height: 48px;
+  float: left;
+}
+section.dashboard section.username .name_and_level .user_level_block {
+  display: block;
+  position: relative;
+  left: 12px;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  text-align: center;
+  line-height: 48px;
+  background: #EBB22F;
+  float: left;
+}
+section.dashboard section.username .edit_profile_city {
+  display: block;
+  position: relative;
+  height: 32px;
+  width: 100%;
+  margin-bottom: 32px;
 }
 section.dashboard section.username p {
-  width: 75%;
   font-family: Lora;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 32px;
 }
 section.dashboard section.username p a {
   font-family: Lora;
@@ -2735,6 +2770,14 @@ section.user_achievments header {
 }
 section.user_achievments header h4 {
   float: left;
+  font-size: 18px;
+  font-family: Bebas Neue Book;
+  letter-spacing: 3px;
+  height: 24px;
+  line-height: 25px;
+}
+section.user_achievments header .number_of_skillpoints {
+  float: right;
   font-size: 18px;
   font-family: Bebas Neue Book;
   letter-spacing: 3px;
