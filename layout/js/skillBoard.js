@@ -96,6 +96,11 @@ var skillBoard = (function(element, data, role){
   node.on('click', function(d){
     $('#skill .closing_item').show()
     var skill = $(this)
+    $('#skill .closing_item').off('click')
+    $('#skill .closing_item').on('click', function() {
+      $(this).hide()
+      fx.back();
+    })
     if(!d.has){
       if(d.can_take){
         bodyClickOff()
@@ -103,11 +108,7 @@ var skillBoard = (function(element, data, role){
         $('#skill button').show();
         $('#skill button').text('Изучить');
 
-        $('#skill .closing_item').off('click')
-        $('#skill .closing_item').on('click', function() {
-          $(this).hide()
-          fx.back();
-        })
+
         $('#skill button').off('click');
         $('#skill button').on('click', function(){
           $.post(
@@ -199,7 +200,6 @@ var skillBoard = (function(element, data, role){
         $('#skill h4').text(date_text);
         $('#skill button').hide();
       }
-
     }
     $('#skill h2').text(d.name);
     $('#skill p').text(d.description);

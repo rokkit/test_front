@@ -107,7 +107,7 @@ $(function() {
             klass = 'color_blue_ach'
             state = 'Не изучен'
           }
-          var template = "<figure data-has="+this.has+" data-id="+this.id+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
+          var template = "<figure data-name='"+this.name+"' data-used_at="+this.used_at+" data-cooldown_end_at='"+this.cooldown_end_at+"' data-can_take="+this.can_take+" data-has="+this.has+" data-id="+this.id+" data-description='"+this.description+"'><img class='achievments_icon "+klass+"' src='"+window.hostUrl+this.image+"'><ficapation><h6>"+this.name+"</h6><p>"+state+"</p></ficapation></figure>";
           $('#skills').append(template)
         })
     })
@@ -140,15 +140,123 @@ $(function() {
   // Открытие навыка
   $(document).on('click', '#skills figure', function(){
     var skill = $(this)
-    $('#skill .skill_header').text(skill.find('h6').text());
-    $('#skill .skill_description').text(skill.attr('data-description'));
+    var d = $(this).data()
+    $('#skill .closing_item').show()
+    console.log(d)
+    $('#skill .skill_header').text(d.name);
+    $('#skill .skill_description').text(d.description);
     $('#skill .item_image').attr('src', (skill.find('img').attr('src')));
-    if(skill.data('has')) {
+    if(d.has) {
       $('#skill .skill_state').text('Изучен')
     } else {
       $('#skill .skill_state').text('Не изучен')
     }
-    fx.do(['skill', 'background'], bodyClick, bodyClickOff);
+    $('#skill .closing_item').off('click')
+    $('#skill .closing_item').on('click', function() {
+      console.log('clcik')
+      $(this).hide()
+      fx.back();
+    })
+    if(!d.has){
+      if(d.can_take){
+        console.log('162')
+
+        bodyClickOff()
+        $('#skill h4').text('Этот навык доступен для изучения');
+        $('#skill button').show();
+        $('#skill button').text('Изучить');
+
+
+        $('#skill button').off('click');
+        $('#skill button').on('click', function(){
+          $.post(
+            'http://176.112.194.149:81/api/v1/skills/'+d.id+'/take.json',
+            {auth_token: currentUser.auth_token},
+            function(){
+              $.getJSON(
+                'http://176.112.194.149:81/api/v1/skills.json',
+                {auth_token: currentUser.auth_token, role: currentUser.role},
+                function(json) {
+                  $('#skill button').text('Использовать');
+                  $('#skill .skill_state').text('Навык изучен')
+
+                  skill.data('has', true)
+                  skill.data('can_take', false)
+                  skill.find('p').text('Изучен')
+                  skill.find('img').removeClass('color_blue_ach')
+                  // $('#dashboard_talents_btn').text((currentUser.skills.length)+'/'+data.skillCount);
+
+                  $('#skill button').off()
+                  $('#skill button').on('click', function(){
+                    $.post(
+                      'http://176.112.194.149:81/api/v1/skills/'+d.id+'/use.json',
+                      {auth_token: currentUser.auth_token},
+                      function(usedSkill){
+                        $.getJSON(
+                          'http://176.112.194.149:81/api/v1/skills.json',
+                          {auth_token: currentUser.auth_token, role: currentUser.role},
+                          function(json) {
+                            $('#skill button').off('click');
+
+                            var date = moment(usedSkill.used_at).format('DD.MM.YYYY');
+                            var cooldown_end_at = null;
+                            var date_text = 'Вы использовали навык '+ date;
+                            if(usedSkill.cooldown_end_at) {
+                              cooldown_end_at = moment(usedSkill.cooldown_end_at).format('DD.MM.YYYY');
+                              date_text += ', следующее использование возможно ' + cooldown_end_at;
+                            }
+
+                            $('#skill h4').text(date_text);
+                            $('#skill button').hide();
+                        });
+                      }
+                    );
+                  });
+              });
+            }
+          );
+        });
+
+      }else{
+        $('#skill h4').text('Не изучен');
+        $('#skill button').hide();
+      }
+    }else{
+      console.log('224')
+      if(d.used_at === null){
+        $('#skill h4').text('У вас уже есть этот навык');
+        $('#skill button').show();
+        $('#skill button').text('Использовать');
+        $('#skill button').on('click', function(){
+          $.post(
+            'http://176.112.194.149:81/api/v1/skills/'+d.id+'/use.json',
+            {auth_token: currentUser.auth_token},
+            function(){
+              $.getJSON(
+                'http://176.112.194.149:81/api/v1/skills.json',
+                {auth_token: currentUser.auth_token, role: currentUser.role},
+                function(json) {
+                  $('#skill button').off('click');
+              });
+            }
+          );
+        });
+      }else{
+        var date = moment(d.used_at).format('DD.MM.YYYY');
+        var cooldown_end_at = null;
+        var date_text = 'Вы использовали навык '+ date;
+        if(d.cooldown_end_at) {
+          cooldown_end_at = moment(d.cooldown_end_at).format('DD.MM.YYYY');
+          date_text += ', следующее использование возможно ' + cooldown_end_at;
+        }
+
+        $('#skill h4').text(date_text);
+        $('#skill button').hide();
+      }
+    }
+    $('#skill h2').text(d.name);
+    $('#skill p').text(d.description);
+    fx.do(['skill', 'background']);
   });
 
 
@@ -169,7 +277,6 @@ $(function() {
 
 window.waitForUserChoose = false;
 setInterval(function() {
-  console.log(window.waitForUserChoose)
   if (!window.waitForUserChoose) {
     getNewAchivs()
   }
