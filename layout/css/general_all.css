@@ -1850,6 +1850,7 @@ section.lounges_block_4 .wrapper_hm_cards figure .wrapper_hm_photo .hm_photo {
   top: calc(50% - 32px);
   left: calc(50% - 32px);
   border-radius: 32px;
+  overflow: hidden;
 }
 section.lounges_block_4 .wrapper_hm_cards figure .wrapper_hm_photo .hm_lights {
   display: block;
@@ -2499,6 +2500,10 @@ footer#true_footer {
   background: black;
 }
 
+.lounge {
+  cursor: pointer;
+}
+
 section.bottom-rating {
   width: 100%;
   display: block;
@@ -2719,6 +2724,12 @@ section.dashboard section.username .name_and_level .user_level_block {
   line-height: 48px;
   background: #EBB22F;
   float: left;
+}
+section.dashboard section.username .name_and_level .user_level_block:hover .popover-level {
+  display: block;
+  -webkit-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
+  -moz-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
+  -ms-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
 }
 section.dashboard section.username .edit_profile_city {
   display: block;
@@ -3023,6 +3034,32 @@ label.myLabel input[type="file"] {
 
 #invite_users {
   width: 270px;
+}
+
+.popover-level {
+  z-index: 4;
+  border-radius: 5px;
+  display: none;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: left;
+  width: 200px;
+  background-color: #181B21;
+  padding: 7px 10px;
+  position: absolute;
+  font-family: "Helvetica", sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+.popover-level:before {
+  content: "";
+  left: 10%;
+  bottom: 100%;
+  margin-left: -7px;
+  display: block;
+  position: absolute;
+  border: 7px solid transparent;
+  border-bottom: 7px solid #181B21;
 }
 
 section.wrapper_for_ach {

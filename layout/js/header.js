@@ -72,6 +72,7 @@ $(function() {
 $(function() {
   window.tl = null;
   window.hostUrl = 'http://176.112.194.149:81'
+  
 
   new svgIcon(
     document.querySelector('#menu_header_btn'),
@@ -138,7 +139,7 @@ $(function() {
     }, function(resp){
       // console.log(resp)
       if (resp.status == 'error') {
-        
+
       } else {
         successAuth(resp);
       }

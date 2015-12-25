@@ -76,7 +76,7 @@ section.dashboard
         height: auto
 
         margin-bottom: 48px
-        
+
         .name_and_level
             display: block
             position: relative
@@ -118,6 +118,13 @@ section.dashboard
                 background: #EBB22F
 
                 float: left
+                
+                &:hover
+                    .popover-level
+                        display: block
+                        -webkit-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1
+                        -moz-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1
+                        -ms-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1
         .edit_profile_city
             display: block
             position: relative
@@ -414,3 +421,28 @@ $color-popover : #3E4248
 
 #invite_users
     width: 270px
+
+.popover-level
+    z-index				: 4
+    border-radius		: 5px
+    display 			: none
+    color				: #fff
+    font-size			: 12px
+    margin-top 			: 10px
+    text-align 			: left
+    width				: 200px
+    background-color	: #181B21
+    padding				: 7px 10px
+    position			: absolute
+    font-family			: 'Helvetica',sans-serif
+    box-shadow			: 0 0 5px rgba(0,0,0,0.4)
+
+    &:before
+        content			: ''
+        left			: 10%
+        bottom			: 100%
+        margin-left		: -7px
+        display			: block
+        position		: absolute
+        border 			: 7px solid transparent
+        border-bottom	: 7px solid #181B21
