@@ -36,8 +36,7 @@ $(function(){
  $('#signup_header_btn').on('click', function() {
    if (!currentUser) {
      $('#wrapper_signup').css('pointer-events', 'auto');
-     fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
-     fx.swap('signupPopup', 'code_form');
+     fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
    } else {
      document.location.href = '/tech_preloader.html?redirect=profile'
    }
@@ -54,15 +53,15 @@ $('.lounges_block_7 .btn_arrow').on('click', function() {
 });
 
  $('#login_form a').click(function(){
-   fx.swap('loginPopup', 'signupPopup');
+   fx.swap('loginPopup', 'signup');
  });
 
  $('#pass_form a').click(function(){
-   fx.swap('passPopup', 'signupPopup');
+   fx.swap('passPopup', 'signup');
  });
 
  $('#signup_form a').click(function(){
-   fx.swap('signupPopup', 'loginPopup');
+   fx.swap('signup', 'loginPopup');
  });
 });
 
@@ -106,19 +105,19 @@ $(function() {
     }
   });
 
-  $('#recover_btn').on('click', function() {
-    animateForm('recover_form')
-  });
+  // $('#recover_btn').on('click', function() {
+  //   animateForm('recover_form')
+  // });
 
-  //Клик на войти в форме регисрации
-  $('#login_in_signin_btn').on('click', function() {
-    animateForm('login_form')
-  });
-
-  //Клик на войти в форме восстановления пароля
-  $('#login_in_recover_btn').on('click', function() {
-    animateForm('login_form')
-  });
+  // //Клик на войти в форме регисрации
+  // $('#login_in_signin_btn').on('click', function() {
+  //   animateForm('login_form')
+  // });
+  //
+  // //Клик на войти в форме восстановления пароля
+  // $('#login_in_recover_btn').on('click', function() {
+  //   animateForm('login_form')
+  // });
 
 
 //Создание сесии
@@ -132,12 +131,29 @@ $(function() {
     document.location.href = '/pages_index.html'
   });
 
-  $('#code_form button').on('click', function(){
+  $('#code_form .button-small').on('click', function(){
     var code = $('#code_form input[name="code"]').val();
     $.post(hostUrl + '/api/v1/auth/registrations/confirm', {
       code: code
     }, function(resp){
-      successAuth(resp);
+      // console.log(resp)
+      if (resp.status == 'error') {
+        
+      } else {
+        successAuth(resp);
+      }
+
+    });
+  });
+
+  //отправить код повторно
+  $('#code_form .button-link').on('click', function(e) {
+    e.preventDefault()
+    var phone = $('#code_form').data('phone')
+    $.post(hostUrl + '/api/v1/auth/registrations/resend_code.json', {
+      phone: phone
+    }, function() {
+      $('#code_form .button-link').text('Код отправлен')
     });
   });
 
@@ -146,6 +162,14 @@ $(function() {
     e.preventDefault()
 
     var phone = formatPhone($('#signup_form input[name="phone"]').val())
+
+
+    $('#wrapper_signup').css('pointer-events', 'none');
+    bodyClickOff();
+    $('#code_form').data('phone', phone)
+    TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+    fx.swap('signup', 'code_form');
+    return
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
     if (password.length < 5) {
@@ -181,10 +205,13 @@ $(function() {
       name: name,
       password: password
     }, function(resp) {
+
       if(!resp['errors']) {
         $('#wrapper_signup').css('pointer-events', 'none');
         bodyClickOff();
-        fx.swap('signupPopup', 'code_form');
+        $('#code_form').data('phone', phone)
+        TweenLite.to('section.error_tooltip', 1, {opacity: 0});
+        fx.swap('signup', 'code_form');
           //doLogin(phone, password)
       } else {
         $('#signup_form input').removeClass('wrong')
@@ -217,6 +244,8 @@ $(function() {
       fx.swap('passPopup', 'loginPopup');
     })
   });
+
+
 });
 
 function successAuth(resp) {

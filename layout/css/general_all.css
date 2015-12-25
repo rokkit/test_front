@@ -3805,7 +3805,6 @@ section.popup:after {
   width: 320px;
   height: 320px;
   background-image: url(../images/key.svg);
-  pointer-events: none;
 }
 
 section.popup:before {
@@ -3817,7 +3816,6 @@ section.popup:before {
   height: calc(100% - 32px);
   box-shadow: inset rgba(255, 255, 255, 0.1) 0 0 2px;
   z-index: -1;
-  pointer-events: none;
 }
 
 section.popup_vertical {

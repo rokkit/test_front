@@ -145,16 +145,18 @@ var skillBoard = (function(element, data, role){
                             var arr = skillgen(json);
                             skillBoard('#skill-view', arr, role);
 
-                            var date = moment(usedSkill.used_at).format('DD.MM.YYYY');
+                            var date = moment(json.used_at).format('DD.MM.YYYY HH:mm');
                             var cooldown_end_at = null;
                             var date_text = 'Вы использовали навык '+ date;
-                            if(usedSkill.cooldown_end_at) {
-                              cooldown_end_at = moment(usedSkill.cooldown_end_at).format('DD.MM.YYYY');
-                              date_text += ', следующее использование возможно ' + cooldown_end_at;
+                            if(json.cooldown_end_at) {
+                              cooldown_end_at = moment(json.cooldown_end_at)
+                              var duration = moment.duration(moment().diff(cooldown_end_at));
+                              button_text = 'До использования ' + duration.format("hh:mm").substr(1);
+                              $('#skill button').show().text(button_text).attr('disabled', true);
+                            } else {
+                              $('#skill button').hide()
                             }
-
                             $('#skill h4').text(date_text);
-                            $('#skill button').hide();
                         });
                       }
                     );
@@ -191,16 +193,18 @@ var skillBoard = (function(element, data, role){
           );
         });
       }else{
-        var date = moment(d.used_at).format('DD.MM.YYYY');
+        var date = moment(d.used_at).format('DD.MM.YYYY HH:mm');
         var cooldown_end_at = null;
         var date_text = 'Вы использовали навык '+ date;
         if(d.cooldown_end_at) {
-          cooldown_end_at = moment(d.cooldown_end_at).format('DD.MM.YYYY');
-          date_text += ', следующее использование возможно ' + cooldown_end_at;
+          cooldown_end_at = moment(d.cooldown_end_at)
+          var duration = moment.duration(moment().diff(cooldown_end_at));
+          button_text = 'До использования ' + duration.format("hh:mm").substr(1);
+          $('#skill button').show().text(button_text).attr('disabled', true);
+        } else {
+          $('#skill button').hide()
         }
-
         $('#skill h4').text(date_text);
-        $('#skill button').hide();
       }
     }
     $('#skill h2').text(d.name);

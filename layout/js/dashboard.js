@@ -213,6 +213,7 @@ $(function() {
 
         $('#reserv_form').submit(function(e){
           e.preventDefault();
+          TweenLite.to('section.error_tooltip', 1, {opacity: 0});
           $('.wrong').removeClass('wrong');
           if($('#reserv_form select[name=visit_time]').val() == 'время') {
             TweenLite.to('section.error_tooltip', 1, {opacity: 1});
@@ -505,17 +506,18 @@ function getReservations() {
 }
 
 function handleReservationResponse(json, callback) {
+
   if (json.errors) {
     if (json.errors.visit_date) {
       if (json.errors.visit_date == 'reserved') {
         $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#reserv_form input[name="lounge"]').addClass('wrong')
+      } else if (json.errors.visit_date == 'wrong_date_one_client') {
+        $('.error_tooltip').text('Вы уже забронировали столик на указанное время')
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+        $('#reserv_form input[name="lounge"]').addClass('wrong')
       }
-      $('.error_tooltip').text('Вы указали неверную дату бронирования')
-      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-      $('#reserv_form input[name="visit_date"]').addClass('wrong')
-      $('#reserv_form select[name="visit_time"]').addClass('wrong')
     }
     if (json.errors.table) {
       $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
