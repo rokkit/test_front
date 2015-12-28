@@ -12,6 +12,9 @@ $(function(){
       franchise_popup.reverse();
       $('body').off('click')
     });
+    $('.wrapper_form').click(function(e){
+     e.stopPropagation();
+    });
   }});
   franchise_popup.to("#html_body", 1, {overflow:"hidden"});
 
