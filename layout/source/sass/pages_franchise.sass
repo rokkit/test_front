@@ -1,4 +1,4 @@
-#frn_b1 
+#frn_b1
     display: block
     position: relative
 
@@ -18,7 +18,7 @@
 
         +align-items(center)
         +justify-content(center)
-        
+
 
         width: 100%
         height: 100%
@@ -112,7 +112,7 @@
     header
         display: inline-block
         width: 50%
-        
+
         min-width: 480px
         max-width: 560px
 
@@ -136,7 +136,7 @@
             line-height: 24px
             color: rgba(40, 44, 52, 0.5)
 
-    
+
     .wrapper_main_steps
         +display-flex(flex)
         +flex-direction(row)
@@ -154,7 +154,7 @@
             position: relative
 
             width: 320px
-            margin: 0 32px 
+            margin: 0 32px
 
             img
                 display: inline-block
@@ -165,7 +165,7 @@
 
                 margin-bottom: 16px
 
-            h4 
+            h4
                 font-family: Bebas Neue Regular
                 letter-spacing: 0.1em
 
@@ -192,7 +192,7 @@
     header
         display: inline-block
         width: 55%
-        
+
         min-width: 480px
         max-width: 560px
 
@@ -212,7 +212,7 @@
             font-size: 20px
             line-height: 24px
             color: rgba(40, 44, 52, 0.5)
-    
+
     .wrapper_usp
         display: inline-block
         position: relative
@@ -313,7 +313,7 @@
             img
                 display: block
                 position: relative
-               
+
                 top: 20px
                 left: 20px
 
@@ -362,10 +362,10 @@
     background-position: center top
     background-repeat: no-repeat
     background-size: cover
-    
+
     .wrapper_footer
         header
-            margin-bottom: 96px 
+            margin-bottom: 96px
 
             h2
                 font-family: Bebas Neue Book
@@ -420,6 +420,7 @@
 #frn_b6
     display: block
     position: fixed
+    overflow: auto
 
     top: 0
     left: 0
@@ -428,8 +429,6 @@
 
     width: 100%
     height: 100%
-
-    pointer-events: none
 
     background: none
 
@@ -447,12 +446,12 @@
 
         padding: 128px
         margin-bottom: 128px
-        
+
         // Начальное состояние
-        // top: 100%
+        top: 100%
 
         // Финальное состояние
-        top: 160px 
+        // top: 160px
 
         left: calc(50% - 480px)
 
@@ -473,7 +472,8 @@
         form
             display: inline-block
             position: relative
-            
+            z-index: 1000
+
             fieldset
                 margin-bottom: 16px
 
