@@ -222,15 +222,19 @@
 					%p Наша кальянная – первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю. Многие люди приходят к нам снова и снова именно за этим, проводя у нас недели и месяцы напролет.
 					%h5 Игорь Коновалов
 					%h5 Основатель франшизы
-			%section#philosophie_block5
-				%h3 Omnis qui quaerit invenit
-				%h6 *Всякий ищущий находит
-				%br
-				%button.button-dark Зарегистрироваться
+			-# 7. Присоединятесь!
+			%section.lounges_block_7
+				.wrapper_sun
+					%img.sun{ :src=>"./images/liberty/sun.svg" , :alt=>"Звезда"}
+					%img.sun_rotation{ :src=>"./images/liberty/sun_lines.svg"}
 
-				%img.sun_glow_2{ :src=>"./images/sun_glow.png"}
-				%img.sun_glow{ :src=>"./images/sun_glow.svg"}
-				%img.sun_rotation{ :src=>"./images/sun_lines.svg"}
-				%img{ :src=>"./images/sun.svg" , :alt=>"Звезда"}
+					.sun_glow
+					.sun_glow_2
+
+				.wrapper_sun_text
+					%h3 Omnis qui quaerit invenit*
+					%h6 *Всякий ищущий находит
+					%br
+					%button.button-arrow.btn_arrow Зарегистрироваться
 		%script{ :src => "./js/clouds.js" }
 		%script{ :src => "./js/clouds2.js" }
