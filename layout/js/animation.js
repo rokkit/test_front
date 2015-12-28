@@ -178,7 +178,7 @@ var fxa = {
     },
     signup:{
       element: '#signup_form',
-      options: { 'left': '120px' },
+      options: { 'left': '190px' },
       back: {left:"1860px", 'pointer-events':"auto"}
     },
     wrapper_signup: {
