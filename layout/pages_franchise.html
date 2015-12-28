@@ -1,4 +1,4 @@
-<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<html lang='en' xml:lang='en' xmlns='http://www.w                                    3.org/1999/xhtml'>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'>
     <link href='./css/reset.css' rel='stylesheet'>
@@ -23,156 +23,151 @@
     <script src='./js/header.js'></script>
     <script src='./js/community.js'></script>
     <script src='./js/menu.js'></script>
-    <title>Сообщество</title>
+    <script src='./js/pages_franchise.js'></script>
+    <title>Пришло время зарабатывать!</title>
   </head>
-  <body data-page='community' id='html_body'>
-    <div class='wrapper center-center' id='wrapper_login'>
-      <section class='popup' id='login_form'>
-        <header>
-          <h2>Войти</h2>
-          <p class='h2_subtitle'>
-            Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
-            <a href='#registration'>зарегистрируйтесь.</a>
-          </p>
-        </header>
-        <form action='' method='get'>
-          <input name='phone' placeholder='Номер телефона' type='text'>
-          <input name='password' placeholder='Пароль' type='password'>
-          <button name='sumbit' type='sumbit'>Войти</button>
-        </form>
-      </section>
-    </div>
-    <div class='wrapper center-center' id='wrapper_signup'>
-      <section class='popup' id='signup_form'>
-        <header>
-          <h2>Регистрация</h2>
-          <p class='h2_subtitle'>Регистрация нового пользователя. Если у вас уже есть аккаунт — войдите.</p>
-        </header>
-        <form action='' method='get'>
-          <input name='phone' placeholder='Номер телефона' type='text'>
-          <input name='name' placeholder='ФИО' type='text'>
-          <input name='password' placeholder='Пароль' type='password'>
-          <button id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
-        </form>
-      </section>
-    </div>
-    <div class='wrapper center-center' id='wrapper_menu'>
-      <section class='left_menu' id='menu_left_part'>
-        <img alt='Unique Hookah Places' height='40px' src='./images/logo.svg'>
+  <body data-page='fran' id='html_body'>
+    <header id='header'>
+      <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
+      <nav>
+        <a id='login_header_btn'>Войти</a>
+        <a id='signup_header_btn'>Зарегистрироваться</a>
+        <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/menu.svg'>
+      </nav>
+    </header>
+    <section id='frn_b1'>
+      <div class='frn_b1_wrapper'>
+        <img src='./images/franchise/crown.svg'>
+        <h1>пришло время зарабатывать</h1>
+        <p>*Fortes fortuna adjuvat</p>
         <span>
-          <h4>Первая в мире территория для курения со свободной оплатой и<br>индивидуальным подходом к каждому гостю...</h4>
-          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
-          <h5>Она задала нам неожиданный вопрос</h5>
-          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
-          <h5>Она задала нам неожиданный вопрос</h5>
-          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
-          <h5>Она задала нам неожиданный вопрос</h5>
-          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
-          <h5>Она задала нам неожиданный вопрос</h5>
-          <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          <button class='btn_border'>Узнать больше</button>
+          <button class='btn_gold open_franchise_popup'>Заполнить заявку</button>
         </span>
+      </div>
+      <footer>
+        <p>*Смелым помогает судьба</p>
+      </footer>
+    </section>
+    <section id='frn_b2'>
+      <header>
+        <h2>Наша цель максимально упростить процесс запуска вашего бизнеса</h2>
+        <p>Весь процесс открытия своего заведения можно свести к трем основным шагам:</p>
+      </header>
+      <div class='wrapper_main_steps'>
+        <div class='wrapper_step'>
+          <img alt='Первый шаг' src='./images/franchise/steps/1.svg'>
+          <h4>Первый шаг</h4>
+          <p>Сначала мы поможем выбрать помещение и зарегистрировать деятельность. К вам будет отправлен специалист-консультант.</p>
+        </div>
+        <div class='wrapper_step'>
+          <img alt='Второй шаг' src='./images/franchise/steps/2.svg'>
+          <h4>Второй шаг</h4>
+          <p>Разработка рекламной стратегии, дизайн интерьера кальянной и ремонт помещения, поставка средств для запуска и подключение к системам поставок и лояльности.</p>
+        </div>
+        <div class='wrapper_step'>
+          <img alt='Третий шаг' src='./images/franchise/steps/3.svg'>
+          <h4>Третий шаг</h4>
+          <p>Полноценная работа заведения. Бухгалтерская отчетность, консультации по юридическим и другим вопросам, §отслеживание показателей и контроль.</p>
+        </div>
+      </div>
+    </section>
+    <section id='frn_b3'>
+      <header>
+        <h2>То, что мы обещаем, мы выполняем, Наши практики работают</h2>
+        <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.</p>
+      </header>
+      <br>
+      <div class='wrapper_usp'>
+        <figure>
+          <img alt='Качественный бренд' src='./images/franchise/usp/1.svg'>
+          <br>
+          <figcapation>Качественный<br>бренд</figcapation>
+        </figure>
+        <figure>
+          <img alt='Система взаимодействия' src='./images/franchise/usp/2.svg'>
+          <br>
+          <figcapation>Система<br>взаимодействия</figcapation>
+        </figure>
+        <figure>
+          <img alt='Корпоративный стиль' src='./images/franchise/usp/3.svg'>
+          <br>
+          <figcapation>Корпоративный<br>стиль</figcapation>
+        </figure>
+        <figure>
+          <img alt='Грамотная реклама' src='./images/franchise/usp/4.svg'>
+          <br>
+          <figcapation>Грамотная<br>реклама</figcapation>
+        </figure>
+        <figure>
+          <img alt='Полезные бизнес-контакты' src='./images/franchise/usp/5.svg'>
+          <br>
+          <figcapation>Полезные<br>бизнес-контакты</figcapation>
+        </figure>
+      </div>
+    </section>
+    <section id='frn_b4'>
+      <div class='slider_controls'>
+        <div class='left_arrow'>
+          <img alt='Предыдущий отзыв' src='./images/franchise/left_arrow.svg'>
+        </div>
+        <div class='right_arrow'>
+          <img alt='Следующий отзыв' src='./images/franchise/right_arrow.svg'>
+        </div>
+      </div>
+      <div class='franchisor_review'>
+        <div class='wrapper_fran_faces'>
+          <img alt='Пронин Григорий' src='./images/franchise/franchisor/pronin.png'>
+        </div>
+        <blockquote>
+          <p>Совсем недавно открылось новое заведение Duplex от создателей кальянной Double. Оба заведения расположены недалеко от м. Лиговский Проспект, но имеют немного разный формат. В дуплексе вы найдете 5 уютных лаунж-зон с занавесками, за которыми можно уютно посидеть вдвоем или впятером, покуривая кальян. Так же есть возможность создания зоны для большой компании до 12 человек.</p>
+          <cite>
+            <h4>Пронин Григорий</h4>
+            <span>Основатель «Резерв»</span>
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+    <section id='frn_b5'>
+      <div class='wrapper_footer'>
+        <header>
+          <h2>Ищущий да обрятет</h2>
+          <p>Оригинал один - остальное копии</p>
+          <button class='btn_border open_franchise_popup'>Заполнить заявку</button>
+        </header>
         <footer>
           <p>Copyright © 2015 Уникальные Кальянные</p>
-          <p>
-            Создано в
-            <img alt='CPD&amp;BBK' height='24px' src='./images/cpdbbk.svg'>
-          </p>
         </footer>
-      </section>
-      <section class='right_menu' id='menu_right_part'>
-        <img alt='Закрыть' id='closing' src='./images/cross.svg'>
-        <a>
-          <h3 id='lounges_nav_btn'>Ложи</h3>
-          <p>Уникальные заведения</p>
-        </a>
-        <a>
-          <h3 id='philosophy_nav_btn'>Философия</h3>
-          <p>Наши ценности</p>
-        </a>
-        <a>
-          <h3 id='community_nav_btn'>Сообщество</h3>
-          <p>Полезно быть своим</p>
-        </a>
-      </section>
-    </div>
-    <div class='color_overlay' id='color_overlay'></div>
-    <main id='main_content'>
-      <section id='community_block1'>
-        <div id='viewport'>
-          <div id='world'></div>
-        </div>
-        <div id='viewport2'>
-          <div id='world2'></div>
-        </div>
-        <header id='header'>
-          <img alt='Уникальные Кальянные' class='pointer' src='./images/logo.svg'>
-          <nav>
-            <a id='login_header_btn'>Войти</a>
-            <a id='signup_header_btn'>Зарегистрироваться</a>
-            <div class='menu pointer' data-icon-name='hamburger' id='menu_header_btn'></div>
-          </nav>
-          <hr>
+      </div>
+    </section>
+    <section id='frn_b6'>
+      <div class='wrapper_form'>
+        <header>
+          <h2>Отправить заявку</h2>
+          <p>Заполните форму ниже</p>
         </header>
-        <img alt='Полезно быть своим' class='image' src='./images/community_h1.svg'>
-      </section>
-      <section id='community_block2'>
-        <h2>
-          Самая лучшая сеть
-          <br>
-          кальянных и только для вас
-        </h2>
-        <br>
-        <h3>Мы ценим профессионализм во всех его проявлениях. Данное требование предъявляется ко всем заведениям и сотрудникам сети. Кроме того, Уникальные Кальянные всегда особенно рады принимать у себя профессионалов своего дела</h3>
-        <br>
-        <section class='game_feature'>
-          <img alt='Общество равных' src='./images/game_feature_1.svg'>
-          <h4>Общество равных</h4>
-          <p>Уже много лет мы собираем вокруг себя близких по духу людей и это значит, что в стенах Уникальных Кальянных наши гости всегда смогут найти собеседника достойного уровня, завязать полезные знакомства и найти нужные контакты.</p>
-        </section>
-        <section class='game_feature'>
-          <img alt='Программа лояльности' src='./images/game_feature_2.svg'>
-          <h4>Программа лояльности</h4>
-          <p>Лояльность и доверие - для нас это не пустой звук, с древних времен эти понятия считались высшими ценностями в жизни. Записи о каждом вашем визите бережно хранятся в наших архивах и когда придёт срок, каждый будет вознаграждён.</p>
-        </section>
-        <section class='game_feature'>
-          <img alt='Неповторимый опыт' src='./images/game_feature_3.svg'>
-          <h4>Неповторимый опыт</h4>
-          <p>Каждое заведение Уникальных Кальянных предлагает вам атмосферу клуба единомышленников. Заходите, общайтесь с другими гостями, участвуйте в еженедельных мероприятиях и вы поймете в чем заключается наша уникальность.</p>
-        </section>
-      </section>
-      <section id='community_block3'>
-        <h3>Со временем вы обретёте полезные навыки, дающие право на получение определенных бонусов</h3>
-        <p>Навыки разнообразны и позволяют получить целый ряд приятных преимуществ, начиная с дополнительных напитков при первом заказе за день и заканчивая возможностью отдыхать в заведении в нерабочие часы.</p>
-        <br>
-        <img alt='Полезные бонусы' src='./images/game_skillset.svg'>
-        <video autobuffer='true' autoplay='true' controls='false' id='dust' loop='true' src='../video/vid.mp4'></video>
-        <div id='cb3grad'></div>
-        <div id='cb3grad2'></div>
-        <video autobuffer='true' autoplay='true' controls='false' id='cb3smoke' loop='true' src='../video/vid2.mp4'></video>
-      </section>
-      <section id='community_block5'>
-        <div id='viewport-left'></div>
-        <div id='viewport-right'></div>
-        <div id='communication_is_important'>
-          <div class='round'>
-            <img alt='Коммуникация' src='./images/messages.svg'>
-          </div>
-          <br>
-          <h3>Общение — это важно</h3>
-          <br>
-          <p>Мы общаемся с окружающими нас людьми каждый день, но в жизни современного человека общение это нечто большее чем просто обмен информацией.</p>
-          <br>
-          <p>Именно от общения зависит наше положение в обществе, наши цели и настроение, поэтому круг общения играет важную роль</p>
-          <br>
-          <p>Войдите в сообщество Уникальных Кальянных и вы сможете общаться с лучшими людьми вашего города.</p>
-          <br>
-          <br>
-          <button class='button-dark'>Перейти к философии</button>
-        </div>
-      </section>
-      <section id='community_block6'></section>
-    </main>
-    <script src='./js/clouds.js'></script>
-    <script src='./js/clouds2.js'></script>
+        <form>
+          <fieldset>
+            <legend>Основная информация</legend>
+            <input name='name' placeholder='ФИО' type='text'>
+            <input name='name' placeholder='Контактный телефон' type='text'>
+            <input name='name' placeholder='Email' type='text'>
+            <input name='name' placeholder='Город' type='text'>
+            <input name='name' placeholder='Расскажие о себе' type='text'>
+          </fieldset>
+          <fieldset>
+            <legend>Компания работодель</legend>
+            <input name='name' placeholder='Компания работодатель' type='text'>
+            <input name='name' placeholder='Должность' type='text'>
+          </fieldset>
+          <fieldset>
+            <legend>Вложениия в франшизу</legend>
+            <input name='name' placeholder='Первый взнос' type='text'>
+            <input name='name' placeholder='Общая сумма' type='text'>
+          </fieldset>
+          <button>Отправить заявку</button>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
