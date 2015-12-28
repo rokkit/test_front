@@ -10,7 +10,6 @@ $(function(){
   franchise_popup.to("#html_body", 0.1, {overflow:"hidden"});
 
   $(".open_franchise_popup").click(function() {
-    console.log('play')
     franchise_popup.play();
   });
 

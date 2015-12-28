@@ -324,7 +324,9 @@ $(function() {
 // PRELOADER
 $(function() {
   var html_body = document.getElementById("main_content")
-  TweenLite.to(html_body, 1, {opacity:1})
+  if (html_body) {
+    TweenLite.to(html_body, 1, {opacity:1})
+  }
 })
 
 
