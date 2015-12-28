@@ -102,7 +102,7 @@
 					%img.item_image{:src=>"./images/achievments/symbol_ach.svg"}
 				%header.popup_vertical_header
 					%a.i_l Назад
-					%h5 Навыки
+					%h5 У вас 0 очков навыков
 				#skill-view
 				-#%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
 		-# Достижение
@@ -179,18 +179,22 @@
 				-# %button#go_login_from_menu_btn Круг избранных
 		-# Color Overlay
 		#color_overlay.color_overlay
-
+		%header#header
+			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
+			%nav
+				%a#edit_profile_btn Редактировать профиль
+				%a#logout_btn Выйти
+				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
 		%section.dashboard{:id => 'main_content'}
-			%header#header
-				%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
-				%nav
-					%a#edit_profile_btn Редактировать профиль
-					%a#logout_btn Выйти
-					%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
-			%hr
+		
 			%section.username
 				-# #face
-				%h1
+				.name_and_level
+					%h1
+					.user_level_block
+						%span#user_level
+						%span.popover-level
+							Ваш уровень
 				%p#city_user
 				%p#hookmaster_description Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!
 			%section.progress_bar
@@ -209,6 +213,7 @@
 				%header
 					%h4 Навыки
 					#dashboard_talents_btn.number_of
+					.number_of_skillpoints У вас 0 очков навыков
 				%section.wrapper_for_ach#skills
 
 

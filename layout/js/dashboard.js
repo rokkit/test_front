@@ -276,7 +276,7 @@ $(function() {
           var need_to_levelup = parseInt(json.need_to_levelup, 10);
           $('#need_points').text(need_to_levelup);
           $('#next_level').text(json.level + 1);
-          $('.user_level_block .level').text(json.level)
+          $('#user_level').text(json.level)
           fillSkillPointsInfo(json.skill_point)
 
           if(json.country !== '' && json.city !== ''){

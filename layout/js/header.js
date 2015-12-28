@@ -72,7 +72,7 @@ $(function() {
 $(function() {
   window.tl = null;
   window.hostUrl = 'http://176.112.194.149:81'
-  
+
 
   new svgIcon(
     document.querySelector('#menu_header_btn'),
@@ -295,6 +295,7 @@ function doLogin(phone, password) {
       if(resp['errors']['confirmed_at']) {
         $('#wrapper_signup').css('pointer-events', 'none');
         bodyClickOff();
+        $('#code_form').data('phone', phone)
         fx.swap('loginPopup', 'code_form');
       }
     }

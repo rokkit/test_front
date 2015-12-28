@@ -128,7 +128,9 @@ $(function() {
       var exp = parseInt(json.exp, 10);
       var need_to_levelup = parseInt(json.need_to_levelup, 10);
       $('#need_points').text(need_to_levelup);
-      $('#next_level').text(currentUser.level + 1);
+      $('#next_level').text(json.level + 1);
+      $('#user_level').text(json.level)
+      fillSkillPointsInfo(json.skill_point)
       $('#hookmaster_description').text(json.hobby);
       if(json.country !== '' && json.city !== ''){
           $('#city_user').append('<span>').text(json.city + ', '+json.country);
@@ -285,4 +287,14 @@ function bodyClick(e){
     TweenLite.to('section.error_tooltip', 1, {opacity: 0});
     fx.back();
   });
+}
+function fillSkillPointsInfo(skill_point) {
+  if (skill_point == 0) {
+    $('#all_talents h5').text('У вас нет очков навыков')
+    $('.number_of_skillpoints').text('У вас нет очков навыков')
+  } else {
+    $('#all_talents h5').text('Осталось очков навыков: ' + skill_point)
+    $('.number_of_skillpoints').text('Осталось очков навыков: ' + skill_point)
+  }
+
 }

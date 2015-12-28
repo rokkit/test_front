@@ -121,7 +121,7 @@
         </div>
         <header class='popup_vertical_header'>
           <a class='i_l'>Назад</a>
-          <h5>Навыки</h5>
+          <h5>У вас 0 очков навыков</h5>
         </header>
         <div id='skill-view'></div>
       </section>
@@ -170,7 +170,7 @@
           <p>24 июл в 14:44 от #unihuqhookahplaces</p>
         </span>
         <footer>
-          <p>Copyright © 2015 Уникальные Каль��нные</p>
+          <p>Copyright © 2015 Ун��кальные Кальянные</p>
           <p>
             Создано в
             <img alt='CPD&amp;BBK' height='24px' src='./images/cpdbbk.svg'>
@@ -194,18 +194,25 @@
       </section>
     </div>
     <div class='color_overlay' id='color_overlay'></div>
+    <header id='header'>
+      <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
+      <nav>
+        <a id='edit_profile_btn'>Редактировать профиль</a>
+        <a id='logout_btn'>Выйти</a>
+        <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/menu.svg'>
+      </nav>
+    </header>
     <section class='dashboard' id='main_content'>
-      <header id='header'>
-        <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
-        <nav>
-          <a id='edit_profile_btn'>Редактировать профиль</a>
-          <a id='logout_btn'>Выйти</a>
-          <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/menu.svg'>
-        </nav>
-      </header>
-      <hr>
       <section class='username'>
-        <h1></h1>
+        <div class='name_and_level'>
+          <h1></h1>
+          <div class='user_level_block'>
+            <span id='user_level'></span>
+            <span class='popover-level'>
+              Ваш уровень
+            </span>
+          </div>
+        </div>
         <p id='city_user'></p>
         <p id='hookmaster_description'>Работаю в сети с 2012 года. Стараюсь вседа делать лучшие кальяны, приходите в мои смены!</p>
       </section>
@@ -228,6 +235,7 @@
         <header>
           <h4>Навыки</h4>
           <div class='number_of' id='dashboard_talents_btn'></div>
+          <div class='number_of_skillpoints'>У вас 0 очков навыков</div>
         </header>
         <section class='wrapper_for_ach' id='skills'></section>
       </section>
