@@ -1,3 +1,5 @@
+var hostUrl = 'http://176.112.194.149:81'
+var hostUrlLocal = 'http://localhost:3000'
 // Открытие попапа
 $(function(){
 
@@ -26,6 +28,13 @@ $(function(){
   // $(".cross_white_popup").click(function() {
   //   franchise_popup.reverse();
   //   });
+  $('#frn_b6 form').on('submit', function(e){
+    e.preventDefault()
+    var data = $(this).serialize()
+    $.post(hostUrl + '/franchise_requests.json', data, function(){
+      franchise_popup.reverse();
+    })
+  });
 
 });
 

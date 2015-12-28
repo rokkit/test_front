@@ -295,8 +295,6 @@ $(function() {
             $('#city_user').append('<span>').append(a);
           }
 
-          var percentsExp = 0
-
           $('.progress').css('width', json.percents_exp + '%' )
           window.currentUser = json
           localStorage.setItem('currentUser', JSON.stringify(window.currentUser))
