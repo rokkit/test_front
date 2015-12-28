@@ -46,7 +46,8 @@
 			.wrapper_hm_photo
 				.glow_html
 				.hm_photo
-					%img{:src => "./images/{{ lounge_slug }}/hm_photo_placeholder.svg"}
+					-# %img{:src => "./images/{{ lounge_slug }}/hm_photo_placeholder.svg"}
+					%img{:src => "{{ avatar }}"}
 				%img.hm_lights{:src => "./images/{{ lounge_slug }}/hm_photo_lights.svg"}
 			%figcapation.wrapper_hm_name
 				%h2 {{ name }}

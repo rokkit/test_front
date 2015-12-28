@@ -2,6 +2,10 @@ var fx = new FX(fxa.dashboard);
 var inviteUsers = {};
 
 var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+if (!currentUser) {
+  localStorage.removeItem('currentUser')
+  document.location.href = '/pages_index.html'
+}
 _.templateSettings =  {
   interpolate :/\{\{(.+?)\}\}/g
 }
@@ -166,7 +170,6 @@ $(function() {
         var invitedUserTpl = _.template($('#invited_user_tpl').html())
         var maxInviteCount = 6
         $('#invite_users').change(function(e){
-          console.log('dd', maxInviteCount, _.keys(inviteUsers).length, inviteUsers)
           if (_.keys(inviteUsers).length >= maxInviteCount) {
             return false
           } else {
@@ -198,6 +201,7 @@ $(function() {
           $.post(hostUrl + '/api/v1/meets/'+id+'/decline', {
             auth_token: currentUser.auth_token
           }, function(){
+            getReservations();
             fx.back();
           });
         });
@@ -207,12 +211,14 @@ $(function() {
           $.post(hostUrl + '/api/v1/meets/'+id+'/accept', {
             auth_token: currentUser.auth_token
           }, function(){
+            getReservations();
             fx.back();
           });
         });
 
         $('#reserv_form').submit(function(e){
           e.preventDefault();
+          TweenLite.to('section.error_tooltip', 1, {opacity: 0});
           $('.wrong').removeClass('wrong');
           if($('#reserv_form select[name=visit_time]').val() == 'время') {
             TweenLite.to('section.error_tooltip', 1, {opacity: 1});
@@ -270,7 +276,7 @@ $(function() {
           var need_to_levelup = parseInt(json.need_to_levelup, 10);
           $('#need_points').text(need_to_levelup);
           $('#next_level').text(json.level + 1);
-          $('.user_level_block').text(json.level)
+          $('.user_level_block .level').text(json.level)
           fillSkillPointsInfo(json.skill_point)
 
           if(json.country !== '' && json.city !== ''){
@@ -505,17 +511,18 @@ function getReservations() {
 }
 
 function handleReservationResponse(json, callback) {
+
   if (json.errors) {
     if (json.errors.visit_date) {
       if (json.errors.visit_date == 'reserved') {
         $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#reserv_form input[name="lounge"]').addClass('wrong')
+      } else if (json.errors.visit_date == 'wrong_date_one_client') {
+        $('.error_tooltip').text('Вы уже забронировали столик на указанное время')
+        TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+        $('#reserv_form input[name="lounge"]').addClass('wrong')
       }
-      $('.error_tooltip').text('Вы указали неверную дату бронирования')
-      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
-      $('#reserv_form input[name="visit_date"]').addClass('wrong')
-      $('#reserv_form select[name="visit_time"]').addClass('wrong')
     }
     if (json.errors.table) {
       $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')

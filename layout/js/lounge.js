@@ -142,8 +142,15 @@ background-image: radial-gradient(200px 200px, '+json.color+', rgba(255, 255, 25
         name.pop()
         name = name.join(' ')
       }
-      $('.wrapper_hm_cards').append(hmasterTemplate({id: hmaster.id, lounge_slug: json.slug, name: name, lounge: json.title}))
-      $('#wrapper_hm_popup').append(hmasterInfoTemplate({id: hmaster.id, name: name, lounge: json.title, color: json.color, description: hmaster.description}))
+      var avatar = null
+
+      if (!hmaster.avatar) {
+        avatar = '/images/' + json.slug + '/hm_photo_placeholder.svg'
+      } else {
+        avatar = hostUrl + hmaster.avatar
+      }
+      $('.wrapper_hm_cards').append(hmasterTemplate({id: hmaster.id, lounge_slug: json.slug, name: name, lounge: json.title, avatar: avatar}))
+      $('#wrapper_hm_popup').append(hmasterInfoTemplate({id: hmaster.id, name: name, lounge: json.title, color: json.color, description: hmaster.description, avatar: avatar}))
     })
 
     $('.wrapper_hm_cards figure').each(function() {

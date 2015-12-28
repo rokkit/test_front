@@ -157,6 +157,7 @@ $(function() {
       $(this).hide()
       fx.back();
     })
+    $('#skill button').attr('disabled', false);
     if(!d.has){
       if(d.can_take){
         console.log('162')
@@ -187,8 +188,8 @@ $(function() {
                   skill.find('p').text('Изучен')
                   skill.find('img').removeClass('color_blue_ach')
                   // $('#dashboard_talents_btn').text((currentUser.skills.length)+'/'+data.skillCount);
-
                   $('#skill button').off()
+                  $('#skill button').attr('disabled', false);
                   $('#skill button').on('click', function(){
                     $.post(
                       'http://176.112.194.149:81/api/v1/skills/'+d.id+'/use.json',
@@ -199,17 +200,18 @@ $(function() {
                           {auth_token: currentUser.auth_token, role: currentUser.role},
                           function(json) {
                             $('#skill button').off('click');
-
-                            var date = moment(usedSkill.used_at).format('DD.MM.YYYY');
+                            var date = moment(json.used_at).format('DD.MM.YYYY HH:mm');
                             var cooldown_end_at = null;
                             var date_text = 'Вы использовали навык '+ date;
-                            if(usedSkill.cooldown_end_at) {
-                              cooldown_end_at = moment(usedSkill.cooldown_end_at).format('DD.MM.YYYY');
-                              date_text += ', следующее использование возможно ' + cooldown_end_at;
+                            if(json.cooldown_end_at) {
+                              cooldown_end_at = moment(json.cooldown_end_at)
+                              var duration = moment.duration(moment().diff(cooldown_end_at));
+                              button_text = 'До использования ' + duration.format("hh:mm").substr(1);
+                              $('#skill button').show().text(button_text).attr('disabled', true);
+                            } else {
+                              $('#skill button').hide()
                             }
-
                             $('#skill h4').text(date_text);
-                            $('#skill button').hide();
                         });
                       }
                     );
@@ -244,16 +246,19 @@ $(function() {
           );
         });
       }else{
-        var date = moment(d.used_at).format('DD.MM.YYYY');
+        var date = moment(d.used_at).format('DD.MM.YYYY HH:mm');
         var cooldown_end_at = null;
         var date_text = 'Вы использовали навык '+ date;
         if(d.cooldown_end_at) {
-          cooldown_end_at = moment(d.cooldown_end_at).format('DD.MM.YYYY');
-          date_text += ', следующее использование возможно ' + cooldown_end_at;
+          cooldown_end_at = moment(d.cooldown_end_at)
+          var duration = moment.duration(moment().diff(cooldown_end_at));
+          button_text = 'До использования ' + duration.format("hh:mm").substr(1);
+          $('#skill button').show().text(button_text).attr('disabled', true);
+        } else {
+          $('#skill button').hide()
         }
-
         $('#skill h4').text(date_text);
-        $('#skill button').hide();
+
       }
     }
     $('#skill h2').text(d.name);

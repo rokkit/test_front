@@ -17,6 +17,7 @@
 		%script{ :src => "./js/lib/svgicons.js" }
 		%script{ :src => "./js/underscore-min.js" }
 		%script{ :src => "./js/moment-with-locales.js" }
+		%script{ :src => "./js/moment-duration-format.js" }
 		%script{ :src => "./js/lib/pikaday.js" }
 		%script{ :src => "./js/animation.js" }
 		%script{ :src => "./js/fx.js" }
@@ -282,7 +283,10 @@
 				-# #face
 				.name_and_level
 					%h1
-					.user_level_block 14
+					.user_level_block
+						%span#user_level 14
+						%span.popover-level
+							Ваш уровень
 				.edit_profile_city
 					%p#city_user
 				%button.button-dark#n_o_a Забронировать столик

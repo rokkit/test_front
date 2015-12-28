@@ -182,8 +182,8 @@ var fxa = {
       back: {left:"1860px", 'pointer-events':"auto"}
     },
     wrapper_signup: {
-      element: '#wrapper_signup',
-      options: { 'pointer-events': 'auto' }
+      element: '#wrapper_signup'//,
+      // options: { 'pointer-events': 'auto' }
     },
     signupPopup: ['signup', 'wrapper_signup'],
     loginPopup: ['login', 'wrapper_login'],

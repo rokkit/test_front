@@ -16,7 +16,9 @@ $(function() {
     fx.back();
   });
 
+
   var $profile_wrapper = $('#edit-profile-wrapper')
+  var birthdate = moment(currentUser.birthdate)
   $profile_wrapper.find('input[name="name"]').val(currentUser.name)
   $profile_wrapper.find('input[name="country"]').val(currentUser.country)
   $profile_wrapper.find('input[name="city"]').val(currentUser.city)
@@ -24,14 +26,15 @@ $(function() {
   $profile_wrapper.find('input[name="work_company"]').val(currentUser.work_company)
   $profile_wrapper.find('input[name="hobby"]').val(currentUser.hobby)
   $profile_wrapper.find('input[name="phone"]').val('+'+currentUser.phone)
-  $profile_wrapper.find('input[name="birthdate"]').val(currentUser.birthdate)
+  $profile_wrapper.find('input[name="birthdate"]').val(birthdate.format('DD.MM.YYYY'))
   if (currentUser.freezed) {
     $profile_wrapper.find('input[name="name"]').attr('disabled', 'disabled')
+    $profile_wrapper.find('input[name="birthdate"]').attr('disabled', 'disabled')
   }
 
   var picker = new Pikaday({
     field: $profile_wrapper.find('input[name="birthdate"]')[0],
-    format: 'YYYY-MM-DD',
+    format: 'DD.MM.YYYY',
     firstDay: 1,
     minDate: moment().subtract(40, 'years').toDate(),
     maxDate: moment().subtract(18, 'years').toDate(),
