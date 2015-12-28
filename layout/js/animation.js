@@ -298,11 +298,11 @@ var cbpAnimatedHeader = (function() {
     var sy = scrollY();
 
     if ( sy >= changeHeaderOn ) {
-      $('#header').css({"background": "rgba(0,0,0,0.75", "padding": "16px", "height": "auto"});
+      $('#header').css({"background": "rgba(40,44,52,0.9", "padding": "16px", "height": "auto"});
     }
 
     else {
-      $('#header').css({"background": "none", "padding": "64px 48px 64px", "height": "40px"});
+      $('#header').css({"background": "none", "padding": "48px", "height": "40px"});
     }
 
     didScroll = false;
