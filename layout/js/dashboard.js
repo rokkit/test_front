@@ -10,6 +10,44 @@ _.templateSettings =  {
   interpolate :/\{\{(.+?)\}\}/g
 }
 
+function bodyClick(e){
+  $('body').on('click', function(e) {
+    fx.back();
+  });
+}
+
+function bodyClickOff(){
+  $('body').off('click');
+  $('#wrapper_signup').css('pointer-events', 'none');
+}
+$(function() {
+  $('#code_form .button-small').on('click', function(){
+    var code = $('#code_form input[name="code"]').val();
+    $.post(hostUrl + '/api/v1/auth/registrations/confirm', {
+      code: code
+    }, function(resp){
+      // console.log(resp)
+      if (resp.status == 'error') {
+
+      } else {
+        fx.back()
+      }
+
+    });
+  });
+
+  //отправить код повторно
+  $('#code_form .button-link').on('click', function(e) {
+    e.preventDefault()
+    var phone = $('#code_form').data('phone')
+    $.post(hostUrl + '/api/v1/auth/registrations/resend_code.json', {
+      phone: phone
+    }, function() {
+      $('#code_form .button-link').text('Код отправлен')
+    });
+  });
+
+});
 $(function(){
   function rndR(min, max) {
     var rand = min + Math.random() * (max - min)
@@ -115,6 +153,10 @@ $(function() {
 
   console.log('%c Created by CPDBBK', css1);
   window.hostUrl = 'http://176.112.194.149:81'
+
+
+
+
 
 	$('section.username h1').text(currentUser.name);
 	// $('#login_btn').text(currentUser.name);
@@ -272,6 +314,7 @@ $(function() {
 
 
       $.getJSON(hostUrl + '/api/v1/users/' + currentUser.id + '.json', {auth_token: currentUser.auth_token}, function(json) {
+
           var exp = parseInt(json.exp, 10);
           var need_to_levelup = parseInt(json.need_to_levelup, 10);
           $('#need_points').text(need_to_levelup);
@@ -301,6 +344,12 @@ $(function() {
           if (currentUser.role == 'hookmaster' && document.location.href.split('/')[3] == 'dashboard_client.html') {
             document.location.href = '/dashboard_hmaster.html'
           }
+          setTimeout(function() {
+            if (!currentUser.confirmed_at) {
+              $('#code_form').data('phone', currentUser.phone)
+              fx.do(['code_form', 'background']);
+            }
+          }, 300);
       })
     });
 

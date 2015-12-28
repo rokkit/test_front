@@ -62,6 +62,18 @@
 			.cross_delete.pointer
 				%img{ :src=>"./images/cross.svg" }
 	%body#html_body
+		-# code acept
+		.wrapper.h_v_center
+			%section.popup_middle{:id => 'code_form'}
+				%header
+					%h2 Подтверждение
+					%p.h2_subtitle
+						Мы отправили смс с кодом подтверждения на ваш номер. <br>
+						Подтверждая номер, вы вступаете в тайное общество. <br>
+						Если код не пришел, нажмите на ссылку "Получить код повторно"
+					%input{:type => "text", :name => "code", :placeholder => "Код подтверждения"}
+					%button.button-arrow.button-small{:type=>"button", :name=>"ok"} Подтвердить
+					%button.button-link{:type=>"button", :name=>"ok"} Получить код повторно
 		-# Form
 		.wrapper.center-center
 			%section#error_password.error_tooltip

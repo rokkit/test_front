@@ -124,6 +124,11 @@ var fxa = {
       element: '#skill',
       options: {top:'0', 'pointer-events': 'auto'}
     },
+    code_form:{
+      element: '#code_form',
+      options: {right:'0px', 'pointer-events':'auto'},
+      back: {right:"-1260px", 'pointer-events':"auto"}
+    },
     background: ['main', 'overlay', 'body']
   },
   pages_index: {

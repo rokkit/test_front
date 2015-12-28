@@ -119,31 +119,6 @@ $(function() {
     document.location.href = '/pages_index.html'
   });
 
-  $('#code_form .button-small').on('click', function(){
-    var code = $('#code_form input[name="code"]').val();
-    $.post(hostUrl + '/api/v1/auth/registrations/confirm', {
-      code: code
-    }, function(resp){
-      // console.log(resp)
-      if (resp.status == 'error') {
-
-      } else {
-        successAuth(resp);
-      }
-
-    });
-  });
-
-  //отправить код повторно
-  $('#code_form .button-link').on('click', function(e) {
-    e.preventDefault()
-    var phone = $('#code_form').data('phone')
-    $.post(hostUrl + '/api/v1/auth/registrations/resend_code.json', {
-      phone: phone
-    }, function() {
-      $('#code_form .button-link').text('Код отправлен')
-    });
-  });
 
   //Регистрация
   $('#signup_form').on('submit', function(e) {
@@ -154,7 +129,6 @@ $(function() {
 
     $('#wrapper_signup').css('pointer-events', 'none');
     bodyClickOff();
-    $('#code_form').data('phone', phone)
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
     if (password.length < 5) {
@@ -194,10 +168,10 @@ $(function() {
       if(!resp['errors']) {
         $('#wrapper_signup').css('pointer-events', 'none');
         bodyClickOff();
-        $('#code_form').data('phone', phone)
+
         TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-        fx.swap('signup', 'code_form');
-          //doLogin(phone, password)
+        // fx.swap('signup', 'code_form');
+          doLogin(phone, password)
       } else {
         $('#signup_form input').removeClass('wrong')
         if(resp['errors']['name']) {
@@ -275,12 +249,6 @@ function doLogin(phone, password) {
         //$('section.error_tooltip').css('opacity', 1)
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#login_form input[name="password"]').addClass('wrong')
-      }
-      if(resp['errors']['confirmed_at']) {
-        $('#wrapper_signup').css('pointer-events', 'none');
-        bodyClickOff();
-        $('#code_form').data('phone', phone)
-        fx.swap('loginPopup', 'code_form');
       }
     }
   });

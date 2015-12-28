@@ -1,4 +1,5 @@
 var FX = (function(animations){
+  console.log(animations)
   var defaultTime = animations.defaultTime;
 
   var module = {
@@ -16,11 +17,14 @@ var FX = (function(animations){
   };
 
   module.do = function(arg, cb, rc){
+
     if(arg instanceof Array){
       module.tl.push(arg);
       var last = arg[arg.length - 1];
+
       arg.forEach(function(name){
         if(name in module.animations){
+
           var callback = null;
           var rC = null;
 
@@ -74,6 +78,7 @@ var FX = (function(animations){
   }
 
   function render(name, cb, rc){
+
     var item = module.animations[name];
     module.animate[name] = new TimelineLite({onComplete: cb, onReverseComplete: rc});
     if(item instanceof Array){
@@ -86,6 +91,7 @@ var FX = (function(animations){
           anim.options,
           'normal'
         );
+
       });
     } else {
       var time = (item.time !== undefined) ? item.time : defaultTime;
