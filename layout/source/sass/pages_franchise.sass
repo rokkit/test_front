@@ -449,10 +449,10 @@
         margin-bottom: 128px
         
         // Начальное состояние
-        top: 100%
+        // top: 100%
 
         // Финальное состояние
-        // top: 160px 
+        top: 160px 
 
         left: calc(50% - 480px)
 
@@ -515,3 +515,36 @@
 
             button:hover
                 background: #FF9700
+
+    .wrapper_corners
+        display: block
+        position: absolute
+
+        left: 0
+        top: 0
+
+        width: 100%
+        height: 100%
+
+        img
+            display: block
+            position: absolute
+
+            width: 88px
+            height: 88px
+
+        img:nth-child(1)
+            left: 16px
+            top: 16px
+        img:nth-child(2)
+            +transform(rotate(90deg))
+            right: 16px
+            top: 16px
+        img:nth-child(3)
+            +transform(rotate(-90deg))
+            left: 16px
+            bottom: 16px
+        img:nth-child(4)
+            +transform(rotate(180deg))
+            right: 16px
+            bottom: 16px
