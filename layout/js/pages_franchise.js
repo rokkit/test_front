@@ -14,6 +14,9 @@ $(function(){
     franchise_popup.play();
   });
 
+
+  franchise_popup.to("#color_overlay", 0.5, {opacity:"0.8", "-webkit-opacity":"1", 'pointer-events':"auto"})
+
   franchise_popup.to(".wrapper_form", 1, {top:"160px", ease: Power4.easeOut, onComplete: function() {
     $('body').on('click', function(e) {
       console.log('body click')
