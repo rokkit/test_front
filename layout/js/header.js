@@ -168,9 +168,6 @@ $(function() {
     $('#wrapper_signup').css('pointer-events', 'none');
     bodyClickOff();
     $('#code_form').data('phone', phone)
-    TweenLite.to('section.error_tooltip', 1, {opacity: 0});
-    fx.swap('signup', 'code_form');
-    return
     var password = $('#signup_form input[name="password"]').val()
     var name = $('#signup_form input[name="name"]').val()
     if (password.length < 5) {

@@ -1,4 +1,4 @@
-var domainUrl = 'http://localhost:3000'
+var hostUrl = 'http://176.112.194.149:81'
 // Открытие попапа
 $(function(){
 
@@ -30,7 +30,7 @@ $(function(){
   $('#frn_b6 form').on('submit', function(e){
     e.preventDefault()
     var data = $(this).serialize()
-    $.post(domainUrl + '/franchise_requests.json', data, function(){
+    $.post(hostUrl + '/franchise_requests.json', data, function(){
       franchise_popup.reverse();
     })
   });

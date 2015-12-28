@@ -47,9 +47,9 @@
 					%p.h2_subtitle
 						Пожалуйста, указывайте ваше настоящее имя и фамилию, так как при первом посещении любого из заведений<br>будет производится проверка паспорта. Если у вас уже есть аккаунт —
 						%a{:href =>"#login"} войдите.
-				%form{:action => "", :method => "get", :autocomplete => "off"}
-					%input{:style => "display:none"}
-					%input{:style => "display:none", :type => "password"}
+				%form{:action => "", :method => "get", :autocomplete => "false"}
+					%input{:name => "fakeusernameremembered", :style => "display:none", :type => "text"}
+					%input{:name => "fakepasswordremembered", :style => "display:none", :type => "password"}
 					%input{:type => "text", :name => "phone", :placeholder => "Телефон +7XXXXXXX"}
 					%input{:type => "text", :name => "name", :placeholder => "ФИО"}
 					%input{:type => "password", :name => "password", :placeholder => "Пароль"}
@@ -143,87 +143,88 @@
 				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
 
 		-# Основной контент
-		%section#frn_b1
-			.frn_b1_wrapper
-				%img{ :src => "./images/franchise/crown.svg"}
+		%main{:id => 'main_content'}
+			%section#frn_b1
+				.frn_b1_wrapper
+					%img{ :src => "./images/franchise/crown.svg"}
 
-				%h1 пришло время зарабатывать
-				%p *Fortes fortuna adjuvat
+					%h1 пришло время зарабатывать
+					%p *Fortes fortuna adjuvat
 
-				%span
-					%button.btn_border.srcoll_to_next Узнать больше
-					%button.btn_gold.open_franchise_popup Заполнить заявку
+					%span
+						%button.btn_border.srcoll_to_next Узнать больше
+						%button.btn_gold.open_franchise_popup Заполнить заявку
 
-			%footer
-				%p *Смелым помогает судьба
-
-		%section#frn_b2
-			%header
-				%h2  Наша цель максимально упростить процесс запуска вашего бизнеса
-				%p Весь процесс открытия своего заведения можно свести к трем основным шагам:
-			.wrapper_main_steps
-				.wrapper_step
-					%img{ :src => "./images/franchise/steps/1.svg", :alt => "Первый шаг"}
-					%h4 Первый шаг
-					%p Сначала мы поможем выбрать помещение и зарегистрировать деятельность. К вам будет отправлен специалист-консультант.
-				.wrapper_step
-					%img{ :src => "./images/franchise/steps/2.svg", :alt => "Второй шаг"}
-					%h4 Второй шаг
-					%p Разработка рекламной стратегии, дизайн интерьера кальянной и ремонт помещения, поставка средств для запуска и подключение к системам поставок и лояльности.
-				.wrapper_step
-					%img{ :src => "./images/franchise/steps/3.svg", :alt => "Третий шаг"}
-					%h4 Третий шаг
-					%p Полноценная работа заведения. Бухгалтерская отчетность, консультации по юридическим и другим вопросам, §отслеживание показателей и контроль.
-
-		%section#frn_b3
-			%header
-				%h2	То, что мы обещаем, мы выполняем, Наши практики работают
-				%p С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.
-			<br>
-			.wrapper_usp
-				%figure
-					%img{ :src => "./images/franchise/usp/1.svg", :alt => "Качественный бренд"}
-					<br>
-					%figcapation Качественный<br>бренд
-				%figure
-					%img{ :src => "./images/franchise/usp/2.svg", :alt => "Система взаимодействия"}
-					<br>
-					%figcapation Система<br>взаимодействия
-				%figure
-					%img{ :src => "./images/franchise/usp/3.svg", :alt => "Корпоративный стиль"}
-					<br>
-					%figcapation Корпоративный<br>стиль
-				%figure
-					%img{ :src => "./images/franchise/usp/4.svg", :alt => "Грамотная реклама"}
-					<br>
-					%figcapation Грамотная<br>реклама
-				%figure
-					%img{ :src => "./images/franchise/usp/5.svg", :alt => "Полезные бизнес-контакты"}
-					<br>
-					%figcapation Полезные<br>бизнес-контакты
-
-		%section#frn_b4
-			.slider_controls
-				.left_arrow
-					%img{ :src => "./images/franchise/left_arrow.svg", :alt => "Предыдущий отзыв"}
-				.right_arrow
-					%img{ :src => "./images/franchise/right_arrow.svg", :alt => "Следующий отзыв"}
-			.franchisor_review
-				.wrapper_fran_faces
-					%img{ :src => "./images/franchise/franchisor/pronin.png", :alt => "Пронин Григорий"}
-				%blockquote
-					%p Совсем недавно открылось новое заведение Duplex от создателей кальянной Double. Оба заведения расположены недалеко от м. Лиговский Проспект, но имеют немного разный формат. В дуплексе вы найдете 5 уютных лаунж-зон с занавесками, за которыми можно уютно посидеть вдвоем или впятером, покуривая кальян. Так же есть возможность создания зоны для большой компании до 12 человек.
-					%cite
-						%h4 Пронин Григорий
-						%span Основатель «Резерв»
-		%section#frn_b5
-			.wrapper_footer
-				%header
-					%h2 Ищущий да обрятет
-					%p Оригинал один - остальное копии
-					%button.btn_border.open_franchise_popup Заполнить заявку
 				%footer
-					%p Copyright © 2015 Уникальные Кальянные
+					%p *Смелым помогает судьба
+
+			%section#frn_b2
+				%header
+					%h2  Наша цель максимально упростить процесс запуска вашего бизнеса
+					%p Весь процесс открытия своего заведения можно свести к трем основным шагам:
+				.wrapper_main_steps
+					.wrapper_step
+						%img{ :src => "./images/franchise/steps/1.svg", :alt => "Первый шаг"}
+						%h4 Первый шаг
+						%p Сначала мы поможем выбрать помещение и зарегистрировать деятельность. К вам будет отправлен специалист-консультант.
+					.wrapper_step
+						%img{ :src => "./images/franchise/steps/2.svg", :alt => "Второй шаг"}
+						%h4 Второй шаг
+						%p Разработка рекламной стратегии, дизайн интерьера кальянной и ремонт помещения, поставка средств для запуска и подключение к системам поставок и лояльности.
+					.wrapper_step
+						%img{ :src => "./images/franchise/steps/3.svg", :alt => "Третий шаг"}
+						%h4 Третий шаг
+						%p Полноценная работа заведения. Бухгалтерская отчетность, консультации по юридическим и другим вопросам, §отслеживание показателей и контроль.
+
+			%section#frn_b3
+				%header
+					%h2	То, что мы обещаем, мы выполняем, Наши практики работают
+					%p С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.
+				<br>
+				.wrapper_usp
+					%figure
+						%img{ :src => "./images/franchise/usp/1.svg", :alt => "Качественный бренд"}
+						<br>
+						%figcapation Качественный<br>бренд
+					%figure
+						%img{ :src => "./images/franchise/usp/2.svg", :alt => "Система взаимодействия"}
+						<br>
+						%figcapation Система<br>взаимодействия
+					%figure
+						%img{ :src => "./images/franchise/usp/3.svg", :alt => "Корпоративный стиль"}
+						<br>
+						%figcapation Корпоративный<br>стиль
+					%figure
+						%img{ :src => "./images/franchise/usp/4.svg", :alt => "Грамотная реклама"}
+						<br>
+						%figcapation Грамотная<br>реклама
+					%figure
+						%img{ :src => "./images/franchise/usp/5.svg", :alt => "Полезные бизнес-контакты"}
+						<br>
+						%figcapation Полезные<br>бизнес-контакты
+
+			%section#frn_b4
+				.slider_controls
+					.left_arrow
+						%img{ :src => "./images/franchise/left_arrow.svg", :alt => "Предыдущий отзыв"}
+					.right_arrow
+						%img{ :src => "./images/franchise/right_arrow.svg", :alt => "Следующий отзыв"}
+				.franchisor_review
+					.wrapper_fran_faces
+						%img{ :src => "./images/franchise/franchisor/pronin.png", :alt => "Пронин Григорий"}
+					%blockquote
+						%p Совсем недавно открылось новое заведение Duplex от создателей кальянной Double. Оба заведения расположены недалеко от м. Лиговский Проспект, но имеют немного разный формат. В дуплексе вы найдете 5 уютных лаунж-зон с занавесками, за которыми можно уютно посидеть вдвоем или впятером, покуривая кальян. Так же есть возможность создания зоны для большой компании до 12 человек.
+						%cite
+							%h4 Пронин Григорий
+							%span Основатель «Резерв»
+			%section#frn_b5
+				.wrapper_footer
+					%header
+						%h2 Ищущий да обрятет
+						%p Оригинал один - остальное копии
+						%button.btn_border.open_franchise_popup Заполнить заявку
+					%footer
+						%p Copyright © 2015 Уникальные Кальянные
 
 		%section#frn_b6
 			.wrapper_form

@@ -48,9 +48,9 @@
             <a href='#login'>войдите.</a>
           </p>
         </header>
-        <form action='' autocomplete='off' method='get'>
-          <input style='display:none'>
-          <input style='display:none' type='password'>
+        <form action='' autocomplete='false' method='get'>
+          <input name='fakeusernameremembered' style='display:none' type='text'>
+          <input name='fakepasswordremembered' style='display:none' type='password'>
           <input name='phone' placeholder='Телефон +7XXXXXXX' type='text'>
           <input name='name' placeholder='ФИО' type='text'>
           <input name='password' placeholder='Пароль' type='password'>
@@ -148,111 +148,113 @@
         <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/menu.svg'>
       </nav>
     </header>
-    <section id='frn_b1'>
-      <div class='frn_b1_wrapper'>
-        <img src='./images/franchise/crown.svg'>
-        <h1>пришло время зарабатывать</h1>
-        <p>*Fortes fortuna adjuvat</p>
-        <span>
-          <button class='btn_border srcoll_to_next'>Узнать больше</button>
-          <button class='btn_gold open_franchise_popup'>Заполнить заявку</button>
-        </span>
-      </div>
-      <footer>
-        <p>*Смелым помогает судьба</p>
-      </footer>
-    </section>
-    <section id='frn_b2'>
-      <header>
-        <h2>Наша цель максимально упростить процесс запуска вашего бизнеса</h2>
-        <p>Весь процесс открытия своего заведения можно свести к трем основным шагам:</p>
-      </header>
-      <div class='wrapper_main_steps'>
-        <div class='wrapper_step'>
-          <img alt='Первый шаг' src='./images/franchise/steps/1.svg'>
-          <h4>Первый шаг</h4>
-          <p>Сначала мы поможем выбрать помещение и зарегистрировать деятельность. К вам будет отправлен специалист-консультант.</p>
+    <main id='main_content'>
+      <section id='frn_b1'>
+        <div class='frn_b1_wrapper'>
+          <img src='./images/franchise/crown.svg'>
+          <h1>пришло время зарабатывать</h1>
+          <p>*Fortes fortuna adjuvat</p>
+          <span>
+            <button class='btn_border srcoll_to_next'>Узнать больше</button>
+            <button class='btn_gold open_franchise_popup'>Заполнить заявку</button>
+          </span>
         </div>
-        <div class='wrapper_step'>
-          <img alt='Второй шаг' src='./images/franchise/steps/2.svg'>
-          <h4>Второй шаг</h4>
-          <p>Разработка рекламной стратегии, дизайн интерьера кальянной и ремонт помещения, поставка средств для запуска и подключение к системам поставок и лояльности.</p>
-        </div>
-        <div class='wrapper_step'>
-          <img alt='Третий шаг' src='./images/franchise/steps/3.svg'>
-          <h4>Третий шаг</h4>
-          <p>Полноценная работа заведения. Бухгалтерская отчетность, консультации по юридическим и другим вопросам, §отслеживание показателей и контроль.</p>
-        </div>
-      </div>
-    </section>
-    <section id='frn_b3'>
-      <header>
-        <h2>То, что мы обещаем, мы выполняем, Наши практики работают</h2>
-        <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.</p>
-      </header>
-      <br>
-      <div class='wrapper_usp'>
-        <figure>
-          <img alt='Качественный бренд' src='./images/franchise/usp/1.svg'>
-          <br>
-          <figcapation>Качественный<br>бренд</figcapation>
-        </figure>
-        <figure>
-          <img alt='Система взаимодействия' src='./images/franchise/usp/2.svg'>
-          <br>
-          <figcapation>Система<br>взаимодействия</figcapation>
-        </figure>
-        <figure>
-          <img alt='Корпоративный стиль' src='./images/franchise/usp/3.svg'>
-          <br>
-          <figcapation>Корпоративный<br>стиль</figcapation>
-        </figure>
-        <figure>
-          <img alt='Грамотная реклама' src='./images/franchise/usp/4.svg'>
-          <br>
-          <figcapation>Грамотная<br>реклама</figcapation>
-        </figure>
-        <figure>
-          <img alt='Полезные бизнес-контакты' src='./images/franchise/usp/5.svg'>
-          <br>
-          <figcapation>Полезные<br>бизнес-контакты</figcapation>
-        </figure>
-      </div>
-    </section>
-    <section id='frn_b4'>
-      <div class='slider_controls'>
-        <div class='left_arrow'>
-          <img alt='Предыдущий отзыв' src='./images/franchise/left_arrow.svg'>
-        </div>
-        <div class='right_arrow'>
-          <img alt='Следующий отзыв' src='./images/franchise/right_arrow.svg'>
-        </div>
-      </div>
-      <div class='franchisor_review'>
-        <div class='wrapper_fran_faces'>
-          <img alt='Пронин Григорий' src='./images/franchise/franchisor/pronin.png'>
-        </div>
-        <blockquote>
-          <p>Совсем недавно открылось новое заведение Duplex от создателей кальянной Double. Оба заведения расположены недалеко от м. Лиговский Проспект, но имеют немного разный формат. В дуплексе вы найдете 5 уютных лаунж-зон с занавесками, за которыми можно уютно посидеть вдвоем или впятером, покуривая кальян. Так же есть возможность создания зоны для большой компании до 12 человек.</p>
-          <cite>
-            <h4>Пронин Григорий</h4>
-            <span>Основатель «Резерв»</span>
-          </cite>
-        </blockquote>
-      </div>
-    </section>
-    <section id='frn_b5'>
-      <div class='wrapper_footer'>
-        <header>
-          <h2>Ищущий да обрятет</h2>
-          <p>Оригинал один - остальное копии</p>
-          <button class='btn_border open_franchise_popup'>Заполнить заявку</button>
-        </header>
         <footer>
-          <p>Copyright © 2015 Уникальные Кальянные</p>
+          <p>*Смелым помогает судьба</p>
         </footer>
-      </div>
-    </section>
+      </section>
+      <section id='frn_b2'>
+        <header>
+          <h2>Наша цель максимально упростить процесс запуска вашего бизнеса</h2>
+          <p>Весь процесс открытия своего заведения можно свести к трем основным шагам:</p>
+        </header>
+        <div class='wrapper_main_steps'>
+          <div class='wrapper_step'>
+            <img alt='Первый шаг' src='./images/franchise/steps/1.svg'>
+            <h4>Первый шаг</h4>
+            <p>Сначала мы поможем выбрать помещение и зарегистрировать деятельность. К вам будет отправлен специалист-консультант.</p>
+          </div>
+          <div class='wrapper_step'>
+            <img alt='Второй шаг' src='./images/franchise/steps/2.svg'>
+            <h4>Второй шаг</h4>
+            <p>Разработка рекламной стратегии, дизайн интерьера кальянной и ремонт помещения, поставка средств для запуска и подключение к системам поставок и лояльности.</p>
+          </div>
+          <div class='wrapper_step'>
+            <img alt='Третий шаг' src='./images/franchise/steps/3.svg'>
+            <h4>Третий шаг</h4>
+            <p>Полноценная работа заведения. Бухгалтерская отчетность, консультации по юридическим и другим вопросам, §отслеживание показателей и контроль.</p>
+          </div>
+        </div>
+      </section>
+      <section id='frn_b3'>
+        <header>
+          <h2>То, что мы обещаем, мы выполняем, Наши практики работают</h2>
+          <p>С того момента утекло много времени, наша команда собрала огромную фанатскую базу, но сумела сохранить ту самую атмосферу.</p>
+        </header>
+        <br>
+        <div class='wrapper_usp'>
+          <figure>
+            <img alt='Качественный бренд' src='./images/franchise/usp/1.svg'>
+            <br>
+            <figcapation>Качественный<br>бренд</figcapation>
+          </figure>
+          <figure>
+            <img alt='Система взаимодействия' src='./images/franchise/usp/2.svg'>
+            <br>
+            <figcapation>Система<br>взаимодействия</figcapation>
+          </figure>
+          <figure>
+            <img alt='Корпоративный стиль' src='./images/franchise/usp/3.svg'>
+            <br>
+            <figcapation>Корпоративный<br>стиль</figcapation>
+          </figure>
+          <figure>
+            <img alt='Грамотная реклама' src='./images/franchise/usp/4.svg'>
+            <br>
+            <figcapation>Грамотная<br>реклама</figcapation>
+          </figure>
+          <figure>
+            <img alt='Полезные бизнес-контакты' src='./images/franchise/usp/5.svg'>
+            <br>
+            <figcapation>Полезные<br>бизнес-контакты</figcapation>
+          </figure>
+        </div>
+      </section>
+      <section id='frn_b4'>
+        <div class='slider_controls'>
+          <div class='left_arrow'>
+            <img alt='Предыдущий отзыв' src='./images/franchise/left_arrow.svg'>
+          </div>
+          <div class='right_arrow'>
+            <img alt='Следующий отзыв' src='./images/franchise/right_arrow.svg'>
+          </div>
+        </div>
+        <div class='franchisor_review'>
+          <div class='wrapper_fran_faces'>
+            <img alt='Пронин Григорий' src='./images/franchise/franchisor/pronin.png'>
+          </div>
+          <blockquote>
+            <p>Совсем недавно открылось новое заведение Duplex от создателей кальянной Double. Оба заведения расположены недалеко от м. Лиговский Проспект, но имеют немного разный формат. В дуплексе вы найдете 5 уютных лаунж-зон с занавесками, за которыми можно уютно посидеть вдвоем или впятером, покуривая кальян. Так же есть возможность создания зоны для большой компании до 12 человек.</p>
+            <cite>
+              <h4>Пронин Григорий</h4>
+              <span>Основатель «Резерв»</span>
+            </cite>
+          </blockquote>
+        </div>
+      </section>
+      <section id='frn_b5'>
+        <div class='wrapper_footer'>
+          <header>
+            <h2>Ищущий да обрятет</h2>
+            <p>Оригинал один - остальное копии</p>
+            <button class='btn_border open_franchise_popup'>Заполнить заявку</button>
+          </header>
+          <footer>
+            <p>Copyright © 2015 Уникальные Кальянные</p>
+          </footer>
+        </div>
+      </section>
+    </main>
     <section id='frn_b6'>
       <div class='wrapper_form'>
         <header>
