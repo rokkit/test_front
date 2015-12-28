@@ -1827,7 +1827,7 @@ section.lounges .wrapper_lounges article.lounge .wrapper_text_card p {
   overflow: auto;
   padding: 128px;
   margin-bottom: 128px;
-  top: 100%;
+  top: 160px;
   left: calc(50% - 480px);
   background: white;
 }
@@ -1880,6 +1880,48 @@ section.lounges .wrapper_lounges article.lounge .wrapper_text_card p {
 }
 #frn_b6 .wrapper_form form button:hover {
   background: #FF9700;
+}
+#frn_b6 .wrapper_corners {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#frn_b6 .wrapper_corners img {
+  display: block;
+  position: absolute;
+  width: 88px;
+  height: 88px;
+}
+#frn_b6 .wrapper_corners img:nth-child(1) {
+  left: 16px;
+  top: 16px;
+}
+#frn_b6 .wrapper_corners img:nth-child(2) {
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 16px;
+  top: 16px;
+}
+#frn_b6 .wrapper_corners img:nth-child(3) {
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  left: 16px;
+  bottom: 16px;
+}
+#frn_b6 .wrapper_corners img:nth-child(4) {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  right: 16px;
+  bottom: 16px;
 }
 
 header.pages_lounges_header nav a:hover {
