@@ -35,4 +35,14 @@ $(function(){
     })
   });
 
-})
+});
+
+$(function(){
+
+  $(".srcoll_to_next").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#frn_b2").offset().top
+    }, 900);
+});
+
+});
