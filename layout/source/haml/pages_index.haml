@@ -52,10 +52,11 @@
 					%h2 Подтверждение
 					%p.h2_subtitle
 						Мы отправили смс с кодом подтверждения на ваш номер. <br>
-						Подтверждая номер, вы вступаете в тайное общество.
+						Подтверждая номер, вы вступаете в тайное общество. <br>
+						Если код не пришел, нажмите на ссылку "Получить код повторно"
 					%input{:type => "text", :name => "code", :placeholder => "Код подтверждения"}
 					%button.button-arrow.button-small{:type=>"button", :name=>"ok"} Подтвердить
-					%button.button-link{:type=>"button", :name=>"ok"} Отправить СМС повторно
+					%button.button-link{:type=>"button", :name=>"ok"} Получить код повторно
 
 		-# Регистрация
 		.wrapper.center-center{:id => 'wrapper_signup'}

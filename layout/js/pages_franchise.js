@@ -1,4 +1,5 @@
 var hostUrl = 'http://176.112.194.149:81'
+var hostUrlLocal = 'http://localhost:3000'
 // Открытие попапа
 $(function(){
 
