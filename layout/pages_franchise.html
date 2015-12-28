@@ -1,4 +1,4 @@
-<html lang='en' xml:lang='en' xmlns='http://www.w                                    3.org/1999/xhtml'>
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='content-type'>
     <link href='./css/reset.css' rel='stylesheet'>
@@ -11,22 +11,134 @@
     <script src='./js/TweenMax.min.js'></script>
     <script src='./js/jquery.mask.min.js'></script>
     <script src='./js/underscore-min.js'></script>
+    <script src='./js/moment-with-locales.js'></script>
     <script src='./js/openapi.js'></script>
     <script src='./js/lib/d3.js'></script>
-    <script src='./js/data.js'></script>
-    <script src='./js/nodes.js'></script>
     <script src='./js/lib/snap.svg-min.js'></script>
     <script src='./js/lib/svgicons-config.js'></script>
     <script src='./js/lib/svgicons.js'></script>
     <script src='./js/animation.js'></script>
     <script src='./js/fx.js'></script>
-    <script src='./js/header.js'></script>
-    <script src='./js/community.js'></script>
     <script src='./js/menu.js'></script>
     <script src='./js/pages_franchise.js'></script>
     <title>Пришло время зарабатывать!</title>
   </head>
   <body data-page='fran' id='html_body'>
+    <div class='wrapper h_v_center'>
+      <section class='popup_middle' id='code_form'>
+        <header>
+          <h2>Подтверждение</h2>
+          <p class='h2_subtitle'>
+            Мы отправили смс с кодом подтверждения на ваш номер. <br>
+            Подтверждая номер, вы вступаете в тайное общество.
+          </p>
+          <input name='code' placeholder='Код подтверждения' type='text'>
+          <button class='button-arrow button-small' name='ok' type='button'>Подтвердить</button>
+          <button class='button-link' name='ok' type='button'>Отправить СМС повторно</button>
+        </header>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_signup'>
+      <section class='popup' id='signup_form'>
+        <header>
+          <h2>Регистрация</h2>
+          <p class='h2_subtitle'>
+            Пожалуйста, указывайте ваше настоящее имя и фамилию, так как при первом посещении любого из заведений<br>будет производится проверка паспорта. Если у вас уже есть аккаунт —
+            <a href='#login'>войдите.</a>
+          </p>
+        </header>
+        <form action='' autocomplete='off' method='get'>
+          <input style='display:none'>
+          <input style='display:none' type='password'>
+          <input name='phone' placeholder='Телефон +7XXXXXXX' type='text'>
+          <input name='name' placeholder='ФИО' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button class='button-arrow' id='open_liberty_btn' name='sumbit' type='sumbit'>Войти</button>
+        </form>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_login'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='login_form'>
+        <header>
+          <h2>Войти</h2>
+          <p class='h2_subtitle'>
+            Вход на сайт для зарегистрированных пользователей,<br>если у вас еще нет аккаунта —
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+        </header>
+        <form action='' autocomplete='off' method='get'>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <input name='password' placeholder='Пароль' type='password'>
+          <button class='button-arrow' name='sumbit' type='sumbit'>Войти</button>
+        </form>
+        <a href='#forgot_pass' id='recover_btn'>Вы забыли пароль?</a>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_pass'>
+      <section class='error_tooltip' id='error_password'>
+        Введеный логин и пароль не совпадают! Попробуйте ввести логин и пароль еще раз.
+      </section>
+      <section class='popup' id='pass_form'>
+        <header>
+          <h2>Восстановление пароля</h2>
+          <p class='h2_subtitle'>
+            Мы отправим вам новый пароль по смс,<br>если у вас еще нет аккаунта -
+            <a href='#registration'>зарегистрируйтесь.</a>
+          </p>
+          <input name='phone' placeholder='Номер телефона' type='text'>
+          <button class='button-arrow' name='ok' type='button'>Отправить</button>
+        </header>
+      </section>
+    </div>
+    <div class='wrapper center-center' id='wrapper_menu'>
+      <section class='left_menu' id='menu_left_part'>
+        <div class='wrapper_left_menu'>
+          <header>
+            <img alt='Unique Hookah Places' class='pointer' height='40px' id='uhp_logo' src='./images/logo.svg'>
+          </header>
+          <span>
+            <h4>Первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю...</h4>
+            <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+            <h5>Она задала нам неожиданный вопрос</h5>
+            <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+            <h5>Она задала нам неожиданный вопрос</h5>
+            <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+            <h5>Она задала нам неожиданный вопрос</h5>
+            <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+            <h5>Она задала нам неожиданный вопрос</h5>
+            <p>24 июл в 14:44 от #unihuqhookahplaces</p>
+          </span>
+          <footer>
+            <p>Copyright © 2015 Уникальные Кальянные</p>
+            <p>C любовью от CPD&BBK</p>
+          </footer>
+        </div>
+      </section>
+      <section class='right_menu' id='menu_right_part'>
+        <img alt='Закрыть' class='pointer' id='closing' src='./images/cross.svg'>
+        <a>
+          <h3 id='lounges_nav_btn'>Ложи</h3>
+          <p>Уникальные заведения</p>
+        </a>
+        <a>
+          <h3 id='philosophy_nav_btn'>Философия</h3>
+          <p>Наши ценности</p>
+        </a>
+        <a>
+          <h3 id='community_nav_btn'>Сообщество</h3>
+          <p>Полезно быть своим</p>
+        </a>
+        <a>
+          <h3 id='franchise_nav_btn'>Франшиза</h3>
+          <p>Открыть Ложу</p>
+        </a>
+        <button class='button-arrow' id='go_login_from_menu_btn'>Круг избранных</button>
+      </section>
+    </div>
+    <div class='color_overlay' id='color_overlay'></div>
     <header id='header'>
       <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/logo.svg'>
       <nav>
