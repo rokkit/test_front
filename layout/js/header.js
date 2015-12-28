@@ -46,7 +46,7 @@ $(function(){
 $('.lounges_block_7 .btn_arrow').on('click', function() {
   if (!currentUser) {
     $('#wrapper_signup').css('pointer-events', 'auto');
-    fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+    fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
   } else {
     document.location.href = '/tech_preloader.html?redirect=profile'
   }
@@ -82,7 +82,8 @@ $(function() {
 
   $('#philosophie_block5 .button-dark').on('click', function(){
     if (!currentUser) {
-      fx.do(['errorTooltip', 'loginPopup', 'background'], bodyClick, bodyClickOff);
+      $('#wrapper_signup').css('pointer-events', 'auto');
+      fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
     } else {
       document.location.href = '/dashboard_client.html'
     }
@@ -91,7 +92,7 @@ $(function() {
   $('#reg_block5').on('click', function(){
     if (!currentUser) {
       $('#wrapper_signup').css('pointer-events', 'auto');
-      fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+      fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
     } else {
       document.location.href = '/tech_preloader.html?redirect=profile'
     }
@@ -100,25 +101,11 @@ $(function() {
   $('#reserve_table_btn').on('click', function() {
     if (!currentUser) {
       $('#wrapper_signup').css('pointer-events', 'auto');
-      fx.do(['errorTooltip', 'signupPopup', 'background'], bodyClick, bodyClickOff);
+      fx.do(['errorTooltip', 'signup', 'background'], bodyClick, bodyClickOff);
     } else {
       document.location.href = '/tech_preloader.html?redirect=profile'
     }
   });
-
-  // $('#recover_btn').on('click', function() {
-  //   animateForm('recover_form')
-  // });
-
-  // //Клик на войти в форме регисрации
-  // $('#login_in_signin_btn').on('click', function() {
-  //   animateForm('login_form')
-  // });
-  //
-  // //Клик на войти в форме восстановления пароля
-  // $('#login_in_recover_btn').on('click', function() {
-  //   animateForm('login_form')
-  // });
 
 
 //Создание сесии
