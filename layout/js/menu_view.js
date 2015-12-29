@@ -137,16 +137,16 @@ function menuView() {
           var secondHeader = newsText.slice(0, newsText.indexOf('<br>'))
 
           newsText = mainHeader + ' ' + secondHeader
-          var vk_url = 'https://vk.com/libertyfamily?w=wall' + n.from_id + '_' + n.id;
+          var vk_url = 'https://vk.com/uhpfamily?w=wall' + n.from_id + '_' + n.id;
 
           var date = dateMoment.format('LL')
           var time = dateMoment.format('HH:mm')
 
           var newsEl = null
           if (i == 0) {
-            newsEl = firstNewsTpl({text: newsText, date: date, time: time, vk_url: vk_url, hashtags: '#uhpnews'})
+            newsEl = firstNewsTpl({text: newsText, date: date, time: time, vk_url: vk_url, hashtags: '#uhp #uhpfamily'})
           } else {
-            newsEl = newsTpl({text: newsText, date: date, time: time, vk_url: vk_url, hashtags: '#uhpnews'})
+            newsEl = newsTpl({text: newsText, date: date, time: time, vk_url: vk_url, hashtags: '#uhp #uhpfamily'})
           }
 
           $('#menu_left_part span').append(newsEl)
@@ -155,5 +155,6 @@ function menuView() {
 
     });
   }
+
 
 }
