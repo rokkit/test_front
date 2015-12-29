@@ -88,8 +88,13 @@ function menuView() {
     })
     $('.wrapper_left_menu span').hide()
     getVkNews()
+    $(document).on('click', 'h4', function() {
+      // document.location.href = $(this).data('url');
+      window.open($(this).data('url'), '_blank');
+    });
     $(document).on('click', 'h5', function() {
-      document.location.href = $(this).data('url');
+      // document.location.href = $(this).data('url');
+      window.open($(this).data('url'), '_blank');
     });
   });
 
@@ -102,8 +107,8 @@ function menuView() {
   function getVkNews() {
     console.log('getVkNews')
     $('.wrapper_left_menu span').hide()
-    var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
-    var firstNewsHtml = '<h4 data-url="{{ vk_url }}">{{ text }}</h4><p>{{ date }} в {{ time }} от #unihuqhookahplaces</p>'
+    var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от {{ hashtags }}</p>'
+    var firstNewsHtml = '<h4 data-url="{{ vk_url }}">{{ text }}</h4><p>{{ date }} в {{ time }} от {{ hashtags }}</p>'
     var newsTpl = _.template(newsHtml);
     var firstNewsTpl = _.template(firstNewsHtml);
     VK.Api.call('wall.get', {owner_id: '-44475553', domain: 'uhpfamily', filter: 'owner'}, function(json) {
@@ -139,9 +144,9 @@ function menuView() {
 
           var newsEl = null
           if (i == 0) {
-            newsEl = firstNewsTpl({text: newsText, date: date, time: time, vk_url: vk_url})
+            newsEl = firstNewsTpl({text: newsText, date: date, time: time, vk_url: vk_url, hashtags: '#uhpnews'})
           } else {
-            newsEl = newsTpl({text: newsText, date: date, time: time, vk_url: vk_url})
+            newsEl = newsTpl({text: newsText, date: date, time: time, vk_url: vk_url, hashtags: '#uhpnews'})
           }
 
           $('#menu_left_part span').append(newsEl)
@@ -150,4 +155,5 @@ function menuView() {
 
     });
   }
+
 }

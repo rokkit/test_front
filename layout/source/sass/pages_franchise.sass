@@ -11,6 +11,8 @@
     background: url('../images/franchise/dark_gradient_bg.png')
     background-size: 100% 100%
 
+    .slider
+        overflow: hidden
     .frn_b1_wrapper
         +display-flex(flex)
         +flex-direction(column)
@@ -291,11 +293,14 @@
             height: 26px
 
     .franchisor_review
-        display: inline-block
+        // display: inline-block
+        display: none
         position: relative
 
         width: 55.4%
         height: auto
+        &.review-active
+            display: inline-block
 
         .wrapper_fran_faces
             display: inline-block
@@ -506,7 +511,7 @@
                 input::-moz-placeholder
                     color: #BBBBBC
 
-                input:-moz-placeholder 
+                input:-moz-placeholder
                     color: #BBBBBC
 
                 input:-ms-input-placeholder

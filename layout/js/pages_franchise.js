@@ -57,5 +57,27 @@ $(function(){
   }
  });
 
+ //Слайдер
+ $('.franchisor_review:first').addClass('review-active')
+ $('.left_arrow').click(function() {
+   var $next = $('.franchisor_review.review-active').removeClass('review-active').prev('.franchisor_review')
+
+   if ($next.length) {
+    $next.addClass('review-active');
+   }
+   else {
+      $(".franchisor_review:last").addClass('review-active');
+   }
+ });
+ $('.right_arrow').click(function() {
+   var $next = $('.franchisor_review.review-active').removeClass('review-active').next()
+   if ($next.length) {
+    $next.addClass('review-active');
+   }
+   else {
+      $(".franchisor_review:first").addClass('review-active');
+   }
+ });
+
 
 });

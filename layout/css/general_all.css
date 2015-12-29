@@ -1451,6 +1451,9 @@ section.lounges .wrapper_lounges article.lounge .wrapper_text_card p {
   background: url("../images/franchise/dark_gradient_bg.png");
   background-size: 100% 100%;
 }
+#frn_b1 .slider {
+  overflow: hidden;
+}
 #frn_b1 .frn_b1_wrapper {
   display: -webkit-flex;
   display: flex;
@@ -1693,10 +1696,13 @@ section.lounges .wrapper_lounges article.lounge .wrapper_text_card p {
   height: 26px;
 }
 #frn_b4 .franchisor_review {
-  display: inline-block;
+  display: none;
   position: relative;
   width: 55.4%;
   height: auto;
+}
+#frn_b4 .franchisor_review.review-active {
+  display: inline-block;
 }
 #frn_b4 .franchisor_review .wrapper_fran_faces {
   display: inline-block;
@@ -3779,6 +3785,7 @@ section.left_menu .wrapper_left_menu span {
 }
 section.left_menu .wrapper_left_menu span h4 {
   margin-bottom: 8px;
+  cursor: pointer;
 }
 section.left_menu .wrapper_left_menu span p:first-of-type {
   margin-bottom: 48px;
@@ -3787,6 +3794,7 @@ section.left_menu .wrapper_left_menu span h5 {
   font-family: Lora;
   letter-spacing: 0;
   margin-bottom: 4px;
+  cursor: pointer;
 }
 section.left_menu .wrapper_left_menu span p {
   font: 12px;
