@@ -1451,9 +1451,6 @@ section.lounges .wrapper_lounges article.lounge .wrapper_text_card p {
   background: url("../images/franchise/dark_gradient_bg.png");
   background-size: 100% 100%;
 }
-#frn_b1 .slider {
-  overflow: hidden;
-}
 #frn_b1 .frn_b1_wrapper {
   display: -webkit-flex;
   display: flex;
@@ -3281,7 +3278,6 @@ section.progress_bar .progress_bar_bg .progress {
   display: block;
   left: 0;
   top: 0;
-  width: 16%;
   height: 8px;
   border-radius: 4px;
   background: #EBB22F;
