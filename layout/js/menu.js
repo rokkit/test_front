@@ -116,7 +116,7 @@ function getVkNews() {
     json = json.response
     var news = _.filter(json, function(post) {
       if (_.isObject(post)) {
-        return post.text.regexIndexOf(/\#uhp$/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
+        return post.text.regexIndexOf(/\#uhp/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
       }
     })
 
