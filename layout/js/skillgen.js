@@ -1,7 +1,7 @@
 function skillgen(data){
   var skills = data;
   var layoutWidth = $('#skill-view').width();
-  var layoutHeight = $('#skill-view').height();
+  var layoutHeight = $('#skill-view').height() || 801;
   var dx = layoutWidth/6; //200;
   var dy = layoutHeight/5 - 55; //75;
   var margin = {

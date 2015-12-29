@@ -2,7 +2,8 @@ var skillBoard = (function(element, data, role){
   'use strict';
 
   var layoutWidth = $(element).width();
-  var layoutHeight = $(element).height();
+  var layoutHeight = $(element).height() || 801;
+  console.log('ll',layoutWidth, layoutHeight)
   var lineDx = layoutWidth/6;
 
   $('#dashboard_talents_btn').text((currentUser.skills.length)+'/'+data.skillCount);
