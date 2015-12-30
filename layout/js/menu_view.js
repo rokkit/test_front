@@ -105,7 +105,6 @@ function menuView() {
   }
 
   function getVkNews() {
-    console.log('getVkNews')
     $('.wrapper_left_menu span').hide()
     var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от {{ hashtags }}</p>'
     var firstNewsHtml = '<h4 data-url="{{ vk_url }}">{{ text }}</h4><p>{{ date }} в {{ time }} от {{ hashtags }}</p>'
@@ -117,7 +116,7 @@ function menuView() {
       json = json.response
       var news = _.filter(json, function(post) {
         if (_.isObject(post)) {
-          return post.text.regexIndexOf(/\#uhp$/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
+          return post.text.regexIndexOf(/\#uhp/) > -1 || post.text.indexOf('#uniquehookahplace') > -1
         }
       })
 
@@ -135,6 +134,7 @@ function menuView() {
 
           newsText = newsText.slice(br + 4)
           var secondHeader = newsText.slice(0, newsText.indexOf('<br>'))
+          secondHeader = secondHeader.charAt(0).toUpperCase() + secondHeader.slice(1);
 
           newsText = mainHeader + ' ' + secondHeader
           var vk_url = 'https://vk.com/uhpfamily?w=wall' + n.from_id + '_' + n.id;
@@ -155,6 +155,5 @@ function menuView() {
 
     });
   }
-
 
 }

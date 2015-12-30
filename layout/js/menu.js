@@ -104,7 +104,6 @@ function strip(html){
 }
 
 function getVkNews() {
-  console.log('getVkNews')
   $('.wrapper_left_menu span').hide()
   var newsHtml = '<h5 data-url="{{ vk_url }}">{{ text }}</h5><p>{{ date }} в {{ time }} от {{ hashtags }}</p>'
   var firstNewsHtml = '<h4 data-url="{{ vk_url }}">{{ text }}</h4><p>{{ date }} в {{ time }} от {{ hashtags }}</p>'
@@ -134,6 +133,7 @@ function getVkNews() {
 
         newsText = newsText.slice(br + 4)
         var secondHeader = newsText.slice(0, newsText.indexOf('<br>'))
+        secondHeader = secondHeader.charAt(0).toUpperCase() + secondHeader.slice(1);
 
         newsText = mainHeader + ' ' + secondHeader
         var vk_url = 'https://vk.com/uhpfamily?w=wall' + n.from_id + '_' + n.id;

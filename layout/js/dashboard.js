@@ -24,11 +24,10 @@ $(function() {
   $('#code_form .button-small').on('click', function(){
     var code = $('#code_form input[name="code"]').val();
     $.post(hostUrl + '/api/v1/auth/registrations/confirm', {
-      code: code
+      code: code, phone: currentUser.phone
     }, function(resp){
-      // console.log(resp)
       if (resp.status == 'error') {
-
+        $('#code_form input[name="code"]').addClass('wrong')
       } else {
         fx.back()
       }
@@ -43,99 +42,100 @@ $(function() {
     $.post(hostUrl + '/api/v1/auth/registrations/resend_code.json', {
       phone: phone
     }, function() {
+      $('#code_form input[name="code"]').removeClass('wrong')
       $('#code_form .button-link').text('Код отправлен')
     });
   });
 
 });
-$(function(){
-  function rndR(min, max) {
-    var rand = min + Math.random() * (max - min)
-    rand = Math.round(rand);
-    return rand;
-  }
-
-  var layoutWidth = $('#face').width();
-  var layoutHeight = $('#face').height();
-
-  var layout = d3.select('#face').append('svg')
-  .attr('width', layoutWidth)
-  .attr('height', layoutHeight);
-
-  layout.append("defs")
-      .append('pattern')
-      .attr("id", "face-img")
-      .attr('x', 0)
-      .attr('y', 0)
-      .attr('width', 200)
-      .attr('height', 200)
-      .attr('patternUnits', 'userSpaceOnUse')
-      .append("image")
-      .attr('x', 20)
-      .attr('y', 0)
-      .attr('width', 200)
-      .attr('height', 200)
-
-
-  layout.append('circle')
-  .attr('r', 70)
-  .attr('fill', 'transparent')
-  .attr('stroke', '#fff')
-  .attr('opacity', 0.4)
-  .attr('cx', layoutWidth/2)
-  .attr('cy', layoutHeight/2);
-
-  layout.append('circle')
-  .attr('r', 50)
-  .attr('stroke', '#EBB22F')
-  .attr('stroke-width', 2.5)
-  .attr('fill', 'transparent')
-  .attr('cx', layoutWidth/2)
-  .attr('cy', layoutHeight/2);
-
-  layout.append('circle')
-  .attr('r', 44)
-  .attr('fill', 'url(#face-img)')
-  .attr('cx', layoutWidth/2)
-  .attr('cy', layoutHeight/2);
-
-  for (var i = 0; i < 360; i += 12) {
-    var r = rndR(68, 100);
-    layout.append('line')
-    .attr('stroke', '#EBB22F')
-    .attr('opacity', function(){
-      var res = 1;
-      if(r < 85){
-        res = 0.6;
-      }
-      if(r < 80){
-        res = 0.4;
-      }
-      if(r < 76){
-        res = 0.2;
-      }
-      return res;
-    })
-    .attr('stroke-width', '2.4')
-    .attr('x1', function(d){
-      var rad = i * (Math.PI/180);
-      return 100 + 50 * Math.cos(rad);
-    })
-    .attr('y1', function(d){
-      var rad = i * (Math.PI/180);
-      return 100 + 50 * Math.sin(rad);
-    })
-    .attr('x2', function(d){
-      var rad = i * (Math.PI/180);
-      return 100 + r * Math.cos(rad);
-    })
-    .attr('y2', function(d){
-      var rad = i * (Math.PI/180);
-      return 100 + r * Math.sin(rad);
-    });
-  }
-
-});
+// $(function(){
+//   function rndR(min, max) {
+//     var rand = min + Math.random() * (max - min)
+//     rand = Math.round(rand);
+//     return rand;
+//   }
+//
+//   var layoutWidth = $('#face').width();
+//   var layoutHeight = $('#face').height();
+//
+//   var layout = d3.select('#face').append('svg')
+//   .attr('width', layoutWidth)
+//   .attr('height', layoutHeight);
+//
+//   layout.append("defs")
+//       .append('pattern')
+//       .attr("id", "face-img")
+//       .attr('x', 0)
+//       .attr('y', 0)
+//       .attr('width', 200)
+//       .attr('height', 200)
+//       .attr('patternUnits', 'userSpaceOnUse')
+//       .append("image")
+//       .attr('x', 20)
+//       .attr('y', 0)
+//       .attr('width', 200)
+//       .attr('height', 200)
+//
+//
+//   layout.append('circle')
+//   .attr('r', 70)
+//   .attr('fill', 'transparent')
+//   .attr('stroke', '#fff')
+//   .attr('opacity', 0.4)
+//   .attr('cx', layoutWidth/2)
+//   .attr('cy', layoutHeight/2);
+//
+//   layout.append('circle')
+//   .attr('r', 50)
+//   .attr('stroke', '#EBB22F')
+//   .attr('stroke-width', 2.5)
+//   .attr('fill', 'transparent')
+//   .attr('cx', layoutWidth/2)
+//   .attr('cy', layoutHeight/2);
+//
+//   layout.append('circle')
+//   .attr('r', 44)
+//   .attr('fill', 'url(#face-img)')
+//   .attr('cx', layoutWidth/2)
+//   .attr('cy', layoutHeight/2);
+//
+//   for (var i = 0; i < 360; i += 12) {
+//     var r = rndR(68, 100);
+//     layout.append('line')
+//     .attr('stroke', '#EBB22F')
+//     .attr('opacity', function(){
+//       var res = 1;
+//       if(r < 85){
+//         res = 0.6;
+//       }
+//       if(r < 80){
+//         res = 0.4;
+//       }
+//       if(r < 76){
+//         res = 0.2;
+//       }
+//       return res;
+//     })
+//     .attr('stroke-width', '2.4')
+//     .attr('x1', function(d){
+//       var rad = i * (Math.PI/180);
+//       return 100 + 50 * Math.cos(rad);
+//     })
+//     .attr('y1', function(d){
+//       var rad = i * (Math.PI/180);
+//       return 100 + 50 * Math.sin(rad);
+//     })
+//     .attr('x2', function(d){
+//       var rad = i * (Math.PI/180);
+//       return 100 + r * Math.cos(rad);
+//     })
+//     .attr('y2', function(d){
+//       var rad = i * (Math.PI/180);
+//       return 100 + r * Math.sin(rad);
+//     });
+//   }
+//
+// });
 
 $(function() {
   $('.popup_vertical_symbol').css('pointer-events', 'none');
@@ -402,14 +402,14 @@ $(function() {
     var currentTime = new Date()
     var times = $('select[name="visit_time"]').html()
     var time_options = $(times).filter(function(index) {
-      return $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString());
+      return !$(this).data('time') || ($(this).data('time') && $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString()));
     })
     $('select[name="visit_time"]').html(time_options)
     $('select[name="visit_date"]').on('change', function() {
       var visit_date = $(this).val()
       if(visit_date == 'today') {
         var time_options = $(times).filter(function(index) {
-          return $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString());
+          return !$(this).data('time') ||  ($(this).data('time') && $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString()));
         })
         $('select[name="visit_time"]').html(time_options)
       } else if (visit_date == 'tomorrow') {
@@ -431,10 +431,22 @@ $(function() {
             }
           });
           picker.show()
-          // $('#visit_date').mask('0000-00-00')
           $('select[name="visit_time"]').html(times)
       }
     });
+    $(document).on('change', 'input#visit_date', function() {
+      var selectedDate = moment($(this).val(), 'DD.MM.YYYY')
+      var today = moment()
+      //если сегодня
+      if (today.startOf('day').isSame(selectedDate.startOf('day'))) {
+        var time_options = $(times).filter(function(index) {
+          return !$(this).data('time') || ( $(this).data('time') && $(this).data('time') > ((currentTime.getHours() + 1).toString()+currentTime.getMinutes().toString()));
+        })
+        $('select[name="visit_time"]').html(time_options)
+      } else {
+        $('select[name="visit_time"]').html(times)
+      }
+    })
 
 
 
@@ -569,7 +581,10 @@ function handleReservationResponse(json, callback) {
         $('.error_tooltip').text('Вы уже забронировали столик на указанное время')
         TweenLite.to('section.error_tooltip', 1, {opacity: 1});
         $('#reserv_form input[name="lounge"]').addClass('wrong')
-      }
+      } else if (json.errors.visit_date == 'wrong_date') {
+      $('.error_tooltip').text('Вы не указали дату и время посещения')
+      TweenLite.to('section.error_tooltip', 1, {opacity: 1});
+    }
     }
     if (json.errors.table) {
       $('.error_tooltip').text('К сожалению, все столики на указанное время забронированы')
