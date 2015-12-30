@@ -126,10 +126,12 @@ function getVkNews() {
         var dateMoment = moment.unix(n.date)
         var end_of_string_index = 0;
 
-        var newsText = n.text.toLowerCase()
-        newsText = capitalizeFirstLetter(newsText)
+        var newsText = n.text//.toLowerCase()
+
         var br = newsText.indexOf('<br>')
-        var mainHeader = newsText.substring(0, br)
+        var mainHeader = newsText.substring(0, br).toLowerCase()
+
+        mainHeader = capitalizeFirstLetter(mainHeader)
 
         newsText = newsText.slice(br + 4)
         var secondHeader = newsText.slice(0, newsText.indexOf('<br>'))
