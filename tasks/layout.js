@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var haml = require('gulp-ruby-haml');
-var jshint = require('gulp-jshint');
 
 var notifySass = {
   title: 'Sass',
@@ -35,12 +34,6 @@ gulp.task('layout:haml', function () {
     .pipe(haml())
     .pipe(gulp.dest('./layout'))
     .pipe($.notify(notifyHaml));
-});
-
-gulp.task('layout:lint', function() {
-  return gulp.src('./layout/js/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
 });
 
 gulp.task('layout:watch', function() {

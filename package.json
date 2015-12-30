@@ -12,6 +12,7 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.0",
     "gulp-connect": "^2.2.0",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.0.0",
@@ -19,6 +20,7 @@
     "gulp-ruby-haml": "0.0.4",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
     "gulp-watch": "^4.3.5",
     "jquery": "^2.1.4",
     "jquery-mask-plugin": "^1.13.4",
@@ -26,6 +28,7 @@
     "jshint": "^2.8.0",
     "shipit-cli": "^1.4.0",
     "shipit-deploy": "^2.0.0",
+    "streamqueue": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
