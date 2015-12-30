@@ -4,7 +4,6 @@
 //     document.location.href="/pages_lounges_liberty.html"
 //   });
 // });
-
 //поиск по карточкам
 // $(function() {
 //   $('#lounge_search_input').keyup(function() {
@@ -23,5 +22,4 @@
 //     })
 //   });
 // });
-
 // TweenMax.staggerFrom(".stagger_gsap", 2, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.2);
