@@ -87,11 +87,11 @@ $(function() {
   })
   $('.wrapper_left_menu span').hide()
   getVkNews()
-  $(document).on('click', 'h4', function() {
+  $(document).on('click', '#menu_left_part h4', function() {
     // document.location.href = $(this).data('url');
     window.open($(this).data('url'), '_blank');
   });
-  $(document).on('click', 'h5', function() {
+  $(document).on('click', '#menu_left_part h5', function() {
     // document.location.href = $(this).data('url');
     window.open($(this).data('url'), '_blank');
   });
