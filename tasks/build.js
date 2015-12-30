@@ -9,9 +9,8 @@ var streamqueue = require('streamqueue')
 /**
  * Build a single js file
  **/
-gulp.task("build:js", function () {
+gulp.task("build:js:vendor", function () {
     var stream = streamqueue({ objectMode: true });
-
 
     stream.queue(
         gulp.src([
@@ -28,34 +27,13 @@ gulp.task("build:js", function () {
           "./layout/js/lib/moment-with-locales.js",
           "./layout/js/lib/moment-duration-format.js",
           "./layout/js/lib/pikaday.js",
-        ])
+          "./layout/js/lib/openapi.js"
+        ]).pipe(uglify())
     );
-
-    // vendors libraries already minified  but jQuery already added before
-    stream.queue(
-        gulp.src([
-                "./layout/js/lib/*.min.js",
-                "!./layout/js/lib/jquery*.min.js"
-            ])
-    );
-
-    stream.queue(
-        gulp.src([
-            /* if you need more vendors libraries* /
-            "public/javascripts/vendors/*.js",
-                "!public/javascripts/vendors/*.min.js",
-                "!public/javascripts/vendors/handlebars*.js",
-            /**/
-            "./layout/js/*.js"
-        ])
-        .pipe(uglify())
-    );
-
-
     // once preprocess ended, concat result into a real file
     return stream.done()
-        .pipe(concat("scripts.js"))
-        .pipe(gulp.dest("./build/public/js/"));
+        .pipe(concat("vendor.js"))
+        .pipe(gulp.dest("./layout/js/lib/"));
 
 });
 
