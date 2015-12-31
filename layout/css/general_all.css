@@ -9,6 +9,11 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
   cursor: pointer;
 }
 
+html, body {
+  min-width: 1024px;
+  min-height: 768px;
+}
+
 html, body, main {
   width: 100%;
   height: 100%;
@@ -509,7 +514,6 @@ body, main {
   display: block;
   position: relative;
   width: 100%;
-  height: 572px;
   text-align: center;
   padding: 256px 48px 32px 48px;
   z-index: 150;
@@ -4457,9 +4461,10 @@ section.popup_horizontal:before {
 
 section.popup_middle {
   position: relative;
-  right: calc(100% - 160px);
+  right: 100%;
   height: auto;
   width: 62%;
+  overflow: hidden;
   padding: 80px;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF151719', endColorstr='#FF424756');
