@@ -34,7 +34,7 @@ $(function () {
       $('#wrapper_signup').css('pointer-events', 'auto');
       fx.do([
         'errorTooltip',
-        'signup',
+        'signupPopup',
         'background'
       ], bodyClick, bodyClickOff);
     } else {
@@ -47,7 +47,7 @@ $(function () {
       $('#wrapper_signup').css('pointer-events', 'auto');
       fx.do([
         'errorTooltip',
-        'signup',
+        'signupPopup',
         'background'
       ], bodyClick, bodyClickOff);
     } else {
@@ -55,13 +55,13 @@ $(function () {
     }
   });
   $('#login_form a').click(function () {
-    fx.swap('loginPopup', 'signup');
+    fx.swap('loginPopup', 'signupPopup');
   });
   $('#pass_form a').click(function () {
-    fx.swap('passPopup', 'signup');
+    fx.swap('passPopup', 'signupPopup');
   });
   $('#signup_form a').click(function () {
-    fx.swap('signup', 'loginPopup');
+    fx.swap('signupPopup', 'loginPopup');
   });
 });
 $(function () {
@@ -83,7 +83,7 @@ $(function () {
       $('#wrapper_signup').css('pointer-events', 'auto');
       fx.do([
         'errorTooltip',
-        'signup',
+        'signupPopup',
         'background'
       ], bodyClick, bodyClickOff);
     } else {
@@ -95,7 +95,7 @@ $(function () {
       $('#wrapper_signup').css('pointer-events', 'auto');
       fx.do([
         'errorTooltip',
-        'signup',
+        'signupPopup',
         'background'
       ], bodyClick, bodyClickOff);
     } else {
@@ -107,7 +107,7 @@ $(function () {
       $('#wrapper_signup').css('pointer-events', 'auto');
       fx.do([
         'errorTooltip',
-        'signup',
+        'signupPopup',
         'background'
       ], bodyClick, bodyClickOff);
     } else {

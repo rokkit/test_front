@@ -242,8 +242,8 @@ var fxa = {
       }
     },
     wrapper_signup: {
-      element: '#wrapper_signup'  //,
-                         // options: { 'pointer-events': 'auto' }
+      element: '#wrapper_signup',
+     options: { 'pointer-events': 'auto' }
     },
     signupPopup: [
       'signup',
