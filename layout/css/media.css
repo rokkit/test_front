@@ -62,10 +62,17 @@
       margin: 30 95 !important;
       border-radius: 16px !important;
     }
+    .wrapper_herb_card {
+      height: 80% !important;
+    }
 
     .lounge img{
       width: 70% !important;
-      margin: 130 110 !important;
+      margin: 40px 0 0 0 !important;
+    }
+
+    .wrapper_text_card h4 {
+      font-size: 40px;
     }
 
     .section_1_bg{
