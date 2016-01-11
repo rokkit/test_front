@@ -12,7 +12,7 @@ var fxa = {
     reserv_form: {
       element: '#reserv_form',
       options: {
-        left: '1860px',
+        left: 'calc(100% + 160px)',
         'pointer-events': 'auto'
       }
     },
@@ -23,7 +23,7 @@ var fxa = {
         'pointer-events': 'auto'
       },
       back: {
-        right: '-1260px',
+        right: '100%',
         'pointer-events': 'auto'
       }
     },
@@ -34,7 +34,7 @@ var fxa = {
         'pointer-events': 'auto'
       },
       back: {
-        right: '-1260px',
+        right: '100%',
         'pointer-events': 'auto'
       }
     },
@@ -45,7 +45,7 @@ var fxa = {
         'pointer-events': 'auto'
       },
       back: {
-        right: '-1260px',
+        right: '100%',
         'pointer-events': 'auto'
       }
     },
@@ -108,7 +108,7 @@ var fxa = {
         'pointer-events': 'auto'
       },
       back: {
-        left: '1860px',
+        left: 'calc(100% + 160px)',
         'pointer-events': 'auto'
       }
     },
@@ -119,7 +119,7 @@ var fxa = {
         'pointer-events': 'auto'
       },
       back: {
-        left: '1860px',
+        left: 'calc(100% + 160px)',
         'pointer-events': 'auto'
       }
     },
@@ -169,7 +169,7 @@ var fxa = {
         'pointer-events': 'auto'
       },
       back: {
-        right: '-1260px',
+        right: '-100%',
         'pointer-events': 'auto'
       }
     },
@@ -196,7 +196,7 @@ var fxa = {
         'pointer-events': 'auto'
       },
       back: {
-        right: '-1260px',
+        right: '100%',
         'pointer-events': 'auto'
       }
     },
@@ -237,7 +237,7 @@ var fxa = {
       element: '#signup_form',
       options: { 'left': '190px' },
       back: {
-        left: '1860px',
+        left: 'calc(100% + 160px)',
         'pointer-events': 'auto'
       }
     },
@@ -350,7 +350,7 @@ var cbpAnimatedHeader = function () {
     var sy = scrollY();
     if (sy >= changeHeaderOn) {
       $('#header').css({
-        'background': 'rgba(40,44,52,0.9',
+        'background': 'rgba(40,44,52,0.9)',
         'padding': '16px',
         'height': 'auto'
       });

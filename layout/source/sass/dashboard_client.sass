@@ -105,19 +105,23 @@ section.dashboard
                 display: block
                 position: relative
 
-                left: 12px
-                top: -0
+                left: 24px
+                top: -10px
 
-                width: 48px
-                height: 48px
-                border-radius: 24px
-
+                width: 64px
+                height: 64px
+                border-radius: 32px
+                
+                color: #EBB22F
                 text-align: center
-                line-height: 48px
+                font-size: 24px
+                line-height: 60px
 
-                background: #EBB22F
+                border: 2px solid #EBB22F
 
                 float: left
+                
+                +transition(all, 250ms, cubic-bezier(0.190, 1.000, 0.220, 1.000))
 
                 &:hover
                     .popover-level
@@ -125,6 +129,10 @@ section.dashboard
                         -webkit-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1
                         -moz-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1
                         -ms-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1
+            .user_level_block:hover
+                background: #EBB22F
+                color: white
+                cursor: pointer
         .edit_profile_city
             display: block
             position: relative
@@ -251,6 +259,7 @@ section.user_achievments
 
         figure
             width: 16%
+            min-width: 160px
             padding: 32px 16px 32px 16px
             border: 1px solid rgba(255,255,255,.1)
             text-align: center

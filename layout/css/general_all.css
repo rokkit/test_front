@@ -2646,8 +2646,7 @@ section.lounges_block_6 {
   display: block;
   position: relative;
   width: 100%;
-  height: 100%;
-  padding: 196px 0px 0px 96px;
+  padding: 196px 0px 196px 96px;
   background: url(../images/bg_glow.png);
   background-size: cover;
 }
@@ -3220,21 +3219,32 @@ section.dashboard section.username .name_and_level h1 {
 section.dashboard section.username .name_and_level .user_level_block {
   display: block;
   position: relative;
-  left: 12px;
-  top: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
+  left: 24px;
+  top: -10px;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  color: #EBB22F;
   text-align: center;
-  line-height: 48px;
-  background: #EBB22F;
+  font-size: 24px;
+  line-height: 60px;
+  border: 2px solid #EBB22F;
   float: left;
+  -moz-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all, 250ms, cubic-bezier(0.19, 1, 0.22, 1);
 }
 section.dashboard section.username .name_and_level .user_level_block:hover .popover-level {
   display: block;
   -webkit-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
   -moz-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
   -ms-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
+}
+section.dashboard section.username .name_and_level .user_level_block:hover {
+  background: #EBB22F;
+  color: white;
+  cursor: pointer;
 }
 section.dashboard section.username .edit_profile_city {
   display: block;
@@ -3355,6 +3365,7 @@ section.user_achievments section.wrapper_for_ach {
 }
 section.user_achievments section.wrapper_for_ach figure {
   width: 16%;
+  min-width: 160px;
   padding: 32px 16px 32px 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
@@ -4461,7 +4472,7 @@ section.popup_horizontal:before {
 
 section.popup_middle {
   position: relative;
-  right: 100%;
+  right: 120%;
   height: auto;
   width: 62%;
   overflow: hidden;
