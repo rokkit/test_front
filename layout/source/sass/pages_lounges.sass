@@ -50,10 +50,13 @@ header.pages_lounges_header
             width: 100%
             height: 64px
             margin-bottom: 32px
-
+            +clearfix
+            
             figure
+                +clearfix
                 float: left
                 margin-right: 32px
+                margin-bottom: 16px
 
                 img
                     float: left
@@ -65,6 +68,8 @@ header.pages_lounges_header
                     letter-spacing: 0
 
         section.actions
+            display: block
+            position: relative
 
             button
                 border: 1px solid $lounge_color
@@ -84,7 +89,7 @@ header.pages_lounges_header
         width: auto
 
         top: 10%
-        right: -12%
+        left: calc(60% + 320px)
 
         img.blazon
             height: 100%
