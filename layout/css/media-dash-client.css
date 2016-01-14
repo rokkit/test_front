@@ -4,8 +4,10 @@
   and (orientation: portrait) {
     .username h1{
       text-align: center !important;
-      font-size: 160px !important;
+      font-size: 72px !important;
       margin-bottom: 70px !important;
+      line-height: 80px !important;
+      height: auto !important;
     }
 
     .username button{
@@ -14,6 +16,17 @@
       width: 48% !important;
       font-size: 28px !important;
       text-align: center !important;
+    }
+    .user_level_block {
+      margin-right: 57px !important;
+      left: calc(50% - 64px) !important;
+      top: -320px !important;
+    }
+    #n_o_a {
+       left: calc(50% - 380px) !important;
+    }
+    .edit_profile_city {
+      display: none !important;
     }
 
     .progress_bar p{
