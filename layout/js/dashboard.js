@@ -334,25 +334,31 @@ $(function () {
     $('#section-per-month .leaders').empty();
     var user_rating_tpl = _.template($('#user_rating_tpl').html());
     $.each(users_month.reverse(), function (i) {
-      if (users_month.length > 0 && i == users_month.length - 1) {
-        $('#section-per-month #rating_top').append('<div class="border-bottom-dashed"></div>');
+      if (i < 10) {
+        $('#section-per-month #rating_top').append(user_rating_tpl({
+          name: this.name,
+          number: i + 1,
+          exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+        }));
       }
-      $('#section-per-month #rating_top').append(user_rating_tpl({
-        name: this.name,
-        number: i + 1,
-        exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-      }));
+      // if (i == users_month.length - 1) {
+      //   $('#section-per-month #rating_top').append('<div class="border-bottom-dashed"></div>');
+      //   $('#section-per-month #rating_top').append(user_rating_tpl({
+      //     name: this.name,
+      //     number: i + 1,
+      //     exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+      //   }));
+      // }
     });
     $('#section-per-all-time .leaders').empty();
     $.each(users_all_time, function (i) {
-      if (users_all_time.length > 0 && i == users_all_time.length - 1) {
-        $('#section-per-all-time .leaders').append('<div class="border-bottom-dashed"></div>');
+      if (i < 10) {
+        $('#section-per-all-time .leaders').append(user_rating_tpl({
+          name: this.name,
+          number: i + 1,
+          exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+        }));
       }
-      $('#section-per-all-time .leaders').append(user_rating_tpl({
-        name: this.name,
-        number: i + 1,
-        exp: parseInt(this.exp, 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-      }));
     });
   }
   function bodyClickOff() {
