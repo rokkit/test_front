@@ -331,6 +331,10 @@ $(function () {
   });
   function makeUserRating(users_month, users_all_time) {
     console.log(users_month, users_all_time);
+
+    /** Sort according to experience... */
+    users_month.sort(function (a, b) { return a.exp - b.exp; });
+
     $('#section-per-month .leaders').empty();
     var user_rating_tpl = _.template($('#user_rating_tpl').html());
     $.each(users_month.reverse(), function (i) {
