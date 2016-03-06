@@ -148,9 +148,13 @@
 		-# Хидер
 		%header#header
 			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
-			%nav
+			%nav#header_anon
 				%a{:id=>"login_header_btn"} Войти
 				%a{:id=>"signup_header_btn"} Зарегистрироваться
+				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
+			%nav#header_user
+				%a#edit_profile_btn Редактировать профиль
+				%a#logout_btn Выйти
 				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
 
 		-# Main conent

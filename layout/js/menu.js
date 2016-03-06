@@ -1,3 +1,11 @@
+if ($("#header_user").length) {
+	var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+	if (currentUser) {
+		$("#header_user").show();
+		$("#header_anon").hide();
+	}
+}
+
 moment.locale('ru');
 String.prototype.regexIndexOf = function (regex, startpos) {
   var indexOf = this.substring(startpos || 0).search(regex);
