@@ -13,4 +13,11 @@ if (window.location.pathname !== "/dashboard_client.html") {
 	} else {
 		$(".logged_out").show();
 	}
+} else {
+	var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+	if (currentUser) {
+		if (currentUser.freezed) {
+			$("#n_o_a").remove();
+		}
+	}
 }

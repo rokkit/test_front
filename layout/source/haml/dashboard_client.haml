@@ -1,346 +1,347 @@
 !!! 5
 %html{:lang => "ru"}
-	%head
-		%meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=UTF-8" }
-		%meta{ :charset => "UTF-8" }
-		%meta{ name: 'viewport', :content => "width=1024" }
-		%link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
-		%link{ :rel=>"stylesheet" , :href=>"./css/media-dash-client.css" }
-		%link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
-		%link{ :rel=>"stylesheet" , :href=>"./css/pikaday.css" }
-		%link{ :rel=>"shortcut icon" , :href=>"./images/favicon.png" , :type=>"image/pngs" }
-		%script{ :src => "./js/lib/vendor.js" }
+    %head
+        %meta{ :"http-equiv" => "content-type" , :content =>"text/html; charset=UTF-8" }
+        %meta{ :charset => "UTF-8" }
+        %meta{ name: 'viewport', :content => "width=1024" }
+        %link{ :rel=>"stylesheet" , :href=>"./css/reset.css" }
+        %link{ :rel=>"stylesheet" , :href=>"./css/media-dash-client.css" }
+        %link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
+        %link{ :rel=>"stylesheet" , :href=>"./css/pikaday.css" }
+        %link{ :rel=>"shortcut icon" , :href=>"./images/favicon.png" , :type=>"image/pngs" }
+        %script{ :src => "./js/lib/vendor.js" }
 
-		%script{ :src => "./js/animation.js" }
-		%script{ :src => "./js/fx.js" }
-		%script{ :src => "./js/dashboard.js" }
-		%script{ :src => "./js/skillview.js" }
-		%script{ :src => "./js/skillgen.js" }
-		%script{ :src => "./js/skillBoard.js" }
-		%script{ :src => "./js/data.js" }
-		%script{ :src => "./js/nodes.js" }
-		%script{ :src => "./js/menu.js" }
-		%script{ :src => "./js/profile.js" }
-		%script{ :src => "./js/achievements.js" }
+        %script{ :src => "./js/animation.js" }
+        %script{ :src => "./js/fx.js" }
+        %script{ :src => "./js/dashboard.js" }
+        %script{ :src => "./js/skillview.js" }
+        %script{ :src => "./js/skillgen.js" }
+        %script{ :src => "./js/skillBoard.js" }
+        %script{ :src => "./js/data.js" }
+        %script{ :src => "./js/nodes.js" }
+        %script{ :src => "./js/menu.js" }
+        %script{ :src => "./js/profile.js" }
+        %script{ :src => "./js/achievements.js" }
 
-		%title Профиль
+        %title Профиль
 
-		-# Habmurger
-		%script{ :src => "./js/lib/snap.svg-min.js" }
-		%script{ :src => "./js/lib/svgicons-config.js" }
-		%script{ :src => "./js/lib/svgicons.js" }
-	%script{type: "text/template", id: 'reservation_tpl'}
-		%tr{data: {id: '{{ id }}'}}
-			%td
-				%h6{style: 'color: {{ color }};'} {{ name }}
-			%td.td-date {{ visit_date }} <br> {{ visit_time }} - {{ end_visit_time }}
-			%td {{ client_count }}
-			%td
-				%div.color-orange.cancel_reserv.pointer
-					{{ status }}
-					%div.popover-reserv.popover-reserv-close{ :data => { :opened => 'false' } }
-						%p Отменить бронирование
-						%span.cancel_reserv_confirm.pointer Да
-						%span.cancel_reserv_decline.pointer Нет
-	%script{type: "text/template", id: 'user_rating_tpl'}
-		%li
-			%span {{ number }}. {{ name }}
-			%span {{ exp }}
-	%script{type: "text/template", id: 'invited_user_tpl'}
-		.invited_user{data: {id: '{{ id }}'}}
-			{{ name }}
-			.cross_delete.pointer
-				%img{ :src=>"./images/cross.svg" }
-	%body#html_body
-		-# code acept
-		.wrapper.h_v_center
-			%section.popup_middle{:id => 'code_form'}
-				%header
-					%h2 Подтверждение
-					%p.h2_subtitle
-						Мы отправили смс с кодом подтверждения на ваш номер. <br>
-						Подтверждая номер, вы вступаете в тайное общество. <br>
-						Если код не пришел, нажмите на ссылку "Получить код повторно"
-					%input{:type => "text", :name => "code", :placeholder => "Код подтверждения"}
-					%button.button-arrow.button-small{:type=>"button", :name=>"ok"} Подтвердить
-					%button.button-link{:type=>"button", :name=>"ok"} Получить код повторно
-		-# Form
-		.wrapper.center-center
-			%section#error_password.error_tooltip
-				Данные введены неверно! Попробуйте ввести еще раз.
-			%section.popup{:id => 'reserv_form'}
-				%header
-					%h2 Забронировать столик
-					%p.h2_subtitle
-						Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества
-				%form{:action => "", :method => "get"}
-					%select{:name=>"lounge"}
-						%option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Ложа
-					%select{:id => 'client_count_input', :name=>'client_count'}
-						%option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Количество гостей
-						%option{:value => '4'} 1-4
-						%option{:value => '6'} 5-6
+        -# Habmurger
+        %script{ :src => "./js/lib/snap.svg-min.js" }
+        %script{ :src => "./js/lib/svgicons-config.js" }
+        %script{ :src => "./js/lib/svgicons.js" }
+    %script{type: "text/template", id: 'reservation_tpl'}
+        %tr{data: {id: '{{ id }}'}}
+            %td
+                %h6{style: 'color: {{ color }};'} {{ name }}
+            %td.td-date {{ visit_date }} <br> {{ visit_time }} - {{ end_visit_time }}
+            %td {{ client_count }}
+            %td
+                %div.color-orange.cancel_reserv.pointer
+                    {{ status }}
+                    %div.popover-reserv.popover-reserv-close{ :data => { :opened => 'false' } }
+                        %p Отменить бронирование
+                        %span.cancel_reserv_confirm.pointer Да
+                        %span.cancel_reserv_decline.pointer Нет
+    %script{type: "text/template", id: 'user_rating_tpl'}
+        %li
+            %span {{ number }}. {{ name }}
+            %span {{ exp }}
+    %script{type: "text/template", id: 'invited_user_tpl'}
+        .invited_user{data: {id: '{{ id }}'}}
+            {{ name }}
+            .cross_delete.pointer
+                %img{ :src=>"./images/cross.svg" }
+    %body#html_body
+        -# code acept
+        .wrapper.h_v_center
+            %section.popup_middle{:id => 'code_form'}
+                %header
+                    %h2 Подтверждение
+                    %p.h2_subtitle
+                        Мы отправили смс с кодом подтверждения на ваш номер. <br>
+                        Подтверждая номер, вы вступаете в тайное общество. <br>
+                        Если код не пришел, нажмите на ссылку "Получить код повторно"
+                    %input{:type => "text", :name => "code", :placeholder => "Код подтверждения"}
+                    %button.button-arrow.button-small{:type=>"button", :name=>"ok"} Подтвердить
+                    %button.button-link{:type=>"button", :name=>"ok"} Получить код повторно
+        -# Form
+        .wrapper.center-center
+            %section#error_password.error_tooltip
+                Данные введены неверно! Попробуйте ввести еще раз.
+            %section.popup{:id => 'reserv_form'}
+                %header
+                    %h2 Забронировать столик
+                    %p.h2_subtitle
+                        Выберите время желаемого бронирования. Также вы можете пригласить на встречу других членов сообщества
+                %form{:action => "", :method => "get"}
+                    %select{:name=>"lounge"}
+                        %option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Ложа
+                    %select{:id => 'client_count_input', :name=>'client_count'}
+                        %option{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Количество гостей
+                        %option{:value => '4'} 1-4
+                        %option{:value => '6'} 5-6
 
-					%select{:id => 'visit_date', :type => "text", :name => "visit_date"}
-						%option.placeholder{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Дата бронирования
-						%option{:value => 'today'} Сегодня
-						%option{:value => 'tomorrow'} Завтра
-						%option{:value => 'date_choose'} Указать конкретную дату
+                    %select{:id => 'visit_date', :type => "text", :name => "visit_date"}
+                        %option.placeholder{:value => '', :disabled => 'true', :selected => "selected", :hidden => "true" } Дата бронирования
+                        %option{:value => 'today'} Сегодня
+                        %option{:value => 'tomorrow'} Завтра
+                        %option{:value => 'date_choose'} Указать конкретную дату
 
-					%select{:name=>'visit_time'}
-						%option{:value => '', :disabled => 'true', :selected => "true", :hidden => "selected" } Время бронирования
-						%option{:value => '17:00', :'data-time' => '1700'} 17:00
-						%option{:value => '17:30', :'data-time' => '1730'} 17:30
-						%option{:value => '18:00', :'data-time' => '1800'} 18:00
-						%option{:value => '18:30', :'data-time' => '1830'} 18:30
-						%option{:value => '19:00', :'data-time' => '1900'} 19:00
-						%option{:value => '19:30', :'data-time' => '1930'} 19:30
-						%option{:value => '20:00', :'data-time' => '2000'} 20:00
-						%option{:value => '20:30', :'data-time' => '2030'} 20:30
-						%option{:value => '21:00', :'data-time' => '2100'} 21:00
-						%option{:value => '21:30', :'data-time' => '2130'} 21:30
-						%option{:value => '22:00', :'data-time' => '2200'} 22:00
-						%option{:value => '22:30', :'data-time' => '2230'} 22:30
-						%option{:value => '23:00', :'data-time' => '2300'} 23:00
+                    %select{:name=>'visit_time'}
+                        %option{:value => '', :disabled => 'true', :selected => "true", :hidden => "selected" } Время бронирования
+                        %option{:value => '17:00', :'data-time' => '1700'} 17:00
+                        %option{:value => '17:30', :'data-time' => '1730'} 17:30
+                        %option{:value => '18:00', :'data-time' => '1800'} 18:00
+                        %option{:value => '18:30', :'data-time' => '1830'} 18:30
+                        %option{:value => '19:00', :'data-time' => '1900'} 19:00
+                        %option{:value => '19:30', :'data-time' => '1930'} 19:30
+                        %option{:value => '20:00', :'data-time' => '2000'} 20:00
+                        %option{:value => '20:30', :'data-time' => '2030'} 20:30
+                        %option{:value => '21:00', :'data-time' => '2100'} 21:00
+                        %option{:value => '21:30', :'data-time' => '2130'} 21:30
+                        %option{:value => '22:00', :'data-time' => '2200'} 22:00
+                        %option{:value => '22:30', :'data-time' => '2230'} 22:30
+                        %option{:value => '23:00', :'data-time' => '2300'} 23:00
 
-					%hr
-					%h3 Пригласить на встречу
-					%p Добавляя участников встречи, вы приглашете их посетить "Уникальные Кальянные" вместе с вами. Полученный опыт распределяется между всеми участниками встречи.
+                    %hr
+                    %h3 Пригласить на встречу
+                    %p Добавляя участников встречи, вы приглашете их посетить "Уникальные Кальянные" вместе с вами. Полученный опыт распределяется между всеми участниками встречи.
 
-					%select.add_users_select{:id => 'invite_users', :type => "text", :name => "invite_users"}
-						%option{:value => '', :disabled => 'true', :selected => "true", :hidden => "true" } Добавить участников
-					%span#invited_users_container
-					%hr
+                    %select.add_users_select{:id => 'invite_users', :type => "text", :name => "invite_users"}
+                        %option{:value => '', :disabled => 'true', :selected => "true", :hidden => "true" } Добавить участников
+                    %span#invited_users_container
+                    %hr
 
-					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Забронировать
+                    %button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Забронировать
 
-		-# Form
-		.wrapper.h_v_center
-			%section.popup_middle{:id => 'reserv_succes_form'}
-				%header
-					%h2 Заявка на бронирование подана
-					%p.h2_subtitle
-						Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". Возьмите с собой документы для подтверждения своей личности
-				%form{:action => "", :method => "get"}
-					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Отлично
-		-# Form invate
-		.wrapper.h_v_center
-			%section.popup_middle{:id => 'invate_succes_form'}
-				%header
-					%h2 Приглашения отправлены
-					%p.h2_subtitle
-						Если кто-то из приглашенных вами людей согласится на встречу,
-						<br> вы увидете уведомление в личном кабинете.
-				%form{:action => "", :method => "get"}
-					%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Отлично
-		-# Form you invate
-		.wrapper.h_v_center
-			%section.popup_middle{:id => 'invate_me'}
-				%header
-					%h2 Вас приглашают на встречу
-					%p.h2_subtitle
-						21 мая с 18-00 до 21-00 в Либерти
-						<br> Макс, Петя, Вася
-					%button.button-arrow.cancel-btn{:type=>"button", :name=>"cancel"} Отказаться
-					%button.button-arrow{:type=>"button", :name=>"ok"} Согласиться
-		-# Достижения
-		.wrapper_2#all_ach_wrapper
-			%section.popup_vertical{:id => 'all_ach'}
-				.popup_vertical_symbol
-					%img.item_image{:src=>"./images/achievments/symbol_ach.svg"}
-				%header.popup_vertical_header
-					%a.i_l Назад
-					%h5 Достижения
-				%section.wrapper_for_ach
-					%figure
-						%img.item_image.achievments_icon{:src=>"./images/achievments/1.svg"}
-						%ficapation
-							%h6 Маскировка
-							%p 21.09.15
+        -# Form
+        .wrapper.h_v_center
+            %section.popup_middle{:id => 'reserv_succes_form'}
+                %header
+                    %h2 Заявка на бронирование подана
+                    %p.h2_subtitle
+                        Вы подали заявку на бронирование столика <span id="visit_date_result">21 мая</span> с <span id="visit_time_result">18:00</span> в "Liberty". Возьмите с собой документы для подтверждения своей личности
+                %form{:action => "", :method => "get"}
+                    %button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Отлично
+        -# Form invate
+        .wrapper.h_v_center
+            %section.popup_middle{:id => 'invate_succes_form'}
+                %header
+                    %h2 Приглашения отправлены
+                    %p.h2_subtitle
+                        Если кто-то из приглашенных вами людей согласится на встречу,
+                        <br> вы увидете уведомление в личном кабинете.
+                %form{:action => "", :method => "get"}
+                    %button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Отлично
+        -# Form you invate
+        .wrapper.h_v_center
+            %section.popup_middle{:id => 'invate_me'}
+                %header
+                    %h2 Вас приглашают на встречу
+                    %p.h2_subtitle
+                        21 мая с 18-00 до 21-00 в Либерти
+                        <br> Макс, Петя, Вася
+                    %button.button-arrow.cancel-btn{:type=>"button", :name=>"cancel"} Отказаться
+                    %button.button-arrow{:type=>"button", :name=>"ok"} Согласиться
+        -# Достижения
+        .wrapper_2#all_ach_wrapper
+            %section.popup_vertical{:id => 'all_ach'}
+                .popup_vertical_symbol
+                    %img.item_image{:src=>"./images/achievments/symbol_ach.svg"}
+                %header.popup_vertical_header
+                    %a.i_l Назад
+                    %h5 Достижения
+                %section.wrapper_for_ach
+                    %figure
+                        %img.item_image.achievments_icon{:src=>"./images/achievments/1.svg"}
+                        %ficapation
+                            %h6 Маскировка
+                            %p 21.09.15
 
-		-# Навыки
-		.wrapper_2#all-skill
-			%section.popup_vertical{:id => 'all_talents'}
-				.popup_vertical_symbol
-					%img.item_image{:src=>"./images/achievments/symbol_ach.svg"}
-				%header.popup_vertical_header
-					%a.i_l Назад
-					%h5 У вас 0 очков навыков
-				#skill-view
-				-#%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
-		-# Достижение
-		.wrapper_2.center-center
-			%section.popup_overall{:id => 'achivka'}
-				%img.closing_item.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
-				%img.item_image{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
-				%h2.skill_header
-				%h4.skill_state
-				%p.skill_description
-		.wrapper_2.center-center
-			%section.popup_overall{:id => 'skill'}
-				%img.closing_item.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
-				%img.item_image{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
-				%h2.skill_header
-				%h4.skill_state
-				%p.skill_description
-				%button.button-arrow Получить навык
+        -# Навыки
+        .wrapper_2#all-skill
+            %section.popup_vertical{:id => 'all_talents'}
+                .popup_vertical_symbol
+                    %img.item_image{:src=>"./images/achievments/symbol_ach.svg"}
+                %header.popup_vertical_header
+                    %a.i_l Назад
+                    %h5 У вас 0 очков навыков
+                #skill-view
+                -#%img{ :src=>"./images/talents/talents.svg" , :alt=>"Навыки"}
+        -# Достижение
+        .wrapper_2.center-center
+            %section.popup_overall{:id => 'achivka'}
+                %img.closing_item.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+                %img.item_image{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
+                %h2.skill_header
+                %h4.skill_state
+                %p.skill_description
+        .wrapper_2.center-center
+            %section.popup_overall{:id => 'skill'}
+                %img.closing_item.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+                %img.item_image{:src=>"./images/achievments/1.svg" , :alt=>"В альт отправляем название достижения"}
+                %h2.skill_header
+                %h4.skill_state
+                %p.skill_description
+                %button.button-arrow Получить навык
 
-		-# Меню
-		.wrapper.center-center{:id => 'wrapper_menu'}
-			%section#menu_left_part.left_menu
-				.wrapper_left_menu
-					%header
-						%img#uhp_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
+        -# Меню
+        .wrapper.center-center{:id => 'wrapper_menu'}
+            %section#menu_left_part.left_menu
+                .wrapper_left_menu
+                    %header
+                        %img#uhp_logo.pointer{ :src=>"./images/logo.svg" , :alt=>"Unique Hookah Places" , :height=>"40px" }
 
-					%span
-						%h4 Первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю...
-						%p 24 июл в 14:44 от #unihuqhookahplaces
-
-
-					%footer
-						%p Copyright © 2015 Уникальные Кальянные
-						%p C любовью от CPD&BBK
-			-# Left bar
-			%section#menu_right_part.right_menu
-				%img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
-				-# %a
-				-# 	%h3#main_nav_btn Главная страница
-				-# 	%p Основная информация
-				%a
-					%h3#lounges_nav_btn Ложи
-					%p Уникальные заведения
-
-				%a
-					%h3#philosophy_nav_btn Философия
-					%p Наши ценности
-
-				%a
-					%h3#community_nav_btn Сообщество
-					%p Полезно быть своим
-				%a
-					%h3#franchise_nav_btn Франшиза
-					%p Открыть Ложу
-
-				%button.button-arrow#go_login_from_menu_btn Круг избранных
+                    %span
+                        %h4 Первая в мире территория для курения со свободной оплатой и индивидуальным подходом к каждому гостю...
+                        %p 24 июл в 14:44 от #unihuqhookahplaces
 
 
+                    %footer
+                        %p Copyright © 2015 Уникальные Кальянные
+                        %p C любовью от CPD&BBK
+            -# Left bar
+            %section#menu_right_part.right_menu
+                %img#closing.pointer{ :src=>"./images/cross.svg" , :alt=>"Закрыть"}
+                -# %a
+                -#  %h3#main_nav_btn Главная страница
+                -#  %p Основная информация
+                %a
+                    %h3#lounges_nav_btn Ложи
+                    %p Уникальные заведения
 
-		.wrapper_2#edit-profile-wrapper
-			-# Form
-			%section.popup_horizontal{:id => 'edit-profile'}
-				.popup_horizontal_symbol
-					-# %img{:src=>"./images/achievments/symbol_ach.svg"}
-				%header.popup_horizontal_header
-					%a.i_l Назад
-					-#%h5 Редактировать профиль
-				%section.edit_profile_list
-					%form.edit_profile_form{:action => "", :method => "get"}
-						%header
-							%h2 Редактирование профиля
-							%h3 Хорошо заполненный профиль способствует увеличению полезных знакомств
-						%fieldset
-							%legend	Основная информация
-							%label.myLabel
-								%input{:required => "", :type => "file", name: "avatar"}
-								%span Фото
-							%input{:type => "text", :name => "name", :placeholder => "ФИО"}
-							%input{:type => "text", :name => "country", :placeholder => "Страна"}
-							%input{:type => "text", :name => "city", :placeholder => "Город"}
-							%input{:type => "text", :name => "birthdate", :placeholder => "Дата рождения"}
-							%input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
-							%input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
-							%input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
-						%fieldset
-							%legend	Регистрационные данные
-							%input{:type => "text", :name => "phone", :placeholder => "Номер телефона", disabled: 'disabled'}
-							-# %input{:type => "text", :name => "email", :placeholder => "E-mail"}
-						%fieldset
-							%legend	сменить пароль
-							%input{:type => "password", :name => "old_password", :placeholder => "Старый пароль"}
-							%input{:type => "password", :name => "new_password", :placeholder => "Новый пароль"}
-						%button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Сохранить
+                %a
+                    %h3#philosophy_nav_btn Философия
+                    %p Наши ценности
 
-		-# Color Overlay
-		#color_overlay.color_overlay
+                %a
+                    %h3#community_nav_btn Сообщество
+                    %p Полезно быть своим
+                %a
+                    %h3#franchise_nav_btn Франшиза
+                    %p Открыть Ложу
 
-		%header#header
-			%img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
-			%nav
-				%a#edit_profile_btn Редактировать профиль
-				%a#logout_btn Выйти
-				%img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
+                %button.button-arrow#go_login_from_menu_btn Круг избранных
 
-		%section.dashboard{:id => 'main_content'}
-			%section.username
-				-# #face
-				.name_and_level
-					%h1
-					.user_level_block
-						%span#user_level
-						%span.popover-level
-							Ваш уровень
-				.edit_profile_city
-					%p#city_user
-				%button.button-dark#n_o_a Забронировать столик
 
-			%section.progress_bar
-				%p
-					<span id='need_points'></span> очков до <span id='next_level'></span> уровня
-				.progress_bar_bg
-					.progress
 
-			%section.user_achievments
-				%header
-					%h4 Достижения
-					#dashboard_ach_btn.number_of
-				%section.wrapper_for_ach#achievements
-			%section.user_achievments
-				%header
-					%h4 Навыки
-					#dashboard_talents_btn.number_of
-					.number_of_skillpoints У вас 0 очков навыков
-				%section.wrapper_for_ach#skills
+        .wrapper_2#edit-profile-wrapper
+            -# Form
+            %section.popup_horizontal{:id => 'edit-profile'}
+                .popup_horizontal_symbol
+                    -# %img{:src=>"./images/achievments/symbol_ach.svg"}
+                %header.popup_horizontal_header
+                    %a.i_l Назад
+                    -#%h5 Редактировать профиль
+                %section.edit_profile_list
+                    %form.edit_profile_form{:action => "", :method => "get"}
+                        %header
+                            %h2 Редактирование профиля
+                            %h3 Хорошо заполненный профиль способствует увеличению полезных знакомств
+                        %fieldset
+                            %legend Основная информация
+                            %label.myLabel
+                                %input{:required => "", :type => "file", name: "avatar"}
+                                %span Фото
+                            %input{:type => "text", :name => "name", :placeholder => "ФИО"}
+                            %input{:type => "text", :name => "country", :placeholder => "Страна"}
+                            %input{:type => "text", :name => "city", :placeholder => "Город"}
+                            %input{:type => "text", :name => "birthdate", :placeholder => "Дата рождения"}
+                            %input{:type => "text", :name => "employe", :placeholder => "Рабочая должность"}
+                            %input{:type => "text", :name => "work_company", :placeholder => "Компания работодатель"}
+                            %input.large{:type => "text", :name => "hobby", :placeholder => "Напишите о ваших увлечениях, так будет проще найти людей со схожими интересами."}
+                        %fieldset
+                            %legend Регистрационные данные
+                            %input{:type => "text", :name => "phone", :placeholder => "Номер телефона", disabled: 'disabled'}
+                            -# %input{:type => "text", :name => "email", :placeholder => "E-mail"}
+                        %fieldset
+                            %legend сменить пароль
+                            %input{:type => "password", :name => "old_password", :placeholder => "Старый пароль"}
+                            %input{:type => "password", :name => "new_password", :placeholder => "Новый пароль"}
+                        %button.button-arrow{:type=>"sumbit", :name=>"sumbit"} Сохранить
 
-			%section.bottom-rating
-				%article#reserv-list
-					%header
-						%h4 Брони
-					.nodata
-						Вы еще не оставили ни одного бронирования
-					%table
-						%thead
-							%tr
-								%th Кальянная
-								%th Дата
-								%th.small_cell Гости
-								%th Статус
-						%tbody#reserve_table_body
-				%article#visit-list
-					%header
-						%h4
-							Посещения
-						.nodata
-							Вы еще ни разу не посетили «Уникальные Кальянные»
-					%table
-						%thead
-							%tr
-								%th Кальянная
-								%th Дата
-								%th Опыт
-						%tbody#visit_table_body
-				%article
-					%header
-						%h4 Рейтинг
-					%fieldset
-						%input#rating-per-month{ :type => 'radio' , :name => 'tabs' , :checked => 'true' }
-						%label{ :for => 'rating-per-month' , :title => 'За месяц' }
-							%h6 За месяц
+        -# Color Overlay
+        #color_overlay.color_overlay
 
-						%input#rating-per-all-time{ :type => 'radio' , :name => 'tabs' }
-						%label{ :for => 'rating-per-all-time' , :title => 'За всё время' }
-							%h6 За все время
+        %header#header
+            %img#menu_header_logo.pointer{ :src=>"./images/logo.svg", :alt=>"Уникальные Кальянные"}
+            %nav
+                %a#edit_profile_btn Редактировать профиль
+                %a#logout_btn Выйти
+                %img#menu_header_btn.pointer{ :src=>"./images/menu.svg", :alt=>"Меню"}
 
-						%section#section-per-month
-							%ul.leaders#rating_top
-						%section#section-per-all-time
-							%ul.leaders
+        %section.dashboard{:id => 'main_content'}
+            %section.username
+                -# #face
+                .name_and_level
+                    %h1
+                    .user_level_block
+                        %span#user_level
+                        %span.popover-level
+                            Ваш уровень
+                .edit_profile_city
+                    %p#city_user
+                %button.button-dark#n_o_a Забронировать столик
+
+            %section.progress_bar
+                %p
+                    <span id='need_points'></span> очков до <span id='next_level'></span> уровня
+                .progress_bar_bg
+                    .progress
+
+            %section.user_achievments
+                %header
+                    %h4 Достижения
+                    #dashboard_ach_btn.number_of
+                %section.wrapper_for_ach#achievements
+            %section.user_achievments
+                %header
+                    %h4 Навыки
+                    #dashboard_talents_btn.number_of
+                    .number_of_skillpoints У вас 0 очков навыков
+                %section.wrapper_for_ach#skills
+
+            %section.bottom-rating
+                %article#reserv-list
+                    %header
+                        %h4 Брони
+                    .nodata
+                        Вы еще не оставили ни одного бронирования
+                    %table
+                        %thead
+                            %tr
+                                %th Кальянная
+                                %th Дата
+                                %th.small_cell Гости
+                                %th Статус
+                        %tbody#reserve_table_body
+                %article#visit-list
+                    %header
+                        %h4
+                            Посещения
+                        .nodata
+                            Вы еще ни разу не посетили «Уникальные Кальянные»
+                    %table
+                        %thead
+                            %tr
+                                %th Кальянная
+                                %th Дата
+                                %th Опыт
+                        %tbody#visit_table_body
+                %article
+                    %header
+                        %h4 Рейтинг
+                    %fieldset
+                        %input#rating-per-month{ :type => 'radio' , :name => 'tabs' , :checked => 'true' }
+                        %label{ :for => 'rating-per-month' , :title => 'За месяц' }
+                            %h6 За месяц
+
+                        %input#rating-per-all-time{ :type => 'radio' , :name => 'tabs' }
+                        %label{ :for => 'rating-per-all-time' , :title => 'За всё время' }
+                            %h6 За все время
+
+                        %section#section-per-month
+                            %ul.leaders#rating_top
+                        %section#section-per-all-time
+                            %ul.leaders
+        %script{ :src => "./js/bottom.js" }
