@@ -345,33 +345,33 @@ button:hover {
   cursor: pointer;
 }
 
-#header_user {
+.logged_in, .logged_out {
   display: none;
 }
 
 @font-face {
   font-family: "Bebas Neue Book";
-  src: url('../fonts/bebasneue_book-webfont.woff?1457236435') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1457236435') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1457236435') format('truetype');
+  src: url('../fonts/bebasneue_book-webfont.woff?1457238484') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1457238484') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1457238484') format('truetype');
 }
 @font-face {
   font-family: "Bebas Neue Regular";
-  src: url('../fonts/bebasneue_regular-webfont.woff?1457236435') format('woff'), url('../fonts/bebasneue_regular-webfont.svg?1457236435') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf?1457236435') format('truetype');
+  src: url('../fonts/bebasneue_regular-webfont.woff?1457238484') format('woff'), url('../fonts/bebasneue_regular-webfont.svg?1457238484') format('svg'), url('../fonts/bebasneue_regular-webfont.ttf?1457238484') format('truetype');
 }
 @font-face {
   font-family: "Lora";
-  src: url('../fonts/lora-regular-webfont.ttf?1457236435') format('truetype'), url('../fonts/lora-regular-webfont.woff?1457236435') format('woff'), url('../fonts/lora-regular-webfont.svg?1457236435') format('svg');
+  src: url('../fonts/lora-regular-webfont.ttf?1457238484') format('truetype'), url('../fonts/lora-regular-webfont.woff?1457238484') format('woff'), url('../fonts/lora-regular-webfont.svg?1457238484') format('svg');
 }
 @font-face {
   font-family: "Open Sans Bold";
-  src: url('../fonts/opensans-semibold-webfont.woff?1457236435') format('woff'), url('../fonts/opensans-semibold-webfont.svg?1457236435') format('svg'), url('../fonts/opensans-semibold-webfont.ttf?1457236435') format('truetype');
+  src: url('../fonts/opensans-semibold-webfont.woff?1457238484') format('woff'), url('../fonts/opensans-semibold-webfont.svg?1457238484') format('svg'), url('../fonts/opensans-semibold-webfont.ttf?1457238484') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Regular";
-  src: url('../fonts/opensans-regular-webfont.woff?1457236435') format('woff'), url('../fonts/opensans-regular-webfont.svg?1457236435') format('svg'), url('../fonts/opensans-regular-webfont.ttf?1457236435') format('truetype');
+  src: url('../fonts/opensans-regular-webfont.woff?1457238484') format('woff'), url('../fonts/opensans-regular-webfont.svg?1457238484') format('svg'), url('../fonts/opensans-regular-webfont.ttf?1457238484') format('truetype');
 }
 @font-face {
   font-family: "Open Sans Light";
-  src: url('../fonts/opensans-light-webfont.woff?1457236435') format('woff'), url('../fonts/opensans-light-webfont.svg?1457236435') format('svg'), url('../fonts/opensans-light-webfont.ttf?1457236435') format('truetype');
+  src: url('../fonts/opensans-light-webfont.woff?1457238484') format('woff'), url('../fonts/opensans-light-webfont.svg?1457238484') format('svg'), url('../fonts/opensans-light-webfont.ttf?1457238484') format('truetype');
 }
 /* Крутим элементы (селектор , секунды (4sec) ) */
 @-webkit-keyframes spin_animation {

@@ -172,8 +172,11 @@
     <header class='pages_lounges_header' id='header'>
       <img alt='Уникальные Кальянные' class='pointer' id='menu_header_logo' src='./images/{{ slug }}/logo.svg'>
       <nav>
-        <a id='login_header_btn'>Войти</a>
-        <a id='signup_header_btn'>Зарегистрироваться</a>
+        <a></a>
+        <a class='logged_out' id='login_header_btn'>Войти</a>
+        <a class='logged_out' id='signup_header_btn'>Зарегистрироваться</a>
+        <a class='logged_in' href='/dashboard_client.html'>Мой профиль</a>
+        <a class='logged_in' id='logout_btn'>Выйти</a>
         <img alt='Меню' class='pointer' id='menu_header_btn' src='./images/{{ slug }}/menu.svg'>
       </nav>
     </header>
@@ -286,5 +289,6 @@
         </div>
       </section>
     </main>
+    <script src='./js/bottom.js'></script>
   </script>
 </html>
