@@ -349,6 +349,10 @@ button:hover {
   display: none;
 }
 
+#reserv-list table {
+  width: 100%;
+}
+
 @font-face {
   font-family: "Bebas Neue Book";
   src: url('../fonts/bebasneue_book-webfont.woff?1457238484') format('woff'), url('../fonts/bebasneue_book-webfont.svg?1457238484') format('svg'), url('../fonts/bebasneue_book-webfont.ttf?1457238484') format('truetype');
