@@ -281,10 +281,4 @@ function headerView() {
       document.location.href = '/pages_index.html';
     });
   });
-  //Ссылка в меню
-  $(function () {
-    $('#go_login_from_menu_btn').on('click', function () {
-      document.location.href = 'http://176.112.194.149:81/admin';
-    });
-  });
 }
