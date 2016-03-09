@@ -78,7 +78,7 @@ var skillBoard = function (element, data, role) {
     $('#skill .closing_item').off('click');
     $('#skill .closing_item').on('click', function () {
       $(this).hide();
-      fx.back();
+      //fx.back();
     });
     if (!d.has) {
       if (d.can_take) {
