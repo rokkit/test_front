@@ -201,7 +201,6 @@ $(function () {
       $(".chosen-single span").html("Добавьте нового участника...");
       var invitedUserTpl = _.template($('#invited_user_tpl').html());
       var maxInviteCount = 6;
-      $(".chosen-single span").html("Добавьте нового участника...");
 
       $(".chosen-results li").click(function(e) {
 		$(".chosen-single span").html("Добавьте нового участника...");
