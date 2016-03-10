@@ -8,6 +8,7 @@
         %link{ :rel=>"stylesheet" , :href=>"./css/media-dash-client.css" }
         %link{ :rel=>"stylesheet" , :href=>"./css/general_all.css" }
         %link{ :rel=>"stylesheet" , :href=>"./css/pikaday.css" }
+        %link{ :rel=>"stylesheet" , :href=>"./css/chosen.css" }
         %link{ :rel=>"shortcut icon" , :href=>"./images/favicon.png" , :type=>"image/pngs" }
         %script{ :src => "./js/lib/vendor.js" }
 
@@ -107,8 +108,8 @@
                     %h3 Пригласить на встречу
                     %p Добавляя участников встречи, вы приглашете их посетить "Уникальные Кальянные" вместе с вами. Полученный опыт распределяется между всеми участниками встречи.
 
-                    %select.add_users_select{:id => 'invite_users', :type => "text", :name => "invite_users"}
-                        %option{:value => '', :disabled => 'true', :selected => "true", :hidden => "true" } Добавить участников
+                    %select.add_users_select{:"data-placeholder" => "Добавить участников...", :id => 'invite_users', :type => "text", :name => "invite_users"}
+                        -#%option{:value => '', :disabled => 'true', :selected => "true", :hidden => "true" } Добавить участников
                     %span#invited_users_container
                     %hr
 

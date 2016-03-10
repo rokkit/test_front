@@ -8,6 +8,7 @@
     <link href='./css/media-dash-client.css' rel='stylesheet'>
     <link href='./css/general_all.css' rel='stylesheet'>
     <link href='./css/pikaday.css' rel='stylesheet'>
+    <link href='./css/chosen.css' rel='stylesheet'>
     <link href='./images/favicon.png' rel='shortcut icon' type='image/pngs'>
     <script src='./js/lib/vendor.js'></script>
     <script src='./js/animation.js'></script>
@@ -120,8 +121,7 @@
           <hr>
           <h3>Пригласить на встречу</h3>
           <p>Добавляя участников встречи, вы приглашете их посетить "Уникальные Кальянные" вместе с вами. Полученный опыт распределяется между всеми участниками встречи.</p>
-          <select class='add_users_select' id='invite_users' name='invite_users' type='text'>
-            <option disabled='true' hidden='true' selected='true' value=''>Добавить участников</option>
+          <select class='add_users_select' data-placeholder='Добавить участников...' id='invite_users' name='invite_users' type='text'>
           </select>
           <span id='invited_users_container'></span>
           <hr>

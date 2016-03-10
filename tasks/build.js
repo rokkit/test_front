@@ -27,7 +27,8 @@ gulp.task("build:js:vendor", function () {
           "./layout/js/lib/moment-with-locales.js",
           "./layout/js/lib/moment-duration-format.js",
           "./layout/js/lib/pikaday.js",
-          "./layout/js/lib/openapi.js"
+          "./layout/js/lib/openapi.js",
+          "./layout/js/lib/chosen.jquery.min.js"
         ]).pipe(uglify())
     );
     // once preprocess ended, concat result into a real file

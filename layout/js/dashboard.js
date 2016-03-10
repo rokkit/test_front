@@ -197,9 +197,18 @@ $(function () {
       users_for_invite.forEach(function (user) {
         $('#invite_users').append('<option value=' + user.id + '>' + user.name + '</option>');
       });
+      $('#invite_users').chosen({placeholder_text_single: "Добавьте нового участника..."});
+      $(".chosen-single span").html("Добавьте нового участника...");
       var invitedUserTpl = _.template($('#invited_user_tpl').html());
       var maxInviteCount = 6;
+      $(".chosen-single span").html("Добавьте нового участника...");
+
+      $(".chosen-results li").click(function(e) {
+		$(".chosen-single span").html("Добавьте нового участника...");
+	  });
+
       $('#invite_users').change(function (e) {
+		$(".chosen-single span").html("Добавьте нового участника...");
         if (_.keys(inviteUsers).length >= maxInviteCount) {
           return false;
         } else {
